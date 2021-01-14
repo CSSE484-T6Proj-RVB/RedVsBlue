@@ -1,8 +1,8 @@
 //
 //  ViewController.swift
-//  RedVsBlue
+//  Red VS Blue
 //
-//  Created by 马闻泽 on 1/14/21.
+//  Created by Hanyu Yang on 2021/1/14.
 //
 
 import UIKit
