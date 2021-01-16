@@ -1,2 +1,0 @@
-Red VS Blue.xcodeproj/project.xcworkspace/xcuserdata/mawenze.xcuserdatad/
-Red VS Blue.xcodeproj/xcuserdata/mawenze.xcuserdatad/
