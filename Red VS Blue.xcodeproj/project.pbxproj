@@ -21,6 +21,8 @@
 		E49BECD225B347150048CD7D /* RedVsBlueTitle.png in Resources */ = {isa = PBXBuildFile; fileRef = E49BECD125B347150048CD7D /* RedVsBlueTitle.png */; };
 		E49BECD525B34AA40048CD7D /* MainPageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E49BECD425B34AA40048CD7D /* MainPageViewController.swift */; };
 		E49BECD925B354250048CD7D /* EmailSignInViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E49BECD825B354250048CD7D /* EmailSignInViewController.swift */; };
+		E49BECE125B448DA0048CD7D /* ProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E49BECE025B448DA0048CD7D /* ProfileViewController.swift */; };
+		E49BECE525B452AD0048CD7D /* Refresh_Icon.png in Resources */ = {isa = PBXBuildFile; fileRef = E49BECE425B452AC0048CD7D /* Refresh_Icon.png */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -42,6 +44,8 @@
 		E49BECD125B347150048CD7D /* RedVsBlueTitle.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = RedVsBlueTitle.png; sourceTree = "<group>"; };
 		E49BECD425B34AA40048CD7D /* MainPageViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainPageViewController.swift; sourceTree = "<group>"; };
 		E49BECD825B354250048CD7D /* EmailSignInViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmailSignInViewController.swift; sourceTree = "<group>"; };
+		E49BECE025B448DA0048CD7D /* ProfileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileViewController.swift; sourceTree = "<group>"; };
+		E49BECE425B452AC0048CD7D /* Refresh_Icon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Refresh_Icon.png; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -102,12 +106,14 @@
 				E48A0C1925B031CB00122140 /* SceneDelegate.swift */,
 				E49BECC425B344100048CD7D /* LoginViewController.swift */,
 				E49BECD425B34AA40048CD7D /* MainPageViewController.swift */,
+				E49BECE025B448DA0048CD7D /* ProfileViewController.swift */,
+				E49BECD825B354250048CD7D /* EmailSignInViewController.swift */,
 				E48A0C1D25B031CB00122140 /* Main.storyboard */,
 				E48A0C2225B031CC00122140 /* LaunchScreen.storyboard */,
 				E48A0C2525B031CC00122140 /* Info.plist */,
 				E41F4C0825B33F970008D15B /* GoogleService-Info.plist */,
 				E49BECD125B347150048CD7D /* RedVsBlueTitle.png */,
-				E49BECD825B354250048CD7D /* EmailSignInViewController.swift */,
+				E49BECE425B452AC0048CD7D /* Refresh_Icon.png */,
 			);
 			path = "Red VS Blue";
 			sourceTree = "<group>";
@@ -174,6 +180,7 @@
 			files = (
 				E417786C25B09BF1004B3FD3 /* Icon.png in Resources */,
 				E48A0C2425B031CC00122140 /* LaunchScreen.storyboard in Resources */,
+				E49BECE525B452AD0048CD7D /* Refresh_Icon.png in Resources */,
 				E417786B25B09BF1004B3FD3 /* Icon-72.png in Resources */,
 				E49BECD225B347150048CD7D /* RedVsBlueTitle.png in Resources */,
 				E417786A25B09BF1004B3FD3 /* Icon@2x.png in Resources */,
@@ -249,6 +256,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				E49BECE125B448DA0048CD7D /* ProfileViewController.swift in Sources */,
 				E49BECD525B34AA40048CD7D /* MainPageViewController.swift in Sources */,
 				E49BECC525B344100048CD7D /* LoginViewController.swift in Sources */,
 				E49BECD925B354250048CD7D /* EmailSignInViewController.swift in Sources */,

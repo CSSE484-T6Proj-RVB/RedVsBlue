@@ -22,6 +22,11 @@ class EmailSignInViewController: UIViewController {
         usersRef = Firestore.firestore().collection("Users")
     }
     
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        navigationController?.setNavigationBarHidden(false, animated: false)
+    }
+    
     @IBAction func pressedEmailSignInButton(_ sender: Any) {
         let email = emailTextField.text!
         let password = passwordTextField.text!
@@ -51,7 +56,9 @@ class EmailSignInViewController: UIViewController {
             print("It worked!!! A new user is created and now signed in.")
             
             self.usersRef.addDocument(data: [
-                "id": Auth.auth().currentUser!.uid
+                "id": Auth.auth().currentUser!.uid,
+                "name": Auth.auth().currentUser!.uid,
+                "desc": ""
             ])
             print("User doc created.")
             

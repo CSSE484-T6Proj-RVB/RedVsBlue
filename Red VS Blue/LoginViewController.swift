@@ -29,6 +29,11 @@ class LoginViewController: UIViewController {
         googleSignInButton.style = .wide
     }
     
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        navigationController?.setNavigationBarHidden(true, animated: false)
+    }
+    
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
         if Auth.auth().currentUser != nil {
@@ -66,7 +71,9 @@ class LoginViewController: UIViewController {
                     }
                     if querySnapshot!.count == 0 {
                         self.usersRef.addDocument(data: [
-                            "id": Auth.auth().currentUser!.uid
+                            "id": Auth.auth().currentUser!.uid,
+                            "name": Auth.auth().currentUser!.uid,
+                            "desc": ""
                         ])
                         print("User doc created.")
                     }

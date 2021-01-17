@@ -51,12 +51,14 @@ class AppDelegate: UIResponder, UIApplicationDelegate, GIDSignInDelegate {
                 }
                 if querySnapshot!.count == 0 {
                     usersRef.addDocument(data: [
-                        "id": Auth.auth().currentUser!.uid
+                        "id": Auth.auth().currentUser!.uid,
+                        "name": Auth.auth().currentUser!.uid,
+                        "desc": ""
                     ])
                     print("User doc created.")
                 }
             })
-            
+            LoginViewController.isGuest = false
             let loginVc = GIDSignIn.sharedInstance()?.presentingViewController as! LoginViewController
             loginVc.performSegue(withIdentifier: loginVc.mainSegueIdentifier, sender: loginVc)
         }
