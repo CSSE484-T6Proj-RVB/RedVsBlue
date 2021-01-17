@@ -21,4 +21,12 @@ class RandomStringGenerator {
     func generateRandomHangmanWord() -> String {
         return randomHangmanWords[Int.random(in: 0..<randomHangmanWords.count)]
     }
+    
+    func generateRandomRoomNumber() -> String {
+        var roomNum = ""
+        for _ in 0..<4 {
+            roomNum += "\(Int.random(in: 0..<10))"
+        }
+        return roomNum
+    }
 }

@@ -43,7 +43,7 @@ class ProfileViewController: UIViewController {
             if let documentSnapshot = documentSnapshot {
                 self.updateView(data: documentSnapshot.data()!)
             } else {
-                print("Error getting photos \(error!)")
+                print("Error getting user data: \(error!)")
                 return
             }
         })
@@ -51,6 +51,9 @@ class ProfileViewController: UIViewController {
     
     func updateView(data: [String: Any]) {
         nameLabel.text = data["name"] as? String
+        // TODO: Add description tab
+        
+        // TODO: Add stats tab
     }
     
     func setCornerAndBorder(view: UIView, cornerRadius: CGFloat, borderWidth: CGFloat, borderColor: CGColor) {

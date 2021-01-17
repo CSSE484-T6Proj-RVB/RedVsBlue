@@ -64,6 +64,10 @@ class MainPageViewController: UIViewController {
         })
     }
     
+    @IBAction func pressedNewGameButton(_ sender: Any) {
+        // TODO: New Game Page
+    }
+    
     @IBAction func pressedProfileButton(_ sender: Any) {
         if LoginViewController.isGuest {
             let alertController = UIAlertController(title: "Warning",
@@ -78,10 +82,12 @@ class MainPageViewController: UIViewController {
         self.performSegue(withIdentifier: self.profileSegueIdentifier, sender: self)
     }
     
+    @IBAction func pressedGamesButton(_ sender: Any) {
+        // TODO: Games Page
+    }
     
     @IBAction func pressedSignOutButton(_ sender: Any) {
         if LoginViewController.isGuest {
-//            self.navigationController?.popViewController(animated: true)
             self.navigationController?.popToRootViewController(animated: true)
             return
         }

@@ -50,11 +50,10 @@ class LoginViewController: UIViewController {
                 print("Rosefire sign in error! \(err)")
                 return
             }
-            //print("Result = \(result!.token!)")
-            print("Result = \(result!.username!)")
-            print("Result = \(result!.name!)")
-            print("Result = \(result!.email!)")
-            print("Result = \(result!.group!)")
+//            print("Result = \(result!.username!)")
+//            print("Result = \(result!.name!)")
+//            print("Result = \(result!.email!)")
+//            print("Result = \(result!.group!)")
             
             Auth.auth().signIn(withCustomToken: result!.token) { (authResult, error) in
                 if let error = error {
