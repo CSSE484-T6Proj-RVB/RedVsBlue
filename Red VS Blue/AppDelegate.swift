@@ -12,6 +12,7 @@ import GoogleSignIn
 @main
 class AppDelegate: UIResponder, UIApplicationDelegate, GIDSignInDelegate {
     
+    var randomNameGenerator = RandomStringGenerator()
     
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
         // Override point for customization after application launch.
@@ -52,13 +53,14 @@ class AppDelegate: UIResponder, UIApplicationDelegate, GIDSignInDelegate {
                 if querySnapshot!.count == 0 {
                     usersRef.addDocument(data: [
                         "id": Auth.auth().currentUser!.uid,
-                        "name": Auth.auth().currentUser!.uid,
+                        "name": self.randomNameGenerator.generateRandomUsername(),
                         "desc": ""
                     ])
                     print("User doc created.")
                 }
             })
             LoginViewController.isGuest = false
+            // TODO: Alert with name
             let loginVc = GIDSignIn.sharedInstance()?.presentingViewController as! LoginViewController
             loginVc.performSegue(withIdentifier: loginVc.mainSegueIdentifier, sender: loginVc)
         }
