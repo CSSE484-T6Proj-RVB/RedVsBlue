@@ -13,9 +13,16 @@ class ProfileViewController: UIViewController {
     @IBOutlet weak var nameView: UIView!
     @IBOutlet weak var nameTextFieldView: UIView!
     @IBOutlet weak var nameLabel: UILabel!
+    
     @IBOutlet weak var bioTextFieldView: UIView!
     @IBOutlet weak var bioView: UIView!
     @IBOutlet weak var bioLabel: UILabel!
+    
+    @IBOutlet weak var statusView: UIView!
+    
+    @IBOutlet weak var matchesWonLabel: UILabel!
+    @IBOutlet weak var matchesPlayedLabel: UILabel!
+    @IBOutlet weak var favoriteGameLabel: UILabel!
     
     var userDataListener: ListenerRegistration!
     var userRef: DocumentReference!
@@ -34,7 +41,8 @@ class ProfileViewController: UIViewController {
         setCornerAndBorder(view: nameTextFieldView, cornerRadius: 10, borderWidth: 1, borderColor: UIColor.black.cgColor)
         setCornerAndBorder(view: bioView, cornerRadius: 15, borderWidth: 5, borderColor: UIColor.black.cgColor)
         setCornerAndBorder(view: bioTextFieldView, cornerRadius: 10, borderWidth: 1, borderColor: UIColor.black.cgColor)
-        
+        setCornerAndBorder(view: statusView, cornerRadius: 30, borderWidth: 1, borderColor: UIColor.black.cgColor)
+
         startListening()
     }
     
