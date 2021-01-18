@@ -11,9 +11,12 @@ import Firebase
 class MainPageViewController: UIViewController {
     
     var authStateListenerHandle: AuthStateDidChangeListenerHandle!
+    
     let profileSegueIdentifier = "ProfileSegue"
     let leaderboardSegueIdentifier = "LeaderboardSegue"
     let createGameSegueIdentifier = "CreateGameSegue"
+    let joinGameSegueIdentifier = "JoinGameSegue"
+    
     var usersRef: CollectionReference!
     var usersDataListener: ListenerRegistration!
     var user: User!
@@ -67,12 +70,21 @@ class MainPageViewController: UIViewController {
         })
     }
     
+    // TODO: Bad Constraints on small phones
     @IBAction func pressedNewGameButton(_ sender: Any) {
         if LoginViewController.isGuest {
             alertNotLoggedIn()
             return
         }
         self.performSegue(withIdentifier: createGameSegueIdentifier, sender: self)
+    }
+    
+    @IBAction func pressedJoinGameButton(_ sender: Any) {
+        if LoginViewController.isGuest {
+            alertNotLoggedIn()
+            return
+        }
+        self.performSegue(withIdentifier: joinGameSegueIdentifier, sender: self)
     }
     
     @IBAction func pressedProfileButton(_ sender: Any) {
@@ -119,6 +131,8 @@ class MainPageViewController: UIViewController {
             (segue.destination as! ProfileViewController).userRef = usersRef.document(user.id)
         } else if segue.identifier == createGameSegueIdentifier {
             (segue.destination as! CreateGameViewController).user = user
+        } else if segue.identifier == joinGameSegueIdentifier {
+            (segue.destination as! JoinGameViewController).user = user
         }
     }
 }

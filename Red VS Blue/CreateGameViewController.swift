@@ -48,7 +48,7 @@ class CreateGameViewController: UIViewController {
         
         updateDigitCodes(digits: digits)
         createGameRoomData()
-        print(gameDatumRef.documentID)
+        //print(gameDatumRef.documentID)
     }
     
     override func viewWillDisappear(_ animated: Bool) {
@@ -61,6 +61,7 @@ class CreateGameViewController: UIViewController {
     func startListening() {
         gameDataListener = gameDataRef.addSnapshotListener({ (documentSnapshot, error) in
             if let documentSnapshot = documentSnapshot {
+                self.nonEmptyRoomIds = []
                 for document in documentSnapshot.documents {
                     self.nonEmptyRoomIds.append(document.data()["roomId"] as! String)
                 }
