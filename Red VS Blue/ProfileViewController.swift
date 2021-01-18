@@ -22,7 +22,6 @@ class ProfileViewController: UIViewController {
     
     @IBOutlet weak var matchesWonLabel: UILabel!
     @IBOutlet weak var matchesPlayedLabel: UILabel!
-    @IBOutlet weak var favoriteGameLabel: UILabel!
     
     var userDataListener: ListenerRegistration!
     var userRef: DocumentReference!

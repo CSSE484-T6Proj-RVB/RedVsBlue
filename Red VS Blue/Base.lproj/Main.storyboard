@@ -101,6 +101,10 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" alpha="0.69999999999999996" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="Background1.png" translatesAutoresizingMaskIntoConstraints="NO" id="alr-6y-HM1">
+                                <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            </imageView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="U3Q-ZK-7k9">
                                 <rect key="frame" x="50" y="538" width="314" height="35"/>
                                 <color key="backgroundColor" red="0.50196078430000002" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
@@ -184,7 +188,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="932" y="70"/>
+            <point key="canvasLocation" x="931.88405797101461" y="69.642857142857139"/>
         </scene>
         <!--Main Page View Controller-->
         <scene sceneID="L06-vk-Nex">
@@ -194,6 +198,10 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" alpha="0.69999999999999996" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="Background3.png" translatesAutoresizingMaskIntoConstraints="NO" id="m6R-Bk-bdU">
+                                <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            </imageView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="dHA-5Y-ALf">
                                 <rect key="frame" x="147" y="692" width="120" height="36"/>
                                 <color key="backgroundColor" red="0.58072251080000004" green="0.066734083" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -255,6 +263,12 @@
                                     <action selector="pressedGamesButton:" destination="FYw-PC-xP8" eventType="touchUpInside" id="QHW-Pc-Mw8"/>
                                 </connections>
                             </button>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="RedVsBlueTitle.png" translatesAutoresizingMaskIntoConstraints="NO" id="XJR-4K-DpO">
+                                <rect key="frame" x="10" y="118" width="394" height="128"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="128" id="F4g-bn-NrG"/>
+                                </constraints>
+                            </imageView>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="noP-3j-VaS"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
@@ -264,7 +278,9 @@
                             <constraint firstItem="noP-3j-VaS" firstAttribute="trailing" secondItem="EQF-YN-SFj" secondAttribute="trailing" constant="147" id="6kV-nY-Si1"/>
                             <constraint firstItem="noP-3j-VaS" firstAttribute="trailing" secondItem="Xz5-7O-cbJ" secondAttribute="trailing" constant="147" id="KWf-XK-kzd"/>
                             <constraint firstItem="jmu-p3-eLk" firstAttribute="top" secondItem="Xz5-7O-cbJ" secondAttribute="bottom" constant="60" id="LQu-hb-RWU"/>
+                            <constraint firstItem="XJR-4K-DpO" firstAttribute="leading" secondItem="noP-3j-VaS" secondAttribute="leading" constant="10" id="Mbf-gW-9gb"/>
                             <constraint firstItem="dHA-5Y-ALf" firstAttribute="centerX" secondItem="noP-3j-VaS" secondAttribute="centerX" id="NYc-qn-nVH"/>
+                            <constraint firstItem="XJR-4K-DpO" firstAttribute="top" secondItem="noP-3j-VaS" secondAttribute="top" constant="30" id="Vjf-7y-x5E"/>
                             <constraint firstItem="dHA-5Y-ALf" firstAttribute="top" secondItem="EQF-YN-SFj" secondAttribute="bottom" constant="60" id="Z73-5J-c54"/>
                             <constraint firstItem="jmu-p3-eLk" firstAttribute="leading" secondItem="noP-3j-VaS" secondAttribute="leading" constant="147" id="ZXW-l0-P6I"/>
                             <constraint firstItem="dHA-5Y-ALf" firstAttribute="leading" secondItem="noP-3j-VaS" secondAttribute="leading" constant="147" id="aoA-Ve-Upk"/>
@@ -273,6 +289,7 @@
                             <constraint firstItem="noP-3j-VaS" firstAttribute="trailing" secondItem="jmu-p3-eLk" secondAttribute="trailing" constant="147" id="fAA-GO-6E9"/>
                             <constraint firstItem="Xz5-7O-cbJ" firstAttribute="leading" secondItem="noP-3j-VaS" secondAttribute="leading" constant="147" id="n66-8s-T1z"/>
                             <constraint firstItem="EQF-YN-SFj" firstAttribute="top" secondItem="nrw-Dz-3r5" secondAttribute="bottom" constant="60" id="pu0-qe-eiE"/>
+                            <constraint firstItem="noP-3j-VaS" firstAttribute="trailing" secondItem="XJR-4K-DpO" secondAttribute="trailing" constant="10" id="sQd-s4-f9C"/>
                             <constraint firstItem="nrw-Dz-3r5" firstAttribute="leading" secondItem="noP-3j-VaS" secondAttribute="leading" constant="147" id="vmT-nf-e52"/>
                             <constraint firstItem="noP-3j-VaS" firstAttribute="trailing" secondItem="dHA-5Y-ALf" secondAttribute="trailing" constant="147" id="w1g-KW-lYh"/>
                         </constraints>
@@ -285,7 +302,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="aDS-r0-8F0" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1845" y="333"/>
+            <point key="canvasLocation" x="1844.9275362318842" y="332.8125"/>
         </scene>
         <!--Profile View Controller-->
         <scene sceneID="WnJ-vG-e79">
@@ -540,6 +557,8 @@
         <segue reference="yqw-Oq-yZd"/>
     </inferredMetricsTieBreakers>
     <resources>
+        <image name="Background1.png" width="650" height="974"/>
+        <image name="Background3.png" width="482" height="835"/>
         <image name="Delete_Icon.png" width="384" height="384"/>
         <image name="Edit_Icon.png" width="279.27273559570312" height="279.27273559570312"/>
         <image name="RedVsBlueTitle.png" width="1280" height="283"/>

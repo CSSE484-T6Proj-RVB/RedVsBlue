@@ -9,6 +9,9 @@
 /* Begin PBXBuildFile section */
 		B54D322B25B5532F008219E5 /* Edit_Icon.png in Resources */ = {isa = PBXBuildFile; fileRef = B54D322A25B5532F008219E5 /* Edit_Icon.png */; };
 		B54D322E25B55335008219E5 /* Delete_Icon.png in Resources */ = {isa = PBXBuildFile; fileRef = B54D322D25B55335008219E5 /* Delete_Icon.png */; };
+		B54D323C25B56784008219E5 /* RedVsBlue.png in Resources */ = {isa = PBXBuildFile; fileRef = B54D323B25B56784008219E5 /* RedVsBlue.png */; };
+		B54D324025B5697F008219E5 /* Background1.png in Resources */ = {isa = PBXBuildFile; fileRef = B54D323F25B5697F008219E5 /* Background1.png */; };
+		B54D324325B569DE008219E5 /* Background3.png in Resources */ = {isa = PBXBuildFile; fileRef = B54D324225B569DE008219E5 /* Background3.png */; };
 		D5ADAA6781315963391C1340 /* Pods_Red_VS_Blue.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CCE058C75CFD31EE62E6548C /* Pods_Red_VS_Blue.framework */; };
 		E417786A25B09BF1004B3FD3 /* Icon@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = E417786725B09BF1004B3FD3 /* Icon@2x.png */; };
 		E417786B25B09BF1004B3FD3 /* Icon-72.png in Resources */ = {isa = PBXBuildFile; fileRef = E417786825B09BF1004B3FD3 /* Icon-72.png */; };
@@ -33,6 +36,9 @@
 		552C662B05C7E0E5425FDC15 /* Pods-Red VS Blue.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Red VS Blue.release.xcconfig"; path = "Target Support Files/Pods-Red VS Blue/Pods-Red VS Blue.release.xcconfig"; sourceTree = "<group>"; };
 		B54D322A25B5532F008219E5 /* Edit_Icon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Edit_Icon.png; sourceTree = "<group>"; };
 		B54D322D25B55335008219E5 /* Delete_Icon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Delete_Icon.png; sourceTree = "<group>"; };
+		B54D323B25B56784008219E5 /* RedVsBlue.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = RedVsBlue.png; sourceTree = "<group>"; };
+		B54D323F25B5697F008219E5 /* Background1.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Background1.png; sourceTree = "<group>"; };
+		B54D324225B569DE008219E5 /* Background3.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Background3.png; sourceTree = "<group>"; };
 		CCE058C75CFD31EE62E6548C /* Pods_Red_VS_Blue.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Red_VS_Blue.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		E417786725B09BF1004B3FD3 /* Icon@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Icon@2x.png"; sourceTree = "<group>"; };
 		E417786825B09BF1004B3FD3 /* Icon-72.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Icon-72.png"; sourceTree = "<group>"; };
@@ -123,6 +129,9 @@
 				E49BECE425B452AC0048CD7D /* Refresh_Icon.png */,
 				B54D322A25B5532F008219E5 /* Edit_Icon.png */,
 				B54D322D25B55335008219E5 /* Delete_Icon.png */,
+				B54D323B25B56784008219E5 /* RedVsBlue.png */,
+				B54D323F25B5697F008219E5 /* Background1.png */,
+				B54D324225B569DE008219E5 /* Background3.png */,
 			);
 			path = "Red VS Blue";
 			sourceTree = "<group>";
@@ -192,9 +201,12 @@
 				E48A0C2425B031CC00122140 /* LaunchScreen.storyboard in Resources */,
 				B54D322B25B5532F008219E5 /* Edit_Icon.png in Resources */,
 				E49BECE525B452AD0048CD7D /* Refresh_Icon.png in Resources */,
+				B54D324325B569DE008219E5 /* Background3.png in Resources */,
 				E417786B25B09BF1004B3FD3 /* Icon-72.png in Resources */,
 				E49BECD225B347150048CD7D /* RedVsBlueTitle.png in Resources */,
 				E417786A25B09BF1004B3FD3 /* Icon@2x.png in Resources */,
+				B54D323C25B56784008219E5 /* RedVsBlue.png in Resources */,
+				B54D324025B5697F008219E5 /* Background1.png in Resources */,
 				E48A0C2125B031CC00122140 /* Assets.xcassets in Resources */,
 				E48A0C1F25B031CB00122140 /* Main.storyboard in Resources */,
 				E41F4C0925B33F970008D15B /* GoogleService-Info.plist in Resources */,
