@@ -128,7 +128,7 @@ class MainPageViewController: UIViewController {
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == profileSegueIdentifier {
-            (segue.destination as! ProfileViewController).userRef = usersRef.document(user.id)
+            (segue.destination as! ProfileViewController).userRef = usersRef.document(user.userDocId)
         } else if segue.identifier == createGameSegueIdentifier {
             (segue.destination as! CreateGameViewController).user = user
         } else if segue.identifier == joinGameSegueIdentifier {
