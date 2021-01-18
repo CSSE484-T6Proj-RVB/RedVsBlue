@@ -83,6 +83,8 @@ class LoginViewController: UIViewController {
                             self.performSegue(withIdentifier: self.mainSegueIdentifier, sender: self)
                         })
                         self.present(alertControllerNoBio, animated: true, completion: nil)
+                    } else {
+                        self.performSegue(withIdentifier: self.mainSegueIdentifier, sender: self)
                     }
                 })
             }
