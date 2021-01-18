@@ -54,7 +54,9 @@ class AppDelegate: UIResponder, UIApplicationDelegate, GIDSignInDelegate {
                     usersRef.addDocument(data: [
                         "id": Auth.auth().currentUser!.uid,
                         "name": self.randomNameGenerator.generateRandomUsername(),
-                        "desc": ""
+                        "bio": "",
+                        "matchesPlayed": 0,
+                        "matchesWon": 0
                     ])
                     print("User doc created.")
                 }

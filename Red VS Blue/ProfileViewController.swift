@@ -64,7 +64,8 @@ class ProfileViewController: UIViewController {
     func updateView(data: [String: Any]) {
         nameLabel.text = data["name"] as? String
         bioLabel.text = data["bio"] as? String
-        // TODO: Add stats tab
+        matchesPlayedLabel.text = String(data["matchesPlayed"] as! Int)
+        matchesWonLabel.text = String(data["matchesWon"] as! Int)
     }
     
     func setCornerAndBorder(view: UIView, cornerRadius: CGFloat, borderWidth: CGFloat, borderColor: CGColor) {
