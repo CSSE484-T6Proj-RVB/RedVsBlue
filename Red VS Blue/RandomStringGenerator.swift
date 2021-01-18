@@ -6,6 +6,7 @@
 //
 
 import Foundation
+import Firebase
 
 class RandomStringGenerator {
     
@@ -23,9 +24,32 @@ class RandomStringGenerator {
     }
     
     func generateRandomRoomNumber() -> String {
-        var roomNum = ""
-        for _ in 0..<4 {
-            roomNum += "\(Int.random(in: 0..<10))"
+        let gameDataRef = Firestore.firestore().collection("GameData")
+        var existingGameCode: [String] = []
+        
+        var roomNum: String!
+        
+        gameDataRef.getDocuments { (documentSnapshot, error) in
+            if let error = error {
+                print("Error getting documents: \(error)")
+            } else {
+                for document in documentSnapshot!.documents {
+                    existingGameCode.append(document.data()["roomId"] as! String)
+                }
+                print(existingGameCode)
+                var isDuplicated = true
+                while isDuplicated {
+                    roomNum = ""
+                    for _ in 0..<4 {
+                        roomNum += "\(Int.random(in: 0..<10))"
+                    }
+                    isDuplicated = existingGameCode.contains(roomNum)
+                    
+                }
+            }
+        }
+        while roomNum == nil {
+            
         }
         return roomNum
     }

@@ -47,6 +47,7 @@ class CreateGameViewController: UIViewController {
     }
     
     func startListening() {
+        
     }
     
     func createGameRoomData() {
