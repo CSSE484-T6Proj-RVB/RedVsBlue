@@ -30,6 +30,10 @@
 		E49BECE525B452AD0048CD7D /* Refresh_Icon.png in Resources */ = {isa = PBXBuildFile; fileRef = E49BECE425B452AC0048CD7D /* Refresh_Icon.png */; };
 		E49BECE925B4E1AC0048CD7D /* RandomStringGenerator.swift in Sources */ = {isa = PBXBuildFile; fileRef = E49BECE825B4E1AC0048CD7D /* RandomStringGenerator.swift */; };
 		E49BECEF25B589430048CD7D /* LeaderboardViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E49BECEE25B589430048CD7D /* LeaderboardViewController.swift */; };
+		E49BECF325B5A58A0048CD7D /* CreateGameViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E49BECF225B5A58A0048CD7D /* CreateGameViewController.swift */; };
+		E49BECF725B5A69F0048CD7D /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = E49BECF625B5A69F0048CD7D /* User.swift */; };
+		E49BECFA25B5AA150048CD7D /* Back_Arrow.png in Resources */ = {isa = PBXBuildFile; fileRef = E49BECF925B5AA150048CD7D /* Back_Arrow.png */; };
+		E49BECFD25B5AA2F0048CD7D /* RvB_Icon.png in Resources */ = {isa = PBXBuildFile; fileRef = E49BECFC25B5AA2F0048CD7D /* RvB_Icon.png */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -60,6 +64,10 @@
 		E49BECE425B452AC0048CD7D /* Refresh_Icon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Refresh_Icon.png; sourceTree = "<group>"; };
 		E49BECE825B4E1AC0048CD7D /* RandomStringGenerator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RandomStringGenerator.swift; sourceTree = "<group>"; };
 		E49BECEE25B589430048CD7D /* LeaderboardViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LeaderboardViewController.swift; sourceTree = "<group>"; };
+		E49BECF225B5A58A0048CD7D /* CreateGameViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateGameViewController.swift; sourceTree = "<group>"; };
+		E49BECF625B5A69F0048CD7D /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
+		E49BECF925B5AA150048CD7D /* Back_Arrow.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Back_Arrow.png; sourceTree = "<group>"; };
+		E49BECFC25B5AA2F0048CD7D /* RvB_Icon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = RvB_Icon.png; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -124,17 +132,21 @@
 				E49BECD825B354250048CD7D /* EmailSignInViewController.swift */,
 				E49BECE825B4E1AC0048CD7D /* RandomStringGenerator.swift */,
 				E49BECEE25B589430048CD7D /* LeaderboardViewController.swift */,
+				E49BECF225B5A58A0048CD7D /* CreateGameViewController.swift */,
 				E48A0C1D25B031CB00122140 /* Main.storyboard */,
 				E48A0C2225B031CC00122140 /* LaunchScreen.storyboard */,
 				E48A0C2525B031CC00122140 /* Info.plist */,
 				E41F4C0825B33F970008D15B /* GoogleService-Info.plist */,
+				E49BECFC25B5AA2F0048CD7D /* RvB_Icon.png */,
 				E49BECD125B347150048CD7D /* RedVsBlueTitle.png */,
+				E49BECF925B5AA150048CD7D /* Back_Arrow.png */,
 				E49BECE425B452AC0048CD7D /* Refresh_Icon.png */,
 				B54D322A25B5532F008219E5 /* Edit_Icon.png */,
 				B54D322D25B55335008219E5 /* Delete_Icon.png */,
 				B54D323B25B56784008219E5 /* RedVsBlue.png */,
 				B54D323F25B5697F008219E5 /* Background1.png */,
 				B54D324225B569DE008219E5 /* Background3.png */,
+				E49BECF625B5A69F0048CD7D /* User.swift */,
 			);
 			path = "Red VS Blue";
 			sourceTree = "<group>";
@@ -201,12 +213,14 @@
 			files = (
 				B54D322E25B55335008219E5 /* Delete_Icon.png in Resources */,
 				E417786C25B09BF1004B3FD3 /* Icon.png in Resources */,
+				E49BECFA25B5AA150048CD7D /* Back_Arrow.png in Resources */,
 				E48A0C2425B031CC00122140 /* LaunchScreen.storyboard in Resources */,
 				B54D322B25B5532F008219E5 /* Edit_Icon.png in Resources */,
 				E49BECE525B452AD0048CD7D /* Refresh_Icon.png in Resources */,
 				B54D324325B569DE008219E5 /* Background3.png in Resources */,
 				E417786B25B09BF1004B3FD3 /* Icon-72.png in Resources */,
 				E49BECD225B347150048CD7D /* RedVsBlueTitle.png in Resources */,
+				E49BECFD25B5AA2F0048CD7D /* RvB_Icon.png in Resources */,
 				E417786A25B09BF1004B3FD3 /* Icon@2x.png in Resources */,
 				B54D323C25B56784008219E5 /* RedVsBlue.png in Resources */,
 				B54D324025B5697F008219E5 /* Background1.png in Resources */,
@@ -282,6 +296,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				E49BECF325B5A58A0048CD7D /* CreateGameViewController.swift in Sources */,
 				E49BECE125B448DA0048CD7D /* ProfileViewController.swift in Sources */,
 				E49BECE925B4E1AC0048CD7D /* RandomStringGenerator.swift in Sources */,
 				E49BECD525B34AA40048CD7D /* MainPageViewController.swift in Sources */,
@@ -289,6 +304,7 @@
 				E49BECD925B354250048CD7D /* EmailSignInViewController.swift in Sources */,
 				E48A0C1825B031CB00122140 /* AppDelegate.swift in Sources */,
 				E49BECEF25B589430048CD7D /* LeaderboardViewController.swift in Sources */,
+				E49BECF725B5A69F0048CD7D /* User.swift in Sources */,
 				E48A0C1A25B031CB00122140 /* SceneDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

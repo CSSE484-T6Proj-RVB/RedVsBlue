@@ -13,9 +13,10 @@ class MainPageViewController: UIViewController {
     var authStateListenerHandle: AuthStateDidChangeListenerHandle!
     let profileSegueIdentifier = "ProfileSegue"
     let leaderboardSegueIdentifier = "LeaderboardSegue"
+    let createGameSegueIdentifier = "CreateGameSegue"
     var usersRef: CollectionReference!
     var usersDataListener: ListenerRegistration!
-    var userDataId: String!
+    var user: User!
     
     @IBOutlet weak var signOutButton: UIButton!
     
@@ -57,7 +58,8 @@ class MainPageViewController: UIViewController {
         }
         usersDataListener = usersRef.whereField("id", isEqualTo: Auth.auth().currentUser!.uid).addSnapshotListener({ (documentSnapshot, error) in
             if let documentSnapshot = documentSnapshot {
-                self.userDataId = documentSnapshot.documents[0].documentID
+                self.user = User(documentSnapshot: documentSnapshot.documents[0])
+                //self.userDataId = documentSnapshot.documents[0].documentID
             } else {
                 print("Error getting user data \(error!)")
                 return
@@ -66,18 +68,16 @@ class MainPageViewController: UIViewController {
     }
     
     @IBAction func pressedNewGameButton(_ sender: Any) {
-        // TODO: New Game Page
+        if LoginViewController.isGuest {
+            alertNotLoggedIn()
+            return
+        }
+        self.performSegue(withIdentifier: createGameSegueIdentifier, sender: self)
     }
     
     @IBAction func pressedProfileButton(_ sender: Any) {
         if LoginViewController.isGuest {
-            let alertController = UIAlertController(title: "Warning",
-                                                    message: "You should sign in first!",
-                                                    preferredStyle: .alert)
-            alertController.addAction(UIAlertAction(title: "Confirm",
-                                                    style: .cancel,
-                                                    handler: nil))
-            present(alertController, animated: true, completion: nil)
+            alertNotLoggedIn()
             return
         }
         self.performSegue(withIdentifier: self.profileSegueIdentifier, sender: self)
@@ -104,9 +104,21 @@ class MainPageViewController: UIViewController {
         }
     }
     
+    func alertNotLoggedIn() {
+        let alertController = UIAlertController(title: "Warning",
+                                                message: "You should sign in first!",
+                                                preferredStyle: .alert)
+        alertController.addAction(UIAlertAction(title: "Confirm",
+                                                style: .cancel,
+                                                handler: nil))
+        present(alertController, animated: true, completion: nil)
+    }
+    
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        if segue.identifier == profileSegueIdentifier{
-            (segue.destination as! ProfileViewController).userRef = usersRef.document(userDataId)
+        if segue.identifier == profileSegueIdentifier {
+            (segue.destination as! ProfileViewController).userRef = usersRef.document(user.id)
+        } else if segue.identifier == createGameSegueIdentifier {
+            (segue.destination as! CreateGameViewController).user = user
         }
     }
 }
