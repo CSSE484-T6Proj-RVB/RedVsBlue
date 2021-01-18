@@ -11,14 +11,16 @@ import Firebase
 class User {
     var name: String
     var bio: String
+    var userDocId: String
     var id: String
     
     init(documentSnapshot: DocumentSnapshot) {
-        self.id = documentSnapshot.documentID
+        self.userDocId = documentSnapshot.documentID
         let data = documentSnapshot.data()!
         
         self.name = data["name"] as! String
         self.bio = data["bio"] as! String
+        self.id = data["id"] as! String
     }
     
 }

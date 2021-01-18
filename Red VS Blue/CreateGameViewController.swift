@@ -16,6 +16,7 @@ class CreateGameViewController: UIViewController {
     @IBOutlet var digitCodeLabels: [UILabel]!
     
     var gameDataRef: CollectionReference!
+    var gameDatumRef: DocumentReference!
     var gameDataListener: ListenerRegistration!
     var randomRoomNumGenerator = RandomStringGenerator()
     var nonEmptyRoomIds = [String]()
@@ -46,11 +47,15 @@ class CreateGameViewController: UIViewController {
         }
         
         updateDigitCodes(digits: digits)
+        createGameRoomData()
+        print(gameDatumRef.documentID)
     }
     
     override func viewWillDisappear(_ animated: Bool) {
         super.viewWillDisappear(animated)
         gameDataListener.remove()
+        gameDatumRef.delete()
+        
     }
     
     func startListening() {
@@ -67,7 +72,11 @@ class CreateGameViewController: UIViewController {
     }
     
     func createGameRoomData() {
-        
+        gameDatumRef = gameDataRef.addDocument(data: [
+            "roomId": digits!,
+            "hostUsername":  user.name,
+            "hostUserBio":  user.bio
+        ])
     }
     
     func updateDigitCodes(digits: String) {
