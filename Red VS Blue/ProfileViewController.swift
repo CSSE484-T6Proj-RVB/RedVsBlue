@@ -19,7 +19,6 @@ class ProfileViewController: UIViewController {
     @IBOutlet weak var bioLabel: UILabel!
     
     @IBOutlet weak var statusView: UIView!
-    
     @IBOutlet weak var matchesWonLabel: UILabel!
     @IBOutlet weak var matchesPlayedLabel: UILabel!
     
@@ -40,7 +39,7 @@ class ProfileViewController: UIViewController {
         setCornerAndBorder(view: nameTextFieldView, cornerRadius: 10, borderWidth: 1, borderColor: UIColor.black.cgColor)
         setCornerAndBorder(view: bioView, cornerRadius: 15, borderWidth: 5, borderColor: UIColor.black.cgColor)
         setCornerAndBorder(view: bioTextFieldView, cornerRadius: 10, borderWidth: 1, borderColor: UIColor.black.cgColor)
-        setCornerAndBorder(view: statusView, cornerRadius: 30, borderWidth: 1, borderColor: UIColor.black.cgColor)
+        setCornerAndBorder(view: statusView, cornerRadius: 30, borderWidth: 2, borderColor: UIColor.black.cgColor)
 
         startListening()
     }
@@ -64,8 +63,8 @@ class ProfileViewController: UIViewController {
     func updateView(data: [String: Any]) {
         nameLabel.text = data["name"] as? String
         bioLabel.text = data["bio"] as? String
-        matchesPlayedLabel.text = String(data["matchesPlayed"] as! Int)
-        matchesWonLabel.text = String(data["matchesWon"] as! Int)
+        matchesPlayedLabel.text = "Matches Played: \(String(data["matchesPlayed"] as! Int))"
+        matchesWonLabel.text = "Matches Won: \(String(data["matchesWon"] as! Int))"
     }
     
     func setCornerAndBorder(view: UIView, cornerRadius: CGFloat, borderWidth: CGFloat, borderColor: CGColor) {
@@ -131,6 +130,7 @@ class ProfileViewController: UIViewController {
         
         present(alertController, animated: true, completion: nil)
     }
+    
     @IBAction func pressedDeleteBioButton(_ sender: Any) {
         let alertController = UIAlertController(title: nil,
                                                 message: "Are you sure you want to permanently delete your current bio?",

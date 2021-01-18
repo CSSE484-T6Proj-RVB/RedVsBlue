@@ -62,7 +62,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate, GIDSignInDelegate {
                 }
             })
             LoginViewController.isGuest = false
-            // TODO: Alert with name
             let loginVc = GIDSignIn.sharedInstance()?.presentingViewController as! LoginViewController
             loginVc.performSegue(withIdentifier: loginVc.mainSegueIdentifier, sender: loginVc)
         }

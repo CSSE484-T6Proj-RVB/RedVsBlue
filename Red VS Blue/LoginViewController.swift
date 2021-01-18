@@ -69,19 +69,22 @@ class LoginViewController: UIViewController {
                         print("error \(error)")
                         return
                     }
+                    let randomName = self.randomNameGenerator.generateRandomUsername()
                     if querySnapshot!.count == 0 {
                         self.usersRef.addDocument(data: [
                             "id": Auth.auth().currentUser!.uid,
-                            "name": self.randomNameGenerator.generateRandomUsername(),
+                            "name": randomName,
                             "bio": "",
                             "matchesPlayed": 0,
                             "matchesWon": 0
                         ])
-                        print("User doc created.")
+                        let alertControllerNoBio = UIAlertController(title: "User Data Created", message: "Your Name: \(randomName)", preferredStyle: .alert)
+                        alertControllerNoBio.addAction(UIAlertAction(title: "Ok", style: .cancel) { (action) in
+                            self.performSegue(withIdentifier: self.mainSegueIdentifier, sender: self)
+                        })
+                        self.present(alertControllerNoBio, animated: true, completion: nil)
                     }
                 })
-                // TODO: Alert with name
-                self.performSegue(withIdentifier: self.mainSegueIdentifier, sender: self)
             }
         }
     }
