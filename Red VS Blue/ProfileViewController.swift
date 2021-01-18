@@ -13,6 +13,9 @@ class ProfileViewController: UIViewController {
     @IBOutlet weak var nameView: UIView!
     @IBOutlet weak var nameTextFieldView: UIView!
     @IBOutlet weak var nameLabel: UILabel!
+    @IBOutlet weak var bioTextFieldView: UIView!
+    @IBOutlet weak var bioView: UIView!
+    @IBOutlet weak var bioLabel: UILabel!
     
     var userDataListener: ListenerRegistration!
     var userRef: DocumentReference!
@@ -29,6 +32,8 @@ class ProfileViewController: UIViewController {
         
         setCornerAndBorder(view: nameView, cornerRadius: 15, borderWidth: 5, borderColor: UIColor.black.cgColor)
         setCornerAndBorder(view: nameTextFieldView, cornerRadius: 10, borderWidth: 1, borderColor: UIColor.black.cgColor)
+        setCornerAndBorder(view: bioView, cornerRadius: 15, borderWidth: 5, borderColor: UIColor.black.cgColor)
+        setCornerAndBorder(view: bioTextFieldView, cornerRadius: 10, borderWidth: 1, borderColor: UIColor.black.cgColor)
         
         startListening()
     }
@@ -51,8 +56,7 @@ class ProfileViewController: UIViewController {
     
     func updateView(data: [String: Any]) {
         nameLabel.text = data["name"] as? String
-        // TODO: Add description tab
-        
+        bioLabel.text = data["bio"] as? String
         // TODO: Add stats tab
     }
     
@@ -78,13 +82,59 @@ class ProfileViewController: UIViewController {
                                                 style: .default)
         { (action) in
             let nameField = alertController.textFields![0] as UITextField
-//            self.photo?.caption = captionTextField.text!
-//            self.updateView()
             self.userRef.updateData([
                 "name": nameField.text!
             ])
         })
         
         present(alertController, animated: true, completion: nil)
+    }
+    
+    @IBAction func pressedEditBioButton(_ sender: Any) {
+        let alertController = UIAlertController(title: "Edit Your Bio",
+                                                message: nil,
+                                                preferredStyle: .alert)
+        //Configure
+        alertController.addTextField { (textField) in
+            textField.placeholder = "Your New Bio"
+        }
+        
+        alertController.addAction(UIAlertAction(title: "Cancel",
+                                                style: .cancel,
+                                                handler: nil))
+        alertController.addAction(UIAlertAction(title: "Update",
+                                                style: .default)
+        { (action) in
+            let bioField = alertController.textFields![0] as UITextField
+            self.userRef.updateData([
+                "bio": bioField.text!
+            ])
+        })
+        
+        present(alertController, animated: true, completion: nil)
+    }
+    @IBAction func pressedDeleteBioButton(_ sender: Any) {
+        let alertController = UIAlertController(title: nil,
+                                                message: "Are you sure you want to permanently delete your current bio?",
+                                                preferredStyle: .alert)
+        alertController.addAction(UIAlertAction(title: "No",
+                                                style: .cancel,
+                                                handler: nil))
+        alertController.addAction(UIAlertAction(title: "Yes",
+                                                style: .default)
+        { (action) in
+            self.userRef.updateData([
+                "bio": ""
+            ])
+        })
+        
+        let alertController_bad = UIAlertController(title: nil,
+                                                    message: "You do not have a bio",
+                                                    preferredStyle: .alert)
+        alertController_bad.addAction(UIAlertAction(title: "OK",
+                                                    style: .cancel,
+                                                    handler: nil))
+        
+        present(bioLabel.text == "" ? alertController_bad : alertController, animated: true, completion: nil)
     }
 }

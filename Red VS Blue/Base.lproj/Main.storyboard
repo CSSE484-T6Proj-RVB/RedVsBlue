@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="17506" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="wM3-QK-0dx">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="17701" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="wM3-QK-0dx">
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17505"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17703"/>
         <capability name="Named colors" minToolsVersion="9.0"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="System colors in document resources" minToolsVersion="11.0"/>
@@ -295,6 +295,75 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Qxk-1m-h8I">
+                                <rect key="frame" x="20" y="262" width="374" height="150"/>
+                                <subviews>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Bio:" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="5ou-uJ-cdL">
+                                        <rect key="frame" x="10" y="29.5" width="53" height="21"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" constant="53" id="jeI-7r-SgQ"/>
+                                        </constraints>
+                                        <fontDescription key="fontDescription" type="boldSystem" pointSize="17"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="UcS-je-yYJ">
+                                        <rect key="frame" x="71" y="14" width="253" height="122"/>
+                                        <subviews>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="3BH-Ki-6Z8">
+                                                <rect key="frame" x="10" y="16" width="233" height="0.0"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                <nil key="textColor"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                        </subviews>
+                                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                        <constraints>
+                                            <constraint firstItem="3BH-Ki-6Z8" firstAttribute="leading" secondItem="UcS-je-yYJ" secondAttribute="leading" constant="10" id="Lok-hQ-C6v"/>
+                                            <constraint firstItem="3BH-Ki-6Z8" firstAttribute="top" secondItem="UcS-je-yYJ" secondAttribute="top" constant="16" id="gk9-K6-rRX"/>
+                                            <constraint firstAttribute="trailing" secondItem="3BH-Ki-6Z8" secondAttribute="trailing" constant="10" id="z2t-PT-v0n"/>
+                                        </constraints>
+                                    </view>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="hec-Ly-hYy">
+                                        <rect key="frame" x="331" y="15" width="33" height="36"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="36" id="XJW-A2-jpG"/>
+                                            <constraint firstAttribute="width" constant="33" id="aVm-eZ-HHx"/>
+                                        </constraints>
+                                        <state key="normal" title="Button" image="Edit_Icon.png"/>
+                                        <connections>
+                                            <action selector="pressedEditBioButton:" destination="nET-ZX-qbz" eventType="touchUpInside" id="KIp-4S-nhj"/>
+                                            <action selector="pressedUpdateNameButton:" destination="nET-ZX-qbz" eventType="touchUpInside" id="5c1-jb-cOW"/>
+                                        </connections>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="4uy-Xg-1Hk">
+                                        <rect key="frame" x="331" y="99" width="33" height="36"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" constant="33" id="fQL-Lo-arT"/>
+                                            <constraint firstAttribute="height" constant="36" id="qOE-pk-sOs"/>
+                                        </constraints>
+                                        <state key="normal" title="Button" image="Delete_Icon.png"/>
+                                        <connections>
+                                            <action selector="pressedDeleteBioButton:" destination="nET-ZX-qbz" eventType="touchUpInside" id="Jsb-EE-MwQ"/>
+                                            <action selector="pressedUpdateNameButton:" destination="nET-ZX-qbz" eventType="touchUpInside" id="YAx-mJ-73e"/>
+                                        </connections>
+                                    </button>
+                                </subviews>
+                                <color key="backgroundColor" systemColor="tertiarySystemGroupedBackgroundColor"/>
+                                <constraints>
+                                    <constraint firstItem="5ou-uJ-cdL" firstAttribute="top" secondItem="Qxk-1m-h8I" secondAttribute="top" constant="29.5" id="3Cg-Wu-lxj"/>
+                                    <constraint firstItem="hec-Ly-hYy" firstAttribute="top" secondItem="Qxk-1m-h8I" secondAttribute="top" constant="15" id="3gg-us-TeG"/>
+                                    <constraint firstItem="UcS-je-yYJ" firstAttribute="top" secondItem="Qxk-1m-h8I" secondAttribute="top" constant="14" id="A7x-gB-Y9I"/>
+                                    <constraint firstItem="5ou-uJ-cdL" firstAttribute="leading" secondItem="Qxk-1m-h8I" secondAttribute="leading" constant="10" id="C9Y-7e-yiC"/>
+                                    <constraint firstAttribute="trailing" secondItem="4uy-Xg-1Hk" secondAttribute="trailing" constant="10" id="Cyg-zg-hfd"/>
+                                    <constraint firstAttribute="bottom" secondItem="UcS-je-yYJ" secondAttribute="bottom" constant="14" id="H2I-l6-lov"/>
+                                    <constraint firstAttribute="height" constant="150" id="IGF-QA-e60"/>
+                                    <constraint firstItem="hec-Ly-hYy" firstAttribute="leading" secondItem="UcS-je-yYJ" secondAttribute="trailing" constant="7" id="Lc5-px-twS"/>
+                                    <constraint firstAttribute="trailing" secondItem="hec-Ly-hYy" secondAttribute="trailing" constant="10" id="SPC-dS-xbo"/>
+                                    <constraint firstItem="UcS-je-yYJ" firstAttribute="leading" secondItem="5ou-uJ-cdL" secondAttribute="trailing" constant="8" id="chj-dD-SIw"/>
+                                    <constraint firstAttribute="bottom" secondItem="4uy-Xg-1Hk" secondAttribute="bottom" constant="15" id="yqF-UF-FmM"/>
+                                </constraints>
+                            </view>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="lfk-EU-AmD">
                                 <rect key="frame" x="20" y="152" width="374" height="80"/>
                                 <subviews>
@@ -354,12 +423,18 @@
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
                             <constraint firstItem="lfk-EU-AmD" firstAttribute="leading" secondItem="0LN-VF-hst" secondAttribute="leading" constant="20" id="2Ya-pv-m01"/>
+                            <constraint firstItem="0LN-VF-hst" firstAttribute="trailing" secondItem="Qxk-1m-h8I" secondAttribute="trailing" constant="20" id="BeD-Ht-W0r"/>
                             <constraint firstItem="lfk-EU-AmD" firstAttribute="top" secondItem="0LN-VF-hst" secondAttribute="top" constant="64" id="DpZ-jg-4gq"/>
+                            <constraint firstItem="Qxk-1m-h8I" firstAttribute="top" secondItem="lfk-EU-AmD" secondAttribute="bottom" constant="30" id="mp3-4Y-QxG"/>
                             <constraint firstItem="0LN-VF-hst" firstAttribute="trailing" secondItem="lfk-EU-AmD" secondAttribute="trailing" constant="20" id="q3U-P4-sig"/>
+                            <constraint firstItem="Qxk-1m-h8I" firstAttribute="leading" secondItem="0LN-VF-hst" secondAttribute="leading" constant="20" id="vJQ-cE-aya"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="W0y-VY-3gv"/>
                     <connections>
+                        <outlet property="bioLabel" destination="3BH-Ki-6Z8" id="BlT-gF-zAw"/>
+                        <outlet property="bioTextFieldView" destination="UcS-je-yYJ" id="VPt-WU-RXl"/>
+                        <outlet property="bioView" destination="Qxk-1m-h8I" id="bfx-4f-i3f"/>
                         <outlet property="nameLabel" destination="TWY-0V-Y56" id="ACY-PC-wpj"/>
                         <outlet property="nameTextFieldView" destination="fCQ-GL-gGf" id="veO-rC-lQN"/>
                         <outlet property="nameView" destination="lfk-EU-AmD" id="E8W-kr-p4N"/>
@@ -392,6 +467,8 @@
         <segue reference="yqw-Oq-yZd"/>
     </inferredMetricsTieBreakers>
     <resources>
+        <image name="Delete_Icon.png" width="384" height="384"/>
+        <image name="Edit_Icon.png" width="279.27273559570312" height="279.27273559570312"/>
         <image name="RedVsBlueTitle.png" width="1280" height="283"/>
         <image name="Refresh_Icon.png" width="1000" height="1000"/>
         <namedColor name="AccentColor">
