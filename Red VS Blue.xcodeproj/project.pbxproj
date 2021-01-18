@@ -29,6 +29,7 @@
 		E49BECE125B448DA0048CD7D /* ProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E49BECE025B448DA0048CD7D /* ProfileViewController.swift */; };
 		E49BECE525B452AD0048CD7D /* Refresh_Icon.png in Resources */ = {isa = PBXBuildFile; fileRef = E49BECE425B452AC0048CD7D /* Refresh_Icon.png */; };
 		E49BECE925B4E1AC0048CD7D /* RandomStringGenerator.swift in Sources */ = {isa = PBXBuildFile; fileRef = E49BECE825B4E1AC0048CD7D /* RandomStringGenerator.swift */; };
+		E49BECEF25B589430048CD7D /* LeaderboardViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E49BECEE25B589430048CD7D /* LeaderboardViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -58,6 +59,7 @@
 		E49BECE025B448DA0048CD7D /* ProfileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileViewController.swift; sourceTree = "<group>"; };
 		E49BECE425B452AC0048CD7D /* Refresh_Icon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Refresh_Icon.png; sourceTree = "<group>"; };
 		E49BECE825B4E1AC0048CD7D /* RandomStringGenerator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RandomStringGenerator.swift; sourceTree = "<group>"; };
+		E49BECEE25B589430048CD7D /* LeaderboardViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LeaderboardViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -121,6 +123,7 @@
 				E49BECE025B448DA0048CD7D /* ProfileViewController.swift */,
 				E49BECD825B354250048CD7D /* EmailSignInViewController.swift */,
 				E49BECE825B4E1AC0048CD7D /* RandomStringGenerator.swift */,
+				E49BECEE25B589430048CD7D /* LeaderboardViewController.swift */,
 				E48A0C1D25B031CB00122140 /* Main.storyboard */,
 				E48A0C2225B031CC00122140 /* LaunchScreen.storyboard */,
 				E48A0C2525B031CC00122140 /* Info.plist */,
@@ -285,6 +288,7 @@
 				E49BECC525B344100048CD7D /* LoginViewController.swift in Sources */,
 				E49BECD925B354250048CD7D /* EmailSignInViewController.swift in Sources */,
 				E48A0C1825B031CB00122140 /* AppDelegate.swift in Sources */,
+				E49BECEF25B589430048CD7D /* LeaderboardViewController.swift in Sources */,
 				E48A0C1A25B031CB00122140 /* SceneDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

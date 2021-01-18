@@ -12,6 +12,7 @@ class MainPageViewController: UIViewController {
     
     var authStateListenerHandle: AuthStateDidChangeListenerHandle!
     let profileSegueIdentifier = "ProfileSegue"
+    let leaderboardSegueIdentifier = "LeaderboardSegue"
     var usersRef: CollectionReference!
     var usersDataListener: ListenerRegistration!
     var userDataId: String!
@@ -58,7 +59,7 @@ class MainPageViewController: UIViewController {
             if let documentSnapshot = documentSnapshot {
                 self.userDataId = documentSnapshot.documents[0].documentID
             } else {
-                print("Error getting photos \(error!)")
+                print("Error getting user data \(error!)")
                 return
             }
         })
@@ -84,6 +85,10 @@ class MainPageViewController: UIViewController {
     
     @IBAction func pressedGamesButton(_ sender: Any) {
         // TODO: Games Page
+    }
+    
+    @IBAction func pressedLeaderboardButton(_ sender: Any) {
+        self.performSegue(withIdentifier: self.leaderboardSegueIdentifier, sender: self)
     }
     
     @IBAction func pressedSignOutButton(_ sender: Any) {
