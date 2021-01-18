@@ -18,26 +18,33 @@ class CreateGameViewController: UIViewController {
     var gameDataRef: CollectionReference!
     var gameDataListener: ListenerRegistration!
     var randomRoomNumGenerator = RandomStringGenerator()
+    var nonEmptyRoomIds = [String]()
     var digits: String!
     var user: User!
     
     override func viewDidLoad() {
         super.viewDidLoad()
         navigationController?.setNavigationBarHidden(true, animated: false)
-        gameDataRef = Firestore.firestore().collection("Users")
+        gameDataRef = Firestore.firestore().collection("GameData")
     }
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         navigationController?.setNavigationBarHidden(true, animated: false)
+        nonEmptyRoomIds = []
         userNameView.layer.cornerRadius = 12
         userNameView.layer.borderWidth = 2
         userNameView.layer.borderColor = UIColor.black.cgColor
         
         userNameLabel.text = user.name
         
-        digits = randomRoomNumGenerator.generateRandomRoomNumber()
         startListening()
+        
+        digits = randomRoomNumGenerator.generateRandomRoomNumber()
+        while nonEmptyRoomIds.contains(digits) {
+            digits = randomRoomNumGenerator.generateRandomRoomNumber()
+        }
+        
         updateDigitCodes(digits: digits)
     }
     
@@ -47,7 +54,16 @@ class CreateGameViewController: UIViewController {
     }
     
     func startListening() {
-        
+        gameDataListener = gameDataRef.addSnapshotListener({ (documentSnapshot, error) in
+            if let documentSnapshot = documentSnapshot {
+                for document in documentSnapshot.documents {
+                    self.nonEmptyRoomIds.append(document.data()["roomId"] as! String)
+                }
+            } else {
+                print("Error getting user data \(error!)")
+                return
+            }
+        })
     }
     
     func createGameRoomData() {
