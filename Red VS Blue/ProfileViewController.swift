@@ -93,6 +93,9 @@ class ProfileViewController: UIViewController {
             self.userRef.updateData([
                 "name": nameField.text!
             ])
+            let alertControllerConfirmNameChange = UIAlertController(title: nil, message: "You have changed your name", preferredStyle: .alert)
+            alertControllerConfirmNameChange.addAction(UIAlertAction(title: "Ok", style: .cancel, handler: nil))
+            self.present(alertControllerConfirmNameChange, animated: true, completion: nil)
         })
         
         present(alertController, animated: true, completion: nil)
@@ -114,6 +117,13 @@ class ProfileViewController: UIViewController {
                                                 style: .default)
         { (action) in
             let bioField = alertController.textFields![0] as UITextField
+            if bioField.text == "" {
+                let alertControllerNoBio = UIAlertController(title: nil, message: "You didn't write anything", preferredStyle: .alert)
+                alertControllerNoBio.addAction(UIAlertAction(title: "Ok", style: .cancel, handler: nil))
+                self.present(alertControllerNoBio, animated: true, completion: nil)
+                return
+            }
+            
             self.userRef.updateData([
                 "bio": bioField.text!
             ])
