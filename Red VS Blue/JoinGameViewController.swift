@@ -56,7 +56,9 @@ class JoinGameViewController: UIViewController, UITextFieldDelegate {
             if let documentSnapshot = documentSnapshot {
                 self.nonEmptyRoomIds = []
                 for document in documentSnapshot.documents {
-                    self.nonEmptyRoomIds.append(document.data()["roomId"] as! String)
+                    if let roomId = document.data()["roomId"] {
+                        self.nonEmptyRoomIds.append(roomId as! String)
+                    }
                 }
                 //print(self.nonEmptyRoomIds)
             } else {

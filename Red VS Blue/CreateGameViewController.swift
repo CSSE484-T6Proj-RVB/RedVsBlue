@@ -69,7 +69,9 @@ class CreateGameViewController: UIViewController {
             if let documentSnapshot = documentSnapshot {
                 self.nonEmptyRoomIds = []
                 for document in documentSnapshot.documents {
-                    self.nonEmptyRoomIds.append(document.data()["roomId"] as! String)
+                    if let roomId = document.data()["roomId"]{
+                        self.nonEmptyRoomIds.append(roomId as! String)
+                    }
                 }
             } else {
                 print("Error getting rooms data \(error!)")
@@ -81,8 +83,10 @@ class CreateGameViewController: UIViewController {
     func startListeningForTheRoom() {
         gameDatumListener = gameDatumRef.addSnapshotListener({ (documentSnapshot, error) in
             if let documentSnapshot = documentSnapshot {
-                print("Player joined in.")
-                self.performSegue(withIdentifier: self.gameSelectionSegueIdentifier, sender: self)
+                if let _ = documentSnapshot.data()!["clientUserName"] {
+                    print("Player joined in.")
+                    self.performSegue(withIdentifier: self.gameSelectionSegueIdentifier, sender: self)
+                }
             } else {
                 print("Error getting room data \(error!)")
                 return
