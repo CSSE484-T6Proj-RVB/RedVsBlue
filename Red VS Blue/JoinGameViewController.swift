@@ -88,7 +88,7 @@ class JoinGameViewController: UIViewController, UITextFieldDelegate {
     func textField(_ textField: UITextField, shouldChangeCharactersIn range: NSRange, replacementString string: String) -> Bool {
         let textstring = (textField.text! as NSString).replacingCharacters(in: range, with: string)
         let length = textstring.count
-        if length > 4 {
+        if length > 4 || !CharacterSet.decimalDigits.isSuperset(of: CharacterSet(charactersIn: textstring)) {
             return false
         }
         return true
