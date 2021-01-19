@@ -53,15 +53,12 @@ class CreateGameViewController: UIViewController {
         createGameRoomData()
         
         startListeningForTheRoom()
-        
     }
     
     override func viewWillDisappear(_ animated: Bool) {
         super.viewWillDisappear(animated)
         gameDataListener.remove()
         gameDatumListener.remove()
-        
-        
     }
     
     func startListening() {

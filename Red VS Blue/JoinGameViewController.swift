@@ -73,8 +73,16 @@ class JoinGameViewController: UIViewController, UITextFieldDelegate {
     }
     
     @IBAction func pressedJoinButton(_ sender: Any) {
-        if digits.count != 4 {
-            // TODO: Alert
+        if digits == nil || digits.count != 4 {
+            let alertController = UIAlertController(title: "Error",
+                                                    message: "Please Enter 4 digits",
+                                                    preferredStyle: .alert)
+            
+            alertController.addAction(UIAlertAction(title: "OK",
+                                                    style: .cancel,
+                                                    handler: nil))
+            
+            present(alertController, animated: true, completion: nil)
             return
         }
         if nonEmptyRoomIds.contains(digits) {
@@ -91,6 +99,16 @@ class JoinGameViewController: UIViewController, UITextFieldDelegate {
                 ])
                 self.performSegue(withIdentifier: self.gameSelectionSegueIdentifier, sender: self)
             })
+        } else {
+            let alertController = UIAlertController(title: "Error",
+                                                    message: "The Game Room Does not Exist!",
+                                                    preferredStyle: .alert)
+            
+            alertController.addAction(UIAlertAction(title: "OK",
+                                                    style: .cancel,
+                                                    handler: nil))
+            
+            present(alertController, animated: true, completion: nil)
         }
     }
     
