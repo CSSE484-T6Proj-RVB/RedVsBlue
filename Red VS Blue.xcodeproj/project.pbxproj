@@ -135,6 +135,7 @@
 				E49BECE825B4E1AC0048CD7D /* RandomStringGenerator.swift */,
 				E49BECEE25B589430048CD7D /* LeaderboardViewController.swift */,
 				E49BECF225B5A58A0048CD7D /* CreateGameViewController.swift */,
+				E4BB4B3B25B621E6008580A8 /* JoinGameViewController.swift */,
 				E49BECF625B5A69F0048CD7D /* User.swift */,
 				E48A0C1D25B031CB00122140 /* Main.storyboard */,
 				E48A0C2225B031CC00122140 /* LaunchScreen.storyboard */,
@@ -149,7 +150,6 @@
 				B54D323B25B56784008219E5 /* RedVsBlue.png */,
 				B54D323F25B5697F008219E5 /* Background1.png */,
 				B54D324225B569DE008219E5 /* Background3.png */,
-				E4BB4B3B25B621E6008580A8 /* JoinGameViewController.swift */,
 			);
 			path = "Red VS Blue";
 			sourceTree = "<group>";

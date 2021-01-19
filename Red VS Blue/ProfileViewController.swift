@@ -24,6 +24,7 @@ class ProfileViewController: UIViewController {
     
     var userDataListener: ListenerRegistration!
     var userRef: DocumentReference!
+    var user: User!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -52,7 +53,8 @@ class ProfileViewController: UIViewController {
     func startListening() {
         userDataListener = userRef.addSnapshotListener({ (documentSnapshot, error) in
             if let documentSnapshot = documentSnapshot {
-                self.updateView(data: documentSnapshot.data()!)
+                self.user = User(documentSnapshot: documentSnapshot)
+                self.updateView(user: self.user)
             } else {
                 print("Error getting user data: \(error!)")
                 return
@@ -60,11 +62,11 @@ class ProfileViewController: UIViewController {
         })
     }
     
-    func updateView(data: [String: Any]) {
-        nameLabel.text = data["name"] as? String
-        bioLabel.text = data["bio"] as? String
-        matchesPlayedLabel.text = "Matches Played: \(String(data["matchesPlayed"] as! Int))"
-        matchesWonLabel.text = "Matches Won: \(String(data["matchesWon"] as! Int))"
+    func updateView(user: User) {
+        nameLabel.text = user.name
+        bioLabel.text = user.bio
+        matchesPlayedLabel.text = "Matches Played: \(user.matchesPlayed)"
+        matchesWonLabel.text = "Matches Won: \(user.matchesWon)"
     }
     
     func setCornerAndBorder(view: UIView, cornerRadius: CGFloat, borderWidth: CGFloat, borderColor: CGColor) {

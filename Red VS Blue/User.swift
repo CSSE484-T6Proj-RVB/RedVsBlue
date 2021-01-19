@@ -14,6 +14,9 @@ class User {
     var userDocId: String
     var id: String
     
+    var matchesPlayed: Int
+    var matchesWon: Int
+    
     init(documentSnapshot: DocumentSnapshot) {
         self.userDocId = documentSnapshot.documentID
         let data = documentSnapshot.data()!
@@ -21,6 +24,9 @@ class User {
         self.name = data["name"] as! String
         self.bio = data["bio"] as! String
         self.id = data["id"] as! String
+        
+        self.matchesPlayed = data["matchesPlayed"] as! Int
+        self.matchesWon = data["matchesWon"] as! Int
     }
     
 }
