@@ -24,6 +24,7 @@
 		E498EF4425B78667006621FA /* GameSelectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E498EF4325B78667006621FA /* GameSelectionViewController.swift */; };
 		E498EF4825B79395006621FA /* Red_Ball.png in Resources */ = {isa = PBXBuildFile; fileRef = E498EF4725B79395006621FA /* Red_Ball.png */; };
 		E498EF4B25B7939C006621FA /* Blue_Ball.png in Resources */ = {isa = PBXBuildFile; fileRef = E498EF4A25B7939C006621FA /* Blue_Ball.png */; };
+		E498EF4F25B79718006621FA /* VS.png in Resources */ = {isa = PBXBuildFile; fileRef = E498EF4E25B79718006621FA /* VS.png */; };
 		E49BECC525B344100048CD7D /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E49BECC425B344100048CD7D /* LoginViewController.swift */; };
 		E49BECD225B347150048CD7D /* RedVsBlueTitle.png in Resources */ = {isa = PBXBuildFile; fileRef = E49BECD125B347150048CD7D /* RedVsBlueTitle.png */; };
 		E49BECD525B34AA40048CD7D /* MainPageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E49BECD425B34AA40048CD7D /* MainPageViewController.swift */; };
@@ -61,6 +62,7 @@
 		E498EF4325B78667006621FA /* GameSelectionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameSelectionViewController.swift; sourceTree = "<group>"; };
 		E498EF4725B79395006621FA /* Red_Ball.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Red_Ball.png; sourceTree = "<group>"; };
 		E498EF4A25B7939C006621FA /* Blue_Ball.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Blue_Ball.png; sourceTree = "<group>"; };
+		E498EF4E25B79718006621FA /* VS.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = VS.png; sourceTree = "<group>"; };
 		E49BECC425B344100048CD7D /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
 		E49BECD125B347150048CD7D /* RedVsBlueTitle.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = RedVsBlueTitle.png; sourceTree = "<group>"; };
 		E49BECD425B34AA40048CD7D /* MainPageViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainPageViewController.swift; sourceTree = "<group>"; };
@@ -149,6 +151,7 @@
 				E49BECFC25B5AA2F0048CD7D /* RvB_Icon.png */,
 				E49BECD125B347150048CD7D /* RedVsBlueTitle.png */,
 				E498EF4A25B7939C006621FA /* Blue_Ball.png */,
+				E498EF4E25B79718006621FA /* VS.png */,
 				E498EF4725B79395006621FA /* Red_Ball.png */,
 				E49BECF925B5AA150048CD7D /* Back_Arrow.png */,
 				E49BECE425B452AC0048CD7D /* Refresh_Icon.png */,
@@ -230,6 +233,7 @@
 				B54D324325B569DE008219E5 /* Background3.png in Resources */,
 				E498EF4B25B7939C006621FA /* Blue_Ball.png in Resources */,
 				E417786B25B09BF1004B3FD3 /* Icon-72.png in Resources */,
+				E498EF4F25B79718006621FA /* VS.png in Resources */,
 				E49BECD225B347150048CD7D /* RedVsBlueTitle.png in Resources */,
 				E49BECFD25B5AA2F0048CD7D /* RvB_Icon.png in Resources */,
 				E417786A25B09BF1004B3FD3 /* Icon@2x.png in Resources */,

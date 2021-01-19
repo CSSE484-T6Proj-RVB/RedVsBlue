@@ -39,9 +39,11 @@ class GameSelectionViewController: UIViewController {
         roomListener = roomRef.addSnapshotListener({ (documentSnapshot, error) in
             if let documentSnapshot = documentSnapshot {
                 self.clientNameLabel.text = documentSnapshot.data()!["clientUserName"] as? String
-                self.clientBioLabel.text = documentSnapshot.data()!["clientUserBio"] as? String
+                let clientBio = documentSnapshot.data()!["clientUserBio"] as? String
+                self.clientBioLabel.text = clientBio == "" ? "This player has no bio." : clientBio
                 self.hostNameLabel.text = documentSnapshot.data()!["hostUserName"] as? String
-                self.hostBioLabel.text = documentSnapshot.data()!["hostUserBio"] as? String
+                let hostBio = documentSnapshot.data()!["hostUserBio"] as? String
+                self.hostBioLabel.text = hostBio == "" ? "This player has no bio." : hostBio
             } else {
                 print("Error getting room data \(error!)")
                 return
