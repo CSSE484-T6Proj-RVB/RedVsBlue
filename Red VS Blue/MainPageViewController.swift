@@ -70,7 +70,6 @@ class MainPageViewController: UIViewController {
         })
     }
     
-    // TODO: Bad Constraints on small phones
     @IBAction func pressedNewGameButton(_ sender: Any) {
         if LoginViewController.isGuest {
             alertNotLoggedIn()

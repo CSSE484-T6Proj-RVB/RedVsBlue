@@ -279,6 +279,7 @@
                                 <rect key="frame" x="147" y="788" width="120" height="36"/>
                                 <color key="backgroundColor" red="0.58072251080000004" green="0.066734083" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <constraints>
+                                    <constraint firstAttribute="width" constant="120" id="43D-ue-Sed"/>
                                     <constraint firstAttribute="height" constant="36" id="cgu-8g-fw4"/>
                                 </constraints>
                                 <color key="tintColor" red="0.92143100499999997" green="0.92145264149999995" blue="0.92144101860000005" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -291,32 +292,25 @@
                         <viewLayoutGuide key="safeArea" id="noP-3j-VaS"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
-                            <constraint firstItem="noP-3j-VaS" firstAttribute="trailing" secondItem="nrw-Dz-3r5" secondAttribute="trailing" constant="147" id="3Qi-10-ze0"/>
                             <constraint firstItem="Xz5-7O-cbJ" firstAttribute="top" secondItem="noP-3j-VaS" secondAttribute="top" constant="220" id="3Xt-yW-q5b"/>
-                            <constraint firstItem="noP-3j-VaS" firstAttribute="trailing" secondItem="EQF-YN-SFj" secondAttribute="trailing" constant="147" id="6kV-nY-Si1"/>
-                            <constraint firstItem="noP-3j-VaS" firstAttribute="trailing" secondItem="Xz5-7O-cbJ" secondAttribute="trailing" constant="147" id="KWf-XK-kzd"/>
+                            <constraint firstItem="jmu-p3-eLk" firstAttribute="centerX" secondItem="noP-3j-VaS" secondAttribute="centerX" id="6rG-Iu-Nhy"/>
+                            <constraint firstItem="nrw-Dz-3r5" firstAttribute="centerX" secondItem="noP-3j-VaS" secondAttribute="centerX" id="75E-CB-Zas"/>
                             <constraint firstItem="jmu-p3-eLk" firstAttribute="top" secondItem="Xz5-7O-cbJ" secondAttribute="bottom" constant="60" id="LQu-hb-RWU"/>
                             <constraint firstItem="XJR-4K-DpO" firstAttribute="leading" secondItem="noP-3j-VaS" secondAttribute="leading" constant="10" id="Mbf-gW-9gb"/>
                             <constraint firstItem="dHA-5Y-ALf" firstAttribute="centerX" secondItem="noP-3j-VaS" secondAttribute="centerX" id="NYc-qn-nVH"/>
                             <constraint firstItem="pz8-pc-Upw" firstAttribute="top" secondItem="EQF-YN-SFj" secondAttribute="bottom" constant="60" id="Oyd-OL-97j"/>
                             <constraint firstItem="m6R-Bk-bdU" firstAttribute="leading" secondItem="noP-3j-VaS" secondAttribute="leading" id="U1b-uV-NqP"/>
-                            <constraint firstItem="pz8-pc-Upw" firstAttribute="leading" secondItem="noP-3j-VaS" secondAttribute="leading" constant="147" id="UEo-FQ-agC"/>
                             <constraint firstItem="XJR-4K-DpO" firstAttribute="top" secondItem="noP-3j-VaS" secondAttribute="top" constant="30" id="Vjf-7y-x5E"/>
                             <constraint firstAttribute="bottom" secondItem="m6R-Bk-bdU" secondAttribute="bottom" id="WFy-Y0-afX"/>
-                            <constraint firstItem="jmu-p3-eLk" firstAttribute="leading" secondItem="noP-3j-VaS" secondAttribute="leading" constant="147" id="ZXW-l0-P6I"/>
-                            <constraint firstItem="dHA-5Y-ALf" firstAttribute="leading" secondItem="noP-3j-VaS" secondAttribute="leading" constant="147" id="aoA-Ve-Upk"/>
+                            <constraint firstItem="Xz5-7O-cbJ" firstAttribute="centerX" secondItem="noP-3j-VaS" secondAttribute="centerX" id="Xuy-CT-GZ2"/>
+                            <constraint firstItem="EQF-YN-SFj" firstAttribute="centerX" secondItem="noP-3j-VaS" secondAttribute="centerX" id="Zqy-8o-hEd"/>
                             <constraint firstItem="nrw-Dz-3r5" firstAttribute="top" secondItem="jmu-p3-eLk" secondAttribute="bottom" constant="60" id="bZA-lH-cus"/>
                             <constraint firstItem="m6R-Bk-bdU" firstAttribute="top" secondItem="o0H-Qg-HV0" secondAttribute="top" id="ciR-Eh-Dni"/>
-                            <constraint firstItem="EQF-YN-SFj" firstAttribute="leading" secondItem="noP-3j-VaS" secondAttribute="leading" constant="147" id="eJb-7y-h6U"/>
-                            <constraint firstItem="noP-3j-VaS" firstAttribute="trailing" secondItem="jmu-p3-eLk" secondAttribute="trailing" constant="147" id="fAA-GO-6E9"/>
-                            <constraint firstItem="Xz5-7O-cbJ" firstAttribute="leading" secondItem="noP-3j-VaS" secondAttribute="leading" constant="147" id="n66-8s-T1z"/>
+                            <constraint firstItem="pz8-pc-Upw" firstAttribute="centerX" secondItem="noP-3j-VaS" secondAttribute="centerX" id="ifh-8F-RpT"/>
                             <constraint firstItem="dHA-5Y-ALf" firstAttribute="top" secondItem="pz8-pc-Upw" secondAttribute="bottom" constant="60" id="nNf-Gh-1hN"/>
                             <constraint firstItem="EQF-YN-SFj" firstAttribute="top" secondItem="nrw-Dz-3r5" secondAttribute="bottom" constant="60" id="pu0-qe-eiE"/>
                             <constraint firstItem="noP-3j-VaS" firstAttribute="trailing" secondItem="XJR-4K-DpO" secondAttribute="trailing" constant="10" id="sQd-s4-f9C"/>
-                            <constraint firstItem="nrw-Dz-3r5" firstAttribute="leading" secondItem="noP-3j-VaS" secondAttribute="leading" constant="147" id="vmT-nf-e52"/>
-                            <constraint firstItem="noP-3j-VaS" firstAttribute="trailing" secondItem="dHA-5Y-ALf" secondAttribute="trailing" constant="147" id="w1g-KW-lYh"/>
                             <constraint firstItem="m6R-Bk-bdU" firstAttribute="trailing" secondItem="noP-3j-VaS" secondAttribute="trailing" id="yGi-Q9-BMt"/>
-                            <constraint firstItem="noP-3j-VaS" firstAttribute="trailing" secondItem="pz8-pc-Upw" secondAttribute="trailing" constant="147" id="yXY-aD-tR0"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="yVB-uB-Dfe"/>

@@ -73,7 +73,16 @@ class JoinGameViewController: UIViewController, UITextFieldDelegate {
             // TODO: Alert
             return
         }
-        print(nonEmptyRoomIds.contains(digits))
+        if nonEmptyRoomIds.contains(digits) {
+            gameDataListener = gameDataRef.whereField("roomId", isEqualTo: digits!).addSnapshotListener({ (documentSnapshot, error) in
+                if let error = error {
+                    print("Get specific game room data failed \(error)")
+                    return
+                }
+                self.gameDatumRef = self.gameDataRef.document(documentSnapshot!.documents[0].documentID)
+                print("Can update data now.")
+            })
+        }
     }
     
     @objc func updateDigitCodeView() {

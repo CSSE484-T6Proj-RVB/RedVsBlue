@@ -18,6 +18,7 @@ class CreateGameViewController: UIViewController {
     var gameDataRef: CollectionReference!
     var gameDatumRef: DocumentReference!
     var gameDataListener: ListenerRegistration!
+    var gameDatumListener: ListenerRegistration!
     var randomRoomNumGenerator = RandomStringGenerator()
     var nonEmptyRoomIds = [String]()
     var digits: String!
@@ -48,12 +49,15 @@ class CreateGameViewController: UIViewController {
         
         updateDigitCodes(digits: digits)
         createGameRoomData()
-        //print(gameDatumRef.documentID)
+        
+        startListeningForTheRoom()
+        
     }
     
     override func viewWillDisappear(_ animated: Bool) {
         super.viewWillDisappear(animated)
         gameDataListener.remove()
+        gameDatumListener.remove()
         gameDatumRef.delete()
         
     }
@@ -66,10 +70,22 @@ class CreateGameViewController: UIViewController {
                     self.nonEmptyRoomIds.append(document.data()["roomId"] as! String)
                 }
             } else {
-                print("Error getting user data \(error!)")
+                print("Error getting rooms data \(error!)")
                 return
             }
         })
+    }
+    
+    func startListeningForTheRoom() {
+        gameDatumListener = gameDatumRef.addSnapshotListener({ (documentSnapshot, error) in
+            if let documentSnapshot = documentSnapshot {
+                print("Player joined in.")
+            } else {
+                print("Error getting room data \(error!)")
+                return
+            }
+        })
+        
     }
     
     func createGameRoomData() {
