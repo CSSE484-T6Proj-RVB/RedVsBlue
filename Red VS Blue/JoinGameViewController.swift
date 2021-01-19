@@ -22,6 +22,8 @@ class JoinGameViewController: UIViewController, UITextFieldDelegate {
     var nonEmptyRoomIds = [String]()
     var user: User!
     
+    let gameSelectionSegueIdentifier = "GameSelectionSegue"
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         navigationController?.setNavigationBarHidden(true, animated: false)
@@ -80,7 +82,12 @@ class JoinGameViewController: UIViewController, UITextFieldDelegate {
                     return
                 }
                 self.gameDatumRef = self.gameDataRef.document(documentSnapshot!.documents[0].documentID)
-                print("Can update data now.")
+                //print("Can update data now.")
+                self.gameDatumRef.updateData([
+                    "clientUserName": self.user.name,
+                    "clientUserBio": self.user.bio
+                ])
+                self.performSegue(withIdentifier: self.gameSelectionSegueIdentifier, sender: self)
             })
         }
     }
@@ -101,5 +108,11 @@ class JoinGameViewController: UIViewController, UITextFieldDelegate {
             return false
         }
         return true
+    }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == gameSelectionSegueIdentifier {
+            (segue.destination as! GameSelectionViewController).roomRef = gameDatumRef
+        }
     }
 }

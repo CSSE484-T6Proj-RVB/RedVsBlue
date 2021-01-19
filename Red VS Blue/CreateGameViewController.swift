@@ -24,6 +24,8 @@ class CreateGameViewController: UIViewController {
     var digits: String!
     var user: User!
     
+    let gameSelectionSegueIdentifier = "GameSelectionSegue"
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         navigationController?.setNavigationBarHidden(true, animated: false)
@@ -58,7 +60,7 @@ class CreateGameViewController: UIViewController {
         super.viewWillDisappear(animated)
         gameDataListener.remove()
         gameDatumListener.remove()
-        gameDatumRef.delete()
+        
         
     }
     
@@ -80,6 +82,7 @@ class CreateGameViewController: UIViewController {
         gameDatumListener = gameDatumRef.addSnapshotListener({ (documentSnapshot, error) in
             if let documentSnapshot = documentSnapshot {
                 print("Player joined in.")
+                self.performSegue(withIdentifier: self.gameSelectionSegueIdentifier, sender: self)
             } else {
                 print("Error getting room data \(error!)")
                 return
@@ -91,7 +94,7 @@ class CreateGameViewController: UIViewController {
     func createGameRoomData() {
         gameDatumRef = gameDataRef.addDocument(data: [
             "roomId": digits!,
-            "hostUsername":  user.name,
+            "hostUserName":  user.name,
             "hostUserBio":  user.bio
         ])
     }
@@ -105,6 +108,13 @@ class CreateGameViewController: UIViewController {
     }
     
     @IBAction func pressedBackButton(_ sender: Any) {
+        gameDatumRef.delete()
         self.navigationController?.popViewController(animated: true)
+    }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == gameSelectionSegueIdentifier {
+            (segue.destination as! GameSelectionViewController).roomRef = gameDatumRef
+        }
     }
 }

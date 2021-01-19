@@ -373,13 +373,13 @@
                                 </constraints>
                             </imageView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Creating a New Game" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="9ja-7X-kv2">
-                                <rect key="frame" x="80" y="380" width="254" height="26.5"/>
+                                <rect key="frame" x="10" y="380" width="394" height="26.5"/>
                                 <fontDescription key="fontDescription" type="boldSystem" pointSize="22"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Your Game Code: " textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="pNq-ee-4vc">
-                                <rect key="frame" x="80" y="611" width="254" height="26.5"/>
+                                <rect key="frame" x="10" y="611" width="394" height="26.5"/>
                                 <fontDescription key="fontDescription" type="boldSystem" pointSize="22"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
@@ -478,7 +478,7 @@
                                 </constraints>
                             </stackView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Waiting for the other player..." textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="MyV-o7-r56">
-                                <rect key="frame" x="50" y="787.5" width="314" height="26.5"/>
+                                <rect key="frame" x="10" y="787.5" width="394" height="26.5"/>
                                 <fontDescription key="fontDescription" type="boldSystem" pointSize="22"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
@@ -493,25 +493,25 @@
                             <constraint firstItem="10y-WH-ljK" firstAttribute="top" secondItem="yYp-U0-aQC" secondAttribute="top" constant="45" id="DQE-pL-p4F"/>
                             <constraint firstAttribute="bottom" secondItem="nFp-A1-LHC" secondAttribute="bottom" id="EnR-6g-5KO"/>
                             <constraint firstItem="nFp-A1-LHC" firstAttribute="leading" secondItem="7GK-Jr-4Vg" secondAttribute="leading" id="KU8-we-KLK"/>
-                            <constraint firstItem="7GK-Jr-4Vg" firstAttribute="trailing" secondItem="MyV-o7-r56" secondAttribute="trailing" constant="50" id="L6C-xI-H8P"/>
+                            <constraint firstItem="7GK-Jr-4Vg" firstAttribute="trailing" secondItem="MyV-o7-r56" secondAttribute="trailing" constant="10" id="L6C-xI-H8P"/>
                             <constraint firstItem="YgK-8l-W1i" firstAttribute="leading" secondItem="7GK-Jr-4Vg" secondAttribute="leading" constant="50" id="Omx-nO-vUI"/>
                             <constraint firstItem="YgK-8l-W1i" firstAttribute="top" secondItem="7GK-Jr-4Vg" secondAttribute="top" constant="24" id="UCy-QY-VU1"/>
                             <constraint firstItem="pNq-ee-4vc" firstAttribute="top" secondItem="G9G-6b-50m" secondAttribute="bottom" constant="100" id="YQp-id-Seq"/>
                             <constraint firstItem="G9G-6b-50m" firstAttribute="centerY" secondItem="7wI-uY-UMZ" secondAttribute="centerY" id="aiU-DF-tqJ"/>
                             <constraint firstItem="10y-WH-ljK" firstAttribute="leading" secondItem="yYp-U0-aQC" secondAttribute="leading" constant="15" id="bCS-iL-RH1"/>
-                            <constraint firstItem="9ja-7X-kv2" firstAttribute="leading" secondItem="7GK-Jr-4Vg" secondAttribute="leading" constant="80" id="cHk-KM-vy9"/>
+                            <constraint firstItem="9ja-7X-kv2" firstAttribute="leading" secondItem="7GK-Jr-4Vg" secondAttribute="leading" constant="10" id="cHk-KM-vy9"/>
                             <constraint firstItem="nFp-A1-LHC" firstAttribute="trailing" secondItem="7GK-Jr-4Vg" secondAttribute="trailing" id="dVZ-f6-ckE"/>
                             <constraint firstItem="7wI-uY-UMZ" firstAttribute="leading" secondItem="7GK-Jr-4Vg" secondAttribute="leading" constant="20" id="gya-rz-NVb"/>
                             <constraint firstItem="G9G-6b-50m" firstAttribute="leading" secondItem="7wI-uY-UMZ" secondAttribute="trailing" constant="10" id="ikc-ko-ymo"/>
-                            <constraint firstItem="pNq-ee-4vc" firstAttribute="leading" secondItem="7GK-Jr-4Vg" secondAttribute="leading" constant="80" id="kFC-nv-QsO"/>
-                            <constraint firstItem="7GK-Jr-4Vg" firstAttribute="trailing" secondItem="pNq-ee-4vc" secondAttribute="trailing" constant="80" id="kUk-FQ-BG8"/>
+                            <constraint firstItem="pNq-ee-4vc" firstAttribute="leading" secondItem="7GK-Jr-4Vg" secondAttribute="leading" constant="10" id="kFC-nv-QsO"/>
+                            <constraint firstItem="7GK-Jr-4Vg" firstAttribute="trailing" secondItem="pNq-ee-4vc" secondAttribute="trailing" constant="10" id="kUk-FQ-BG8"/>
                             <constraint firstItem="7wI-uY-UMZ" firstAttribute="top" secondItem="9ja-7X-kv2" secondAttribute="bottom" constant="65" id="l1g-ed-RbP"/>
                             <constraint firstItem="YgK-8l-W1i" firstAttribute="centerX" secondItem="7GK-Jr-4Vg" secondAttribute="centerX" id="lQ7-Du-0A5"/>
-                            <constraint firstItem="MyV-o7-r56" firstAttribute="leading" secondItem="7GK-Jr-4Vg" secondAttribute="leading" constant="50" id="mV4-ye-Zvy"/>
+                            <constraint firstItem="MyV-o7-r56" firstAttribute="leading" secondItem="7GK-Jr-4Vg" secondAttribute="leading" constant="10" id="mV4-ye-Zvy"/>
                             <constraint firstItem="7GK-Jr-4Vg" firstAttribute="trailing" secondItem="YgK-8l-W1i" secondAttribute="trailing" constant="50" id="pIF-Wr-zTx"/>
                             <constraint firstItem="9ja-7X-kv2" firstAttribute="top" secondItem="YgK-8l-W1i" secondAttribute="bottom" constant="26" id="qhK-Bu-PSA"/>
                             <constraint firstItem="nFp-A1-LHC" firstAttribute="top" secondItem="yYp-U0-aQC" secondAttribute="top" id="vst-KI-gb2"/>
-                            <constraint firstItem="7GK-Jr-4Vg" firstAttribute="trailing" secondItem="9ja-7X-kv2" secondAttribute="trailing" constant="80" id="wMx-gf-PWA"/>
+                            <constraint firstItem="7GK-Jr-4Vg" firstAttribute="trailing" secondItem="9ja-7X-kv2" secondAttribute="trailing" constant="10" id="wMx-gf-PWA"/>
                             <constraint firstItem="7GK-Jr-4Vg" firstAttribute="trailing" secondItem="G9G-6b-50m" secondAttribute="trailing" constant="13" id="yda-dt-2VK"/>
                         </constraints>
                     </view>
@@ -523,11 +523,39 @@
                         <outletCollection property="digitCodeLabels" destination="zow-1X-hNb" collectionClass="NSMutableArray" id="jjm-Wk-fNC"/>
                         <outletCollection property="digitCodeLabels" destination="Yhg-UE-NyC" collectionClass="NSMutableArray" id="vvK-BW-xiF"/>
                         <outletCollection property="digitCodeLabels" destination="B47-IG-08B" collectionClass="NSMutableArray" id="d6D-mV-Kb8"/>
+                        <segue destination="zwp-Xa-Ryt" kind="show" identifier="GameSelectionSegue" id="DYN-ve-1YA"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="TcP-Dp-4Gv" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="2744.9275362318845" y="332.8125"/>
+        </scene>
+        <!--Game Selection View Controller-->
+        <scene sceneID="4bN-3C-LrY">
+            <objects>
+                <viewController id="zwp-Xa-Ryt" customClass="GameSelectionViewController" customModule="Red_VS_Blue" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="WXG-0c-GVQ">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" alpha="0.69999998807907104" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Background3.png" translatesAutoresizingMaskIntoConstraints="NO" id="TDK-xS-pYW">
+                                <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                            </imageView>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="lZ8-mj-NRo"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstAttribute="bottom" secondItem="TDK-xS-pYW" secondAttribute="bottom" id="Cdp-r5-OUX"/>
+                            <constraint firstItem="TDK-xS-pYW" firstAttribute="leading" secondItem="lZ8-mj-NRo" secondAttribute="leading" id="H5f-Rk-DAW"/>
+                            <constraint firstItem="TDK-xS-pYW" firstAttribute="trailing" secondItem="lZ8-mj-NRo" secondAttribute="trailing" id="elO-fr-Q3P"/>
+                            <constraint firstItem="TDK-xS-pYW" firstAttribute="top" secondItem="WXG-0c-GVQ" secondAttribute="top" id="pGc-a1-pjL"/>
+                        </constraints>
+                    </view>
+                    <navigationItem key="navigationItem" id="mfX-zH-kZy"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Yub-HT-wcO" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="3723" y="-56"/>
         </scene>
         <!--Join Game View Controller-->
         <scene sceneID="8e2-Cd-KsP">
@@ -568,7 +596,7 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Join an Existing Game" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="qtd-Gr-qxr">
-                                <rect key="frame" x="80" y="383" width="254" height="26.5"/>
+                                <rect key="frame" x="10" y="383" width="394" height="26.5"/>
                                 <fontDescription key="fontDescription" type="boldSystem" pointSize="22"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
@@ -636,9 +664,9 @@
                             <constraint firstItem="xCN-2P-2JE" firstAttribute="leading" secondItem="87J-p3-vNb" secondAttribute="leading" constant="14" id="XQ1-au-f9K"/>
                             <constraint firstItem="Ztc-aB-3oQ" firstAttribute="top" secondItem="07R-Rj-7lZ" secondAttribute="bottom" constant="60" id="aDG-jB-Bm8"/>
                             <constraint firstItem="qtd-Gr-qxr" firstAttribute="top" secondItem="Ntw-bh-8vO" secondAttribute="bottom" constant="26" id="dzP-Qo-hVW"/>
-                            <constraint firstItem="87J-p3-vNb" firstAttribute="trailing" secondItem="qtd-Gr-qxr" secondAttribute="trailing" constant="80" id="ekm-PY-hiV"/>
+                            <constraint firstItem="87J-p3-vNb" firstAttribute="trailing" secondItem="qtd-Gr-qxr" secondAttribute="trailing" constant="10" id="ekm-PY-hiV"/>
                             <constraint firstItem="xCN-2P-2JE" firstAttribute="top" secondItem="qtd-Gr-qxr" secondAttribute="bottom" constant="42.5" id="jTx-cq-DKk"/>
-                            <constraint firstItem="qtd-Gr-qxr" firstAttribute="leading" secondItem="87J-p3-vNb" secondAttribute="leading" constant="80" id="lPw-aB-Oxq"/>
+                            <constraint firstItem="qtd-Gr-qxr" firstAttribute="leading" secondItem="87J-p3-vNb" secondAttribute="leading" constant="10" id="lPw-aB-Oxq"/>
                             <constraint firstItem="ch5-T5-ddv" firstAttribute="centerY" secondItem="xCN-2P-2JE" secondAttribute="centerY" id="qQP-wH-J7j"/>
                             <constraint firstItem="yJI-Df-yky" firstAttribute="top" secondItem="Hy4-xk-KzB" secondAttribute="top" id="ska-Ag-sIq"/>
                             <constraint firstItem="Ntw-bh-8vO" firstAttribute="top" secondItem="Ls3-s5-EeH" secondAttribute="bottom" constant="24" id="ugG-Jw-4fj"/>
@@ -650,6 +678,7 @@
                         <outlet property="codeTextField" destination="07R-Rj-7lZ" id="wfR-4f-ED1"/>
                         <outlet property="nameLabel" destination="7FJ-5R-5oM" id="Hg5-nZ-WAG"/>
                         <outlet property="nameView" destination="ch5-T5-ddv" id="m9U-AV-XDY"/>
+                        <segue destination="zwp-Xa-Ryt" kind="show" identifier="GameSelectionSegue" id="ieF-bM-aaL"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="YKF-TE-2qb" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
@@ -1019,6 +1048,7 @@
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>
+        <segue reference="DYN-ve-1YA"/>
         <segue reference="yqw-Oq-yZd"/>
     </inferredMetricsTieBreakers>
     <resources>
