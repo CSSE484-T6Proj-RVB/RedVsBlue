@@ -11,6 +11,11 @@
 		B54D322E25B55335008219E5 /* Delete_Icon.png in Resources */ = {isa = PBXBuildFile; fileRef = B54D322D25B55335008219E5 /* Delete_Icon.png */; };
 		B54D324025B5697F008219E5 /* Background1.png in Resources */ = {isa = PBXBuildFile; fileRef = B54D323F25B5697F008219E5 /* Background1.png */; };
 		B54D324325B569DE008219E5 /* Background3.png in Resources */ = {isa = PBXBuildFile; fileRef = B54D324225B569DE008219E5 /* Background3.png */; };
+		B5700A9C25B79DFC00F75233 /* CountTo21_Icon.png in Resources */ = {isa = PBXBuildFile; fileRef = B5700A9725B79DFB00F75233 /* CountTo21_Icon.png */; };
+		B5700A9D25B79DFC00F75233 /* Hangman_Icon.png in Resources */ = {isa = PBXBuildFile; fileRef = B5700A9825B79DFB00F75233 /* Hangman_Icon.png */; };
+		B5700A9E25B79DFC00F75233 /* NumberPuzzle_Icon.png in Resources */ = {isa = PBXBuildFile; fileRef = B5700A9925B79DFB00F75233 /* NumberPuzzle_Icon.png */; };
+		B5700A9F25B79DFC00F75233 /* TicTacToe_Icon.png in Resources */ = {isa = PBXBuildFile; fileRef = B5700A9A25B79DFC00F75233 /* TicTacToe_Icon.png */; };
+		B5700AA025B79DFC00F75233 /* Random_Icon.png in Resources */ = {isa = PBXBuildFile; fileRef = B5700A9B25B79DFC00F75233 /* Random_Icon.png */; };
 		D5ADAA6781315963391C1340 /* Pods_Red_VS_Blue.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CCE058C75CFD31EE62E6548C /* Pods_Red_VS_Blue.framework */; };
 		E417786A25B09BF1004B3FD3 /* Icon@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = E417786725B09BF1004B3FD3 /* Icon@2x.png */; };
 		E417786B25B09BF1004B3FD3 /* Icon-72.png in Resources */ = {isa = PBXBuildFile; fileRef = E417786825B09BF1004B3FD3 /* Icon-72.png */; };
@@ -47,6 +52,11 @@
 		B54D322D25B55335008219E5 /* Delete_Icon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Delete_Icon.png; sourceTree = "<group>"; };
 		B54D323F25B5697F008219E5 /* Background1.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Background1.png; sourceTree = "<group>"; };
 		B54D324225B569DE008219E5 /* Background3.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Background3.png; sourceTree = "<group>"; };
+		B5700A9725B79DFB00F75233 /* CountTo21_Icon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = CountTo21_Icon.png; sourceTree = "<group>"; };
+		B5700A9825B79DFB00F75233 /* Hangman_Icon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Hangman_Icon.png; sourceTree = "<group>"; };
+		B5700A9925B79DFB00F75233 /* NumberPuzzle_Icon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = NumberPuzzle_Icon.png; sourceTree = "<group>"; };
+		B5700A9A25B79DFC00F75233 /* TicTacToe_Icon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = TicTacToe_Icon.png; sourceTree = "<group>"; };
+		B5700A9B25B79DFC00F75233 /* Random_Icon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Random_Icon.png; sourceTree = "<group>"; };
 		CCE058C75CFD31EE62E6548C /* Pods_Red_VS_Blue.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Red_VS_Blue.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		E417786725B09BF1004B3FD3 /* Icon@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Icon@2x.png"; sourceTree = "<group>"; };
 		E417786825B09BF1004B3FD3 /* Icon-72.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Icon-72.png"; sourceTree = "<group>"; };
@@ -159,6 +169,11 @@
 				B54D322D25B55335008219E5 /* Delete_Icon.png */,
 				B54D323F25B5697F008219E5 /* Background1.png */,
 				B54D324225B569DE008219E5 /* Background3.png */,
+				B5700A9725B79DFB00F75233 /* CountTo21_Icon.png */,
+				B5700A9825B79DFB00F75233 /* Hangman_Icon.png */,
+				B5700A9925B79DFB00F75233 /* NumberPuzzle_Icon.png */,
+				B5700A9B25B79DFC00F75233 /* Random_Icon.png */,
+				B5700A9A25B79DFC00F75233 /* TicTacToe_Icon.png */,
 			);
 			path = "Red VS Blue";
 			sourceTree = "<group>";
@@ -228,17 +243,22 @@
 				E49BECFA25B5AA150048CD7D /* Back_Arrow.png in Resources */,
 				E48A0C2425B031CC00122140 /* LaunchScreen.storyboard in Resources */,
 				E498EF4825B79395006621FA /* Red_Ball.png in Resources */,
+				B5700AA025B79DFC00F75233 /* Random_Icon.png in Resources */,
+				B5700A9D25B79DFC00F75233 /* Hangman_Icon.png in Resources */,
 				B54D322B25B5532F008219E5 /* Edit_Icon.png in Resources */,
 				E49BECE525B452AD0048CD7D /* Refresh_Icon.png in Resources */,
 				B54D324325B569DE008219E5 /* Background3.png in Resources */,
 				E498EF4B25B7939C006621FA /* Blue_Ball.png in Resources */,
 				E417786B25B09BF1004B3FD3 /* Icon-72.png in Resources */,
+				B5700A9F25B79DFC00F75233 /* TicTacToe_Icon.png in Resources */,
 				E498EF4F25B79718006621FA /* VS.png in Resources */,
 				E49BECD225B347150048CD7D /* RedVsBlueTitle.png in Resources */,
 				E49BECFD25B5AA2F0048CD7D /* RvB_Icon.png in Resources */,
 				E417786A25B09BF1004B3FD3 /* Icon@2x.png in Resources */,
 				B54D324025B5697F008219E5 /* Background1.png in Resources */,
+				B5700A9E25B79DFC00F75233 /* NumberPuzzle_Icon.png in Resources */,
 				E48A0C2125B031CC00122140 /* Assets.xcassets in Resources */,
+				B5700A9C25B79DFC00F75233 /* CountTo21_Icon.png in Resources */,
 				E48A0C1F25B031CB00122140 /* Main.storyboard in Resources */,
 				E41F4C0925B33F970008D15B /* GoogleService-Info.plist in Resources */,
 			);
