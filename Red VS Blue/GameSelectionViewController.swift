@@ -66,4 +66,11 @@ class GameSelectionViewController: UIViewController {
         }
         
     }
+    
+    @IBAction func pressedGoButton(_ sender: Any) {
+    }
+    
+    
+    @IBAction func pressedLeaveButton(_ sender: Any) {
+    }
 }

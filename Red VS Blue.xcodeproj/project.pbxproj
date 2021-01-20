@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		B502E9CB25B7FEE0008E19CE /* Leave_Icon.png in Resources */ = {isa = PBXBuildFile; fileRef = B502E9CA25B7FEE0008E19CE /* Leave_Icon.png */; };
 		B54D322B25B5532F008219E5 /* Edit_Icon.png in Resources */ = {isa = PBXBuildFile; fileRef = B54D322A25B5532F008219E5 /* Edit_Icon.png */; };
 		B54D322E25B55335008219E5 /* Delete_Icon.png in Resources */ = {isa = PBXBuildFile; fileRef = B54D322D25B55335008219E5 /* Delete_Icon.png */; };
 		B54D324025B5697F008219E5 /* Background1.png in Resources */ = {isa = PBXBuildFile; fileRef = B54D323F25B5697F008219E5 /* Background1.png */; };
@@ -52,6 +53,7 @@
 /* Begin PBXFileReference section */
 		43ABB6A6F7668DD1AEB8B0B2 /* Pods-Red VS Blue.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Red VS Blue.debug.xcconfig"; path = "Target Support Files/Pods-Red VS Blue/Pods-Red VS Blue.debug.xcconfig"; sourceTree = "<group>"; };
 		552C662B05C7E0E5425FDC15 /* Pods-Red VS Blue.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Red VS Blue.release.xcconfig"; path = "Target Support Files/Pods-Red VS Blue/Pods-Red VS Blue.release.xcconfig"; sourceTree = "<group>"; };
+		B502E9CA25B7FEE0008E19CE /* Leave_Icon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Leave_Icon.png; sourceTree = "<group>"; };
 		B54D322A25B5532F008219E5 /* Edit_Icon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Edit_Icon.png; sourceTree = "<group>"; };
 		B54D322D25B55335008219E5 /* Delete_Icon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Delete_Icon.png; sourceTree = "<group>"; };
 		B54D323F25B5697F008219E5 /* Background1.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Background1.png; sourceTree = "<group>"; };
@@ -178,6 +180,7 @@
 				E49BECF925B5AA150048CD7D /* Back_Arrow.png */,
 				E49BECE425B452AC0048CD7D /* Refresh_Icon.png */,
 				B54D322A25B5532F008219E5 /* Edit_Icon.png */,
+				B502E9CA25B7FEE0008E19CE /* Leave_Icon.png */,
 				B54D322D25B55335008219E5 /* Delete_Icon.png */,
 				B54D323F25B5697F008219E5 /* Background1.png */,
 				B54D324225B569DE008219E5 /* Background3.png */,
@@ -256,6 +259,7 @@
 				E49BECFA25B5AA150048CD7D /* Back_Arrow.png in Resources */,
 				E48A0C2425B031CC00122140 /* LaunchScreen.storyboard in Resources */,
 				E498EF5C25B7AAC9006621FA /* GameIcon_CountTo21.PNG in Resources */,
+				B502E9CB25B7FEE0008E19CE /* Leave_Icon.png in Resources */,
 				E498EF5D25B7AAC9006621FA /* GameIcon_NumberPuzzle.PNG in Resources */,
 				E498EF4825B79395006621FA /* Red_Ball.png in Resources */,
 				B54D322B25B5532F008219E5 /* Edit_Icon.png in Resources */,
