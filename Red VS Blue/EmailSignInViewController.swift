@@ -15,7 +15,6 @@ class EmailSignInViewController: UIViewController {
     
     let mainSegueIdentifier = "MainSegue"
     var usersRef: CollectionReference!
-    var randomNameGenerator = RandomStringGenerator()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -56,7 +55,7 @@ class EmailSignInViewController: UIViewController {
             
             print("It worked!!! A new user is created and now signed in.")
             
-            let randomName = self.randomNameGenerator.generateRandomUsername()
+            let randomName = RandomStringGenerator.singleton.generateRandomUsername()
             self.usersRef.addDocument(data: [
                 "id": Auth.auth().currentUser!.uid,
                 "name": randomName,

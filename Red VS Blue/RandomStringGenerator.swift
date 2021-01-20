@@ -10,6 +10,10 @@ import Firebase
 
 class RandomStringGenerator {
     
+    static let singleton = RandomStringGenerator()
+    
+    private init() {}
+    
     // Source: https://jimpix.co.uk/words/random-username-generator.asp#results
     var randomUsernames = ["lesservaluable", "vomitorygiving", "cheltedadjoining", "smishunion", "irritableultimate", "spotlessgave", "runpoose", "belovedthottage", "justicelunctured", "experiencehowl", "loyaltyfungus", "kayakingemerge", "gothiccarry", "erstwhileorodruin", "effluviumgrin", "biteerect", "unreliableslowly", "hobbitonschants", "bawdscarton", "cumindisfigured", "dindowspelt", "joinerundertaker", "efficientdemocracy", "amucknunchy", "glagtroubled"]
     

@@ -596,6 +596,34 @@
                                     <constraint firstAttribute="width" secondItem="vCY-Iv-DZa" secondAttribute="height" multiplier="73:61" id="wP2-gc-n60"/>
                                 </constraints>
                             </imageView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Select The Game!" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="jaA-Cs-cko">
+                                <rect key="frame" x="10" y="502" width="394" height="26.5"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="22"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Y91-N1-OF7">
+                                <rect key="frame" x="10" y="538.5" width="394" height="203.5"/>
+                                <subviews>
+                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="5Hi-tR-aoO">
+                                        <rect key="frame" x="0.0" y="0.0" width="394" height="203.5"/>
+                                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                    </view>
+                                </subviews>
+                                <constraints>
+                                    <constraint firstItem="5Hi-tR-aoO" firstAttribute="leading" secondItem="Y91-N1-OF7" secondAttribute="leading" id="5HT-wc-0yl"/>
+                                    <constraint firstAttribute="bottom" secondItem="5Hi-tR-aoO" secondAttribute="bottom" id="6cP-Zx-pnB"/>
+                                    <constraint firstItem="5Hi-tR-aoO" firstAttribute="centerY" secondItem="Y91-N1-OF7" secondAttribute="centerY" id="7g0-Ep-cec"/>
+                                    <constraint firstItem="5Hi-tR-aoO" firstAttribute="centerX" secondItem="Y91-N1-OF7" secondAttribute="centerX" id="F42-hp-46S"/>
+                                    <constraint firstItem="5Hi-tR-aoO" firstAttribute="top" secondItem="Y91-N1-OF7" secondAttribute="top" id="Jbf-Rl-oD9"/>
+                                    <constraint firstAttribute="trailing" secondItem="5Hi-tR-aoO" secondAttribute="trailing" id="XSf-Tc-RxL"/>
+                                </constraints>
+                            </scrollView>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="zeB-Cf-s9l">
+                                <rect key="frame" x="135" y="759" width="103" height="103"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="Button" image="GameIcon_Hangman.PNG"/>
+                            </button>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="lZ8-mj-NRo"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
@@ -603,17 +631,24 @@
                             <constraint firstAttribute="bottom" secondItem="TDK-xS-pYW" secondAttribute="bottom" id="Cdp-r5-OUX"/>
                             <constraint firstItem="be2-pp-w7G" firstAttribute="leading" secondItem="Ln6-pu-816" secondAttribute="trailing" constant="30" id="Ezu-Nx-ZSD"/>
                             <constraint firstItem="TDK-xS-pYW" firstAttribute="leading" secondItem="lZ8-mj-NRo" secondAttribute="leading" id="H5f-Rk-DAW"/>
+                            <constraint firstItem="lZ8-mj-NRo" firstAttribute="bottom" secondItem="Y91-N1-OF7" secondAttribute="bottom" constant="120" id="HOs-Ha-tfg"/>
                             <constraint firstItem="Ln6-pu-816" firstAttribute="top" secondItem="WXG-0c-GVQ" secondAttribute="top" constant="18" id="Jhm-po-6XE"/>
                             <constraint firstItem="PG1-78-hBK" firstAttribute="top" secondItem="be2-pp-w7G" secondAttribute="bottom" constant="35" id="M1B-4C-A2l"/>
+                            <constraint firstItem="jaA-Cs-cko" firstAttribute="top" secondItem="PKy-3c-WgB" secondAttribute="bottom" constant="85" id="PYZ-LG-RYp"/>
                             <constraint firstItem="PG1-78-hBK" firstAttribute="trailing" secondItem="lZ8-mj-NRo" secondAttribute="trailing" id="RlT-gX-KQx"/>
+                            <constraint firstItem="Y91-N1-OF7" firstAttribute="leading" secondItem="lZ8-mj-NRo" secondAttribute="leading" constant="10" id="WVb-E4-Knk"/>
                             <constraint firstItem="vCY-Iv-DZa" firstAttribute="centerX" secondItem="lZ8-mj-NRo" secondAttribute="centerX" id="X8z-dB-7hK"/>
                             <constraint firstItem="PG1-78-hBK" firstAttribute="leading" secondItem="PKy-3c-WgB" secondAttribute="trailing" constant="30" id="YDL-bE-cWu"/>
                             <constraint firstItem="vCY-Iv-DZa" firstAttribute="top" secondItem="be2-pp-w7G" secondAttribute="bottom" constant="97" id="ZGe-qo-wCL"/>
                             <constraint firstItem="Ln6-pu-816" firstAttribute="leading" secondItem="lZ8-mj-NRo" secondAttribute="leading" id="aG9-Hd-3zO"/>
+                            <constraint firstItem="Y91-N1-OF7" firstAttribute="top" secondItem="jaA-Cs-cko" secondAttribute="bottom" constant="10" id="d7Q-91-hnX"/>
                             <constraint firstItem="be2-pp-w7G" firstAttribute="top" secondItem="WXG-0c-GVQ" secondAttribute="top" constant="59" id="eZd-OT-J6Y"/>
                             <constraint firstItem="TDK-xS-pYW" firstAttribute="trailing" secondItem="lZ8-mj-NRo" secondAttribute="trailing" id="elO-fr-Q3P"/>
+                            <constraint firstItem="jaA-Cs-cko" firstAttribute="leading" secondItem="lZ8-mj-NRo" secondAttribute="leading" constant="10" id="epA-1h-7Lp"/>
+                            <constraint firstItem="lZ8-mj-NRo" firstAttribute="trailing" secondItem="Y91-N1-OF7" secondAttribute="trailing" constant="10" id="iO5-CS-Uae"/>
                             <constraint firstItem="PKy-3c-WgB" firstAttribute="leading" secondItem="lZ8-mj-NRo" secondAttribute="leading" constant="10" id="jW3-Zo-nWP"/>
                             <constraint firstItem="lZ8-mj-NRo" firstAttribute="trailing" secondItem="be2-pp-w7G" secondAttribute="trailing" constant="10" id="loX-wj-w8x"/>
+                            <constraint firstItem="lZ8-mj-NRo" firstAttribute="trailing" secondItem="jaA-Cs-cko" secondAttribute="trailing" constant="10" id="oA0-AZ-IAP"/>
                             <constraint firstItem="TDK-xS-pYW" firstAttribute="top" secondItem="WXG-0c-GVQ" secondAttribute="top" id="pGc-a1-pjL"/>
                             <constraint firstItem="PKy-3c-WgB" firstAttribute="top" secondItem="Ln6-pu-816" secondAttribute="bottom" constant="40" id="yEK-NE-iI2"/>
                         </constraints>
@@ -622,8 +657,10 @@
                     <connections>
                         <outlet property="clientBioLabel" destination="32i-BT-OvT" id="wDx-bB-VVg"/>
                         <outlet property="clientNameLabel" destination="HAK-5Z-bb6" id="S1l-m9-8SO"/>
+                        <outlet property="gamesScrollView" destination="5Hi-tR-aoO" id="5Ki-Ag-XhF"/>
                         <outlet property="hostBioLabel" destination="8ce-wK-0KU" id="kjN-xE-sNY"/>
                         <outlet property="hostNameLabel" destination="dvH-SS-8Pq" id="EZj-ko-Bk7"/>
+                        <outlet property="testButton" destination="zeB-Cf-s9l" id="8dD-mz-F9J"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Yub-HT-wcO" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
@@ -1131,6 +1168,7 @@
         <image name="Blue_Ball.png" width="340" height="794"/>
         <image name="Delete_Icon.png" width="384" height="384"/>
         <image name="Edit_Icon.png" width="279.27273559570312" height="279.27273559570312"/>
+        <image name="GameIcon_Hangman.PNG" width="512" height="512"/>
         <image name="RedVsBlueTitle.png" width="1280" height="283"/>
         <image name="Red_Ball.png" width="425" height="794"/>
         <image name="Refresh_Icon.png" width="1000" height="1000"/>

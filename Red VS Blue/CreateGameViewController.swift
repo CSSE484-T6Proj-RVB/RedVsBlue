@@ -19,7 +19,6 @@ class CreateGameViewController: UIViewController {
     var gameDatumRef: DocumentReference!
     var gameDataListener: ListenerRegistration!
     var gameDatumListener: ListenerRegistration!
-    var randomRoomNumGenerator = RandomStringGenerator()
     var nonEmptyRoomIds = [String]()
     var digits: String!
     var user: User!
@@ -44,9 +43,9 @@ class CreateGameViewController: UIViewController {
         
         startListening()
         
-        digits = randomRoomNumGenerator.generateRandomRoomNumber()
+        digits = RandomStringGenerator.singleton.generateRandomRoomNumber()
         while nonEmptyRoomIds.contains(digits) {
-            digits = randomRoomNumGenerator.generateRandomRoomNumber()
+            digits = RandomStringGenerator.singleton.generateRandomRoomNumber()
         }
         
         updateDigitCodes(digits: digits)

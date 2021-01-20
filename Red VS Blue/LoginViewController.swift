@@ -19,7 +19,6 @@ class LoginViewController: UIViewController {
     let signUpSegueIdentifier = "SignUpSegue"
     let REGISTRY_TOKEN = "9f549980-c326-4e31-aa18-869cc452b1d4"
     
-    var randomNameGenerator = RandomStringGenerator()
     var usersRef: CollectionReference!
     
     override func viewDidLoad() {
@@ -69,7 +68,7 @@ class LoginViewController: UIViewController {
                         print("error \(error)")
                         return
                     }
-                    let randomName = self.randomNameGenerator.generateRandomUsername()
+                    let randomName = RandomStringGenerator.singleton.generateRandomUsername()
                     if querySnapshot!.count == 0 {
                         self.usersRef.addDocument(data: [
                             "id": Auth.auth().currentUser!.uid,

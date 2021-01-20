@@ -16,9 +16,11 @@ class GameSelectionViewController: UIViewController {
     @IBOutlet weak var clientNameLabel: UILabel!
     @IBOutlet weak var clientBioLabel: UILabel!
     
+    @IBOutlet weak var gamesScrollView: UIView!
+    @IBOutlet weak var testButton: UIButton!
+    
     var roomRef: DocumentReference!
     var roomListener: ListenerRegistration!
-    
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -29,6 +31,7 @@ class GameSelectionViewController: UIViewController {
         super.viewWillAppear(animated)
         navigationController?.setNavigationBarHidden(true, animated: false)
         startListening()
+        loadGameButtons()
     }
     
     override func viewWillDisappear(_ animated: Bool) {
@@ -49,5 +52,18 @@ class GameSelectionViewController: UIViewController {
                 return
             }
         })
+    }
+    
+    func loadGameButtons() {
+        var x = 20
+        for game in GameCollection.singleton.games {
+            let button = UIButton(type: .custom) as UIButton
+            button.frame = CGRect(x: x, y: 20, width: 75, height: 75)
+            button.setImage(game.gameIconImage, for: .normal)
+            //button.addTarget(self, action: "btnTouched:", forControlEvents:.TouchUpInside)
+            gamesScrollView.addSubview(button)
+            x = x + 20
+        }
+        
     }
 }
