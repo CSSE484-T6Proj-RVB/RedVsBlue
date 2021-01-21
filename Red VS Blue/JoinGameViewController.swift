@@ -44,6 +44,7 @@ class JoinGameViewController: UIViewController, UITextFieldDelegate {
         nameLabel.text = user.name
         
         user.identity = 0
+        user.score = 0
         
         startListening()
     }

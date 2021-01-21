@@ -41,6 +41,7 @@ class CreateGameViewController: UIViewController {
         
         userNameLabel.text = user.name
         user.identity = 1
+        user.score = 0
         
         startListening()
         

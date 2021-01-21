@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="17701" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="wM3-QK-0dx">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="17506" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="wM3-QK-0dx">
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17703"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17505"/>
         <capability name="Named colors" minToolsVersion="9.0"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="System colors in document resources" minToolsVersion="11.0"/>
@@ -1076,6 +1076,8 @@
                     <connections>
                         <outlet property="gameBoardView" destination="Pfa-Ce-qJ6" id="E3s-bi-43d"/>
                         <outlet property="gameStateLabel" destination="FF7-u9-UnZ" id="NUD-ja-M00"/>
+                        <outlet property="lowerBannerView" destination="slj-zS-pOL" id="iT2-d1-O9o"/>
+                        <outlet property="upperBannerView" destination="Pkh-51-m2w" id="8Ae-yL-VJ3"/>
                         <outletCollection property="gameBoardButtons" destination="amh-Rd-7vm" collectionClass="NSMutableArray" id="gN2-hb-Yg9"/>
                         <outletCollection property="gameBoardButtons" destination="uzE-kH-w7M" collectionClass="NSMutableArray" id="xvq-ro-sgM"/>
                         <outletCollection property="gameBoardButtons" destination="bte-ge-830" collectionClass="NSMutableArray" id="2ta-4Y-1oQ"/>

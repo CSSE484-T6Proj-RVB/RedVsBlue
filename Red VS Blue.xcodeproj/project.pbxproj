@@ -41,8 +41,8 @@
 		E498EF7725B91A93006621FA /* RandomGame.swift in Sources */ = {isa = PBXBuildFile; fileRef = E498EF7625B91A93006621FA /* RandomGame.swift */; };
 		E498EF7C25B9A473006621FA /* TicTacToeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E498EF7B25B9A473006621FA /* TicTacToeViewController.swift */; };
 		E498EF8425B9AC56006621FA /* iPhone_board.png in Resources */ = {isa = PBXBuildFile; fileRef = E498EF8325B9AC56006621FA /* iPhone_board.png */; };
-		E498EF8725B9B02D006621FA /* iPhone_X.png in Resources */ = {isa = PBXBuildFile; fileRef = E498EF8625B9B02D006621FA /* iPhone_X.png */; };
-		E498EF8A25B9B04A006621FA /* iPhone_O.png in Resources */ = {isa = PBXBuildFile; fileRef = E498EF8925B9B04A006621FA /* iPhone_O.png */; };
+		E498EF8E25B9F8AB006621FA /* TicTacToe_O.PNG in Resources */ = {isa = PBXBuildFile; fileRef = E498EF8C25B9F8AB006621FA /* TicTacToe_O.PNG */; };
+		E498EF8F25B9F8AB006621FA /* TicTacToe_X.PNG in Resources */ = {isa = PBXBuildFile; fileRef = E498EF8D25B9F8AB006621FA /* TicTacToe_X.PNG */; };
 		E49BECC525B344100048CD7D /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E49BECC425B344100048CD7D /* LoginViewController.swift */; };
 		E49BECD225B347150048CD7D /* RedVsBlueTitle.png in Resources */ = {isa = PBXBuildFile; fileRef = E49BECD125B347150048CD7D /* RedVsBlueTitle.png */; };
 		E49BECD525B34AA40048CD7D /* MainPageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E49BECD425B34AA40048CD7D /* MainPageViewController.swift */; };
@@ -97,8 +97,8 @@
 		E498EF7625B91A93006621FA /* RandomGame.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RandomGame.swift; sourceTree = "<group>"; };
 		E498EF7B25B9A473006621FA /* TicTacToeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TicTacToeViewController.swift; sourceTree = "<group>"; };
 		E498EF8325B9AC56006621FA /* iPhone_board.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = iPhone_board.png; sourceTree = "<group>"; };
-		E498EF8625B9B02D006621FA /* iPhone_X.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = iPhone_X.png; sourceTree = "<group>"; };
-		E498EF8925B9B04A006621FA /* iPhone_O.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = iPhone_O.png; sourceTree = "<group>"; };
+		E498EF8C25B9F8AB006621FA /* TicTacToe_O.PNG */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = TicTacToe_O.PNG; sourceTree = "<group>"; };
+		E498EF8D25B9F8AB006621FA /* TicTacToe_X.PNG */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = TicTacToe_X.PNG; sourceTree = "<group>"; };
 		E49BECC425B344100048CD7D /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
 		E49BECD125B347150048CD7D /* RedVsBlueTitle.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = RedVsBlueTitle.png; sourceTree = "<group>"; };
 		E49BECD425B34AA40048CD7D /* MainPageViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainPageViewController.swift; sourceTree = "<group>"; };
@@ -201,8 +201,8 @@
 		E498EF7E25B9A6DB006621FA /* Images */ = {
 			isa = PBXGroup;
 			children = (
-				E498EF8625B9B02D006621FA /* iPhone_X.png */,
-				E498EF8925B9B04A006621FA /* iPhone_O.png */,
+				E498EF8C25B9F8AB006621FA /* TicTacToe_O.PNG */,
+				E498EF8D25B9F8AB006621FA /* TicTacToe_X.PNG */,
 				E498EF8325B9AC56006621FA /* iPhone_board.png */,
 				B54D323F25B5697F008219E5 /* Background1.png */,
 				B54D324225B569DE008219E5 /* Background3.png */,
@@ -302,14 +302,14 @@
 				E498EF4B25B7939C006621FA /* Blue_Ball.png in Resources */,
 				E498EF5E25B7AAC9006621FA /* GameIcon_Hangman.PNG in Resources */,
 				E417786B25B09BF1004B3FD3 /* Icon-72.png in Resources */,
-				E498EF8A25B9B04A006621FA /* iPhone_O.png in Resources */,
 				E498EF4F25B79718006621FA /* VS.png in Resources */,
 				E49BECD225B347150048CD7D /* RedVsBlueTitle.png in Resources */,
 				E49BECFD25B5AA2F0048CD7D /* RvB_Icon.png in Resources */,
 				E417786A25B09BF1004B3FD3 /* Icon@2x.png in Resources */,
 				B54D324025B5697F008219E5 /* Background1.png in Resources */,
 				E48A0C2125B031CC00122140 /* Assets.xcassets in Resources */,
-				E498EF8725B9B02D006621FA /* iPhone_X.png in Resources */,
+				E498EF8E25B9F8AB006621FA /* TicTacToe_O.PNG in Resources */,
+				E498EF8F25B9F8AB006621FA /* TicTacToe_X.PNG in Resources */,
 				E48A0C1F25B031CB00122140 /* Main.storyboard in Resources */,
 				E41F4C0925B33F970008D15B /* GoogleService-Info.plist in Resources */,
 			);
