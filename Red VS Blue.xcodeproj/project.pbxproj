@@ -35,6 +35,9 @@
 		E498EF6625B7B5CE006621FA /* Game.swift in Sources */ = {isa = PBXBuildFile; fileRef = E498EF6525B7B5CE006621FA /* Game.swift */; };
 		E498EF6925B7B60C006621FA /* TicTacToeGame.swift in Sources */ = {isa = PBXBuildFile; fileRef = E498EF6825B7B60C006621FA /* TicTacToeGame.swift */; };
 		E498EF6C25B7BA6F006621FA /* HangmanGame.swift in Sources */ = {isa = PBXBuildFile; fileRef = E498EF6B25B7BA6F006621FA /* HangmanGame.swift */; };
+		E498EF7025B91999006621FA /* CountTo21Game.swift in Sources */ = {isa = PBXBuildFile; fileRef = E498EF6F25B91999006621FA /* CountTo21Game.swift */; };
+		E498EF7425B91A44006621FA /* NumberPuzzleGame.swift in Sources */ = {isa = PBXBuildFile; fileRef = E498EF7325B91A44006621FA /* NumberPuzzleGame.swift */; };
+		E498EF7725B91A93006621FA /* RandomGame.swift in Sources */ = {isa = PBXBuildFile; fileRef = E498EF7625B91A93006621FA /* RandomGame.swift */; };
 		E49BECC525B344100048CD7D /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E49BECC425B344100048CD7D /* LoginViewController.swift */; };
 		E49BECD225B347150048CD7D /* RedVsBlueTitle.png in Resources */ = {isa = PBXBuildFile; fileRef = E49BECD125B347150048CD7D /* RedVsBlueTitle.png */; };
 		E49BECD525B34AA40048CD7D /* MainPageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E49BECD425B34AA40048CD7D /* MainPageViewController.swift */; };
@@ -83,6 +86,9 @@
 		E498EF6525B7B5CE006621FA /* Game.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Game.swift; sourceTree = "<group>"; };
 		E498EF6825B7B60C006621FA /* TicTacToeGame.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TicTacToeGame.swift; sourceTree = "<group>"; };
 		E498EF6B25B7BA6F006621FA /* HangmanGame.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HangmanGame.swift; sourceTree = "<group>"; };
+		E498EF6F25B91999006621FA /* CountTo21Game.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CountTo21Game.swift; sourceTree = "<group>"; };
+		E498EF7325B91A44006621FA /* NumberPuzzleGame.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NumberPuzzleGame.swift; sourceTree = "<group>"; };
+		E498EF7625B91A93006621FA /* RandomGame.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RandomGame.swift; sourceTree = "<group>"; };
 		E49BECC425B344100048CD7D /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
 		E49BECD125B347150048CD7D /* RedVsBlueTitle.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = RedVsBlueTitle.png; sourceTree = "<group>"; };
 		E49BECD425B34AA40048CD7D /* MainPageViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainPageViewController.swift; sourceTree = "<group>"; };
@@ -168,6 +174,9 @@
 				E498EF6525B7B5CE006621FA /* Game.swift */,
 				E498EF6825B7B60C006621FA /* TicTacToeGame.swift */,
 				E498EF6B25B7BA6F006621FA /* HangmanGame.swift */,
+				E498EF6F25B91999006621FA /* CountTo21Game.swift */,
+				E498EF7325B91A44006621FA /* NumberPuzzleGame.swift */,
+				E498EF7625B91A93006621FA /* RandomGame.swift */,
 				E48A0C1D25B031CB00122140 /* Main.storyboard */,
 				E48A0C2225B031CC00122140 /* LaunchScreen.storyboard */,
 				E48A0C2525B031CC00122140 /* Info.plist */,
@@ -358,7 +367,10 @@
 				E49BECD925B354250048CD7D /* EmailSignInViewController.swift in Sources */,
 				E498EF6625B7B5CE006621FA /* Game.swift in Sources */,
 				E48A0C1825B031CB00122140 /* AppDelegate.swift in Sources */,
+				E498EF7425B91A44006621FA /* NumberPuzzleGame.swift in Sources */,
+				E498EF7025B91999006621FA /* CountTo21Game.swift in Sources */,
 				E49BECEF25B589430048CD7D /* LeaderboardViewController.swift in Sources */,
+				E498EF7725B91A93006621FA /* RandomGame.swift in Sources */,
 				E498EF6925B7B60C006621FA /* TicTacToeGame.swift in Sources */,
 				E49BECF725B5A69F0048CD7D /* User.swift in Sources */,
 				E48A0C1A25B031CB00122140 /* SceneDelegate.swift in Sources */,

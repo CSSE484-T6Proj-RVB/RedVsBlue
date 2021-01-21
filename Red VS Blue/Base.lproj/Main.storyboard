@@ -635,14 +635,12 @@
                                         <subviews>
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="QEX-0I-m3k">
                                                 <rect key="frame" x="8" y="8" width="398" height="86"/>
-                                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="86" id="ram-hx-ex7"/>
                                                 </constraints>
                                             </view>
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="9dD-6w-BX9">
                                                 <rect key="frame" x="8" y="594" width="398" height="86"/>
-                                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 <constraints>
                                                     <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="86" id="6X7-lD-1th"/>
                                                     <constraint firstAttribute="height" constant="86" id="my2-N2-lfF"/>

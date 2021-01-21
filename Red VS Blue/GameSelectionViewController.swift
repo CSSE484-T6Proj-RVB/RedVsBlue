@@ -74,7 +74,8 @@ class GameSelectionViewController: UIViewController {
         var x = startingXPos, y = startingYPos
         //gameScrollView.frame.size.height = CGFloat(numRows * (verticalGap + iconWidth))
         
-        for game in GameCollection.singleton.games {
+        for index in 0..<GameCollection.singleton.games.count {
+            let game = GameCollection.singleton.games[index]
             let button = UIButton(type: .custom) as UIButton
             if x + horizontalGap + iconWidth >= Int(viewWidth) {
                 y += verticalGap + iconWidth
@@ -82,6 +83,7 @@ class GameSelectionViewController: UIViewController {
             }
             button.frame = CGRect(x: x, y: y, width: iconWidth, height: iconWidth)
             button.setImage(game.gameIconImage, for: .normal)
+            button.tag = index
             //button.addTarget(self, action: "btnTouched:", forControlEvents:.TouchUpInside)
             gameScrollView.addSubview(button)
             x += horizontalGap + iconWidth
@@ -103,7 +105,6 @@ class GameSelectionViewController: UIViewController {
         alertController.addAction(UIAlertAction(title: "Confirm",
                                                 style: .default)
         { (action) in
-            //self.roomRef.delete()
             self.roomRef.updateData([
                 "endGameRequest": true
             ])
