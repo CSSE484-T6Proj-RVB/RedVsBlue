@@ -43,6 +43,8 @@ class JoinGameViewController: UIViewController, UITextFieldDelegate {
         nameView.layer.borderColor = UIColor.black.cgColor
         nameLabel.text = user.name
         
+        user.identity = 0
+        
         startListening()
     }
     
@@ -133,6 +135,8 @@ class JoinGameViewController: UIViewController, UITextFieldDelegate {
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == gameSelectionSegueIdentifier {
             (segue.destination as! GameSelectionViewController).roomRef = gameDatumRef
+            (segue.destination as! GameSelectionViewController).user = user
+
         }
     }
 }

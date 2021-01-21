@@ -40,6 +40,7 @@ class CreateGameViewController: UIViewController {
         userNameView.layer.borderColor = UIColor.black.cgColor
         
         userNameLabel.text = user.name
+        user.identity = 1
         
         startListening()
         
@@ -115,7 +116,7 @@ class CreateGameViewController: UIViewController {
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == gameSelectionSegueIdentifier {
             (segue.destination as! GameSelectionViewController).roomRef = gameDatumRef
-            (segue.destination as! GameSelectionViewController).hostUser = user
+            (segue.destination as! GameSelectionViewController).user = user
         }
     }
 }

@@ -28,11 +28,11 @@ class GameSelectionViewController: UIViewController {
     var roomListener: ListenerRegistration!
     
     var gameButtons: [UIButton] = []
-    var currentSelectedButton: UIButton?
+    var currentSelectedButtonIndex: Int =  -1
     
     let loadingSegue = "LoadingSegue"
     
-    var hostUser: User?
+    var user: User!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -42,12 +42,15 @@ class GameSelectionViewController: UIViewController {
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         navigationController?.setNavigationBarHidden(true, animated: false)
-        if hostUser == nil {
+        if user.identity == 0 {
             hostGoButton.isHidden = true
             clientWaitingLabel.isHidden = false
-        } else {
+        } else if user.identity == 1{
             hostGoButton.isHidden = false
             clientWaitingLabel.isHidden = true
+        } else {
+            // never happens
+            print("This should never be printed!!!!!!!!!!!!!!!!!!!!!!!!")
         }
         startListening()
         loadGameButtons()
@@ -81,10 +84,12 @@ class GameSelectionViewController: UIViewController {
                     self.present(alertController, animated: true, completion: nil)
                 }
                 if let selectedTag = documentSnapshot.data()!["currentGameSelected"] as? Int {
-                    if self.hostUser == nil {
+                    if self.user.identity == 0 {
                         self.resetAllIcon()
                         self.selectIcon(currentSelected: selectedTag)
                         self.updateGameSelectedLabel(currentSelected: selectedTag)
+                        self.currentSelectedButtonIndex = selectedTag
+
                     }
                 }
                 if let _ = documentSnapshot.data()!["startGameRequest"] as? Bool {
@@ -123,7 +128,7 @@ class GameSelectionViewController: UIViewController {
     
     @objc func pressedGameIcon (sender: UIButton!) {
         print(sender.tag)
-        if hostUser == nil {
+        if user.identity == 0 {
             let alertController = UIAlertController(title: nil,
                                                     message: "You cannot select the game.",
                                                     preferredStyle: .alert)
@@ -139,7 +144,7 @@ class GameSelectionViewController: UIViewController {
         self.roomRef.updateData([
             "currentGameSelected": sender.tag
         ])
-        currentSelectedButton = sender
+        currentSelectedButtonIndex = sender.tag
     }
     
     func resetAllIcon() {
@@ -159,7 +164,7 @@ class GameSelectionViewController: UIViewController {
     }
     
     @IBAction func pressedGoButton(_ sender: Any) {
-        if currentSelectedButton != nil {
+        if currentSelectedButtonIndex != -1 {
             self.roomRef.updateData([
                 "startGameRequest": true
             ])
@@ -205,6 +210,8 @@ class GameSelectionViewController: UIViewController {
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == loadingSegue {
             (segue.destination as! LoadingViewController).roomRef = roomRef
+            (segue.destination as! LoadingViewController).gameSelectedIndex = currentSelectedButtonIndex
+            (segue.destination as! LoadingViewController).currentUser = user
         }
     }
 }

@@ -17,6 +17,9 @@ class User {
     var matchesPlayed: Int
     var matchesWon: Int
     
+    var identity: Int = -1 //-1: not assigned     0: client     1: host
+    var score: Int = 0
+    
     init(documentSnapshot: DocumentSnapshot) {
         self.userDocId = documentSnapshot.documentID
         let data = documentSnapshot.data()!
