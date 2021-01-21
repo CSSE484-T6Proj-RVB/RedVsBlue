@@ -48,15 +48,15 @@ class TicTacToeGame: Game, CustomStringConvertible {
         return gameString
     }
     
-    func pressedSquareAt(_ index: Int) {
+    func pressedSquareAt(_ index: Int) -> Bool {
         if board[index] != .none {
             print("not empty")
-            return
+            return false
         }
         switch state {
         case .xWin, .oWin, .tie:
             print("This game is over already!")
-            return
+            return false
         case .xTurn:
             board[index] = .x
             state = .oTurn
@@ -65,6 +65,7 @@ class TicTacToeGame: Game, CustomStringConvertible {
             state = .xTurn
         }
         checkForWin()
+        return true
     }
     
     func checkForWin() {

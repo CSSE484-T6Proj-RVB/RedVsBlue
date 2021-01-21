@@ -1047,24 +1047,35 @@
                                     <constraint firstItem="Z7F-MB-n9a" firstAttribute="leading" secondItem="Pfa-Ce-qJ6" secondAttribute="leading" id="vOa-3I-pUW"/>
                                 </constraints>
                             </view>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Your Turn" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="FF7-u9-UnZ">
+                                <rect key="frame" x="10" y="226.5" width="394" height="33.5"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="28"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="Q0L-Ve-uqR"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
                             <constraint firstItem="slj-zS-pOL" firstAttribute="top" secondItem="Pfa-Ce-qJ6" secondAttribute="bottom" constant="80" id="2cz-8E-itQ"/>
+                            <constraint firstItem="Q0L-Ve-uqR" firstAttribute="trailing" secondItem="FF7-u9-UnZ" secondAttribute="trailing" constant="10" id="8Oa-mq-A2c"/>
                             <constraint firstItem="Pfa-Ce-qJ6" firstAttribute="top" secondItem="Pkh-51-m2w" secondAttribute="bottom" constant="80" id="QBQ-Oc-umq"/>
                             <constraint firstItem="Pkh-51-m2w" firstAttribute="leading" secondItem="Q0L-Ve-uqR" secondAttribute="leading" id="Qmw-mP-vRM"/>
                             <constraint firstItem="Q0L-Ve-uqR" firstAttribute="trailing" secondItem="Pkh-51-m2w" secondAttribute="trailing" id="RJQ-cS-apx"/>
+                            <constraint firstItem="Pfa-Ce-qJ6" firstAttribute="top" secondItem="FF7-u9-UnZ" secondAttribute="bottom" constant="20" id="YZn-2i-vPX"/>
                             <constraint firstItem="slj-zS-pOL" firstAttribute="trailing" secondItem="Q0L-Ve-uqR" secondAttribute="trailing" id="Z2n-Jm-qrq"/>
                             <constraint firstItem="slj-zS-pOL" firstAttribute="leading" secondItem="Q0L-Ve-uqR" secondAttribute="leading" id="b19-ps-LHK"/>
                             <constraint firstItem="Pkh-51-m2w" firstAttribute="top" secondItem="uB1-hv-cds" secondAttribute="top" id="dk2-zN-7rh"/>
+                            <constraint firstItem="FF7-u9-UnZ" firstAttribute="centerX" secondItem="Q0L-Ve-uqR" secondAttribute="centerX" id="eQK-9D-EOe"/>
                             <constraint firstAttribute="bottom" secondItem="slj-zS-pOL" secondAttribute="bottom" id="kQu-8z-clu"/>
+                            <constraint firstItem="FF7-u9-UnZ" firstAttribute="leading" secondItem="Q0L-Ve-uqR" secondAttribute="leading" constant="10" id="tMj-Fe-X4M"/>
                             <constraint firstItem="Pfa-Ce-qJ6" firstAttribute="centerX" secondItem="Q0L-Ve-uqR" secondAttribute="centerX" id="vzb-Ue-KJS"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="fGC-7T-FGp"/>
                     <connections>
                         <outlet property="gameBoardView" destination="Pfa-Ce-qJ6" id="E3s-bi-43d"/>
+                        <outlet property="gameStateLabel" destination="FF7-u9-UnZ" id="NUD-ja-M00"/>
                         <outletCollection property="gameBoardButtons" destination="amh-Rd-7vm" collectionClass="NSMutableArray" id="gN2-hb-Yg9"/>
                         <outletCollection property="gameBoardButtons" destination="uzE-kH-w7M" collectionClass="NSMutableArray" id="xvq-ro-sgM"/>
                         <outletCollection property="gameBoardButtons" destination="bte-ge-830" collectionClass="NSMutableArray" id="2ta-4Y-1oQ"/>
