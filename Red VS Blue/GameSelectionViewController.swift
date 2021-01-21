@@ -25,7 +25,6 @@ class GameSelectionViewController: UIViewController {
     var roomListener: ListenerRegistration!
     
     var gameButtons: [UIButton] = []
-    var gameNames:  [String] = []
     
     var hostUser: User?
     
@@ -103,7 +102,6 @@ class GameSelectionViewController: UIViewController {
             x += horizontalGap + iconWidth
             button.addTarget(self, action: #selector(pressedGameIcon), for: .touchUpInside)
             gameButtons.append(button)
-            gameNames.append(game.name)
         }
     }
     
@@ -140,7 +138,7 @@ class GameSelectionViewController: UIViewController {
     }
     
     func updateGameSelectedLabel(currentSelected: Int!) {
-        gameSelectedLabel.text = "Current Selected: \(gameNames[currentSelected])"
+        gameSelectedLabel.text = "Current Selected: \(GameCollection.singleton.games[currentSelected].name)"
     }
     
     @IBAction func pressedGoButton(_ sender: Any) {
