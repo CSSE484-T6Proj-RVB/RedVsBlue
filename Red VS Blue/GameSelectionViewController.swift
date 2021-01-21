@@ -21,6 +21,9 @@ class GameSelectionViewController: UIViewController {
     
     @IBOutlet weak var gameSelectedLabel: UILabel!
     
+    @IBOutlet weak var clientWaitingLabel: UILabel!
+    @IBOutlet weak var hostGoButton: UIButton!
+    
     var roomRef: DocumentReference!
     var roomListener: ListenerRegistration!
     
@@ -36,6 +39,13 @@ class GameSelectionViewController: UIViewController {
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         navigationController?.setNavigationBarHidden(true, animated: false)
+        if hostUser == nil {
+            hostGoButton.isHidden = true
+            clientWaitingLabel.isHidden = false
+        } else {
+            hostGoButton.isHidden = false
+            clientWaitingLabel.isHidden = true
+        }
         startListening()
         loadGameButtons()
     }

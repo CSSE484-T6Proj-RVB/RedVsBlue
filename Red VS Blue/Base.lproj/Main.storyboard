@@ -667,16 +667,25 @@
                                     <constraint firstItem="BNs-EO-ZmN" firstAttribute="leading" secondItem="IFr-kH-cQC" secondAttribute="leading" id="ve3-6F-XwJ"/>
                                 </constraints>
                             </scrollView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Waiting for the host to select a game" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="71L-WJ-c1c">
+                                <rect key="frame" x="78" y="828.5" width="306" height="20.5"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="lZ8-mj-NRo"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
                             <constraint firstItem="zeB-Cf-s9l" firstAttribute="top" secondItem="IFr-kH-cQC" secondAttribute="bottom" constant="30" id="0hr-df-JIn"/>
                             <constraint firstItem="IFr-kH-cQC" firstAttribute="trailing" secondItem="lZ8-mj-NRo" secondAttribute="trailing" id="11g-ke-ogJ"/>
+                            <constraint firstItem="71L-WJ-c1c" firstAttribute="leading" secondItem="SH6-3C-Oes" secondAttribute="trailing" constant="8" id="29l-CY-W8p"/>
                             <constraint firstItem="SH6-3C-Oes" firstAttribute="centerY" secondItem="zeB-Cf-s9l" secondAttribute="centerY" id="2sG-yQ-KKv"/>
                             <constraint firstAttribute="bottom" secondItem="TDK-xS-pYW" secondAttribute="bottom" id="Cdp-r5-OUX"/>
                             <constraint firstItem="be2-pp-w7G" firstAttribute="leading" secondItem="Ln6-pu-816" secondAttribute="trailing" constant="30" id="Ezu-Nx-ZSD"/>
                             <constraint firstItem="TDK-xS-pYW" firstAttribute="leading" secondItem="lZ8-mj-NRo" secondAttribute="leading" id="H5f-Rk-DAW"/>
+                            <constraint firstItem="lZ8-mj-NRo" firstAttribute="bottom" secondItem="71L-WJ-c1c" secondAttribute="bottom" constant="13" id="I4x-b5-hQl"/>
+                            <constraint firstItem="lZ8-mj-NRo" firstAttribute="trailing" secondItem="71L-WJ-c1c" secondAttribute="trailing" constant="30" id="Ihy-MM-6xG"/>
                             <constraint firstItem="Ln6-pu-816" firstAttribute="top" secondItem="WXG-0c-GVQ" secondAttribute="top" constant="18" id="Jhm-po-6XE"/>
                             <constraint firstItem="PG1-78-hBK" firstAttribute="top" secondItem="be2-pp-w7G" secondAttribute="bottom" constant="35" id="M1B-4C-A2l"/>
                             <constraint firstItem="jaA-Cs-cko" firstAttribute="top" secondItem="PKy-3c-WgB" secondAttribute="bottom" constant="85" id="PYZ-LG-RYp"/>
@@ -705,9 +714,11 @@
                     <connections>
                         <outlet property="clientBioLabel" destination="32i-BT-OvT" id="wDx-bB-VVg"/>
                         <outlet property="clientNameLabel" destination="HAK-5Z-bb6" id="S1l-m9-8SO"/>
+                        <outlet property="clientWaitingLabel" destination="71L-WJ-c1c" id="4nk-vn-Hnf"/>
                         <outlet property="gameScrollView" destination="BNs-EO-ZmN" id="UIz-Ge-u61"/>
                         <outlet property="gameSelectedLabel" destination="jaA-Cs-cko" id="vI0-31-yn7"/>
                         <outlet property="hostBioLabel" destination="8ce-wK-0KU" id="kjN-xE-sNY"/>
+                        <outlet property="hostGoButton" destination="zeB-Cf-s9l" id="GNc-XQ-Mmj"/>
                         <outlet property="hostNameLabel" destination="dvH-SS-8Pq" id="EZj-ko-Bk7"/>
                         <outlet property="testButton" destination="zeB-Cf-s9l" id="8dD-mz-F9J"/>
                     </connections>
