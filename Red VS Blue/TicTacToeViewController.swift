@@ -57,7 +57,8 @@ class TicTacToeViewController: UIViewController {
     }
     
     @IBAction func pressedGameBoardButton(_ sender: Any) {
-        //game.pressedSquareAt(<#T##index: Int##Int#>)
+        let button = sender as! UIButton
+        game.pressedSquareAt(button.tag)
         updateView()
     }
     

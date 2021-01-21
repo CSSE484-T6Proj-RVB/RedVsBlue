@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="17506" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="wM3-QK-0dx">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="17701" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="wM3-QK-0dx">
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17505"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17703"/>
         <capability name="Named colors" minToolsVersion="9.0"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="System colors in document resources" minToolsVersion="11.0"/>
@@ -815,9 +815,6 @@
                             <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" editable="NO" textAlignment="natural" selectable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="8iu-oX-h5c">
                                 <rect key="frame" x="20" y="595" width="374" height="160"/>
                                 <color key="backgroundColor" red="0.92143100499999997" green="0.92145264149999995" blue="0.92144101860000005" alpha="0.4920921073054636" colorSpace="custom" customColorSpace="sRGB"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="160" id="X5B-tL-P8u"/>
-                                </constraints>
                                 <color key="textColor" systemColor="labelColor"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
@@ -881,6 +878,7 @@
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
                             <constraint firstItem="gl1-q8-Mgz" firstAttribute="trailing" secondItem="8iu-oX-h5c" secondAttribute="trailing" constant="20" id="0dM-19-B5o"/>
+                            <constraint firstItem="00P-X0-R5e" firstAttribute="top" secondItem="8iu-oX-h5c" secondAttribute="bottom" constant="12.5" id="1D2-1X-VbF"/>
                             <constraint firstItem="1lP-He-cbS" firstAttribute="top" secondItem="iRo-VC-2ds" secondAttribute="bottom" constant="40" id="1KM-GK-VwV"/>
                             <constraint firstItem="gl1-q8-Mgz" firstAttribute="bottom" secondItem="Gf4-I3-9xD" secondAttribute="bottom" constant="30" id="1b5-zA-U99"/>
                             <constraint firstItem="gl1-q8-Mgz" firstAttribute="trailing" secondItem="x2y-Br-Ft5" secondAttribute="trailing" constant="10" id="2DM-kk-BKt"/>
