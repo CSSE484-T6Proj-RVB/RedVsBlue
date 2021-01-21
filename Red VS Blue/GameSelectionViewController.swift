@@ -28,6 +28,9 @@ class GameSelectionViewController: UIViewController {
     var roomListener: ListenerRegistration!
     
     var gameButtons: [UIButton] = []
+    var currentSelectedButton: UIButton?
+    
+    let loadingSegue = "LoadingSegue"
     
     var hostUser: User?
     
@@ -84,6 +87,9 @@ class GameSelectionViewController: UIViewController {
                         self.updateGameSelectedLabel(currentSelected: selectedTag)
                     }
                 }
+                if let _ = documentSnapshot.data()!["startGameRequest"] as? Bool {
+                    self.performSegue(withIdentifier: self.loadingSegue, sender: self)
+                }
             } else {
                 print("Error getting room data \(error!)")
                 return
@@ -133,6 +139,7 @@ class GameSelectionViewController: UIViewController {
         self.roomRef.updateData([
             "currentGameSelected": sender.tag
         ])
+        currentSelectedButton = sender
     }
     
     func resetAllIcon() {
@@ -152,6 +159,20 @@ class GameSelectionViewController: UIViewController {
     }
     
     @IBAction func pressedGoButton(_ sender: Any) {
+        if currentSelectedButton != nil {
+            self.roomRef.updateData([
+                "startGameRequest": true
+            ])
+            self.performSegue(withIdentifier: self.loadingSegue, sender: self)
+        } else {
+            let alertController = UIAlertController(title: nil,
+                                                    message: "You should select a game first.",
+                                                    preferredStyle: .alert)
+            alertController.addAction(UIAlertAction(title: "OK",
+                                                    style: .cancel,
+                                                    handler: nil))
+            present(alertController, animated: true, completion: nil)
+        }
     }
     
     
@@ -179,5 +200,11 @@ class GameSelectionViewController: UIViewController {
     func deleteRoomAndLeave() {
         roomRef.delete()
         navigationController?.popToRootViewController(animated: true)
+    }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == loadingSegue {
+            (segue.destination as! LoadingViewController).roomRef = roomRef
+        }
     }
 }
