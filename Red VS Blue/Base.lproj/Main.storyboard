@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="17506" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="wM3-QK-0dx">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="17701" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="wM3-QK-0dx">
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17505"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17703"/>
         <capability name="Named colors" minToolsVersion="9.0"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="System colors in document resources" minToolsVersion="11.0"/>
@@ -706,6 +706,7 @@
                         <outlet property="clientBioLabel" destination="32i-BT-OvT" id="wDx-bB-VVg"/>
                         <outlet property="clientNameLabel" destination="HAK-5Z-bb6" id="S1l-m9-8SO"/>
                         <outlet property="gameScrollView" destination="BNs-EO-ZmN" id="UIz-Ge-u61"/>
+                        <outlet property="gameSelectedLabel" destination="jaA-Cs-cko" id="vI0-31-yn7"/>
                         <outlet property="hostBioLabel" destination="8ce-wK-0KU" id="kjN-xE-sNY"/>
                         <outlet property="hostNameLabel" destination="dvH-SS-8Pq" id="EZj-ko-Bk7"/>
                         <outlet property="testButton" destination="zeB-Cf-s9l" id="8dD-mz-F9J"/>

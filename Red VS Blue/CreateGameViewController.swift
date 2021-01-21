@@ -115,6 +115,7 @@ class CreateGameViewController: UIViewController {
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == gameSelectionSegueIdentifier {
             (segue.destination as! GameSelectionViewController).roomRef = gameDatumRef
+            (segue.destination as! GameSelectionViewController).hostUser = user
         }
     }
 }

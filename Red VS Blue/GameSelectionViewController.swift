@@ -19,8 +19,15 @@ class GameSelectionViewController: UIViewController {
     @IBOutlet weak var gameScrollView: UIView!
     @IBOutlet weak var testButton: UIButton!
     
+    @IBOutlet weak var gameSelectedLabel: UILabel!
+    
     var roomRef: DocumentReference!
     var roomListener: ListenerRegistration!
+    
+    var gameButtons: [UIButton] = []
+    var gameNames:  [String] = []
+    
+    var hostUser: User?
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -61,6 +68,13 @@ class GameSelectionViewController: UIViewController {
                     
                     self.present(alertController, animated: true, completion: nil)
                 }
+                if let selectedTag = documentSnapshot.data()!["currentGameSelected"] as? Int {
+                    if self.hostUser == nil {
+                        self.resetAllIcon()
+                        self.selectIcon(currentSelected: selectedTag)
+                        self.updateGameSelectedLabel(currentSelected: selectedTag)
+                    }
+                }
             } else {
                 print("Error getting room data \(error!)")
                 return
@@ -87,7 +101,46 @@ class GameSelectionViewController: UIViewController {
             //button.addTarget(self, action: "btnTouched:", forControlEvents:.TouchUpInside)
             gameScrollView.addSubview(button)
             x += horizontalGap + iconWidth
+            button.addTarget(self, action: #selector(pressedGameIcon), for: .touchUpInside)
+            gameButtons.append(button)
+            gameNames.append(game.name)
         }
+    }
+    
+    @objc func pressedGameIcon (sender: UIButton!) {
+        print(sender.tag)
+        if hostUser == nil {
+            let alertController = UIAlertController(title: nil,
+                                                    message: "You cannot select the game.",
+                                                    preferredStyle: .alert)
+            alertController.addAction(UIAlertAction(title: "OK",
+                                                    style: .cancel,
+                                                    handler: nil))
+            present(alertController, animated: true, completion: nil)
+            return
+        }
+        resetAllIcon()
+        selectIcon(currentSelected: sender.tag)
+        updateGameSelectedLabel(currentSelected: sender.tag)
+        self.roomRef.updateData([
+            "currentGameSelected": sender.tag
+        ])
+    }
+    
+    func resetAllIcon() {
+        for button in gameButtons {
+            button.layer.borderWidth = 0
+        }
+    }
+    
+    func selectIcon(currentSelected: Int!) {
+        gameButtons[currentSelected].layer.borderWidth = 5
+        gameButtons[currentSelected].layer.cornerRadius = 15
+        gameButtons[currentSelected].layer.borderColor = UIColor.yellow.cgColor
+    }
+    
+    func updateGameSelectedLabel(currentSelected: Int!) {
+        gameSelectedLabel.text = "Current Selected: \(gameNames[currentSelected])"
     }
     
     @IBAction func pressedGoButton(_ sender: Any) {
