@@ -97,7 +97,9 @@ class JoinGameViewController: UIViewController, UITextFieldDelegate {
                 //print("Can update data now.")
                 self.gameDatumRef.updateData([
                     "clientUserName": self.user.name,
-                    "clientUserBio": self.user.bio
+                    "clientUserBio": self.user.bio,
+                    "clientScore": 0,
+                    "clientReady": false
                 ])
                 self.performSegue(withIdentifier: self.gameSelectionSegueIdentifier, sender: self)
             })
@@ -136,7 +138,6 @@ class JoinGameViewController: UIViewController, UITextFieldDelegate {
         if segue.identifier == gameSelectionSegueIdentifier {
             (segue.destination as! GameSelectionViewController).roomRef = gameDatumRef
             (segue.destination as! GameSelectionViewController).user = user
-
         }
     }
 }

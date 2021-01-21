@@ -20,6 +20,8 @@ class GameSelectionViewController: UIViewController {
     @IBOutlet weak var testButton: UIButton!
     
     @IBOutlet weak var gameSelectedLabel: UILabel!
+    @IBOutlet weak var hostScoreLabel: UILabel!
+    @IBOutlet weak var clientScoreLabel: UILabel!
     
     @IBOutlet weak var clientWaitingLabel: UILabel!
     @IBOutlet weak var hostGoButton: UIButton!
@@ -31,7 +33,6 @@ class GameSelectionViewController: UIViewController {
     var currentSelectedButtonIndex: Int =  -1
     
     let loadingSegue = "LoadingSegue"
-    
     var user: User!
     
     override func viewDidLoad() {
@@ -70,6 +71,8 @@ class GameSelectionViewController: UIViewController {
                 self.hostNameLabel.text = documentSnapshot.data()!["hostUserName"] as? String
                 let hostBio = documentSnapshot.data()!["hostUserBio"] as? String
                 self.hostBioLabel.text = hostBio == "" ? "This player has no bio." : hostBio
+                self.hostScoreLabel.text = String(documentSnapshot.data()!["hostScore"] as! Int)
+                self.clientScoreLabel.text = String(documentSnapshot.data()!["clientScore"] as! Int)
                 if let _ = documentSnapshot.data()!["endGameRequest"] as? Bool {
                     let alertController = UIAlertController(title: "Game Ended",
                                                             message: "The other player has left!",

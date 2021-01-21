@@ -39,6 +39,10 @@
 		E498EF7025B91999006621FA /* CountTo21Game.swift in Sources */ = {isa = PBXBuildFile; fileRef = E498EF6F25B91999006621FA /* CountTo21Game.swift */; };
 		E498EF7425B91A44006621FA /* NumberPuzzleGame.swift in Sources */ = {isa = PBXBuildFile; fileRef = E498EF7325B91A44006621FA /* NumberPuzzleGame.swift */; };
 		E498EF7725B91A93006621FA /* RandomGame.swift in Sources */ = {isa = PBXBuildFile; fileRef = E498EF7625B91A93006621FA /* RandomGame.swift */; };
+		E498EF7C25B9A473006621FA /* TicTacToeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E498EF7B25B9A473006621FA /* TicTacToeViewController.swift */; };
+		E498EF8425B9AC56006621FA /* iPhone_board.png in Resources */ = {isa = PBXBuildFile; fileRef = E498EF8325B9AC56006621FA /* iPhone_board.png */; };
+		E498EF8725B9B02D006621FA /* iPhone_X.png in Resources */ = {isa = PBXBuildFile; fileRef = E498EF8625B9B02D006621FA /* iPhone_X.png */; };
+		E498EF8A25B9B04A006621FA /* iPhone_O.png in Resources */ = {isa = PBXBuildFile; fileRef = E498EF8925B9B04A006621FA /* iPhone_O.png */; };
 		E49BECC525B344100048CD7D /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E49BECC425B344100048CD7D /* LoginViewController.swift */; };
 		E49BECD225B347150048CD7D /* RedVsBlueTitle.png in Resources */ = {isa = PBXBuildFile; fileRef = E49BECD125B347150048CD7D /* RedVsBlueTitle.png */; };
 		E49BECD525B34AA40048CD7D /* MainPageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E49BECD425B34AA40048CD7D /* MainPageViewController.swift */; };
@@ -91,6 +95,10 @@
 		E498EF6F25B91999006621FA /* CountTo21Game.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CountTo21Game.swift; sourceTree = "<group>"; };
 		E498EF7325B91A44006621FA /* NumberPuzzleGame.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NumberPuzzleGame.swift; sourceTree = "<group>"; };
 		E498EF7625B91A93006621FA /* RandomGame.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RandomGame.swift; sourceTree = "<group>"; };
+		E498EF7B25B9A473006621FA /* TicTacToeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TicTacToeViewController.swift; sourceTree = "<group>"; };
+		E498EF8325B9AC56006621FA /* iPhone_board.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = iPhone_board.png; sourceTree = "<group>"; };
+		E498EF8625B9B02D006621FA /* iPhone_X.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = iPhone_X.png; sourceTree = "<group>"; };
+		E498EF8925B9B04A006621FA /* iPhone_O.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = iPhone_O.png; sourceTree = "<group>"; };
 		E49BECC425B344100048CD7D /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
 		E49BECD125B347150048CD7D /* RedVsBlueTitle.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = RedVsBlueTitle.png; sourceTree = "<group>"; };
 		E49BECD425B34AA40048CD7D /* MainPageViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainPageViewController.swift; sourceTree = "<group>"; };
@@ -172,6 +180,7 @@
 				E4BB4B3B25B621E6008580A8 /* JoinGameViewController.swift */,
 				E498EF4325B78667006621FA /* GameSelectionViewController.swift */,
 				B5DD70E325B965EC006848D7 /* LoadingViewController.swift */,
+				E498EF7B25B9A473006621FA /* TicTacToeViewController.swift */,
 				E49BECF625B5A69F0048CD7D /* User.swift */,
 				E498EF6225B7B591006621FA /* GameCollection.swift */,
 				E498EF6525B7B5CE006621FA /* Game.swift */,
@@ -184,6 +193,24 @@
 				E48A0C2225B031CC00122140 /* LaunchScreen.storyboard */,
 				E48A0C2525B031CC00122140 /* Info.plist */,
 				E41F4C0825B33F970008D15B /* GoogleService-Info.plist */,
+				E498EF7E25B9A6DB006621FA /* Images */,
+			);
+			path = "Red VS Blue";
+			sourceTree = "<group>";
+		};
+		E498EF7E25B9A6DB006621FA /* Images */ = {
+			isa = PBXGroup;
+			children = (
+				E498EF8625B9B02D006621FA /* iPhone_X.png */,
+				E498EF8925B9B04A006621FA /* iPhone_O.png */,
+				E498EF8325B9AC56006621FA /* iPhone_board.png */,
+				B54D323F25B5697F008219E5 /* Background1.png */,
+				B54D324225B569DE008219E5 /* Background3.png */,
+				E498EF5725B7AAC8006621FA /* GameIcon_CountTo21.PNG */,
+				E498EF5925B7AAC8006621FA /* GameIcon_Hangman.PNG */,
+				E498EF5825B7AAC8006621FA /* GameIcon_NumberPuzzle.PNG */,
+				E498EF5A25B7AAC8006621FA /* GameIcon_Random.PNG */,
+				E498EF5B25B7AAC9006621FA /* GameIcon_TicTacToe.PNG */,
 				E49BECFC25B5AA2F0048CD7D /* RvB_Icon.png */,
 				E49BECD125B347150048CD7D /* RedVsBlueTitle.png */,
 				E498EF4A25B7939C006621FA /* Blue_Ball.png */,
@@ -194,15 +221,8 @@
 				B54D322A25B5532F008219E5 /* Edit_Icon.png */,
 				B502E9CA25B7FEE0008E19CE /* Leave_Icon.png */,
 				B54D322D25B55335008219E5 /* Delete_Icon.png */,
-				B54D323F25B5697F008219E5 /* Background1.png */,
-				B54D324225B569DE008219E5 /* Background3.png */,
-				E498EF5725B7AAC8006621FA /* GameIcon_CountTo21.PNG */,
-				E498EF5925B7AAC8006621FA /* GameIcon_Hangman.PNG */,
-				E498EF5825B7AAC8006621FA /* GameIcon_NumberPuzzle.PNG */,
-				E498EF5A25B7AAC8006621FA /* GameIcon_Random.PNG */,
-				E498EF5B25B7AAC9006621FA /* GameIcon_TicTacToe.PNG */,
 			);
-			path = "Red VS Blue";
+			path = Images;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -271,6 +291,7 @@
 				E49BECFA25B5AA150048CD7D /* Back_Arrow.png in Resources */,
 				E48A0C2425B031CC00122140 /* LaunchScreen.storyboard in Resources */,
 				E498EF5C25B7AAC9006621FA /* GameIcon_CountTo21.PNG in Resources */,
+				E498EF8425B9AC56006621FA /* iPhone_board.png in Resources */,
 				B502E9CB25B7FEE0008E19CE /* Leave_Icon.png in Resources */,
 				E498EF5D25B7AAC9006621FA /* GameIcon_NumberPuzzle.PNG in Resources */,
 				E498EF4825B79395006621FA /* Red_Ball.png in Resources */,
@@ -281,12 +302,14 @@
 				E498EF4B25B7939C006621FA /* Blue_Ball.png in Resources */,
 				E498EF5E25B7AAC9006621FA /* GameIcon_Hangman.PNG in Resources */,
 				E417786B25B09BF1004B3FD3 /* Icon-72.png in Resources */,
+				E498EF8A25B9B04A006621FA /* iPhone_O.png in Resources */,
 				E498EF4F25B79718006621FA /* VS.png in Resources */,
 				E49BECD225B347150048CD7D /* RedVsBlueTitle.png in Resources */,
 				E49BECFD25B5AA2F0048CD7D /* RvB_Icon.png in Resources */,
 				E417786A25B09BF1004B3FD3 /* Icon@2x.png in Resources */,
 				B54D324025B5697F008219E5 /* Background1.png in Resources */,
 				E48A0C2125B031CC00122140 /* Assets.xcassets in Resources */,
+				E498EF8725B9B02D006621FA /* iPhone_X.png in Resources */,
 				E48A0C1F25B031CB00122140 /* Main.storyboard in Resources */,
 				E41F4C0925B33F970008D15B /* GoogleService-Info.plist in Resources */,
 			);
@@ -376,6 +399,7 @@
 				E49BECEF25B589430048CD7D /* LeaderboardViewController.swift in Sources */,
 				E498EF7725B91A93006621FA /* RandomGame.swift in Sources */,
 				E498EF6925B7B60C006621FA /* TicTacToeGame.swift in Sources */,
+				E498EF7C25B9A473006621FA /* TicTacToeViewController.swift in Sources */,
 				E49BECF725B5A69F0048CD7D /* User.swift in Sources */,
 				E48A0C1A25B031CB00122140 /* SceneDelegate.swift in Sources */,
 			);

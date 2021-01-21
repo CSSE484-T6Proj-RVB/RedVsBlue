@@ -10,8 +10,7 @@ import UIKit
 
 class RandomGame: Game {
     var name = "Random Game"
+    var segueName = "RandomGameSegue"
     var description = "Randomly Choose A Game To Play!"
     var gameIconImage = #imageLiteral(resourceName: "GameIcon_Random.PNG")
-    
-    
 }

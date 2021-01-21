@@ -96,7 +96,9 @@ class CreateGameViewController: UIViewController {
         gameDatumRef = gameDataRef.addDocument(data: [
             "roomId": digits!,
             "hostUserName":  user.name,
-            "hostUserBio":  user.bio
+            "hostUserBio":  user.bio,
+            "hostScore": 0,
+            "hostReady": false
         ])
     }
     
