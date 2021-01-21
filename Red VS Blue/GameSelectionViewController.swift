@@ -53,6 +53,16 @@ class GameSelectionViewController: UIViewController {
             // never happens
             print("This should never be printed!!!!!!!!!!!!!!!!!!!!!!!!")
         }
+        if user.identity == 1 {
+            self.roomRef.updateData([
+                "hostScore": user.score
+            ])
+        } else if user.identity == 0 {
+            self.roomRef.updateData([
+                "clientScore": user.score
+            ])
+        }
+        
         startListening()
         loadGameButtons()
     }
@@ -95,7 +105,8 @@ class GameSelectionViewController: UIViewController {
 
                     }
                 }
-                if let _ = documentSnapshot.data()!["startGameRequest"] as? Bool {
+                let startGameRequest = documentSnapshot.data()!["startGameRequest"] as? Bool
+                if startGameRequest != nil && startGameRequest! {
                     self.performSegue(withIdentifier: self.loadingSegue, sender: self)
                 }
             } else {
