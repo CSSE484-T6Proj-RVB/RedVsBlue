@@ -229,7 +229,7 @@ class GameSelectionViewController: UIViewController {
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == loadingSegueIdentifier {
             (segue.destination as! LoadingViewController).roomRef = roomRef
-            (segue.destination as! LoadingViewController).gameSelectedIndex = currentSelectedButtonIndex
+            (segue.destination as! LoadingViewController).gameSelectedIndex = currentSelectedButtonIndex == GameCollection.singleton.games.count - 1 ? Int.random(in: 0..<GameCollection.singleton.games.count - 1) : currentSelectedButtonIndex
             (segue.destination as! LoadingViewController).currentUser = user
         }
     }

@@ -173,7 +173,6 @@ class TicTacToeViewController: UIViewController {
         { (action) in
             let viewControllers: [UIViewController] = self.navigationController!.viewControllers as [UIViewController]
             self.navigationController!.popToViewController(viewControllers[viewControllers.count - 3], animated: true)
-
         })
         
         present(alertController, animated: true, completion: nil)
