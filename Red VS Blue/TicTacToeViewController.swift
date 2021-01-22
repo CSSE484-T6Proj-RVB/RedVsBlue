@@ -16,6 +16,12 @@ class TicTacToeViewController: UIViewController {
     @IBOutlet weak var upperBannerView: UIView!
     @IBOutlet weak var lowerBannerView: UIView!
     
+    @IBOutlet weak var opponentScoreLabel: UILabel!
+    @IBOutlet weak var opponentNameLabel: UILabel!
+    
+    @IBOutlet weak var yourScoreLabel: UILabel!
+    @IBOutlet weak var yourNameLabel: UILabel!
+    
     var roomRef: DocumentReference!
     var roomListener: ListenerRegistration!
     
@@ -63,11 +69,23 @@ class TicTacToeViewController: UIViewController {
     func startListening() {
         roomListener = roomRef.addSnapshotListener({ (documentSnapshot, error) in
             if let documentSnapshot = documentSnapshot {
-                print(documentSnapshot)
                 let isHostTurn = documentSnapshot.data()!["tictactoe_isHostTurn"] as! Bool
                 self.isCurrentUserTurn = isHostTurn == (self.user.identity == 1)
                 self.gameStateLabel.text = self.isCurrentUserTurn ? "Your Turn" : "Waiting for the other player..."
                 
+                if self.user.identity == 1 {
+                    self.opponentScoreLabel.text = "Score: \(String(documentSnapshot.data()!["clientScore"] as! Int))"
+                    self.opponentNameLabel.text = documentSnapshot.data()!["clientUserName"] as! String + ": O"
+                    self.yourScoreLabel.text = "Score: \(String(documentSnapshot.data()!["hostScore"] as! Int))"
+                    self.yourNameLabel.text = documentSnapshot.data()!["hostUserName"] as! String + ": X"
+                } else {
+                    self.opponentScoreLabel.text = "Score: \(String(documentSnapshot.data()!["hostScore"] as! Int))"
+                    self.opponentNameLabel.text = documentSnapshot.data()!["hostUserName"] as! String + ": X"
+                    self.yourScoreLabel.text = "Score: \(String(documentSnapshot.data()!["clientScore"] as! Int))"
+                    self.yourNameLabel.text = documentSnapshot.data()!["clientUserName"] as! String + ": O"
+                }
+                
+
                 let lastPressed = documentSnapshot.data()!["tictactoe_lastPressed"] as? Int
                 if lastPressed != nil && lastPressed != -1 {
                     if self.isCurrentUserTurn {
@@ -78,7 +96,6 @@ class TicTacToeViewController: UIViewController {
                 
                 switch self.game.state {
                 case .xTurn, .oTurn: break
-                    // Continue
                 case .xWin:
                     self.popResultMessage(message: self.user.identity == 1 ? "You Win!" : "You Lose!")
                     self.user.score = self.user.identity == 1 ? self.user.score + 1 : self.user.score

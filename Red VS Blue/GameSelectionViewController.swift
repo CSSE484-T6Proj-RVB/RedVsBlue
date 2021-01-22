@@ -117,24 +117,26 @@ class GameSelectionViewController: UIViewController {
     }
     
     func loadGameButtons() {
-        let viewWidth = gameScrollView.frame.size.width
-        let horizontalGap = 10, verticalGap = 20, iconWidth = 80, startingXPos = 20, startingYPos = 20
-        var x = startingXPos, y = startingYPos
-        //gameScrollView.frame.size.height = CGFloat(numRows * (verticalGap + iconWidth))
+        let verticalGap = 20, iconWidth = 80, startingXPos = 20, startingYPos = 20, maxCol = 4
+        let realViewWidth = Int(gameScrollView.frame.size.width) - startingXPos * 2
+        let horizontalGap = (realViewWidth - maxCol * iconWidth) / (maxCol - 1)
+        
+        var x = startingXPos, y = startingYPos, col = 0
         
         for index in 0..<GameCollection.singleton.games.count {
             let game = GameCollection.singleton.games[index]
             let button = UIButton(type: .custom) as UIButton
-            if x + horizontalGap + iconWidth >= Int(viewWidth) {
+            if col == maxCol {
+                col = 0
                 y += verticalGap + iconWidth
                 x = startingXPos
             }
             button.frame = CGRect(x: x, y: y, width: iconWidth, height: iconWidth)
             button.setImage(game.gameIconImage, for: .normal)
             button.tag = index
-            //button.addTarget(self, action: "btnTouched:", forControlEvents:.TouchUpInside)
             gameScrollView.addSubview(button)
             x += horizontalGap + iconWidth
+            col += 1
             button.addTarget(self, action: #selector(pressedGameIcon), for: .touchUpInside)
             gameButtons.append(button)
         }

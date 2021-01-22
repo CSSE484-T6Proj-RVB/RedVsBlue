@@ -942,22 +942,62 @@
                         <subviews>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Pkh-51-m2w" userLabel="UpperView">
                                 <rect key="frame" x="0.0" y="0.0" width="414" height="200"/>
+                                <subviews>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Score: 0" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="oul-15-jXm">
+                                        <rect key="frame" x="20" y="80" width="374" height="30"/>
+                                        <fontDescription key="fontDescription" type="boldSystem" pointSize="25"/>
+                                        <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="&lt;Opponent name&gt;: X/O" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Iws-iI-cd4">
+                                        <rect key="frame" x="20" y="132" width="374" height="26.5"/>
+                                        <fontDescription key="fontDescription" type="boldSystem" pointSize="22"/>
+                                        <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                </subviews>
                                 <color key="backgroundColor" systemColor="systemGreenColor"/>
                                 <constraints>
+                                    <constraint firstItem="Iws-iI-cd4" firstAttribute="top" secondItem="oul-15-jXm" secondAttribute="bottom" constant="22" id="6cK-EC-dLA"/>
                                     <constraint firstAttribute="height" constant="200" id="GDs-aM-Gfh"/>
+                                    <constraint firstItem="oul-15-jXm" firstAttribute="leading" secondItem="Pkh-51-m2w" secondAttribute="leading" constant="20" id="Jui-42-hcK"/>
+                                    <constraint firstAttribute="trailing" secondItem="Iws-iI-cd4" secondAttribute="trailing" constant="20" id="LV0-gt-WOk"/>
+                                    <constraint firstAttribute="trailing" secondItem="oul-15-jXm" secondAttribute="trailing" constant="20" id="PMV-UR-tAD"/>
+                                    <constraint firstItem="Iws-iI-cd4" firstAttribute="leading" secondItem="Pkh-51-m2w" secondAttribute="leading" constant="20" id="U2A-Z7-nsW"/>
+                                    <constraint firstItem="oul-15-jXm" firstAttribute="top" secondItem="Pkh-51-m2w" secondAttribute="top" constant="80" id="oTs-ft-Osf"/>
                                 </constraints>
                             </view>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="slj-zS-pOL" userLabel="BottomView">
                                 <rect key="frame" x="0.0" y="696" width="414" height="200"/>
+                                <subviews>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Score: 0" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="9yy-7X-FsE">
+                                        <rect key="frame" x="20" y="30" width="374" height="30"/>
+                                        <fontDescription key="fontDescription" type="boldSystem" pointSize="25"/>
+                                        <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="&lt;Your name&gt;: X/O" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="MEm-8h-MJd">
+                                        <rect key="frame" x="20" y="95" width="374" height="26.5"/>
+                                        <fontDescription key="fontDescription" type="boldSystem" pointSize="22"/>
+                                        <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                </subviews>
                                 <color key="backgroundColor" systemColor="systemGreenColor"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="200" id="4aJ-Eg-9Wo"/>
+                                    <constraint firstItem="MEm-8h-MJd" firstAttribute="leading" secondItem="slj-zS-pOL" secondAttribute="leading" constant="20" id="Ib2-Pw-WLj"/>
+                                    <constraint firstAttribute="trailing" secondItem="9yy-7X-FsE" secondAttribute="trailing" constant="20" id="P2g-sP-5bP"/>
+                                    <constraint firstItem="9yy-7X-FsE" firstAttribute="top" secondItem="slj-zS-pOL" secondAttribute="top" constant="30" id="bNh-H4-hMV"/>
+                                    <constraint firstAttribute="trailing" secondItem="MEm-8h-MJd" secondAttribute="trailing" constant="20" id="bi4-VM-hgN"/>
+                                    <constraint firstItem="MEm-8h-MJd" firstAttribute="top" secondItem="9yy-7X-FsE" secondAttribute="bottom" constant="35" id="iOz-vF-ywm"/>
+                                    <constraint firstItem="9yy-7X-FsE" firstAttribute="leading" secondItem="slj-zS-pOL" secondAttribute="leading" constant="20" id="qSa-hP-Zc4"/>
                                 </constraints>
                             </view>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Pfa-Ce-qJ6" userLabel="Game Board View">
                                 <rect key="frame" x="39" y="280" width="336" height="336"/>
                                 <subviews>
-                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="iPhone_board.png" translatesAutoresizingMaskIntoConstraints="NO" id="2vw-dJ-Fly">
+                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="TicTacToe_board.png" translatesAutoresizingMaskIntoConstraints="NO" id="2vw-dJ-Fly">
                                         <rect key="frame" x="0.0" y="0.0" width="336" height="336"/>
                                     </imageView>
                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" translatesAutoresizingMaskIntoConstraints="NO" id="Z7F-MB-n9a">
@@ -1077,7 +1117,11 @@
                         <outlet property="gameBoardView" destination="Pfa-Ce-qJ6" id="E3s-bi-43d"/>
                         <outlet property="gameStateLabel" destination="FF7-u9-UnZ" id="NUD-ja-M00"/>
                         <outlet property="lowerBannerView" destination="slj-zS-pOL" id="iT2-d1-O9o"/>
+                        <outlet property="opponentNameLabel" destination="Iws-iI-cd4" id="PEr-AB-CM5"/>
+                        <outlet property="opponentScoreLabel" destination="oul-15-jXm" id="GTj-KS-XGI"/>
                         <outlet property="upperBannerView" destination="Pkh-51-m2w" id="8Ae-yL-VJ3"/>
+                        <outlet property="yourNameLabel" destination="MEm-8h-MJd" id="qfb-Br-p6a"/>
+                        <outlet property="yourScoreLabel" destination="9yy-7X-FsE" id="yPB-aD-wcm"/>
                         <outletCollection property="gameBoardButtons" destination="amh-Rd-7vm" collectionClass="NSMutableArray" id="gN2-hb-Yg9"/>
                         <outletCollection property="gameBoardButtons" destination="uzE-kH-w7M" collectionClass="NSMutableArray" id="xvq-ro-sgM"/>
                         <outletCollection property="gameBoardButtons" destination="bte-ge-830" collectionClass="NSMutableArray" id="2ta-4Y-1oQ"/>
@@ -1599,8 +1643,8 @@
         <image name="Red_Ball.png" width="425" height="794"/>
         <image name="Refresh_Icon.png" width="1000" height="1000"/>
         <image name="RvB_Icon.png" width="768" height="768"/>
+        <image name="TicTacToe_board.png" width="50.274314880371094" height="55.660846710205078"/>
         <image name="VS.png" width="324" height="277"/>
-        <image name="iPhone_board.png" width="50.274314880371094" height="55.660846710205078"/>
         <namedColor name="AccentColor">
             <color red="0.0" green="0.46000000000000002" blue="0.89000000000000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>
