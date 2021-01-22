@@ -38,6 +38,7 @@ class GameSelectionViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         navigationController?.setNavigationBarHidden(true, animated: false)
+        loadGameButtons()
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -64,7 +65,6 @@ class GameSelectionViewController: UIViewController {
         }
         
         startListening()
-        loadGameButtons()
     }
     
     override func viewWillDisappear(_ animated: Bool) {
