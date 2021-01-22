@@ -33,7 +33,8 @@ class GameSelectionViewController: UIViewController {
     var gameButtons: [UIButton] = []
     var currentSelectedButtonIndex: Int =  -1
     
-    let loadingSegue = "LoadingSegue"
+    let resultViewSegueIdentifier = "ResultViewSegue"
+    let loadingSegueIdentifier = "LoadingSegue"
     var user: User!
     
     override func viewDidLoad() {
@@ -108,7 +109,7 @@ class GameSelectionViewController: UIViewController {
                 }
                 let startGameRequest = documentSnapshot.data()!["startGameRequest"] as? Bool
                 if startGameRequest != nil && startGameRequest! {
-                    self.performSegue(withIdentifier: self.loadingSegue, sender: self)
+                    self.performSegue(withIdentifier: self.loadingSegueIdentifier, sender: self)
                 }
             } else {
                 print("Error getting room data \(error!)")
@@ -122,7 +123,6 @@ class GameSelectionViewController: UIViewController {
         let realViewWidth = Int(UIScreen.main.bounds.width) - startingXPos * 2
         let maxCol = Int(realViewWidth / (iconWidth + minimumHorizontalGap))
         let horizontalGap = (realViewWidth - maxCol * iconWidth) / (maxCol - 1)
-        print("\(realViewWidth), \(maxCol), \(horizontalGap)")
         
         var x = startingXPos, y = startingYPos, col = 0
         
@@ -188,7 +188,7 @@ class GameSelectionViewController: UIViewController {
             self.roomRef.updateData([
                 "startGameRequest": true
             ])
-            self.performSegue(withIdentifier: self.loadingSegue, sender: self)
+            self.performSegue(withIdentifier: self.loadingSegueIdentifier, sender: self)
         } else {
             let alertController = UIAlertController(title: nil,
                                                     message: "You should select a game first.",
@@ -215,8 +215,7 @@ class GameSelectionViewController: UIViewController {
             self.roomRef.updateData([
                 "endGameRequest": true
             ])
-            self.navigationController?.popToRootViewController(animated: true)
-            // TODO: Game Result Page
+            self.performSegue(withIdentifier: self.resultViewSegueIdentifier, sender: self)
         })
         
         present(alertController, animated: true, completion: nil)
@@ -224,11 +223,11 @@ class GameSelectionViewController: UIViewController {
     
     func deleteRoomAndLeave() {
         roomRef.delete()
-        navigationController?.popToRootViewController(animated: true)
+        self.performSegue(withIdentifier: self.resultViewSegueIdentifier, sender: self)
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        if segue.identifier == loadingSegue {
+        if segue.identifier == loadingSegueIdentifier {
             (segue.destination as! LoadingViewController).roomRef = roomRef
             (segue.destination as! LoadingViewController).gameSelectedIndex = currentSelectedButtonIndex
             (segue.destination as! LoadingViewController).currentUser = user
