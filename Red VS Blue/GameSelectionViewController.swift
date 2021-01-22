@@ -15,6 +15,7 @@ class GameSelectionViewController: UIViewController {
     
     @IBOutlet weak var clientNameLabel: UILabel!
     @IBOutlet weak var clientBioLabel: UILabel!
+    // TODO: Reverse these two
     
     @IBOutlet weak var gameScrollView: UIView!
     @IBOutlet weak var testButton: UIButton!
