@@ -118,9 +118,11 @@ class GameSelectionViewController: UIViewController {
     }
     
     func loadGameButtons() {
-        let verticalGap = 20, iconWidth = 80, startingXPos = 20, startingYPos = 20, maxCol = 4
-        let realViewWidth = Int(gameScrollView.frame.size.width) - startingXPos * 2
+        let verticalGap = 20, iconWidth = 80, startingXPos = 20, startingYPos = 20, minimumHorizontalGap = 5
+        let realViewWidth = Int(UIScreen.main.bounds.width) - startingXPos * 2
+        let maxCol = Int(realViewWidth / (iconWidth + minimumHorizontalGap))
         let horizontalGap = (realViewWidth - maxCol * iconWidth) / (maxCol - 1)
+        print("\(realViewWidth), \(maxCol), \(horizontalGap)")
         
         var x = startingXPos, y = startingYPos, col = 0
         
@@ -181,6 +183,7 @@ class GameSelectionViewController: UIViewController {
     }
     
     @IBAction func pressedGoButton(_ sender: Any) {
+        // TODO: Make sure the player has gone back
         if currentSelectedButtonIndex != -1 {
             self.roomRef.updateData([
                 "startGameRequest": true
