@@ -14,12 +14,10 @@ class EmailSignInViewController: UIViewController {
     @IBOutlet weak var passwordTextField: UITextField!
     
     let mainSegueIdentifier = "MainSegue"
-//    var usersRef: CollectionReference!
     
     override func viewDidLoad() {
         super.viewDidLoad()
         navigationController?.setNavigationBarHidden(false, animated: false)
-//        usersRef = Firestore.firestore().collection("Users")
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -54,15 +52,6 @@ class EmailSignInViewController: UIViewController {
             }
             
             print("It worked!!! A new user is created and now signed in.")
-            
-//            let randomName = RandomStringGenerator.shared.generateRandomUsername()
-//            self.usersRef.addDocument(data: [
-//                "id": Auth.auth().currentUser!.uid,
-//                "name": randomName,
-//                "bio": "",
-//                "matchesPlayed": 0,
-//                "matchesWon": 0
-//            ])
         }
     }
     

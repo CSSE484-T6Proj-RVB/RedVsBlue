@@ -1534,6 +1534,7 @@
                                             </label>
                                         </subviews>
                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <color key="tintColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <constraints>
                                             <constraint firstItem="3BH-Ki-6Z8" firstAttribute="leading" secondItem="UcS-je-yYJ" secondAttribute="leading" constant="10" id="Lok-hQ-C6v"/>
                                             <constraint firstItem="3BH-Ki-6Z8" firstAttribute="top" secondItem="UcS-je-yYJ" secondAttribute="top" constant="16" id="gk9-K6-rRX"/>

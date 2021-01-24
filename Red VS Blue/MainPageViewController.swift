@@ -24,7 +24,6 @@ class MainPageViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         navigationController?.setNavigationBarHidden(true, animated: false)
-        //usersRef = Firestore.firestore().collection("Users")
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -41,8 +40,6 @@ class MainPageViewController: UIViewController {
                 print("Signed in. Stay on this page. User: \(Auth.auth().currentUser!.uid)")
             }
         })
-        
-        //startListening()
     }
     
     override func viewWillDisappear(_ animated: Bool) {
@@ -56,15 +53,6 @@ class MainPageViewController: UIViewController {
         if LoginViewController.isGuest {
             return
         }
-//        usersDataListener = usersRef.whereField("id", isEqualTo: Auth.auth().currentUser!.uid).addSnapshotListener({ (documentSnapshot, error) in
-//            if let documentSnapshot = documentSnapshot {
-//                self.user = User(documentSnapshot: documentSnapshot.documents[0])
-//                //self.userDataId = documentSnapshot.documents[0].documentID
-//            } else {
-//                print("Error getting user data \(error!)")
-//                return
-//            }
-//        })
     }
     
     @IBAction func pressedNewGameButton(_ sender: Any) {
@@ -88,8 +76,7 @@ class MainPageViewController: UIViewController {
             alertNotLoggedIn()
             return
         }
-        alertNotLoggedIn()
-        //self.performSegue(withIdentifier: self.profileSegueIdentifier, sender: self)
+        self.performSegue(withIdentifier: self.profileSegueIdentifier, sender: self)
     }
     
     @IBAction func pressedGamesButton(_ sender: Any) {
@@ -125,7 +112,7 @@ class MainPageViewController: UIViewController {
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == profileSegueIdentifier {
-            //(segue.destination as! ProfileViewController).userRef = usersRef.document(user.userDocId)
+            // Nothing Needed
         } else if segue.identifier == createGameSegueIdentifier {
             (segue.destination as! CreateGameViewController).user = user
         } else if segue.identifier == joinGameSegueIdentifier {

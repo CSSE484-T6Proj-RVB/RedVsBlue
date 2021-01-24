@@ -18,6 +18,7 @@
 		E417786B25B09BF1004B3FD3 /* Icon-72.png in Resources */ = {isa = PBXBuildFile; fileRef = E417786825B09BF1004B3FD3 /* Icon-72.png */; };
 		E417786C25B09BF1004B3FD3 /* Icon.png in Resources */ = {isa = PBXBuildFile; fileRef = E417786925B09BF1004B3FD3 /* Icon.png */; };
 		E41F4C0925B33F970008D15B /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = E41F4C0825B33F970008D15B /* GoogleService-Info.plist */; };
+		E45E24D125BDA86F00628580 /* RoomManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = E45E24D025BDA86F00628580 /* RoomManager.swift */; };
 		E48A0C1825B031CB00122140 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E48A0C1725B031CB00122140 /* AppDelegate.swift */; };
 		E48A0C1A25B031CB00122140 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E48A0C1925B031CB00122140 /* SceneDelegate.swift */; };
 		E48A0C1F25B031CB00122140 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E48A0C1D25B031CB00122140 /* Main.storyboard */; };
@@ -74,6 +75,7 @@
 		E417786825B09BF1004B3FD3 /* Icon-72.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Icon-72.png"; sourceTree = "<group>"; };
 		E417786925B09BF1004B3FD3 /* Icon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Icon.png; sourceTree = "<group>"; };
 		E41F4C0825B33F970008D15B /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
+		E45E24D025BDA86F00628580 /* RoomManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RoomManager.swift; sourceTree = "<group>"; };
 		E48A0C1425B031CB00122140 /* Red VS Blue.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Red VS Blue.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		E48A0C1725B031CB00122140 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		E48A0C1925B031CB00122140 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -199,6 +201,7 @@
 				E41F4C0825B33F970008D15B /* GoogleService-Info.plist */,
 				E4BCD68E25BB64EC00BE0D81 /* ResultViewController.swift */,
 				E4BCD6C225BD84A200BE0D81 /* UserManager.swift */,
+				E45E24D025BDA86F00628580 /* RoomManager.swift */,
 				E498EF7E25B9A6DB006621FA /* Images */,
 			);
 			path = "Red VS Blue";
@@ -391,6 +394,7 @@
 				E4BB4B3C25B621E6008580A8 /* JoinGameViewController.swift in Sources */,
 				E49BECF325B5A58A0048CD7D /* CreateGameViewController.swift in Sources */,
 				E49BECE125B448DA0048CD7D /* ProfileViewController.swift in Sources */,
+				E45E24D125BDA86F00628580 /* RoomManager.swift in Sources */,
 				E49BECE925B4E1AC0048CD7D /* RandomStringGenerator.swift in Sources */,
 				E498EF6325B7B591006621FA /* GameCollection.swift in Sources */,
 				E49BECD525B34AA40048CD7D /* MainPageViewController.swift in Sources */,

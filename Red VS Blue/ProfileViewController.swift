@@ -22,10 +22,6 @@ class ProfileViewController: UIViewController {
     @IBOutlet weak var matchesWonLabel: UILabel!
     @IBOutlet weak var matchesPlayedLabel: UILabel!
     
-    var userDataListener: ListenerRegistration!
-    var userRef: DocumentReference!
-    var user: User!
-    
     override func viewDidLoad() {
         super.viewDidLoad()
         navigationController?.setNavigationBarHidden(false, animated: false)
@@ -42,31 +38,19 @@ class ProfileViewController: UIViewController {
         setCornerAndBorder(view: bioTextFieldView, cornerRadius: 10, borderWidth: 1, borderColor: UIColor.black.cgColor)
         setCornerAndBorder(view: statusView, cornerRadius: 30, borderWidth: 2, borderColor: UIColor.black.cgColor)
 
-        startListening()
+        UserManager.shared.beginListeningForSingleUser(uid: Auth.auth().currentUser!.uid, changeListener: updateView)
     }
     
     override func viewWillDisappear(_ animated: Bool) {
         super.viewWillDisappear(animated)
-        userDataListener.remove()
+        UserManager.shared.stopListening()
     }
     
-    func startListening() {
-        userDataListener = userRef.addSnapshotListener({ (documentSnapshot, error) in
-            if let documentSnapshot = documentSnapshot {
-                self.user = User(documentSnapshot: documentSnapshot)
-                self.updateView(user: self.user)
-            } else {
-                print("Error getting user data: \(error!)")
-                return
-            }
-        })
-    }
-    
-    func updateView(user: User) {
-        nameLabel.text = user.name
-        bioLabel.text = user.bio
-        matchesPlayedLabel.text = "Matches Played: \(user.matchesPlayed)"
-        matchesWonLabel.text = "Matches Won: \(user.matchesWon)"
+    func updateView() {
+        nameLabel.text = UserManager.shared.name
+        bioLabel.text = UserManager.shared.bio
+        matchesPlayedLabel.text = "Matches Played: \(UserManager.shared.matchesPlayed)"
+        matchesWonLabel.text = "Matches Won: \(UserManager.shared.matchesWon)"
     }
     
     func setCornerAndBorder(view: UIView, cornerRadius: CGFloat, borderWidth: CGFloat, borderColor: CGColor) {
@@ -91,9 +75,7 @@ class ProfileViewController: UIViewController {
                                                 style: .default)
         { (action) in
             let nameField = alertController.textFields![0] as UITextField
-            self.userRef.updateData([
-                "name": nameField.text!
-            ])
+            UserManager.shared.updateName(name: nameField.text!)
             let alertControllerConfirmNameChange = UIAlertController(title: nil, message: "You have changed your name", preferredStyle: .alert)
             alertControllerConfirmNameChange.addAction(UIAlertAction(title: "Ok", style: .cancel, handler: nil))
             self.present(alertControllerConfirmNameChange, animated: true, completion: nil)
@@ -125,9 +107,7 @@ class ProfileViewController: UIViewController {
                 return
             }
             
-            self.userRef.updateData([
-                "bio": bioField.text!
-            ])
+            UserManager.shared.updateBio(bio: bioField.text!)
         })
         
         present(alertController, animated: true, completion: nil)
@@ -143,9 +123,7 @@ class ProfileViewController: UIViewController {
         alertController.addAction(UIAlertAction(title: "Yes",
                                                 style: .default)
         { (action) in
-            self.userRef.updateData([
-                "bio": ""
-            ])
+            UserManager.shared.updateBio(bio: "")
         })
         
         let alertController_bad = UIAlertController(title: nil,

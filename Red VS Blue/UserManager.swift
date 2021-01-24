@@ -19,6 +19,7 @@ class UserManager {
     var _userCollectionRef: CollectionReference
     var _document: DocumentSnapshot?
     var _userListener: ListenerRegistration?
+    var _queryDocuments: [DocumentSnapshot]?
     
     static let shared = UserManager()
     
@@ -49,8 +50,31 @@ class UserManager {
         }
     }
     
-    func beginListening(uid: String, changeListener: () -> Void) {
-        
+    func beginListeningForLeaderboard(isMatchesPlayed: Bool, changeListener: (() -> Void)?) {
+        let query = isMatchesPlayed ? _userCollectionRef.order(by: kKeyMatchesPlayed, descending: true).limit(to: 10).whereField(kKeyMatchesPlayed, isGreaterThan: 0) : _userCollectionRef.order(by: kKeyMatchesWon, descending: true).limit(to: 10).whereField(kKeyMatchesWon, isGreaterThan: 0)
+        _userListener = query.addSnapshotListener({ (querySnapshot, error) in
+            if let error = error {
+                print("Error listening leaderboard \(error)")
+            }
+            if let querySnapshot = querySnapshot {
+                self._queryDocuments = querySnapshot.documents
+                changeListener?()
+            }
+        })
+    }
+    
+    func beginListeningForSingleUser(uid: String, changeListener: (() -> Void)?) {
+        let userRef = _userCollectionRef.document(uid)
+        _userListener =  userRef.addSnapshotListener { (documentSnapshot, error) in
+            if let error = error {
+                print("Error listening for user \(error)")
+                return
+            }
+            if let documentSnapshot = documentSnapshot {
+                self._document = documentSnapshot
+                changeListener?()
+            }
+        }
     }
     
     func stopListening() {
@@ -58,7 +82,17 @@ class UserManager {
     }
     
     func updateName(name: String) {
-        
+        let userRef = _userCollectionRef.document(Auth.auth().currentUser!.uid)
+        userRef.updateData([
+            kKeyName: name
+        ])
+    }
+    
+    func updateBio(bio: String) {
+        let userRef = _userCollectionRef.document(Auth.auth().currentUser!.uid)
+        userRef.updateData([
+            kKeyBio: bio
+        ])
     }
     
     var name: String {
@@ -73,5 +107,44 @@ class UserManager {
             return value as! String
         }
         return ""
+    }
+    
+    var matchesPlayed: Int {
+        if let value = _document?.get(kKeyMatchesPlayed) {
+            return value as! Int
+        }
+        return 0
+    }
+    
+    var matchesWon: Int {
+        if let value = _document?.get(kKeyMatchesWon) {
+            return value as! Int
+        }
+        return 0
+    }
+    
+    func getQueryDocumentCount() -> Int {
+        return _queryDocuments?.count ?? 0
+    }
+    
+    func getNameAtIndex(index: Int) -> String {
+        if let value = _queryDocuments?[index].get(kKeyName) {
+            return value as! String
+        }
+        return ""
+    }
+    
+    func getMatchesPlayedAtIndex(index: Int) -> Int {
+        if let value = _queryDocuments?[index].get(kKeyMatchesPlayed) {
+            return value as! Int
+        }
+        return 0
+    }
+    
+    func getMatchesWonAtIndex(index: Int) -> Int {
+        if let value = _queryDocuments?[index].get(kKeyMatchesWon) {
+            return value as! Int
+        }
+        return 0
     }
 }

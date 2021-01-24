@@ -24,7 +24,6 @@ class LoginViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         navigationController?.setNavigationBarHidden(true, animated: false)
-//        usersRef = Firestore.firestore().collection("Users")
         GIDSignIn.sharedInstance()?.presentingViewController = self
         googleSignInButton.style = .wide
     }
@@ -65,30 +64,6 @@ class LoginViewController: UIViewController {
                 // User is signed in using Firebase!
                 print("sign in success")
                 LoginViewController.isGuest = false
-                
-//                self.usersRef.whereField("id", isEqualTo: Auth.auth().currentUser!.uid).getDocuments(completion: { (querySnapshot, error) in
-//                    if let error = error {
-//                        print("error \(error)")
-//                        return
-//                    }
-//                    let randomName = RandomStringGenerator.shared.generateRandomUsername()
-//                    if querySnapshot!.count == 0 {
-//                        self.usersRef.addDocument(data: [
-//                            "id": Auth.auth().currentUser!.uid,
-//                            "name": randomName,
-//                            "bio": "",
-//                            "matchesPlayed": 0,
-//                            "matchesWon": 0
-//                        ])
-//                        let alertControllerNoBio = UIAlertController(title: "User Data Created", message: "Your Name: \(randomName)", preferredStyle: .alert)
-//                        alertControllerNoBio.addAction(UIAlertAction(title: "Ok", style: .cancel) { (action) in
-//                            self.performSegue(withIdentifier: self.mainSegueIdentifier, sender: self)
-//                        })
-//                        self.present(alertControllerNoBio, animated: true, completion: nil)
-//                    } else {
-//                        self.performSegue(withIdentifier: self.mainSegueIdentifier, sender: self)
-//                    }
-//                })
                 self.performSegue(withIdentifier: self.mainSegueIdentifier, sender: self)
             }
         }

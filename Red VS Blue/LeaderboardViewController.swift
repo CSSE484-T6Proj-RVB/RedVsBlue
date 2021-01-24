@@ -6,7 +6,6 @@
 //
 
 import UIKit
-import Firebase
 
 class LeaderboardViewController: UIViewController {
     
@@ -15,13 +14,9 @@ class LeaderboardViewController: UIViewController {
     @IBOutlet weak var leaderboardSwitcher: UISegmentedControl!
     @IBOutlet weak var leaderboardTitle: UILabel!
     
-    var usersRef: CollectionReference!
-    var usersDataListener: ListenerRegistration!
-    
     override func viewDidLoad() {
         super.viewDidLoad()
         navigationController?.setNavigationBarHidden(false, animated: false)
-        usersRef = Firestore.firestore().collection("Users")
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -33,49 +28,37 @@ class LeaderboardViewController: UIViewController {
         leaderboardView.layer.borderWidth = 4
         leaderboardView.layer.borderColor = UIColor.black.cgColor
         
-        startListening(isPlayedMatches: true)
+        UserManager.shared.beginListeningForLeaderboard(isMatchesPlayed: true, changeListener: updateView)
     }
     
     override func viewWillDisappear(_ animated: Bool) {
         super.viewWillDisappear(animated)
-        usersDataListener.remove()
+        UserManager.shared.stopListening()
     }
     
-    func startListening(isPlayedMatches: Bool) {
-        if usersDataListener != nil {
-            usersDataListener.remove()
-        }
-        
-        leaderboardTitle.text = isPlayedMatches ? "Matches Played" : "Matches Won"
-        
-        let query = isPlayedMatches ? usersRef.order(by: "matchesPlayed", descending: true).limit(to: 10).whereField("matchesPlayed", isGreaterThan: 0) : usersRef.order(by: "matchesWon", descending: true).limit(to: 10).whereField("matchesWon", isGreaterThan: 0)
-        
-        usersDataListener = query.addSnapshotListener({ (documentSnapshot, error) in
-            if let documentSnapshot = documentSnapshot {
-                for label in self.leaderboardLabels {
-                    let index = label.tag
-                    if index >= documentSnapshot.documents.count {
-                        label.text = ""
-                        continue
-                    }
-                    let playerName = documentSnapshot.documents[index].data()["name"] as! String
-                    let playerStats = isPlayedMatches ? documentSnapshot.documents[index].data()["matchesPlayed"] as! Int : documentSnapshot.documents[index].data()["matchesWon"] as! Int
-                    label.text = "\(index + 1). \(playerName) : \(String(playerStats))"
-                }
-            } else {
-                print("Error getting user data \(error!)")
-                return
+    func updateView() {
+        // TODO: Loading!
+        for label in self.leaderboardLabels {
+            let index = label.tag
+            if index >= UserManager.shared.getQueryDocumentCount() {
+                label.text = ""
+                continue
             }
-        })
+            label.text = "\(index + 1). \(UserManager.shared.getNameAtIndex(index: index)) : \(String(leaderboardSwitcher.selectedSegmentIndex == 0 ? UserManager.shared.getMatchesPlayedAtIndex(index: index) : UserManager.shared.getMatchesWonAtIndex(index: index)))"
+        }
     }
     
     @IBAction func switchedLeaderBoardMode(_ sender: Any) {
         switch leaderboardSwitcher.selectedSegmentIndex
         {
         case 0:
-            startListening(isPlayedMatches: true)
+            leaderboardTitle.text = "Matches Played"
+            UserManager.shared.stopListening()
+            UserManager.shared.beginListeningForLeaderboard(isMatchesPlayed: true, changeListener: updateView)
         case 1:
-            startListening(isPlayedMatches: false)
+            leaderboardTitle.text = "Matches Won"
+            UserManager.shared.stopListening()
+            UserManager.shared.beginListeningForLeaderboard(isMatchesPlayed: false, changeListener: updateView)
         default:
             break
         }

@@ -11,8 +11,7 @@ import Firebase
 class User {
     var name: String
     var bio: String
-    var userDocId: String
-    var id: String
+    var uid: String
     
     var matchesPlayed: Int
     var matchesWon: Int
@@ -21,12 +20,11 @@ class User {
     var score: Int = 0
     
     init(documentSnapshot: DocumentSnapshot) {
-        self.userDocId = documentSnapshot.documentID
+        self.uid = documentSnapshot.documentID
         let data = documentSnapshot.data()!
         
         self.name = data["name"] as! String
         self.bio = data["bio"] as! String
-        self.id = data["id"] as! String
         
         self.matchesPlayed = data["matchesPlayed"] as! Int
         self.matchesWon = data["matchesWon"] as! Int
