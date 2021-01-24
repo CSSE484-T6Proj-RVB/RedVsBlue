@@ -51,6 +51,7 @@ class UserManager {
     }
     
     func beginListeningForLeaderboard(isMatchesPlayed: Bool, changeListener: (() -> Void)?) {
+        stopListening()
         let query = isMatchesPlayed ? _userCollectionRef.order(by: kKeyMatchesPlayed, descending: true).limit(to: 10).whereField(kKeyMatchesPlayed, isGreaterThan: 0) : _userCollectionRef.order(by: kKeyMatchesWon, descending: true).limit(to: 10).whereField(kKeyMatchesWon, isGreaterThan: 0)
         _userListener = query.addSnapshotListener({ (querySnapshot, error) in
             if let error = error {
@@ -64,6 +65,7 @@ class UserManager {
     }
     
     func beginListeningForSingleUser(uid: String, changeListener: (() -> Void)?) {
+        stopListening()
         let userRef = _userCollectionRef.document(uid)
         _userListener =  userRef.addSnapshotListener { (documentSnapshot, error) in
             if let error = error {

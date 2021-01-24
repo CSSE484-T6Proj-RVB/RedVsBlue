@@ -12,15 +12,10 @@ class JoinGameViewController: UIViewController, UITextFieldDelegate {
     
     @IBOutlet weak var codeTextField: UITextField!
     @IBOutlet weak var nameView: UIView!
-    @IBOutlet weak var nameLabel: UILabel!
-    
-    var gameDataRef: CollectionReference!
-    var gameDatumRef: DocumentReference!
-    var gameDataListener: ListenerRegistration!
+    @IBOutlet weak var userNameLabel: UILabel!
     
     var digits: String!
     var nonEmptyRoomIds = [String]()
-    var user: User!
     
     let gameSelectionSegueIdentifier = "GameSelectionSegue"
     
@@ -29,46 +24,40 @@ class JoinGameViewController: UIViewController, UITextFieldDelegate {
         navigationController?.setNavigationBarHidden(true, animated: false)
         codeTextField.delegate = self
         codeTextField.addTarget(self, action: #selector(self.updateDigitCodeView), for: .editingChanged)
-        gameDataRef = Firestore.firestore().collection("GameData")
     }
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         navigationController?.setNavigationBarHidden(true, animated: false)
         
+        UserManager.shared.beginListeningForSingleUser(uid: Auth.auth().currentUser!.uid, changeListener: updateNameView)
+        
         nonEmptyRoomIds = []
         
         nameView.layer.cornerRadius = 12
         nameView.layer.borderWidth = 2
         nameView.layer.borderColor = UIColor.black.cgColor
-        nameLabel.text = user.name
         
-        user.identity = 0
-        user.score = 0
-        
-        startListening()
+        RoomManager.shared.beginListeningForRooms(changeListener: appendRoomIds)
     }
     
     override func viewWillDisappear(_ animated: Bool) {
         super.viewWillDisappear(animated)
-        gameDataListener.remove()
+        UserManager.shared.stopListening()
+        RoomManager.shared.stopListening()
     }
     
-    func startListening() {
-        gameDataListener = gameDataRef.addSnapshotListener({ (documentSnapshot, error) in
-            if let documentSnapshot = documentSnapshot {
-                self.nonEmptyRoomIds = []
-                for document in documentSnapshot.documents {
-                    if let roomId = document.data()["roomId"] {
-                        self.nonEmptyRoomIds.append(roomId as! String)
-                    }
-                }
-                //print(self.nonEmptyRoomIds)
-            } else {
-                print("Error getting user data \(error!)")
-                return
-            }
-        })
+    func appendRoomIds() {
+        nonEmptyRoomIds = []
+        for document in RoomManager.shared._queryDocuments! {
+            self.nonEmptyRoomIds.append(document.documentID)
+        }
+        print(nonEmptyRoomIds)
+        RoomManager.shared.stopListening()
+    }
+    
+    func updateNameView() {
+        userNameLabel.text = UserManager.shared.name
     }
     
     @IBAction func pressedBackButton(_ sender: Any) {
@@ -89,30 +78,20 @@ class JoinGameViewController: UIViewController, UITextFieldDelegate {
             return
         }
         if nonEmptyRoomIds.contains(digits) {
-            gameDataListener = gameDataRef.whereField("roomId", isEqualTo: digits!).addSnapshotListener({ (documentSnapshot, error) in
-                if let error = error {
-                    print("Get specific game room data failed \(error)")
-                    return
-                }
-                self.gameDatumRef = self.gameDataRef.document(documentSnapshot!.documents[0].documentID)
-                //print("Can update data now.")
-                self.gameDatumRef.updateData([
-                    "clientUserName": self.user.name,
-                    "clientUserBio": self.user.bio,
-                    "clientScore": 0,
-                    "clientReady": false
-                ])
-                self.performSegue(withIdentifier: self.gameSelectionSegueIdentifier, sender: self)
-            })
+            if digits == "2" {
+                // TODO: Check for isGoing
+                return
+            }
+            RoomManager.shared.joinRoom(id: digits, name: UserManager.shared.name, bio: UserManager.shared.bio)
         } else {
             let alertController = UIAlertController(title: "Error",
                                                     message: "The Game Room Does not Exist!",
                                                     preferredStyle: .alert)
-            
+
             alertController.addAction(UIAlertAction(title: "OK",
                                                     style: .cancel,
                                                     handler: nil))
-            
+
             present(alertController, animated: true, completion: nil)
         }
     }
@@ -137,8 +116,8 @@ class JoinGameViewController: UIViewController, UITextFieldDelegate {
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == gameSelectionSegueIdentifier {
-            (segue.destination as! GameSelectionViewController).roomRef = gameDatumRef
-            (segue.destination as! GameSelectionViewController).user = user
+//            (segue.destination as! GameSelectionViewController).roomRef = gameDatumRef
+//            (segue.destination as! GameSelectionViewController).user = user
         }
     }
 }

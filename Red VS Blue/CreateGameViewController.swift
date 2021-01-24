@@ -15,96 +15,65 @@ class CreateGameViewController: UIViewController {
     
     @IBOutlet var digitCodeLabels: [UILabel]!
     
-    var gameDataRef: CollectionReference!
-    var gameDatumRef: DocumentReference!
-    var gameDataListener: ListenerRegistration!
-    var gameDatumListener: ListenerRegistration!
     var nonEmptyRoomIds = [String]()
     var digits: String!
-    var user: User!
     
     let gameSelectionSegueIdentifier = "GameSelectionSegue"
     
     override func viewDidLoad() {
         super.viewDidLoad()
         navigationController?.setNavigationBarHidden(true, animated: false)
-        gameDataRef = Firestore.firestore().collection("GameData")
     }
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         navigationController?.setNavigationBarHidden(true, animated: false)
-        nonEmptyRoomIds = []
         userNameView.layer.cornerRadius = 12
         userNameView.layer.borderWidth = 2
         userNameView.layer.borderColor = UIColor.black.cgColor
         
-        userNameLabel.text = user.name
-        user.identity = 1
-        user.score = 0
-        
-        startListening()
-        
-        digits = RandomStringGenerator.shared.generateRandomRoomNumber()
-        while nonEmptyRoomIds.contains(digits) {
-            digits = RandomStringGenerator.shared.generateRandomRoomNumber()
-        }
-        
-        updateDigitCodes(digits: digits)
-        createGameRoomData()
-        
-        startListeningForTheRoom()
+        UserManager.shared.beginListeningForSingleUser(uid: Auth.auth().currentUser!.uid, changeListener: updateNameView)
+        RoomManager.shared.beginListeningForRooms(changeListener: appendRoomIds)
     }
     
     override func viewWillDisappear(_ animated: Bool) {
         super.viewWillDisappear(animated)
-        gameDataListener.remove()
-        gameDatumListener.remove()
+        RoomManager.shared.stopListening()
+        UserManager.shared.stopListening()
     }
     
-    func startListening() {
-        gameDataListener = gameDataRef.addSnapshotListener({ (documentSnapshot, error) in
-            if let documentSnapshot = documentSnapshot {
-                self.nonEmptyRoomIds = []
-                for document in documentSnapshot.documents {
-                    if let roomId = document.data()["roomId"]{
-                        self.nonEmptyRoomIds.append(roomId as! String)
-                    }
-                }
-            } else {
-                print("Error getting rooms data \(error!)")
-                return
-            }
-        })
+    func appendRoomIds() {
+        nonEmptyRoomIds = []
+        for document in RoomManager.shared._queryDocuments! {
+            self.nonEmptyRoomIds.append(document.documentID)
+        }
+        print(nonEmptyRoomIds)
+        RoomManager.shared.stopListening()
+        createRoom()
     }
     
-    func startListeningForTheRoom() {
-        gameDatumListener = gameDatumRef.addSnapshotListener({ (documentSnapshot, error) in
-            if let documentSnapshot = documentSnapshot {
-                if let _ = documentSnapshot.data()!["clientUserName"] {
-                    print("Player joined in.")
-                    self.performSegue(withIdentifier: self.gameSelectionSegueIdentifier, sender: self)
-                }
-            } else {
-                print("Error getting room data \(error!)")
-                return
-            }
-        })
-        
+    func createRoom() {
+        digits = "4057" // TODO: Set it back
+        while nonEmptyRoomIds.contains(digits) {
+            digits = RandomStringGenerator.shared.generateRandomRoomNumber()
+        }
+        updateDigitCodes(digits: digits)
+        RoomManager.shared.addNewRoom(id: digits, name: UserManager.shared.name, bio: UserManager.shared.bio)
+        RoomManager.shared.beginListeningForTheRoom(id: digits, changeListener: playerJoined)
     }
     
-    func createGameRoomData() {
-        gameDatumRef = gameDataRef.addDocument(data: [
-            "roomId": digits!,
-            "hostUserName":  user.name,
-            "hostUserBio":  user.bio,
-            "hostScore": 0,
-            "hostReady": false
-        ])
+    func playerJoined() {
+        if RoomManager.shared.clientUserName == nil {
+            return
+        }
+        print(RoomManager.shared.clientUserName!)
+    }
+    
+    func updateNameView() {
+        userNameLabel.text = UserManager.shared.name
     }
     
     func updateDigitCodes(digits: String) {
-        print(digits)
         for label in digitCodeLabels {
             let index = label.tag
             label.text = String(Array(digits)[index])
@@ -112,14 +81,14 @@ class CreateGameViewController: UIViewController {
     }
     
     @IBAction func pressedBackButton(_ sender: Any) {
-        gameDatumRef.delete()
+        RoomManager.shared.deleteRoom(id: digits)
         self.navigationController?.popViewController(animated: true)
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == gameSelectionSegueIdentifier {
-            (segue.destination as! GameSelectionViewController).roomRef = gameDatumRef
-            (segue.destination as! GameSelectionViewController).user = user
+//            (segue.destination as! GameSelectionViewController).roomRef = gameDatumRef
+//            (segue.destination as! GameSelectionViewController).user = user
         }
     }
 }

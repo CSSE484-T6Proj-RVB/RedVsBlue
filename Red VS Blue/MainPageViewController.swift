@@ -114,9 +114,9 @@ class MainPageViewController: UIViewController {
         if segue.identifier == profileSegueIdentifier {
             // Nothing Needed
         } else if segue.identifier == createGameSegueIdentifier {
-            (segue.destination as! CreateGameViewController).user = user
+//            (segue.destination as! CreateGameViewController).user = user
         } else if segue.identifier == joinGameSegueIdentifier {
-            (segue.destination as! JoinGameViewController).user = user
+//            (segue.destination as! JoinGameViewController).user = user
         }
     }
 }
