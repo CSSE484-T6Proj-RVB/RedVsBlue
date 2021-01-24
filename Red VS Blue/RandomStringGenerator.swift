@@ -10,7 +10,7 @@ import Firebase
 
 class RandomStringGenerator {
     
-    static let singleton = RandomStringGenerator()
+    static let shared = RandomStringGenerator()
     
     private init() {}
     

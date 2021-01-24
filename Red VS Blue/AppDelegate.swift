@@ -42,23 +42,23 @@ class AppDelegate: UIResponder, UIApplicationDelegate, GIDSignInDelegate {
                 print("Google sign in error! \(error)")
                 return
             }
-            let usersRef = Firestore.firestore().collection("Users")
-            usersRef.whereField("id", isEqualTo: Auth.auth().currentUser!.uid).getDocuments(completion: { (querySnapshot, error) in
-                if let error = error {
-                    print("error \(error)")
-                    return
-                }
-                if querySnapshot!.count == 0 {
-                    usersRef.addDocument(data: [
-                        "id": Auth.auth().currentUser!.uid,
-                        "name": RandomStringGenerator.singleton.generateRandomUsername(),
-                        "bio": "",
-                        "matchesPlayed": 0,
-                        "matchesWon": 0
-                    ])
-                    print("User doc created.")
-                }
-            })
+//            let usersRef = Firestore.firestore().collection("Users")
+//            usersRef.whereField("id", isEqualTo: Auth.auth().currentUser!.uid).getDocuments(completion: { (querySnapshot, error) in
+//                if let error = error {
+//                    print("error \(error)")
+//                    return
+//                }
+//                if querySnapshot!.count == 0 {
+//                    usersRef.addDocument(data: [
+//                        "id": Auth.auth().currentUser!.uid,
+//                        "name": RandomStringGenerator.shared.generateRandomUsername(),
+//                        "bio": "",
+//                        "matchesPlayed": 0,
+//                        "matchesWon": 0
+//                    ])
+//                    print("User doc created.")
+//                }
+//            })
             LoginViewController.isGuest = false
             let loginVc = GIDSignIn.sharedInstance()?.presentingViewController as! LoginViewController
             loginVc.performSegue(withIdentifier: loginVc.mainSegueIdentifier, sender: loginVc)

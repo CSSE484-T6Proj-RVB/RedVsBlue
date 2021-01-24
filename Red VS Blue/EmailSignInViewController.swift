@@ -14,12 +14,12 @@ class EmailSignInViewController: UIViewController {
     @IBOutlet weak var passwordTextField: UITextField!
     
     let mainSegueIdentifier = "MainSegue"
-    var usersRef: CollectionReference!
+//    var usersRef: CollectionReference!
     
     override func viewDidLoad() {
         super.viewDidLoad()
         navigationController?.setNavigationBarHidden(false, animated: false)
-        usersRef = Firestore.firestore().collection("Users")
+//        usersRef = Firestore.firestore().collection("Users")
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -55,19 +55,14 @@ class EmailSignInViewController: UIViewController {
             
             print("It worked!!! A new user is created and now signed in.")
             
-            let randomName = RandomStringGenerator.singleton.generateRandomUsername()
-            self.usersRef.addDocument(data: [
-                "id": Auth.auth().currentUser!.uid,
-                "name": randomName,
-                "bio": "",
-                "matchesPlayed": 0,
-                "matchesWon": 0
-            ])
-            let alertControllerNoBio = UIAlertController(title: "User Data Created", message: "Your Name: \(randomName)", preferredStyle: .alert)
-            alertControllerNoBio.addAction(UIAlertAction(title: "Ok", style: .cancel) { (action) in
-                self.performSegue(withIdentifier: self.mainSegueIdentifier, sender: self)
-            })
-            self.present(alertControllerNoBio, animated: true, completion: nil)
+//            let randomName = RandomStringGenerator.shared.generateRandomUsername()
+//            self.usersRef.addDocument(data: [
+//                "id": Auth.auth().currentUser!.uid,
+//                "name": randomName,
+//                "bio": "",
+//                "matchesPlayed": 0,
+//                "matchesWon": 0
+//            ])
         }
     }
     
@@ -81,6 +76,13 @@ class EmailSignInViewController: UIViewController {
                                                 handler: nil))
         
         present(alertController, animated: true, completion: nil)
+    }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == mainSegueIdentifier {
+            print("Checking for user: \(Auth.auth().currentUser!.uid)")
+            UserManager.shared.addNewUserMabye(uid: Auth.auth().currentUser!.uid, name: RandomStringGenerator.shared.generateRandomUsername(), photoUrl: Auth.auth().currentUser!.photoURL?.absoluteString)
+        }
     }
     
 }

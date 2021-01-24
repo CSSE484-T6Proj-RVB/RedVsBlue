@@ -19,12 +19,12 @@ class LoginViewController: UIViewController {
     let signUpSegueIdentifier = "SignUpSegue"
     let REGISTRY_TOKEN = "9f549980-c326-4e31-aa18-869cc452b1d4"
     
-    var usersRef: CollectionReference!
+    var rosefireName: String?
     
     override func viewDidLoad() {
         super.viewDidLoad()
         navigationController?.setNavigationBarHidden(true, animated: false)
-        usersRef = Firestore.firestore().collection("Users")
+//        usersRef = Firestore.firestore().collection("Users")
         GIDSignIn.sharedInstance()?.presentingViewController = self
         googleSignInButton.style = .wide
     }
@@ -36,6 +36,7 @@ class LoginViewController: UIViewController {
     
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
+        rosefireName = nil
         if Auth.auth().currentUser != nil {
             print("Someone is already signed in! Just move on!")
             self.performSegue(withIdentifier: self.mainSegueIdentifier, sender: self)
@@ -49,10 +50,12 @@ class LoginViewController: UIViewController {
                 print("Rosefire sign in error! \(err)")
                 return
             }
-//            print("Result = \(result!.username!)")
-//            print("Result = \(result!.name!)")
-//            print("Result = \(result!.email!)")
-//            print("Result = \(result!.group!)")
+            //            print("Result = \(result!.username!)")
+            //            print("Result = \(result!.name!)")
+            //            print("Result = \(result!.email!)")
+            //            print("Result = \(result!.group!)")
+            
+            self.rosefireName = result!.name!
             
             Auth.auth().signIn(withCustomToken: result!.token) { (authResult, error) in
                 if let error = error {
@@ -63,29 +66,30 @@ class LoginViewController: UIViewController {
                 print("sign in success")
                 LoginViewController.isGuest = false
                 
-                self.usersRef.whereField("id", isEqualTo: Auth.auth().currentUser!.uid).getDocuments(completion: { (querySnapshot, error) in
-                    if let error = error {
-                        print("error \(error)")
-                        return
-                    }
-                    let randomName = RandomStringGenerator.singleton.generateRandomUsername()
-                    if querySnapshot!.count == 0 {
-                        self.usersRef.addDocument(data: [
-                            "id": Auth.auth().currentUser!.uid,
-                            "name": randomName,
-                            "bio": "",
-                            "matchesPlayed": 0,
-                            "matchesWon": 0
-                        ])
-                        let alertControllerNoBio = UIAlertController(title: "User Data Created", message: "Your Name: \(randomName)", preferredStyle: .alert)
-                        alertControllerNoBio.addAction(UIAlertAction(title: "Ok", style: .cancel) { (action) in
-                            self.performSegue(withIdentifier: self.mainSegueIdentifier, sender: self)
-                        })
-                        self.present(alertControllerNoBio, animated: true, completion: nil)
-                    } else {
-                        self.performSegue(withIdentifier: self.mainSegueIdentifier, sender: self)
-                    }
-                })
+//                self.usersRef.whereField("id", isEqualTo: Auth.auth().currentUser!.uid).getDocuments(completion: { (querySnapshot, error) in
+//                    if let error = error {
+//                        print("error \(error)")
+//                        return
+//                    }
+//                    let randomName = RandomStringGenerator.shared.generateRandomUsername()
+//                    if querySnapshot!.count == 0 {
+//                        self.usersRef.addDocument(data: [
+//                            "id": Auth.auth().currentUser!.uid,
+//                            "name": randomName,
+//                            "bio": "",
+//                            "matchesPlayed": 0,
+//                            "matchesWon": 0
+//                        ])
+//                        let alertControllerNoBio = UIAlertController(title: "User Data Created", message: "Your Name: \(randomName)", preferredStyle: .alert)
+//                        alertControllerNoBio.addAction(UIAlertAction(title: "Ok", style: .cancel) { (action) in
+//                            self.performSegue(withIdentifier: self.mainSegueIdentifier, sender: self)
+//                        })
+//                        self.present(alertControllerNoBio, animated: true, completion: nil)
+//                    } else {
+//                        self.performSegue(withIdentifier: self.mainSegueIdentifier, sender: self)
+//                    }
+//                })
+                self.performSegue(withIdentifier: self.mainSegueIdentifier, sender: self)
             }
         }
     }
@@ -111,6 +115,16 @@ class LoginViewController: UIViewController {
         })
         
         present(alertController, animated: true, completion: nil)
+    }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == mainSegueIdentifier {
+            if LoginViewController.isGuest {
+                return
+            }
+            print("Checking for user: \(Auth.auth().currentUser!.uid)")
+            UserManager.shared.addNewUserMabye(uid: Auth.auth().currentUser!.uid, name: rosefireName ?? RandomStringGenerator.shared.generateRandomUsername(), photoUrl: Auth.auth().currentUser!.photoURL?.absoluteString)
+        }
     }
     
 }

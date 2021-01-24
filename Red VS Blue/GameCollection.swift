@@ -9,7 +9,7 @@ import Foundation
 
 class GameCollection {
     
-    static let singleton = GameCollection()
+    static let shared = GameCollection()
     
     var games: [Game]
     

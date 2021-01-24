@@ -126,8 +126,8 @@ class GameSelectionViewController: UIViewController {
         
         var x = startingXPos, y = startingYPos, col = 0
         
-        for index in 0..<GameCollection.singleton.games.count {
-            let game = GameCollection.singleton.games[index]
+        for index in 0..<GameCollection.shared.games.count {
+            let game = GameCollection.shared.games[index]
             let button = UIButton(type: .custom) as UIButton
             if col == maxCol {
                 col = 0
@@ -179,7 +179,7 @@ class GameSelectionViewController: UIViewController {
     }
     
     func updateGameSelectedLabel(currentSelected: Int!) {
-        gameSelectedLabel.text = "Current Selected: \(GameCollection.singleton.games[currentSelected].name)"
+        gameSelectedLabel.text = "Current Selected: \(GameCollection.shared.games[currentSelected].name)"
     }
     
     @IBAction func pressedGoButton(_ sender: Any) {
@@ -229,7 +229,7 @@ class GameSelectionViewController: UIViewController {
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == loadingSegueIdentifier {
             (segue.destination as! LoadingViewController).roomRef = roomRef
-            (segue.destination as! LoadingViewController).gameSelectedIndex = currentSelectedButtonIndex == GameCollection.singleton.games.count - 1 ? Int.random(in: 0..<GameCollection.singleton.games.count - 1) : currentSelectedButtonIndex
+            (segue.destination as! LoadingViewController).gameSelectedIndex = currentSelectedButtonIndex == GameCollection.shared.games.count - 1 ? Int.random(in: 0..<GameCollection.shared.games.count - 1) : currentSelectedButtonIndex
             (segue.destination as! LoadingViewController).currentUser = user
         }
     }

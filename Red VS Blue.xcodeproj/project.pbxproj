@@ -57,6 +57,7 @@
 		E49BECFD25B5AA2F0048CD7D /* RvB_Icon.png in Resources */ = {isa = PBXBuildFile; fileRef = E49BECFC25B5AA2F0048CD7D /* RvB_Icon.png */; };
 		E4BB4B3C25B621E6008580A8 /* JoinGameViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4BB4B3B25B621E6008580A8 /* JoinGameViewController.swift */; };
 		E4BCD68F25BB64EC00BE0D81 /* ResultViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4BCD68E25BB64EC00BE0D81 /* ResultViewController.swift */; };
+		E4BCD6C325BD84A200BE0D81 /* UserManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4BCD6C225BD84A200BE0D81 /* UserManager.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -114,6 +115,7 @@
 		E49BECFC25B5AA2F0048CD7D /* RvB_Icon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = RvB_Icon.png; sourceTree = "<group>"; };
 		E4BB4B3B25B621E6008580A8 /* JoinGameViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JoinGameViewController.swift; sourceTree = "<group>"; };
 		E4BCD68E25BB64EC00BE0D81 /* ResultViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResultViewController.swift; sourceTree = "<group>"; };
+		E4BCD6C225BD84A200BE0D81 /* UserManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserManager.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -195,8 +197,9 @@
 				E48A0C2225B031CC00122140 /* LaunchScreen.storyboard */,
 				E48A0C2525B031CC00122140 /* Info.plist */,
 				E41F4C0825B33F970008D15B /* GoogleService-Info.plist */,
-				E498EF7E25B9A6DB006621FA /* Images */,
 				E4BCD68E25BB64EC00BE0D81 /* ResultViewController.swift */,
+				E4BCD6C225BD84A200BE0D81 /* UserManager.swift */,
+				E498EF7E25B9A6DB006621FA /* Images */,
 			);
 			path = "Red VS Blue";
 			sourceTree = "<group>";
@@ -391,6 +394,7 @@
 				E49BECE925B4E1AC0048CD7D /* RandomStringGenerator.swift in Sources */,
 				E498EF6325B7B591006621FA /* GameCollection.swift in Sources */,
 				E49BECD525B34AA40048CD7D /* MainPageViewController.swift in Sources */,
+				E4BCD6C325BD84A200BE0D81 /* UserManager.swift in Sources */,
 				B5DD70E425B965EC006848D7 /* LoadingViewController.swift in Sources */,
 				E498EF4425B78667006621FA /* GameSelectionViewController.swift in Sources */,
 				E49BECC525B344100048CD7D /* LoginViewController.swift in Sources */,

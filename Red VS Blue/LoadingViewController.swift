@@ -35,7 +35,7 @@ class LoadingViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         navigationController?.setNavigationBarHidden(true, animated: false)
-        for game in GameCollection.singleton.games {
+        for game in GameCollection.shared.games {
             gameSegueIdentifiers.append(game.segueName)
         }
     }
@@ -46,7 +46,7 @@ class LoadingViewController: UIViewController {
         selectedGameDescription.layer.cornerRadius = 15
         selectedGameDescription.layer.borderWidth = 2
         
-        let game =  GameCollection.singleton.games[gameSelectedIndex]
+        let game =  GameCollection.shared.games[gameSelectedIndex]
         self.selectedGameIcon.image = game.gameIconImage
         self.selectedGameLabel.text = game.name
         self.selectedGameDescription.text = game.description

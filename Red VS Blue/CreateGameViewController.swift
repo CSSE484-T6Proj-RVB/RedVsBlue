@@ -45,9 +45,9 @@ class CreateGameViewController: UIViewController {
         
         startListening()
         
-        digits = RandomStringGenerator.singleton.generateRandomRoomNumber()
+        digits = RandomStringGenerator.shared.generateRandomRoomNumber()
         while nonEmptyRoomIds.contains(digits) {
-            digits = RandomStringGenerator.singleton.generateRandomRoomNumber()
+            digits = RandomStringGenerator.shared.generateRandomRoomNumber()
         }
         
         updateDigitCodes(digits: digits)
