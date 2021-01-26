@@ -83,9 +83,10 @@ class RoomManager {
         stopListening()
         _roomListener = _gameDataCollectionRef.addSnapshotListener({ (querySnapshot, error) in
             if let error = error {
-                print("Error listening leaderboard \(error)")
+                print("Error listening rooms \(error)")
             }
             if let querySnapshot = querySnapshot {
+                print(querySnapshot.documents.count)
                 self._queryDocuments = querySnapshot.documents
                 changeListener?()
             }
@@ -97,7 +98,7 @@ class RoomManager {
         let roomRef = _gameDataCollectionRef.document(id)
         _roomListener = roomRef.addSnapshotListener { (documentSnapshot, error) in
             if let error = error {
-                print("Error listening for user \(error)")
+                print("Error listening for room \(error)")
                 return
             }
             if let documentSnapshot = documentSnapshot {

@@ -24,6 +24,9 @@
 		E48A0C1F25B031CB00122140 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E48A0C1D25B031CB00122140 /* Main.storyboard */; };
 		E48A0C2125B031CC00122140 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = E48A0C2025B031CC00122140 /* Assets.xcassets */; };
 		E48A0C2425B031CC00122140 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E48A0C2225B031CC00122140 /* LaunchScreen.storyboard */; };
+		E494E97A25C084C8004DD607 /* You_Lose.png in Resources */ = {isa = PBXBuildFile; fileRef = E494E97725C084C8004DD607 /* You_Lose.png */; };
+		E494E97B25C084C8004DD607 /* You_Win.png in Resources */ = {isa = PBXBuildFile; fileRef = E494E97825C084C8004DD607 /* You_Win.png */; };
+		E494E97C25C084C8004DD607 /* Tie_Game.png in Resources */ = {isa = PBXBuildFile; fileRef = E494E97925C084C8004DD607 /* Tie_Game.png */; };
 		E498EF4425B78667006621FA /* GameSelectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E498EF4325B78667006621FA /* GameSelectionViewController.swift */; };
 		E498EF4825B79395006621FA /* Red_Ball.png in Resources */ = {isa = PBXBuildFile; fileRef = E498EF4725B79395006621FA /* Red_Ball.png */; };
 		E498EF4B25B7939C006621FA /* Blue_Ball.png in Resources */ = {isa = PBXBuildFile; fileRef = E498EF4A25B7939C006621FA /* Blue_Ball.png */; };
@@ -82,6 +85,9 @@
 		E48A0C2025B031CC00122140 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		E48A0C2325B031CC00122140 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		E48A0C2525B031CC00122140 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		E494E97725C084C8004DD607 /* You_Lose.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = You_Lose.png; sourceTree = "<group>"; };
+		E494E97825C084C8004DD607 /* You_Win.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = You_Win.png; sourceTree = "<group>"; };
+		E494E97925C084C8004DD607 /* Tie_Game.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Tie_Game.png; sourceTree = "<group>"; };
 		E498EF4325B78667006621FA /* GameSelectionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameSelectionViewController.swift; sourceTree = "<group>"; };
 		E498EF4725B79395006621FA /* Red_Ball.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Red_Ball.png; sourceTree = "<group>"; };
 		E498EF4A25B7939C006621FA /* Blue_Ball.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Blue_Ball.png; sourceTree = "<group>"; };
@@ -207,6 +213,9 @@
 		E498EF7E25B9A6DB006621FA /* Images */ = {
 			isa = PBXGroup;
 			children = (
+				E494E97925C084C8004DD607 /* Tie_Game.png */,
+				E494E97725C084C8004DD607 /* You_Lose.png */,
+				E494E97825C084C8004DD607 /* You_Win.png */,
 				E498EF8C25B9F8AB006621FA /* TicTacToe_O.PNG */,
 				E498EF8D25B9F8AB006621FA /* TicTacToe_X.PNG */,
 				E498EF8325B9AC56006621FA /* TicTacToe_board.png */,
@@ -297,6 +306,7 @@
 				E49BECFA25B5AA150048CD7D /* Back_Arrow.png in Resources */,
 				E48A0C2425B031CC00122140 /* LaunchScreen.storyboard in Resources */,
 				E498EF5C25B7AAC9006621FA /* GameIcon_CountTo21.PNG in Resources */,
+				E494E97C25C084C8004DD607 /* Tie_Game.png in Resources */,
 				E498EF8425B9AC56006621FA /* TicTacToe_board.png in Resources */,
 				B502E9CB25B7FEE0008E19CE /* Leave_Icon.png in Resources */,
 				E498EF5D25B7AAC9006621FA /* GameIcon_NumberPuzzle.PNG in Resources */,
@@ -308,7 +318,9 @@
 				E498EF4B25B7939C006621FA /* Blue_Ball.png in Resources */,
 				E498EF5E25B7AAC9006621FA /* GameIcon_Hangman.PNG in Resources */,
 				E417786B25B09BF1004B3FD3 /* Icon-72.png in Resources */,
+				E494E97B25C084C8004DD607 /* You_Win.png in Resources */,
 				E498EF4F25B79718006621FA /* VS.png in Resources */,
+				E494E97A25C084C8004DD607 /* You_Lose.png in Resources */,
 				E49BECD225B347150048CD7D /* RedVsBlueTitle.png in Resources */,
 				E49BECFD25B5AA2F0048CD7D /* RvB_Icon.png in Resources */,
 				E417786A25B09BF1004B3FD3 /* Icon@2x.png in Resources */,

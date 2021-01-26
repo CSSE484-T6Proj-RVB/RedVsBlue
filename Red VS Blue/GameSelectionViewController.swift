@@ -15,7 +15,6 @@ class GameSelectionViewController: UIViewController {
     @IBOutlet weak var clientNameLabel: UILabel!
     @IBOutlet weak var clientBioLabel: UILabel!
     
-    @IBOutlet weak var gameScrollView: UIView!
     @IBOutlet weak var testButton: UIButton!
     
     @IBOutlet weak var gameSelectedLabel: UILabel!
@@ -90,6 +89,10 @@ class GameSelectionViewController: UIViewController {
                                                     style: .default)
             { (action) in
                 RoomManager.shared.deleteRoom(id: RoomManager.shared.roomId)
+                if RoomManager.shared.clientScore + RoomManager.shared.hostScore == 0 {
+                    self.navigationController?.popToRootViewController(animated: true)
+                    return
+                }
                 self.performSegue(withIdentifier: self.resultViewSegueIdentifier, sender: self)
             })
             
@@ -193,6 +196,10 @@ class GameSelectionViewController: UIViewController {
                                                 style: .default)
         { (action) in
             RoomManager.shared.updateDataWithField(id: RoomManager.shared.roomId, fieldName: self.kKeyEndGameRequest, value: true)
+            if RoomManager.shared.clientScore + RoomManager.shared.hostScore == 0 {
+                self.navigationController?.popToRootViewController(animated: true)
+                return
+            }
             self.performSegue(withIdentifier: self.resultViewSegueIdentifier, sender: self)
         })
         
@@ -201,9 +208,10 @@ class GameSelectionViewController: UIViewController {
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == loadingSegueIdentifier {
-            //            (segue.destination as! LoadingViewController).roomRef = roomRef
             (segue.destination as! LoadingViewController).gameSelectedIndex = currentSelectedButtonIndex == GameCollection.shared.games.count - 1 ? Int.random(in: 0..<GameCollection.shared.games.count - 1) : currentSelectedButtonIndex
-            //            (segue.destination as! LoadingViewController).currentUser = user
+        } else if segue.identifier == resultViewSegueIdentifier {
+            (segue.destination as! ResultViewController).clientScore = RoomManager.shared.clientScore
+            (segue.destination as! ResultViewController).hostScore = RoomManager.shared.hostScore
         }
     }
 }

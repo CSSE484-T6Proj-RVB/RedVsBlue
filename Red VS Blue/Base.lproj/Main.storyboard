@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="17701" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="wM3-QK-0dx">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="17506" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="wM3-QK-0dx">
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17703"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17505"/>
         <capability name="Named colors" minToolsVersion="9.0"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="System colors in document resources" minToolsVersion="11.0"/>
@@ -1132,12 +1132,6 @@
                                     <constraint firstAttribute="height" constant="200" id="5WX-PK-DKb"/>
                                 </constraints>
                             </imageView>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="crz-82-ji9">
-                                <rect key="frame" x="20" y="428" width="374" height="20.5"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <nil key="textColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="dHN-cm-ELS"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
@@ -1145,18 +1139,18 @@
                             <constraint firstItem="q9M-W4-aXs" firstAttribute="leading" secondItem="dHN-cm-ELS" secondAttribute="leading" constant="20" id="227-p8-PxA"/>
                             <constraint firstItem="scv-0I-iry" firstAttribute="leading" secondItem="4Uw-8g-UZk" secondAttribute="leading" id="4gw-iP-Bsw"/>
                             <constraint firstAttribute="bottom" secondItem="scv-0I-iry" secondAttribute="bottom" id="6LP-wD-Q3U"/>
-                            <constraint firstItem="dHN-cm-ELS" firstAttribute="trailing" secondItem="crz-82-ji9" secondAttribute="trailing" constant="20" id="9Cg-UP-xZl"/>
                             <constraint firstItem="scv-0I-iry" firstAttribute="top" secondItem="4Uw-8g-UZk" secondAttribute="top" id="GGS-Js-WqR"/>
                             <constraint firstItem="q9M-W4-aXs" firstAttribute="top" secondItem="dHN-cm-ELS" secondAttribute="top" constant="100" id="cF7-eb-cz8"/>
                             <constraint firstItem="scv-0I-iry" firstAttribute="trailing" secondItem="dHN-cm-ELS" secondAttribute="trailing" id="dDf-RB-yOY"/>
-                            <constraint firstItem="crz-82-ji9" firstAttribute="leading" secondItem="dHN-cm-ELS" secondAttribute="leading" constant="20" id="eLh-zn-rDq"/>
-                            <constraint firstItem="crz-82-ji9" firstAttribute="top" secondItem="q9M-W4-aXs" secondAttribute="bottom" constant="40" id="kRS-wE-2Gi"/>
                             <constraint firstItem="dHN-cm-ELS" firstAttribute="bottom" secondItem="PqN-8c-MhP" secondAttribute="bottom" constant="100" id="kvT-Iz-NFw"/>
                             <constraint firstItem="PqN-8c-MhP" firstAttribute="centerX" secondItem="dHN-cm-ELS" secondAttribute="centerX" id="v9v-Vn-AGS"/>
                             <constraint firstItem="dHN-cm-ELS" firstAttribute="trailing" secondItem="q9M-W4-aXs" secondAttribute="trailing" constant="20" id="xJ8-Xr-k9W"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="UKO-7U-whM"/>
+                    <connections>
+                        <outlet property="resultImage" destination="q9M-W4-aXs" id="lD6-WU-B5x"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="icy-Qe-ast" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
