@@ -6,7 +6,6 @@
 //
 
 import UIKit
-import Firebase
 
 class GameSelectionViewController: UIViewController {
     
@@ -26,15 +25,15 @@ class GameSelectionViewController: UIViewController {
     @IBOutlet weak var clientWaitingLabel: UILabel!
     @IBOutlet weak var hostGoButton: UIButton!
     
-    var roomRef: DocumentReference!
-    var roomListener: ListenerRegistration!
-    
     var gameButtons: [UIButton] = []
     var currentSelectedButtonIndex: Int =  -1
     
     let resultViewSegueIdentifier = "ResultViewSegue"
     let loadingSegueIdentifier = "LoadingSegue"
-    var user: User!
+    
+    let kKeyGameSelected = "currentGameSelected"
+    let kKeyEndGameRequest = "endGameRequest"
+    let kKeyStartGameRequest = "startGameRequest"
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -45,76 +44,66 @@ class GameSelectionViewController: UIViewController {
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         navigationController?.setNavigationBarHidden(true, animated: false)
-        if user.identity == 0 {
-            hostGoButton.isHidden = true
-            clientWaitingLabel.isHidden = false
-        } else if user.identity == 1{
+        //UserManager.shared.beginListeningForSingleUser(uid: Auth.auth().currentUser!.uid, changeListener: nil)
+        if RoomManager.shared.isHost {
             hostGoButton.isHidden = false
             clientWaitingLabel.isHidden = true
         } else {
-            // never happens
-            print("This should never be printed!!!!!!!!!!!!!!!!!!!!!!!!")
-        }
-        if user.identity == 1 {
-            self.roomRef.updateData([
-                "hostScore": user.score
-            ])
-        } else if user.identity == 0 {
-            self.roomRef.updateData([
-                "clientScore": user.score
-            ])
+            hostGoButton.isHidden = true
+            clientWaitingLabel.isHidden = false
         }
         
-        startListening()
+//        if user.identity == 1 {
+//            self.roomRef.updateData([
+//                "hostScore": user.score
+//            ])
+//        } else if user.identity == 0 {
+//            self.roomRef.updateData([
+//                "clientScore": user.score
+//            ])
+//        }
+        RoomManager.shared.beginListeningForTheRoom(id: RoomManager.shared.roomId, changeListener: updateView)
     }
     
     override func viewWillDisappear(_ animated: Bool) {
         super.viewWillDisappear(animated)
-        roomListener.remove()
+        RoomManager.shared.stopListening()
     }
     
-    func startListening() {
-        roomListener = roomRef.addSnapshotListener({ (documentSnapshot, error) in
-            if let documentSnapshot = documentSnapshot {
-                self.clientNameLabel.text = documentSnapshot.data()!["clientUserName"] as? String
-                let clientBio = documentSnapshot.data()!["clientUserBio"] as? String
-                self.clientBioLabel.text = clientBio == "" ? "This player has no bio." : clientBio
-                self.hostNameLabel.text = documentSnapshot.data()!["hostUserName"] as? String
-                let hostBio = documentSnapshot.data()!["hostUserBio"] as? String
-                self.hostBioLabel.text = hostBio == "" ? "This player has no bio." : hostBio
-                self.hostScoreLabel.text = String(documentSnapshot.data()!["hostScore"] as! Int)
-                self.clientScoreLabel.text = String(documentSnapshot.data()!["clientScore"] as! Int)
-                if let _ = documentSnapshot.data()!["endGameRequest"] as? Bool {
-                    let alertController = UIAlertController(title: "Game Ended",
-                                                            message: "The other player has left!",
-                                                            preferredStyle: .alert)
-
-                    alertController.addAction(UIAlertAction(title: "OK",
-                                                            style: .default)
-                    { (action) in
-                        self.deleteRoomAndLeave()
-                    })
-                    
-                    self.present(alertController, animated: true, completion: nil)
-                }
-                if let selectedTag = documentSnapshot.data()!["currentGameSelected"] as? Int {
-                    if self.user.identity == 0 {
-                        self.resetAllIcon()
-                        self.selectIcon(currentSelected: selectedTag)
-                        self.updateGameSelectedLabel(currentSelected: selectedTag)
-                        self.currentSelectedButtonIndex = selectedTag
-
-                    }
-                }
-                let startGameRequest = documentSnapshot.data()!["startGameRequest"] as? Bool
-                if startGameRequest != nil && startGameRequest! {
-                    self.performSegue(withIdentifier: self.loadingSegueIdentifier, sender: self)
-                }
-            } else {
-                print("Error getting room data \(error!)")
-                return
+    func updateView() {
+        let hostBio = RoomManager.shared.hostUserBio
+        let clientBio = RoomManager.shared.clientUserBio
+        hostNameLabel.text = RoomManager.shared.hostUserName
+        hostBioLabel.text = hostBio == "" ? "This player has no bio." : hostBio
+        hostScoreLabel.text = String(RoomManager.shared.hostScore)
+        clientNameLabel.text = RoomManager.shared.clientUserName
+        clientBioLabel.text = clientBio == "" ? "This player has no bio." : clientBio
+        clientScoreLabel.text = String(RoomManager.shared.clientScore)
+        if let currentGameSelected = RoomManager.shared.currentGameSelected {
+            if !RoomManager.shared.isHost {
+                resetAllIcon()
+                selectIcon(currentSelected: currentGameSelected)
+                updateGameSelectedLabel(currentSelected: currentGameSelected)
+                currentSelectedButtonIndex = currentGameSelected
             }
-        })
+        }
+        if let _ = RoomManager.shared.endGameRequest {
+            let alertController = UIAlertController(title: "Game Ended",
+                                                    message: "The other player has left!",
+                                                    preferredStyle: .alert)
+
+            alertController.addAction(UIAlertAction(title: "OK",
+                                                    style: .default)
+            { (action) in
+                RoomManager.shared.deleteRoom(id: RoomManager.shared.roomId)
+                self.performSegue(withIdentifier: self.resultViewSegueIdentifier, sender: self)
+            })
+            
+            present(alertController, animated: true, completion: nil)
+        }
+        if let _ = RoomManager.shared.startGameRequest {
+            self.performSegue(withIdentifier: self.loadingSegueIdentifier, sender: self)
+        }
     }
     
     func loadGameButtons() {
@@ -145,8 +134,7 @@ class GameSelectionViewController: UIViewController {
     }
     
     @objc func pressedGameIcon (sender: UIButton!) {
-        print(sender.tag)
-        if user.identity == 0 {
+        if !RoomManager.shared.isHost {
             let alertController = UIAlertController(title: nil,
                                                     message: "You cannot select the game.",
                                                     preferredStyle: .alert)
@@ -159,9 +147,7 @@ class GameSelectionViewController: UIViewController {
         resetAllIcon()
         selectIcon(currentSelected: sender.tag)
         updateGameSelectedLabel(currentSelected: sender.tag)
-        self.roomRef.updateData([
-            "currentGameSelected": sender.tag
-        ])
+        RoomManager.shared.updateDataWithField(id: RoomManager.shared.roomId, fieldName: kKeyGameSelected, value: sender.tag)
         currentSelectedButtonIndex = sender.tag
     }
     
@@ -184,9 +170,7 @@ class GameSelectionViewController: UIViewController {
     @IBAction func pressedGoButton(_ sender: Any) {
         // TODO: Make sure the player has gone back
         if currentSelectedButtonIndex != -1 {
-            self.roomRef.updateData([
-                "startGameRequest": true
-            ])
+            RoomManager.shared.updateDataWithField(id: RoomManager.shared.roomId, fieldName: kKeyStartGameRequest, value: true)
             self.performSegue(withIdentifier: self.loadingSegueIdentifier, sender: self)
         } else {
             let alertController = UIAlertController(title: nil,
@@ -204,32 +188,24 @@ class GameSelectionViewController: UIViewController {
         let alertController = UIAlertController(title: nil,
                                                 message: "Are you sure you want to leave the game?",
                                                 preferredStyle: .alert)
-        
         alertController.addAction(UIAlertAction(title: "Cancel",
                                                 style: .cancel,
                                                 handler: nil))
         alertController.addAction(UIAlertAction(title: "Confirm",
                                                 style: .default)
         { (action) in
-            self.roomRef.updateData([
-                "endGameRequest": true
-            ])
+            RoomManager.shared.updateDataWithField(id: RoomManager.shared.roomId, fieldName: self.kKeyEndGameRequest, value: true)
             self.performSegue(withIdentifier: self.resultViewSegueIdentifier, sender: self)
         })
         
         present(alertController, animated: true, completion: nil)
     }
     
-    func deleteRoomAndLeave() {
-        roomRef.delete()
-        self.performSegue(withIdentifier: self.resultViewSegueIdentifier, sender: self)
-    }
-    
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == loadingSegueIdentifier {
-            (segue.destination as! LoadingViewController).roomRef = roomRef
+//            (segue.destination as! LoadingViewController).roomRef = roomRef
             (segue.destination as! LoadingViewController).gameSelectedIndex = currentSelectedButtonIndex == GameCollection.shared.games.count - 1 ? Int.random(in: 0..<GameCollection.shared.games.count - 1) : currentSelectedButtonIndex
-            (segue.destination as! LoadingViewController).currentUser = user
+//            (segue.destination as! LoadingViewController).currentUser = user
         }
     }
 }

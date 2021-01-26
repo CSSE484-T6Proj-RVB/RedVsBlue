@@ -67,6 +67,7 @@ class CreateGameViewController: UIViewController {
             return
         }
         print(RoomManager.shared.clientUserName!)
+        performSegue(withIdentifier: self.gameSelectionSegueIdentifier, sender: self)
     }
     
     func updateNameView() {

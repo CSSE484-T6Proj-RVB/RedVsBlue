@@ -5,7 +5,6 @@
 //  Created by 马闻泽 on 1/21/21.
 //
 
-import Foundation
 import UIKit
 import Firebase
 

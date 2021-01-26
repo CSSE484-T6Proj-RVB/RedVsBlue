@@ -53,7 +53,7 @@ class JoinGameViewController: UIViewController, UITextFieldDelegate {
             self.nonEmptyRoomIds.append(document.documentID)
         }
         print(nonEmptyRoomIds)
-        RoomManager.shared.stopListening()
+        //RoomManager.shared.stopListening()
     }
     
     func updateNameView() {
@@ -83,6 +83,7 @@ class JoinGameViewController: UIViewController, UITextFieldDelegate {
                 return
             }
             RoomManager.shared.joinRoom(id: digits, name: UserManager.shared.name, bio: UserManager.shared.bio)
+            performSegue(withIdentifier: self.gameSelectionSegueIdentifier, sender: self)
         } else {
             let alertController = UIAlertController(title: "Error",
                                                     message: "The Game Room Does not Exist!",

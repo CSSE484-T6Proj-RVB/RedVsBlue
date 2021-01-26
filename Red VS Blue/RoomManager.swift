@@ -18,6 +18,9 @@ let kKeyClientUserBio = "clientUserBio"
 let kKeyClientScore = "clientScore"
 let kKeyClientReady = "clientReady"
 let kKeyGameOnGoing = "onGoing"
+let kKeyGameSelected = "currentGameSelected"
+let kKeyEndGameRequest = "endGameRequest"
+let kKeyStartGameRequest = "startGameRequest"
 
 class RoomManager {
     var _gameDataCollectionRef: CollectionReference
@@ -68,6 +71,14 @@ class RoomManager {
         ])
     }
     
+    func updateDataWithField(id: String, fieldName: String, value: Any) {
+        let roomRef = _gameDataCollectionRef.document(id)
+        print("Updating Data...")
+        roomRef.updateData([
+            fieldName: value
+        ])
+    }
+    
     func beginListeningForRooms(changeListener: (() -> Void)?) {
         stopListening()
         _roomListener = _gameDataCollectionRef.addSnapshotListener({ (querySnapshot, error) in
@@ -112,6 +123,27 @@ class RoomManager {
         return ""
     }
     
+    var hostUserBio: String {
+        if let value = _document?.get(kKeyHostUserBio) {
+            return value as! String
+        }
+        return ""
+    }
+    
+    var hostScore: Int {
+        if let value = _document?.get(kKeyHostScore) {
+            return value as! Int
+        }
+        return 0
+    }
+    
+    var clientScore: Int {
+        if let value = _document?.get(kKeyClientScore) {
+            return value as! Int
+        }
+        return 0
+    }
+    
     var clientUserName: String? {
         if let value = _document?.get(kKeyClientUserName) {
             return value as? String
@@ -119,4 +151,31 @@ class RoomManager {
         return nil
     }
     
+    var clientUserBio: String {
+        if let value = _document?.get(kKeyClientUserBio) {
+            return value as! String
+        }
+        return ""
+    }
+    
+    var currentGameSelected: Int? {
+        if let value = _document?.get(kKeyGameSelected) {
+            return value as? Int
+        }
+        return nil
+    }
+    
+    var endGameRequest: Bool? {
+        if let value = _document?.get(kKeyEndGameRequest) {
+            return value as? Bool
+        }
+        return nil
+    }
+    
+    var startGameRequest: Bool? {
+        if let value = _document?.get(kKeyStartGameRequest) {
+            return value as? Bool
+        }
+        return nil
+    }
 }
