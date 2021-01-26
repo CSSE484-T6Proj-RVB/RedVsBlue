@@ -73,7 +73,6 @@ class RoomManager {
     
     func updateDataWithField(id: String, fieldName: String, value: Any) {
         let roomRef = _gameDataCollectionRef.document(id)
-        print("Updating Data...")
         roomRef.updateData([
             fieldName: value
         ])
@@ -86,7 +85,6 @@ class RoomManager {
                 print("Error listening rooms \(error)")
             }
             if let querySnapshot = querySnapshot {
-                print(querySnapshot.documents.count)
                 self._queryDocuments = querySnapshot.documents
                 changeListener?()
             }

@@ -45,7 +45,7 @@ class CreateGameViewController: UIViewController {
     func appendRoomIds() {
         nonEmptyRoomIds = []
         for document in RoomManager.shared._queryDocuments! {
-            print("added something !!!")
+            //print("added something !!!")
             self.nonEmptyRoomIds.append(document.documentID)
         }
         print(nonEmptyRoomIds)

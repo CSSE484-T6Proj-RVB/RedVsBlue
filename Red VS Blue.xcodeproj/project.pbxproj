@@ -11,7 +11,6 @@
 		B54D322B25B5532F008219E5 /* Edit_Icon.png in Resources */ = {isa = PBXBuildFile; fileRef = B54D322A25B5532F008219E5 /* Edit_Icon.png */; };
 		B54D322E25B55335008219E5 /* Delete_Icon.png in Resources */ = {isa = PBXBuildFile; fileRef = B54D322D25B55335008219E5 /* Delete_Icon.png */; };
 		B54D324025B5697F008219E5 /* Background1.png in Resources */ = {isa = PBXBuildFile; fileRef = B54D323F25B5697F008219E5 /* Background1.png */; };
-		B54D324325B569DE008219E5 /* Background3.png in Resources */ = {isa = PBXBuildFile; fileRef = B54D324225B569DE008219E5 /* Background3.png */; };
 		B5DD70E425B965EC006848D7 /* LoadingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5DD70E325B965EC006848D7 /* LoadingViewController.swift */; };
 		D5ADAA6781315963391C1340 /* Pods_Red_VS_Blue.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CCE058C75CFD31EE62E6548C /* Pods_Red_VS_Blue.framework */; };
 		E417786A25B09BF1004B3FD3 /* Icon@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = E417786725B09BF1004B3FD3 /* Icon@2x.png */; };
@@ -27,6 +26,7 @@
 		E494E97A25C084C8004DD607 /* You_Lose.png in Resources */ = {isa = PBXBuildFile; fileRef = E494E97725C084C8004DD607 /* You_Lose.png */; };
 		E494E97B25C084C8004DD607 /* You_Win.png in Resources */ = {isa = PBXBuildFile; fileRef = E494E97825C084C8004DD607 /* You_Win.png */; };
 		E494E97C25C084C8004DD607 /* Tie_Game.png in Resources */ = {isa = PBXBuildFile; fileRef = E494E97925C084C8004DD607 /* Tie_Game.png */; };
+		E494E97F25C08B17004DD607 /* GamePageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E494E97E25C08B17004DD607 /* GamePageViewController.swift */; };
 		E498EF4425B78667006621FA /* GameSelectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E498EF4325B78667006621FA /* GameSelectionViewController.swift */; };
 		E498EF4825B79395006621FA /* Red_Ball.png in Resources */ = {isa = PBXBuildFile; fileRef = E498EF4725B79395006621FA /* Red_Ball.png */; };
 		E498EF4B25B7939C006621FA /* Blue_Ball.png in Resources */ = {isa = PBXBuildFile; fileRef = E498EF4A25B7939C006621FA /* Blue_Ball.png */; };
@@ -70,7 +70,6 @@
 		B54D322A25B5532F008219E5 /* Edit_Icon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Edit_Icon.png; sourceTree = "<group>"; };
 		B54D322D25B55335008219E5 /* Delete_Icon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Delete_Icon.png; sourceTree = "<group>"; };
 		B54D323F25B5697F008219E5 /* Background1.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Background1.png; sourceTree = "<group>"; };
-		B54D324225B569DE008219E5 /* Background3.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Background3.png; sourceTree = "<group>"; };
 		B5DD70E325B965EC006848D7 /* LoadingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoadingViewController.swift; sourceTree = "<group>"; };
 		CCE058C75CFD31EE62E6548C /* Pods_Red_VS_Blue.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Red_VS_Blue.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		E417786725B09BF1004B3FD3 /* Icon@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Icon@2x.png"; sourceTree = "<group>"; };
@@ -88,6 +87,7 @@
 		E494E97725C084C8004DD607 /* You_Lose.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = You_Lose.png; sourceTree = "<group>"; };
 		E494E97825C084C8004DD607 /* You_Win.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = You_Win.png; sourceTree = "<group>"; };
 		E494E97925C084C8004DD607 /* Tie_Game.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Tie_Game.png; sourceTree = "<group>"; };
+		E494E97E25C08B17004DD607 /* GamePageViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GamePageViewController.swift; sourceTree = "<group>"; };
 		E498EF4325B78667006621FA /* GameSelectionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameSelectionViewController.swift; sourceTree = "<group>"; };
 		E498EF4725B79395006621FA /* Red_Ball.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Red_Ball.png; sourceTree = "<group>"; };
 		E498EF4A25B7939C006621FA /* Blue_Ball.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Blue_Ball.png; sourceTree = "<group>"; };
@@ -206,6 +206,7 @@
 				E48A0C2525B031CC00122140 /* Info.plist */,
 				E41F4C0825B33F970008D15B /* GoogleService-Info.plist */,
 				E498EF7E25B9A6DB006621FA /* Images */,
+				E494E97E25C08B17004DD607 /* GamePageViewController.swift */,
 			);
 			path = "Red VS Blue";
 			sourceTree = "<group>";
@@ -220,7 +221,6 @@
 				E498EF8D25B9F8AB006621FA /* TicTacToe_X.PNG */,
 				E498EF8325B9AC56006621FA /* TicTacToe_board.png */,
 				B54D323F25B5697F008219E5 /* Background1.png */,
-				B54D324225B569DE008219E5 /* Background3.png */,
 				E498EF5725B7AAC8006621FA /* GameIcon_CountTo21.PNG */,
 				E498EF5925B7AAC8006621FA /* GameIcon_Hangman.PNG */,
 				E498EF5825B7AAC8006621FA /* GameIcon_NumberPuzzle.PNG */,
@@ -314,7 +314,6 @@
 				B54D322B25B5532F008219E5 /* Edit_Icon.png in Resources */,
 				E49BECE525B452AD0048CD7D /* Refresh_Icon.png in Resources */,
 				E498EF5F25B7AAC9006621FA /* GameIcon_Random.PNG in Resources */,
-				B54D324325B569DE008219E5 /* Background3.png in Resources */,
 				E498EF4B25B7939C006621FA /* Blue_Ball.png in Resources */,
 				E498EF5E25B7AAC9006621FA /* GameIcon_Hangman.PNG in Resources */,
 				E417786B25B09BF1004B3FD3 /* Icon-72.png in Resources */,
@@ -404,6 +403,7 @@
 				E49BECF325B5A58A0048CD7D /* CreateGameViewController.swift in Sources */,
 				E49BECE125B448DA0048CD7D /* ProfileViewController.swift in Sources */,
 				E45E24D125BDA86F00628580 /* RoomManager.swift in Sources */,
+				E494E97F25C08B17004DD607 /* GamePageViewController.swift in Sources */,
 				E49BECE925B4E1AC0048CD7D /* RandomStringGenerator.swift in Sources */,
 				E498EF6325B7B591006621FA /* GameCollection.swift in Sources */,
 				E49BECD525B34AA40048CD7D /* MainPageViewController.swift in Sources */,

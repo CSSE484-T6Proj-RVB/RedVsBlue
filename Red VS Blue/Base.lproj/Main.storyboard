@@ -201,7 +201,7 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" alpha="0.69999999999999996" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Background3.png" translatesAutoresizingMaskIntoConstraints="NO" id="m6R-Bk-bdU">
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" alpha="0.69999999999999996" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Background3" translatesAutoresizingMaskIntoConstraints="NO" id="m6R-Bk-bdU">
                                 <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                             </imageView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="nrw-Dz-3r5">
@@ -320,6 +320,7 @@
                         <segue destination="tjT-Xr-Ybe" kind="show" identifier="LeaderboardSegue" id="TAZ-Ai-lUr"/>
                         <segue destination="oBU-kC-QF4" kind="show" identifier="CreateGameSegue" id="s7X-UB-bQa"/>
                         <segue destination="OLR-MJ-xzj" kind="show" identifier="JoinGameSegue" id="UDT-hD-rRG"/>
+                        <segue destination="EAo-tY-Laa" kind="show" identifier="GamePageSegue" id="VXU-vW-ssW"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="aDS-r0-8F0" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
@@ -334,7 +335,7 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" alpha="0.69999998807907104" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Background3.png" translatesAutoresizingMaskIntoConstraints="NO" id="nFp-A1-LHC">
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" alpha="0.69999998807907104" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Background3" translatesAutoresizingMaskIntoConstraints="NO" id="nFp-A1-LHC">
                                 <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                             </imageView>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="G9G-6b-50m">
@@ -538,7 +539,7 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" alpha="0.69999998807907104" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Background3.png" translatesAutoresizingMaskIntoConstraints="NO" id="TDK-xS-pYW">
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" alpha="0.69999998807907104" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Background3" translatesAutoresizingMaskIntoConstraints="NO" id="TDK-xS-pYW">
                                 <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                             </imageView>
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Blue_Ball.png" translatesAutoresizingMaskIntoConstraints="NO" id="PG1-78-hBK">
@@ -727,7 +728,7 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" alpha="0.69999998807907104" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Background3.png" translatesAutoresizingMaskIntoConstraints="NO" id="Mmn-xo-MAR">
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" alpha="0.69999998807907104" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Background3" translatesAutoresizingMaskIntoConstraints="NO" id="Mmn-xo-MAR">
                                 <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                             </imageView>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="15" translatesAutoresizingMaskIntoConstraints="NO" id="1lP-He-cbS">
@@ -1109,7 +1110,7 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" alpha="0.69999998807907104" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Background3.png" translatesAutoresizingMaskIntoConstraints="NO" id="scv-0I-iry">
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" alpha="0.69999998807907104" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Background3" translatesAutoresizingMaskIntoConstraints="NO" id="scv-0I-iry">
                                 <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                             </imageView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="PqN-8c-MhP">
@@ -1154,7 +1155,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="icy-Qe-ast" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3722" y="728"/>
+            <point key="canvasLocation" x="3722" y="-800"/>
         </scene>
         <!--Join Game View Controller-->
         <scene sceneID="8e2-Cd-KsP">
@@ -1164,7 +1165,7 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" alpha="0.69999998807907104" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Background3.png" translatesAutoresizingMaskIntoConstraints="NO" id="yJI-Df-yky">
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" alpha="0.69999998807907104" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Background3" translatesAutoresizingMaskIntoConstraints="NO" id="yJI-Df-yky">
                                 <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                             </imageView>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ch5-T5-ddv">
@@ -1209,9 +1210,7 @@
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Ls3-s5-EeH" userLabel="BackButton">
                                 <rect key="frame" x="15" y="45" width="63" height="46"/>
                                 <constraints>
-                                    <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="63" id="BTH-CV-F4d"/>
                                     <constraint firstAttribute="height" constant="46" id="Zh0-On-QrD"/>
-                                    <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="46" id="o7P-xq-ND5"/>
                                     <constraint firstAttribute="width" constant="63" id="u7p-tT-bkV"/>
                                 </constraints>
                                 <state key="normal" title="Button" image="Back_Arrow.png"/>
@@ -1292,7 +1291,7 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" alpha="0.69999998807907104" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Background3.png" translatesAutoresizingMaskIntoConstraints="NO" id="Uup-gn-BiP">
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" alpha="0.69999998807907104" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Background3" translatesAutoresizingMaskIntoConstraints="NO" id="Uup-gn-BiP">
                                 <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                             </imageView>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Ve1-j3-43w">
@@ -1426,7 +1425,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="BBO-kS-p5c" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1845" y="1088"/>
+            <point key="canvasLocation" x="932" y="1083"/>
         </scene>
         <!--Profile View Controller-->
         <scene sceneID="WnJ-vG-e79">
@@ -1436,7 +1435,7 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" alpha="0.69999998807907104" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Background3.png" translatesAutoresizingMaskIntoConstraints="NO" id="7vU-gD-iXt">
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" alpha="0.69999998807907104" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Background3" translatesAutoresizingMaskIntoConstraints="NO" id="7vU-gD-iXt">
                                 <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                             </imageView>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="whf-e7-1TW">
@@ -1627,7 +1626,68 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="nOK-uB-cgg" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2744.9275362318845" y="1088.1696428571429"/>
+            <point key="canvasLocation" x="1845" y="1084"/>
+        </scene>
+        <!--Game Page View Controller-->
+        <scene sceneID="p8A-8e-XhZ">
+            <objects>
+                <viewController id="EAo-tY-Laa" customClass="GamePageViewController" customModule="Red_VS_Blue" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="W67-1b-Afb">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" alpha="0.69999998807907104" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Background3" translatesAutoresizingMaskIntoConstraints="NO" id="ZNC-3P-k6e">
+                                <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                            </imageView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="lOD-eu-fkp" userLabel="BackButton">
+                                <rect key="frame" x="15" y="45" width="63" height="46"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="46" id="B67-Uw-ojw"/>
+                                    <constraint firstAttribute="width" constant="63" id="nqR-zV-p14"/>
+                                </constraints>
+                                <state key="normal" title="Button" image="Back_Arrow.png"/>
+                                <connections>
+                                    <action selector="pressedBackButton:" destination="EAo-tY-Laa" eventType="touchUpInside" id="7kS-zu-ikM"/>
+                                    <action selector="pressedBackButton:" destination="oBU-kC-QF4" eventType="touchUpInside" id="LTk-0j-saS"/>
+                                </connections>
+                            </button>
+                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="AZG-mi-diq">
+                                <rect key="frame" x="20" y="187" width="374" height="635"/>
+                            </scrollView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="View All Games" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Mzi-a0-gMr">
+                                <rect key="frame" x="20" y="126" width="374" height="36"/>
+                                <fontDescription key="fontDescription" type="boldSystem" pointSize="30"/>
+                                <color key="textColor" white="0.90000000000000002" alpha="1" colorSpace="calibratedWhite"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="3KO-IS-uJD"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="3KO-IS-uJD" firstAttribute="trailing" secondItem="AZG-mi-diq" secondAttribute="trailing" constant="20" id="73E-8W-5FE"/>
+                            <constraint firstItem="3KO-IS-uJD" firstAttribute="trailing" secondItem="Mzi-a0-gMr" secondAttribute="trailing" constant="20" id="CfA-ox-o7e"/>
+                            <constraint firstItem="ZNC-3P-k6e" firstAttribute="trailing" secondItem="3KO-IS-uJD" secondAttribute="trailing" id="IYV-Of-Web"/>
+                            <constraint firstAttribute="bottom" secondItem="ZNC-3P-k6e" secondAttribute="bottom" id="ImL-wm-ef3"/>
+                            <constraint firstItem="AZG-mi-diq" firstAttribute="leading" secondItem="3KO-IS-uJD" secondAttribute="leading" constant="20" id="Mqq-1o-xdz"/>
+                            <constraint firstItem="Mzi-a0-gMr" firstAttribute="top" secondItem="3KO-IS-uJD" secondAttribute="top" constant="38" id="O3W-Zc-QGQ"/>
+                            <constraint firstItem="lOD-eu-fkp" firstAttribute="top" secondItem="W67-1b-Afb" secondAttribute="top" constant="45" id="V5K-r1-bEi"/>
+                            <constraint firstItem="ZNC-3P-k6e" firstAttribute="leading" secondItem="3KO-IS-uJD" secondAttribute="leading" id="cW7-kJ-xDA"/>
+                            <constraint firstItem="Mzi-a0-gMr" firstAttribute="centerX" secondItem="3KO-IS-uJD" secondAttribute="centerX" id="dXp-dP-fc5"/>
+                            <constraint firstItem="lOD-eu-fkp" firstAttribute="leading" secondItem="W67-1b-Afb" secondAttribute="leading" constant="15" id="dna-Qd-dnT"/>
+                            <constraint firstItem="3KO-IS-uJD" firstAttribute="bottom" secondItem="AZG-mi-diq" secondAttribute="bottom" constant="40" id="gyl-iw-POY"/>
+                            <constraint firstItem="Mzi-a0-gMr" firstAttribute="leading" secondItem="3KO-IS-uJD" secondAttribute="leading" constant="20" id="r7e-JM-FgQ"/>
+                            <constraint firstItem="AZG-mi-diq" firstAttribute="top" secondItem="Mzi-a0-gMr" secondAttribute="bottom" constant="25" id="yE6-DH-lPx"/>
+                            <constraint firstItem="ZNC-3P-k6e" firstAttribute="top" secondItem="W67-1b-Afb" secondAttribute="top" id="zCQ-Vf-vJL"/>
+                        </constraints>
+                    </view>
+                    <navigationItem key="navigationItem" id="tqT-rd-qxN"/>
+                    <connections>
+                        <outlet property="scrollView" destination="AZG-mi-diq" id="L7x-EZ-0vt"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="SPA-kU-B0e" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2744.9275362318845" y="1082.8125"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="Pjc-cw-bJd">
@@ -1649,13 +1709,13 @@
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>
-        <segue reference="ieF-bM-aaL"/>
-        <segue reference="CbN-OY-Ic2"/>
+        <segue reference="DYN-ve-1YA"/>
+        <segue reference="yqw-Oq-yZd"/>
     </inferredMetricsTieBreakers>
     <resources>
         <image name="Back_Arrow.png" width="610" height="477"/>
         <image name="Background1.png" width="650" height="974"/>
-        <image name="Background3.png" width="482" height="835"/>
+        <image name="Background3" width="482" height="835"/>
         <image name="Blue_Ball.png" width="340" height="794"/>
         <image name="Delete_Icon.png" width="384" height="384"/>
         <image name="Edit_Icon.png" width="279.27273559570312" height="279.27273559570312"/>

@@ -50,7 +50,7 @@ class TicTacToeGame: Game, CustomStringConvertible {
     
     func pressedSquareAt(_ index: Int) -> Bool {
         if board[index] != .none {
-            print("not empty")
+            //print("not empty")
             return false
         }
         switch state {

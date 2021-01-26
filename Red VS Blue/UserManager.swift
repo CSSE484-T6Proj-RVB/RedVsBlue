@@ -97,6 +97,20 @@ class UserManager {
         ])
     }
     
+    func updateMatchesPlayed(matchesPlayed: Int) {
+        let userRef = _userCollectionRef.document(Auth.auth().currentUser!.uid)
+        userRef.updateData([
+            kKeyMatchesPlayed: matchesPlayed
+        ])
+    }
+    
+    func updateMatchesWon(matchesWon: Int) {
+        let userRef = _userCollectionRef.document(Auth.auth().currentUser!.uid)
+        userRef.updateData([
+            kKeyMatchesWon: matchesWon
+        ])
+    }
+    
     var name: String {
         if let value = _document?.get(kKeyName) {
             return value as! String

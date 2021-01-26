@@ -127,7 +127,7 @@ class TicTacToeViewController: UIViewController {
                 RoomManager.shared.updateDataWithField(id: RoomManager.shared.roomId, fieldName: kKeyTicTacToe_isHostTurn, value: !RoomManager.shared.isHost)
             }
         }
-        print(game.getBoardString())
+        //print(game.getBoardString())
     }
     
     func updateGameView() {

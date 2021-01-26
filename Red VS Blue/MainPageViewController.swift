@@ -16,6 +16,7 @@ class MainPageViewController: UIViewController {
     let leaderboardSegueIdentifier = "LeaderboardSegue"
     let createGameSegueIdentifier = "CreateGameSegue"
     let joinGameSegueIdentifier = "JoinGameSegue"
+    let gamePageSegueIdentifier = "GamePageSegue"
     
     @IBOutlet weak var signOutButton: UIButton!
     
@@ -78,7 +79,7 @@ class MainPageViewController: UIViewController {
     }
     
     @IBAction func pressedGamesButton(_ sender: Any) {
-        // TODO: Games Page
+        self.performSegue(withIdentifier: self.gamePageSegueIdentifier, sender: self)
     }
     
     @IBAction func pressedLeaderboardButton(_ sender: Any) {
