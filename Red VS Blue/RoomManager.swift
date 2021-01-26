@@ -116,6 +116,13 @@ class RoomManager {
         roomRef.delete()
     }
     
+    func getDataWithField(fieldName: String) -> Any? {
+        if let value = _document?.get(fieldName) {
+            return value
+        }
+        return nil
+    }
+    
     var hostUserName: String {
         if let value = _document?.get(kKeyHostUserName) {
             return value as! String
@@ -137,6 +144,13 @@ class RoomManager {
         return 0
     }
     
+    var hostReady: Bool {
+        if let value = _document?.get(kKeyHostReady) {
+            return value as! Bool
+        }
+        return false
+    }
+    
     var clientScore: Int {
         if let value = _document?.get(kKeyClientScore) {
             return value as! Int
@@ -156,6 +170,13 @@ class RoomManager {
             return value as! String
         }
         return ""
+    }
+    
+    var clientReady: Bool {
+        if let value = _document?.get(kKeyClientReady) {
+            return value as! Bool
+        }
+        return false
     }
     
     var currentGameSelected: Int? {

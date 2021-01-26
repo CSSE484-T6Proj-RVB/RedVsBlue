@@ -53,15 +53,8 @@ class GameSelectionViewController: UIViewController {
             clientWaitingLabel.isHidden = false
         }
         
-//        if user.identity == 1 {
-//            self.roomRef.updateData([
-//                "hostScore": user.score
-//            ])
-//        } else if user.identity == 0 {
-//            self.roomRef.updateData([
-//                "clientScore": user.score
-//            ])
-//        }
+        RoomManager.shared.updateDataWithField(id: RoomManager.shared.roomId, fieldName: RoomManager.shared.isHost ? kKeyHostScore : kKeyClientScore, value: RoomManager.shared.score)
+        
         RoomManager.shared.beginListeningForTheRoom(id: RoomManager.shared.roomId, changeListener: updateView)
     }
     
@@ -91,7 +84,7 @@ class GameSelectionViewController: UIViewController {
             let alertController = UIAlertController(title: "Game Ended",
                                                     message: "The other player has left!",
                                                     preferredStyle: .alert)
-
+            
             alertController.addAction(UIAlertAction(title: "OK",
                                                     style: .default)
             { (action) in
@@ -101,8 +94,10 @@ class GameSelectionViewController: UIViewController {
             
             present(alertController, animated: true, completion: nil)
         }
-        if let _ = RoomManager.shared.startGameRequest {
-            self.performSegue(withIdentifier: self.loadingSegueIdentifier, sender: self)
+        if let startRequest = RoomManager.shared.startGameRequest {
+            if startRequest {
+                self.performSegue(withIdentifier: self.loadingSegueIdentifier, sender: self)
+            }
         }
     }
     
@@ -171,7 +166,7 @@ class GameSelectionViewController: UIViewController {
         // TODO: Make sure the player has gone back
         if currentSelectedButtonIndex != -1 {
             RoomManager.shared.updateDataWithField(id: RoomManager.shared.roomId, fieldName: kKeyStartGameRequest, value: true)
-            self.performSegue(withIdentifier: self.loadingSegueIdentifier, sender: self)
+            //self.performSegue(withIdentifier: self.loadingSegueIdentifier, sender: self)
         } else {
             let alertController = UIAlertController(title: nil,
                                                     message: "You should select a game first.",
@@ -203,9 +198,9 @@ class GameSelectionViewController: UIViewController {
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == loadingSegueIdentifier {
-//            (segue.destination as! LoadingViewController).roomRef = roomRef
+            //            (segue.destination as! LoadingViewController).roomRef = roomRef
             (segue.destination as! LoadingViewController).gameSelectedIndex = currentSelectedButtonIndex == GameCollection.shared.games.count - 1 ? Int.random(in: 0..<GameCollection.shared.games.count - 1) : currentSelectedButtonIndex
-//            (segue.destination as! LoadingViewController).currentUser = user
+            //            (segue.destination as! LoadingViewController).currentUser = user
         }
     }
 }

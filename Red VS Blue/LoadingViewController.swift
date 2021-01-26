@@ -6,7 +6,6 @@
 //
 
 import UIKit
-import Firebase
 
 class LoadingViewController: UIViewController {
     
@@ -23,13 +22,12 @@ class LoadingViewController: UIViewController {
     @IBOutlet weak var readyButton: UIButton!
     @IBOutlet weak var readyMessageLabel: UILabel!
     
-    var roomRef: DocumentReference!
-    var roomListener: ListenerRegistration!
-    
     var isReady = false
     var gameSelectedIndex: Int!
-    var currentUser: User!
     var gameSegueIdentifiers: [String] = []
+    
+    let kKeyHostReady = "hostReady"
+    let kKeyClientReady = "clientReady"
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -52,38 +50,29 @@ class LoadingViewController: UIViewController {
         self.readyMessageLabel.isHidden = true
         self.isReady = false
         
-        self.roomRef.updateData([
-            "clientReady": false,
-            "hostReady": false
-        ])
+        RoomManager.shared.updateDataWithField(id: RoomManager.shared.roomId, fieldName: kKeyHostReady, value: false)
+        RoomManager.shared.updateDataWithField(id: RoomManager.shared.roomId, fieldName: kKeyClientReady, value: false)
         
-        startListening()
+        RoomManager.shared.beginListeningForTheRoom(id: RoomManager.shared.roomId, changeListener: updateView)
     }
     
     override func viewWillDisappear(_ animated: Bool) {
         super.viewWillDisappear(animated)
-        roomListener.remove()
+        RoomManager.shared.stopListening()
     }
     
-    func startListening() {
-        roomListener = roomRef.addSnapshotListener({ (documentSnapshot, error) in
-            if let documentSnapshot = documentSnapshot {
-                self.clientNameLabel.text = documentSnapshot.data()!["clientUserName"] as? String
-                let clientBio = documentSnapshot.data()!["clientUserBio"] as? String
-                self.clientBioLabel.text = clientBio == "" ? "This player has no bio." : clientBio
-                self.hostNameLabel.text = documentSnapshot.data()!["hostUserName"] as? String
-                let hostBio = documentSnapshot.data()!["hostUserBio"] as? String
-                self.hostBioLabel.text = hostBio == "" ? "This player has no bio." : hostBio
-                let clientReadyBool = documentSnapshot.data()!["clientReady"] as! Bool
-                let hostReadyBool = documentSnapshot.data()!["hostReady"] as! Bool
-                if clientReadyBool && hostReadyBool {
-                    self.performSegue(withIdentifier: self.gameSegueIdentifiers[self.gameSelectedIndex], sender: self)
-                }
-            } else {
-                print("Error getting room data \(error!)")
-                return
-            }
-        })
+    func updateView() {
+        let hostBio = RoomManager.shared.hostUserBio
+        let clientBio = RoomManager.shared.clientUserBio
+        hostNameLabel.text = RoomManager.shared.hostUserName
+        hostBioLabel.text = hostBio == "" ? "This player has no bio." : hostBio
+        clientNameLabel.text = RoomManager.shared.clientUserName
+        clientBioLabel.text = clientBio == "" ? "This player has no bio." : clientBio
+        let hostReady = RoomManager.shared.hostReady
+        let clientReady = RoomManager.shared.clientReady
+        if hostReady && clientReady {
+            performSegue(withIdentifier: self.gameSegueIdentifiers[self.gameSelectedIndex], sender: self)
+        }
     }
     
     @IBAction func pressedReadyButton(_ sender: Any) {
@@ -91,21 +80,18 @@ class LoadingViewController: UIViewController {
         readyButton.backgroundColor = isReady ? UIColor.red : UIColor.green
         readyButton.setTitle(isReady ? "Cancel" : "Ready!", for: .normal)
         readyMessageLabel.isHidden = !isReady
-        if currentUser.identity == 0 {
-            self.roomRef.updateData([
-                "clientReady": isReady
-            ])
-        } else if currentUser.identity == 1 {
-            self.roomRef.updateData([
-                "hostReady": isReady
-            ])
+        if RoomManager.shared.isHost {
+            RoomManager.shared.updateDataWithField(id: RoomManager.shared.roomId, fieldName: kKeyStartGameRequest, value: false)
+            RoomManager.shared.updateDataWithField(id: RoomManager.shared.roomId, fieldName: kKeyHostReady, value: isReady)
+        } else {
+            RoomManager.shared.updateDataWithField(id: RoomManager.shared.roomId, fieldName: kKeyClientReady, value: isReady)
         }
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == "TicTacToeGameSegue" {
-            (segue.destination as! TicTacToeViewController).roomRef = roomRef
-            (segue.destination as! TicTacToeViewController).user = currentUser
+//            (segue.destination as! TicTacToeViewController).roomRef = roomRef
+//            (segue.destination as! TicTacToeViewController).user = currentUser
             //(segue.destination as! TicTacToeViewController).game = GameCollection.singleton.games[self.gameSelectedIndex]
         }
     }

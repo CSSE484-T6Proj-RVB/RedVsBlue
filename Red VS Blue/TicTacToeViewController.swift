@@ -22,17 +22,16 @@ class TicTacToeViewController: UIViewController {
     @IBOutlet weak var yourScoreLabel: UILabel!
     @IBOutlet weak var yourNameLabel: UILabel!
     
-    var roomRef: DocumentReference!
-    var roomListener: ListenerRegistration!
-    
     var xImage = #imageLiteral(resourceName: "TicTacToe_X.PNG")
     var oImage = #imageLiteral(resourceName: "TicTacToe_O.PNG")
     
-    var user: User!
     var game: TicTacToeGame!
-    
     var isCurrentUserTurn: Bool!
-        
+    var isGameEnded: Bool!
+    
+    let kKeyTicTacToe_isHostTurn = "0_tictactoe_isHostTurn"
+    let kKeyTicTacToe_lastPressed = "0_tictactoe_lastPressed"
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         navigationController?.setNavigationBarHidden(true, animated: false)
@@ -42,74 +41,70 @@ class TicTacToeViewController: UIViewController {
         super.viewWillAppear(animated)
         navigationController?.setNavigationBarHidden(true, animated: false)
         
+        isGameEnded = false
         game = TicTacToeGame()
         
         gameBoardView.layer.cornerRadius = 15
         gameBoardView.layer.borderWidth = 10
         gameBoardView.layer.borderColor = UIColor.black.cgColor
         
-        self.gameStateLabel.text = user.identity == 1 ? "Your Turn" : "Waiting for the other player..."
-        self.upperBannerView.backgroundColor = user.identity == 0 ? UIColor.red: UIColor.blue
-        self.lowerBannerView.backgroundColor = user.identity == 0 ? UIColor.blue: UIColor.red
+        self.gameStateLabel.text = RoomManager.shared.isHost ? "Your Turn" : "Waiting for the other player..."
+        self.upperBannerView.backgroundColor = RoomManager.shared.isHost ? UIColor.blue: UIColor.red
+        self.lowerBannerView.backgroundColor = RoomManager.shared.isHost ? UIColor.red: UIColor.blue
         
-        self.roomRef.updateData([
-            "startGameRequest": false,
-            "tictactoe_isHostTurn": true,
-            "tictactoe_lastPressed": -1
-        ])
-        
-        startListening()
+        if true {
+            RoomManager.shared.updateDataWithField(id: RoomManager.shared.roomId, fieldName: kKeyTicTacToe_isHostTurn, value: true)
+            RoomManager.shared.updateDataWithField(id: RoomManager.shared.roomId, fieldName: kKeyTicTacToe_lastPressed, value: -1)
+        }
+        RoomManager.shared.beginListeningForTheRoom(id: RoomManager.shared.roomId, changeListener: updateView)
     }
     
     override func viewWillDisappear(_ animated: Bool) {
         super.viewWillDisappear(animated)
-        roomListener.remove()
+        RoomManager.shared.stopListening()
     }
     
-    func startListening() {
-        roomListener = roomRef.addSnapshotListener({ (documentSnapshot, error) in
-            if let documentSnapshot = documentSnapshot {
-                let isHostTurn = documentSnapshot.data()!["tictactoe_isHostTurn"] as! Bool
-                self.isCurrentUserTurn = isHostTurn == (self.user.identity == 1)
-                self.gameStateLabel.text = self.isCurrentUserTurn ? "Your Turn" : "Waiting for the other player..."
-                
-                if self.user.identity == 1 {
-                    self.opponentScoreLabel.text = "Score: \(String(documentSnapshot.data()!["clientScore"] as! Int))"
-                    self.opponentNameLabel.text = documentSnapshot.data()!["clientUserName"] as! String + ": O"
-                    self.yourScoreLabel.text = "Score: \(String(documentSnapshot.data()!["hostScore"] as! Int))"
-                    self.yourNameLabel.text = documentSnapshot.data()!["hostUserName"] as! String + ": X"
-                } else {
-                    self.opponentScoreLabel.text = "Score: \(String(documentSnapshot.data()!["hostScore"] as! Int))"
-                    self.opponentNameLabel.text = documentSnapshot.data()!["hostUserName"] as! String + ": X"
-                    self.yourScoreLabel.text = "Score: \(String(documentSnapshot.data()!["clientScore"] as! Int))"
-                    self.yourNameLabel.text = documentSnapshot.data()!["clientUserName"] as! String + ": O"
-                }
-                
-
-                let lastPressed = documentSnapshot.data()!["tictactoe_lastPressed"] as? Int
-                if lastPressed != nil && lastPressed != -1 {
-                    if self.isCurrentUserTurn {
-                        _ = self.game.pressedSquareAt(lastPressed!)
-                    }
-                }
-                self.updateView()
-                
-                switch self.game.state {
-                case .xTurn, .oTurn: break
-                case .xWin:
-                    self.popResultMessage(message: self.user.identity == 1 ? "You Win!" : "You Lose!")
-                    self.user.score = self.user.identity == 1 ? self.user.score + 1 : self.user.score
-                case .oWin:
-                    self.popResultMessage(message: self.user.identity == 0 ? "You Win!" : "You Lose!")
-                    self.user.score = self.user.identity == 0 ? self.user.score + 1 : self.user.score
-                case .tie:
-                    self.popResultMessage(message: "Tie Game!")
-                }
-            } else {
-                print("Error getting room data \(error!)")
-                return
-            }
-        })
+    func updateView() {
+        let isHostTurn = RoomManager.shared.getDataWithField(fieldName: kKeyTicTacToe_isHostTurn) as! Bool
+        isCurrentUserTurn = isHostTurn == RoomManager.shared.isHost
+        gameStateLabel.text = self.isCurrentUserTurn ? "Your Turn" : "Waiting for the other player..."
+        
+        if RoomManager.shared.isHost {
+            opponentScoreLabel.text = "Score: \(RoomManager.shared.clientScore)"
+            opponentNameLabel.text = RoomManager.shared.clientUserName! + ": O"
+            yourScoreLabel.text = "Score: \(RoomManager.shared.hostScore)"
+            yourNameLabel.text = RoomManager.shared.hostUserName + ": X"
+        } else {
+            opponentScoreLabel.text = "Score: \(RoomManager.shared.hostScore)"
+            opponentNameLabel.text = RoomManager.shared.hostUserName + ": X"
+            yourScoreLabel.text = "Score: \(RoomManager.shared.clientScore)"
+            yourNameLabel.text = RoomManager.shared.clientUserName! + ": O"
+        }
+        
+        let lastPressed = RoomManager.shared.getDataWithField(fieldName: kKeyTicTacToe_lastPressed) as! Int
+        if lastPressed != -1 && isCurrentUserTurn {
+            _ = game.pressedSquareAt(lastPressed)
+        }
+        updateGameView()
+        
+        if isGameEnded {
+            return
+        }
+        
+        switch self.game.state {
+        case .xTurn, .oTurn: break
+        case .xWin:
+            isGameEnded = true
+            self.popResultMessage(message: RoomManager.shared.isHost ? "You Win!" : "You Lose!")
+            RoomManager.shared.score += RoomManager.shared.isHost ? 1 : 0
+        case .oWin:
+            isGameEnded = true
+            self.popResultMessage(message: !RoomManager.shared.isHost ? "You Win!" : "You Lose!")
+            RoomManager.shared.score += !RoomManager.shared.isHost ? 1 : 0
+        case .tie:
+            isGameEnded = true
+            self.popResultMessage(message: "Tie Game!")
+        }
     }
     
     @IBAction func pressedGameBoardButton(_ sender: Any) {
@@ -128,16 +123,14 @@ class TicTacToeViewController: UIViewController {
                 
                 present(alertController, animated: true, completion: nil)
             } else {
-                self.roomRef.updateData([
-                    "tictactoe_lastPressed": button.tag,
-                    "tictactoe_isHostTurn": user.identity == 0
-                ])
+                RoomManager.shared.updateDataWithField(id: RoomManager.shared.roomId, fieldName: kKeyTicTacToe_lastPressed, value: button.tag)
+                RoomManager.shared.updateDataWithField(id: RoomManager.shared.roomId, fieldName: kKeyTicTacToe_isHostTurn, value: !RoomManager.shared.isHost)
             }
         }
         print(game.getBoardString())
     }
     
-    func updateView() {
+    func updateGameView() {
         for button in gameBoardButtons {
             let buttonIndex = button.tag
             switch game.board[buttonIndex] {
