@@ -11,11 +11,16 @@ class GamePageViewController: UIViewController {
     
     @IBOutlet weak var scrollView: UIScrollView!
     
+    var selectedIndex: Int?
+    
+    let gameDetailSegueIdentifier = "DetailSegue"
+    
     override func viewDidLoad() {
         navigationController?.setNavigationBarHidden(true, animated: false)
     }
     
     override func viewWillAppear(_ animated: Bool) {
+        selectedIndex = -1
         navigationController?.setNavigationBarHidden(true, animated: false)
         updateView()
     }
@@ -65,10 +70,17 @@ class GamePageViewController: UIViewController {
     }
     
     @objc func pressedGameIcon(sender: UIButton!) {
-        print(sender.tag)
+        selectedIndex = sender.tag
+        performSegue(withIdentifier: gameDetailSegueIdentifier, sender: self)
     }
     
     @IBAction func pressedBackButton(_ sender: Any) {
         self.navigationController?.popViewController(animated: true)
+    }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == gameDetailSegueIdentifier {
+            (segue.destination as! GameDetailPageController).selectedGameIndex = selectedIndex
+        }
     }
 }

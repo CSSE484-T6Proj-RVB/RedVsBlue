@@ -27,6 +27,7 @@
 		E494E97B25C084C8004DD607 /* You_Win.png in Resources */ = {isa = PBXBuildFile; fileRef = E494E97825C084C8004DD607 /* You_Win.png */; };
 		E494E97C25C084C8004DD607 /* Tie_Game.png in Resources */ = {isa = PBXBuildFile; fileRef = E494E97925C084C8004DD607 /* Tie_Game.png */; };
 		E494E97F25C08B17004DD607 /* GamePageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E494E97E25C08B17004DD607 /* GamePageViewController.swift */; };
+		E494E98425C0A24B004DD607 /* GameDetailPageController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E494E98325C0A24B004DD607 /* GameDetailPageController.swift */; };
 		E498EF4425B78667006621FA /* GameSelectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E498EF4325B78667006621FA /* GameSelectionViewController.swift */; };
 		E498EF4825B79395006621FA /* Red_Ball.png in Resources */ = {isa = PBXBuildFile; fileRef = E498EF4725B79395006621FA /* Red_Ball.png */; };
 		E498EF4B25B7939C006621FA /* Blue_Ball.png in Resources */ = {isa = PBXBuildFile; fileRef = E498EF4A25B7939C006621FA /* Blue_Ball.png */; };
@@ -88,6 +89,7 @@
 		E494E97825C084C8004DD607 /* You_Win.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = You_Win.png; sourceTree = "<group>"; };
 		E494E97925C084C8004DD607 /* Tie_Game.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Tie_Game.png; sourceTree = "<group>"; };
 		E494E97E25C08B17004DD607 /* GamePageViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GamePageViewController.swift; sourceTree = "<group>"; };
+		E494E98325C0A24B004DD607 /* GameDetailPageController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameDetailPageController.swift; sourceTree = "<group>"; };
 		E498EF4325B78667006621FA /* GameSelectionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameSelectionViewController.swift; sourceTree = "<group>"; };
 		E498EF4725B79395006621FA /* Red_Ball.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Red_Ball.png; sourceTree = "<group>"; };
 		E498EF4A25B7939C006621FA /* Blue_Ball.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Blue_Ball.png; sourceTree = "<group>"; };
@@ -185,6 +187,8 @@
 				E49BECE825B4E1AC0048CD7D /* RandomStringGenerator.swift */,
 				E49BECC425B344100048CD7D /* LoginViewController.swift */,
 				E49BECD425B34AA40048CD7D /* MainPageViewController.swift */,
+				E494E97E25C08B17004DD607 /* GamePageViewController.swift */,
+				E494E98325C0A24B004DD607 /* GameDetailPageController.swift */,
 				E49BECE025B448DA0048CD7D /* ProfileViewController.swift */,
 				E49BECD825B354250048CD7D /* EmailSignInViewController.swift */,
 				E49BECEE25B589430048CD7D /* LeaderboardViewController.swift */,
@@ -206,7 +210,6 @@
 				E48A0C2525B031CC00122140 /* Info.plist */,
 				E41F4C0825B33F970008D15B /* GoogleService-Info.plist */,
 				E498EF7E25B9A6DB006621FA /* Images */,
-				E494E97E25C08B17004DD607 /* GamePageViewController.swift */,
 			);
 			path = "Red VS Blue";
 			sourceTree = "<group>";
@@ -422,6 +425,7 @@
 				E498EF7C25B9A473006621FA /* TicTacToeViewController.swift in Sources */,
 				E48A0C1A25B031CB00122140 /* SceneDelegate.swift in Sources */,
 				E4BCD68F25BB64EC00BE0D81 /* ResultViewController.swift in Sources */,
+				E494E98425C0A24B004DD607 /* GameDetailPageController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
