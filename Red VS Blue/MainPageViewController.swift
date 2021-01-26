@@ -17,8 +17,6 @@ class MainPageViewController: UIViewController {
     let createGameSegueIdentifier = "CreateGameSegue"
     let joinGameSegueIdentifier = "JoinGameSegue"
     
-    var user: User!
-    
     @IBOutlet weak var signOutButton: UIButton!
     
     override func viewDidLoad() {

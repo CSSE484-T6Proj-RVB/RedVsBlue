@@ -53,7 +53,6 @@
 		E49BECE925B4E1AC0048CD7D /* RandomStringGenerator.swift in Sources */ = {isa = PBXBuildFile; fileRef = E49BECE825B4E1AC0048CD7D /* RandomStringGenerator.swift */; };
 		E49BECEF25B589430048CD7D /* LeaderboardViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E49BECEE25B589430048CD7D /* LeaderboardViewController.swift */; };
 		E49BECF325B5A58A0048CD7D /* CreateGameViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E49BECF225B5A58A0048CD7D /* CreateGameViewController.swift */; };
-		E49BECF725B5A69F0048CD7D /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = E49BECF625B5A69F0048CD7D /* User.swift */; };
 		E49BECFA25B5AA150048CD7D /* Back_Arrow.png in Resources */ = {isa = PBXBuildFile; fileRef = E49BECF925B5AA150048CD7D /* Back_Arrow.png */; };
 		E49BECFD25B5AA2F0048CD7D /* RvB_Icon.png in Resources */ = {isa = PBXBuildFile; fileRef = E49BECFC25B5AA2F0048CD7D /* RvB_Icon.png */; };
 		E4BB4B3C25B621E6008580A8 /* JoinGameViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4BB4B3B25B621E6008580A8 /* JoinGameViewController.swift */; };
@@ -112,7 +111,6 @@
 		E49BECE825B4E1AC0048CD7D /* RandomStringGenerator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RandomStringGenerator.swift; sourceTree = "<group>"; };
 		E49BECEE25B589430048CD7D /* LeaderboardViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LeaderboardViewController.swift; sourceTree = "<group>"; };
 		E49BECF225B5A58A0048CD7D /* CreateGameViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateGameViewController.swift; sourceTree = "<group>"; };
-		E49BECF625B5A69F0048CD7D /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
 		E49BECF925B5AA150048CD7D /* Back_Arrow.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Back_Arrow.png; sourceTree = "<group>"; };
 		E49BECFC25B5AA2F0048CD7D /* RvB_Icon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = RvB_Icon.png; sourceTree = "<group>"; };
 		E4BB4B3B25B621E6008580A8 /* JoinGameViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JoinGameViewController.swift; sourceTree = "<group>"; };
@@ -190,7 +188,6 @@
 				B5DD70E325B965EC006848D7 /* LoadingViewController.swift */,
 				E4BCD68E25BB64EC00BE0D81 /* ResultViewController.swift */,
 				E498EF7B25B9A473006621FA /* TicTacToeViewController.swift */,
-				E49BECF625B5A69F0048CD7D /* User.swift */,
 				E498EF6225B7B591006621FA /* GameCollection.swift */,
 				E498EF6525B7B5CE006621FA /* Game.swift */,
 				E498EF6825B7B60C006621FA /* TicTacToeGame.swift */,
@@ -411,7 +408,6 @@
 				E498EF7725B91A93006621FA /* RandomGame.swift in Sources */,
 				E498EF6925B7B60C006621FA /* TicTacToeGame.swift in Sources */,
 				E498EF7C25B9A473006621FA /* TicTacToeViewController.swift in Sources */,
-				E49BECF725B5A69F0048CD7D /* User.swift in Sources */,
 				E48A0C1A25B031CB00122140 /* SceneDelegate.swift in Sources */,
 				E4BCD68F25BB64EC00BE0D81 /* ResultViewController.swift in Sources */,
 			);
