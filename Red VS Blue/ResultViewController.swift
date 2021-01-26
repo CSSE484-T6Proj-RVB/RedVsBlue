@@ -43,7 +43,8 @@ class ResultViewController: UIViewController {
             isWin = false
         }
         
-        UserManager.shared.beginListeningForSingleUser(uid: Auth.auth().currentUser!.uid, changeListener: updateRecord)
+        UserManager.shared.beginListeningForSingleUser(uid: Auth.auth().currentUser!.uid, changeListener: nil)
+        updateRecord()
     }
     
     override func viewWillDisappear(_ animated: Bool) {
