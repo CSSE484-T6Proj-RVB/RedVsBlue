@@ -25,6 +25,7 @@ class GameSelectionViewController: UIViewController {
     @IBOutlet weak var clientWaitingLabel: UILabel!
     @IBOutlet weak var hostGoButton: UIButton!
     
+    @IBOutlet weak var scrollView: UIScrollView!
     var gameButtons: [UIButton] = []
     var currentSelectedButtonIndex: Int =  -1
     
@@ -108,9 +109,9 @@ class GameSelectionViewController: UIViewController {
         let horizontalGap = (realViewWidth - maxCol * iconWidth) / (maxCol - 1)
         
         var x = startingXPos, y = startingYPos, col = 0
-        
-        for index in 0..<GameCollection.shared.games.count {
-            let game = GameCollection.shared.games[index]
+                
+        for index in 0 ..< GameCollection.shared.games.count {
+          let game = GameCollection.shared.games[index]
             let button = UIButton(type: .custom) as UIButton
             if col == maxCol {
                 col = 0
@@ -120,12 +121,14 @@ class GameSelectionViewController: UIViewController {
             button.frame = CGRect(x: x, y: y, width: iconWidth, height: iconWidth)
             button.setImage(game.gameIconImage, for: .normal)
             button.tag = index
-            gameScrollView.addSubview(button)
+            scrollView.addSubview(button)
             x += horizontalGap + iconWidth
             col += 1
             button.addTarget(self, action: #selector(pressedGameIcon), for: .touchUpInside)
             gameButtons.append(button)
         }
+        
+        scrollView.contentSize = CGSize(width: CGFloat(realViewWidth), height: CGFloat(y + verticalGap + iconWidth))
     }
     
     @objc func pressedGameIcon (sender: UIButton!) {
