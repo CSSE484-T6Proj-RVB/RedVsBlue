@@ -12,12 +12,6 @@ class MainPageViewController: UIViewController {
     
     var authStateListenerHandle: AuthStateDidChangeListenerHandle!
     
-    let profileSegueIdentifier = "ProfileSegue"
-    let leaderboardSegueIdentifier = "LeaderboardSegue"
-    let createGameSegueIdentifier = "CreateGameSegue"
-    let joinGameSegueIdentifier = "JoinGameSegue"
-    let gamePageSegueIdentifier = "GamePageSegue"
-    
     @IBOutlet weak var signOutButton: UIButton!
     
     override func viewDidLoad() {
@@ -75,15 +69,15 @@ class MainPageViewController: UIViewController {
             alertNotLoggedIn()
             return
         }
-        self.performSegue(withIdentifier: self.profileSegueIdentifier, sender: self)
+        self.performSegue(withIdentifier: profileSegueIdentifier, sender: self)
     }
     
     @IBAction func pressedGamesButton(_ sender: Any) {
-        self.performSegue(withIdentifier: self.gamePageSegueIdentifier, sender: self)
+        self.performSegue(withIdentifier: gamePageSegueIdentifier, sender: self)
     }
     
     @IBAction func pressedLeaderboardButton(_ sender: Any) {
-        self.performSegue(withIdentifier: self.leaderboardSegueIdentifier, sender: self)
+        self.performSegue(withIdentifier: leaderboardSegueIdentifier, sender: self)
     }
     
     @IBAction func pressedSignOutButton(_ sender: Any) {

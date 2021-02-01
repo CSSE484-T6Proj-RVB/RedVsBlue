@@ -28,9 +28,6 @@ class GameSelectionViewController: UIViewController {
     var gameButtons: [UIButton] = []
     var currentSelectedButtonIndex: Int =  -1
     
-    let resultViewSegueIdentifier = "ResultViewSegue"
-    let loadingSegueIdentifier = "LoadingSegue"
-    
     let kKeyGameSelected = "currentGameSelected"
     let kKeyEndGameRequest = "endGameRequest"
     let kKeyStartGameRequest = "startGameRequest"
@@ -93,14 +90,14 @@ class GameSelectionViewController: UIViewController {
                     self.navigationController?.popToRootViewController(animated: true)
                     return
                 }
-                self.performSegue(withIdentifier: self.resultViewSegueIdentifier, sender: self)
+                self.performSegue(withIdentifier: resultViewSegueIdentifier, sender: self)
             })
             
             present(alertController, animated: true, completion: nil)
         }
         if let startRequest = RoomManager.shared.startGameRequest {
             if startRequest {
-                self.performSegue(withIdentifier: self.loadingSegueIdentifier, sender: self)
+                self.performSegue(withIdentifier: loadingSegueIdentifier, sender: self)
             }
         }
     }
@@ -200,7 +197,7 @@ class GameSelectionViewController: UIViewController {
                 self.navigationController?.popToRootViewController(animated: true)
                 return
             }
-            self.performSegue(withIdentifier: self.resultViewSegueIdentifier, sender: self)
+            self.performSegue(withIdentifier: resultViewSegueIdentifier, sender: self)
         })
         
         present(alertController, animated: true, completion: nil)

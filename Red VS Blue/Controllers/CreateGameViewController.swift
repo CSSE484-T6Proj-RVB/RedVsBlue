@@ -18,8 +18,6 @@ class CreateGameViewController: UIViewController {
     var nonEmptyRoomIds = [String]()
     var digits: String!
     
-    let gameSelectionSegueIdentifier = "GameSelectionSegue"
-    
     override func viewDidLoad() {
         super.viewDidLoad()
         navigationController?.setNavigationBarHidden(true, animated: false)
@@ -68,7 +66,7 @@ class CreateGameViewController: UIViewController {
             return
         }
         print(RoomManager.shared.clientUserName!)
-        performSegue(withIdentifier: self.gameSelectionSegueIdentifier, sender: self)
+        performSegue(withIdentifier: gameSelectionSegueIdentifier, sender: self)
     }
     
     func updateNameView() {

@@ -17,8 +17,6 @@ class JoinGameViewController: UIViewController, UITextFieldDelegate {
     var digits: String!
     var nonEmptyRoomIds = [String]()
     
-    let gameSelectionSegueIdentifier = "GameSelectionSegue"
-    
     override func viewDidLoad() {
         super.viewDidLoad()
         navigationController?.setNavigationBarHidden(true, animated: false)
@@ -83,7 +81,7 @@ class JoinGameViewController: UIViewController, UITextFieldDelegate {
                 return
             }
             RoomManager.shared.joinRoom(id: digits, name: UserManager.shared.name, bio: UserManager.shared.bio)
-            performSegue(withIdentifier: self.gameSelectionSegueIdentifier, sender: self)
+            performSegue(withIdentifier: gameSelectionSegueIdentifier, sender: self)
         } else {
             let alertController = UIAlertController(title: "Error",
                                                     message: "The Game Room Does not Exist!",

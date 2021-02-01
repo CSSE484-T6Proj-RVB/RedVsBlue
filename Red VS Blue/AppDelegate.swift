@@ -44,7 +44,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate, GIDSignInDelegate {
             }
             LoginViewController.isGuest = false
             let loginVc = GIDSignIn.sharedInstance()?.presentingViewController as! LoginViewController
-            loginVc.performSegue(withIdentifier: loginVc.mainSegueIdentifier, sender: loginVc)
+            loginVc.performSegue(withIdentifier: mainSegueIdentifier, sender: loginVc)
         }
     }
     

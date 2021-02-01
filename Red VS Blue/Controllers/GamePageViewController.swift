@@ -13,8 +13,6 @@ class GamePageViewController: UIViewController {
     
     var selectedIndex: Int?
     
-    let gameDetailSegueIdentifier = "DetailSegue"
-    
     override func viewDidLoad() {
         navigationController?.setNavigationBarHidden(true, animated: false)
     }

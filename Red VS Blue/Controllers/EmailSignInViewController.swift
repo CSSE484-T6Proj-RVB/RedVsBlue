@@ -13,8 +13,6 @@ class EmailSignInViewController: UIViewController {
     @IBOutlet weak var emailTextField: UITextField!
     @IBOutlet weak var passwordTextField: UITextField!
     
-    let mainSegueIdentifier = "MainSegue"
-    
     override func viewDidLoad() {
         super.viewDidLoad()
         navigationController?.setNavigationBarHidden(false, animated: false)
@@ -36,7 +34,7 @@ class EmailSignInViewController: UIViewController {
                 return
             }
             print("Signing in with existing user worked!")
-            self.performSegue(withIdentifier: self.mainSegueIdentifier, sender: self)
+            self.performSegue(withIdentifier: mainSegueIdentifier, sender: self)
         }
     }
     

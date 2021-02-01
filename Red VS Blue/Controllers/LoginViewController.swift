@@ -15,8 +15,6 @@ class LoginViewController: UIViewController {
     @IBOutlet weak var googleSignInButton: GIDSignInButton!
     
     static var isGuest = false
-    let mainSegueIdentifier = "LoginSegue"
-    let signUpSegueIdentifier = "SignUpSegue"
     let REGISTRY_TOKEN = "9f549980-c326-4e31-aa18-869cc452b1d4"
     
     var rosefireName: String?
@@ -38,7 +36,7 @@ class LoginViewController: UIViewController {
         rosefireName = nil
         if Auth.auth().currentUser != nil {
             print("Someone is already signed in! Just move on!")
-            self.performSegue(withIdentifier: self.mainSegueIdentifier, sender: self)
+            self.performSegue(withIdentifier: mainSegueIdentifier, sender: self)
         }
     }
     
@@ -64,14 +62,14 @@ class LoginViewController: UIViewController {
                 // User is signed in using Firebase!
                 print("sign in success")
                 LoginViewController.isGuest = false
-                self.performSegue(withIdentifier: self.mainSegueIdentifier, sender: self)
+                self.performSegue(withIdentifier: mainSegueIdentifier, sender: self)
             }
         }
     }
     
     @IBAction func pressedSignInEmailButton(_ sender: Any) {
         LoginViewController.isGuest = false
-        self.performSegue(withIdentifier: self.signUpSegueIdentifier, sender: self)
+        self.performSegue(withIdentifier: signUpSegueIdentifier, sender: self)
     }
     
     @IBAction func pressedSignInLaterButton(_ sender: Any) {
@@ -86,7 +84,7 @@ class LoginViewController: UIViewController {
                                                 style: .default)
         { (action) in
             LoginViewController.isGuest = true
-            self.performSegue(withIdentifier: self.mainSegueIdentifier, sender: self)
+            self.performSegue(withIdentifier: mainSegueIdentifier, sender: self)
         })
         
         present(alertController, animated: true, completion: nil)
