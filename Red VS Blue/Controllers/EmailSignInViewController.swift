@@ -31,6 +31,7 @@ class EmailSignInViewController: UIViewController {
             if let error = error {
                 print("Error signing in existing user \(error)")
                 self.showErrorDialog(str: error.localizedDescription.description)
+                // TODO Make Dialog Util Class
                 return
             }
             print("Signing in with existing user worked!")
