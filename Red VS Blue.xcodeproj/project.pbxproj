@@ -17,6 +17,8 @@
 		E417786B25B09BF1004B3FD3 /* Icon-72.png in Resources */ = {isa = PBXBuildFile; fileRef = E417786825B09BF1004B3FD3 /* Icon-72.png */; };
 		E417786C25B09BF1004B3FD3 /* Icon.png in Resources */ = {isa = PBXBuildFile; fileRef = E417786925B09BF1004B3FD3 /* Icon.png */; };
 		E41F4C0925B33F970008D15B /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = E41F4C0825B33F970008D15B /* GoogleService-Info.plist */; };
+		E458F86E25C7D29E00BC6932 /* UsersManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = E458F86D25C7D29E00BC6932 /* UsersManager.swift */; };
+		E458F87125C7D2CF00BC6932 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = E458F87025C7D2CF00BC6932 /* Constants.swift */; };
 		E45E24D125BDA86F00628580 /* RoomManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = E45E24D025BDA86F00628580 /* RoomManager.swift */; };
 		E48A0C1825B031CB00122140 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E48A0C1725B031CB00122140 /* AppDelegate.swift */; };
 		E48A0C1A25B031CB00122140 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E48A0C1925B031CB00122140 /* SceneDelegate.swift */; };
@@ -77,6 +79,8 @@
 		E417786825B09BF1004B3FD3 /* Icon-72.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Icon-72.png"; sourceTree = "<group>"; };
 		E417786925B09BF1004B3FD3 /* Icon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Icon.png; sourceTree = "<group>"; };
 		E41F4C0825B33F970008D15B /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
+		E458F86D25C7D29E00BC6932 /* UsersManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UsersManager.swift; sourceTree = "<group>"; };
+		E458F87025C7D2CF00BC6932 /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 		E45E24D025BDA86F00628580 /* RoomManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RoomManager.swift; sourceTree = "<group>"; };
 		E48A0C1425B031CB00122140 /* Red VS Blue.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Red VS Blue.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		E48A0C1725B031CB00122140 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -155,6 +159,59 @@
 			path = Pods;
 			sourceTree = "<group>";
 		};
+		E458F87325C7D68700BC6932 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				E4BCD6C225BD84A200BE0D81 /* UserManager.swift */,
+				E458F86D25C7D29E00BC6932 /* UsersManager.swift */,
+				E45E24D025BDA86F00628580 /* RoomManager.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		E458F87525C7D6A700BC6932 /* Utils */ = {
+			isa = PBXGroup;
+			children = (
+				E458F87025C7D2CF00BC6932 /* Constants.swift */,
+				E49BECE825B4E1AC0048CD7D /* RandomStringGenerator.swift */,
+			);
+			path = Utils;
+			sourceTree = "<group>";
+		};
+		E458F87725C7D6B900BC6932 /* GameCollection */ = {
+			isa = PBXGroup;
+			children = (
+				E498EF6225B7B591006621FA /* GameCollection.swift */,
+				E498EF6525B7B5CE006621FA /* Game.swift */,
+				E498EF6825B7B60C006621FA /* TicTacToeGame.swift */,
+				E498EF6B25B7BA6F006621FA /* HangmanGame.swift */,
+				E498EF6F25B91999006621FA /* CountTo21Game.swift */,
+				E498EF7325B91A44006621FA /* NumberPuzzleGame.swift */,
+				E498EF7625B91A93006621FA /* RandomGame.swift */,
+			);
+			path = GameCollection;
+			sourceTree = "<group>";
+		};
+		E458F87925C7D71000BC6932 /* Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				E49BECC425B344100048CD7D /* LoginViewController.swift */,
+				E49BECD425B34AA40048CD7D /* MainPageViewController.swift */,
+				E494E97E25C08B17004DD607 /* GamePageViewController.swift */,
+				E494E98325C0A24B004DD607 /* GameDetailPageController.swift */,
+				E49BECE025B448DA0048CD7D /* ProfileViewController.swift */,
+				E49BECD825B354250048CD7D /* EmailSignInViewController.swift */,
+				E49BECEE25B589430048CD7D /* LeaderboardViewController.swift */,
+				E49BECF225B5A58A0048CD7D /* CreateGameViewController.swift */,
+				E4BB4B3B25B621E6008580A8 /* JoinGameViewController.swift */,
+				E498EF4325B78667006621FA /* GameSelectionViewController.swift */,
+				B5DD70E325B965EC006848D7 /* LoadingViewController.swift */,
+				E4BCD68E25BB64EC00BE0D81 /* ResultViewController.swift */,
+				E498EF7B25B9A473006621FA /* TicTacToeViewController.swift */,
+			);
+			path = Controllers;
+			sourceTree = "<group>";
+		};
 		E48A0C0B25B031CB00122140 = {
 			isa = PBXGroup;
 			children = (
@@ -182,29 +239,10 @@
 				E417786725B09BF1004B3FD3 /* Icon@2x.png */,
 				E48A0C1725B031CB00122140 /* AppDelegate.swift */,
 				E48A0C1925B031CB00122140 /* SceneDelegate.swift */,
-				E4BCD6C225BD84A200BE0D81 /* UserManager.swift */,
-				E45E24D025BDA86F00628580 /* RoomManager.swift */,
-				E49BECE825B4E1AC0048CD7D /* RandomStringGenerator.swift */,
-				E49BECC425B344100048CD7D /* LoginViewController.swift */,
-				E49BECD425B34AA40048CD7D /* MainPageViewController.swift */,
-				E494E97E25C08B17004DD607 /* GamePageViewController.swift */,
-				E494E98325C0A24B004DD607 /* GameDetailPageController.swift */,
-				E49BECE025B448DA0048CD7D /* ProfileViewController.swift */,
-				E49BECD825B354250048CD7D /* EmailSignInViewController.swift */,
-				E49BECEE25B589430048CD7D /* LeaderboardViewController.swift */,
-				E49BECF225B5A58A0048CD7D /* CreateGameViewController.swift */,
-				E4BB4B3B25B621E6008580A8 /* JoinGameViewController.swift */,
-				E498EF4325B78667006621FA /* GameSelectionViewController.swift */,
-				B5DD70E325B965EC006848D7 /* LoadingViewController.swift */,
-				E4BCD68E25BB64EC00BE0D81 /* ResultViewController.swift */,
-				E498EF7B25B9A473006621FA /* TicTacToeViewController.swift */,
-				E498EF6225B7B591006621FA /* GameCollection.swift */,
-				E498EF6525B7B5CE006621FA /* Game.swift */,
-				E498EF6825B7B60C006621FA /* TicTacToeGame.swift */,
-				E498EF6B25B7BA6F006621FA /* HangmanGame.swift */,
-				E498EF6F25B91999006621FA /* CountTo21Game.swift */,
-				E498EF7325B91A44006621FA /* NumberPuzzleGame.swift */,
-				E498EF7625B91A93006621FA /* RandomGame.swift */,
+				E458F87525C7D6A700BC6932 /* Utils */,
+				E458F87325C7D68700BC6932 /* Model */,
+				E458F87925C7D71000BC6932 /* Controllers */,
+				E458F87725C7D6B900BC6932 /* GameCollection */,
 				E48A0C1D25B031CB00122140 /* Main.storyboard */,
 				E48A0C2225B031CC00122140 /* LaunchScreen.storyboard */,
 				E48A0C2525B031CC00122140 /* Info.plist */,
@@ -417,6 +455,7 @@
 				E49BECD925B354250048CD7D /* EmailSignInViewController.swift in Sources */,
 				E498EF6625B7B5CE006621FA /* Game.swift in Sources */,
 				E48A0C1825B031CB00122140 /* AppDelegate.swift in Sources */,
+				E458F86E25C7D29E00BC6932 /* UsersManager.swift in Sources */,
 				E498EF7425B91A44006621FA /* NumberPuzzleGame.swift in Sources */,
 				E498EF7025B91999006621FA /* CountTo21Game.swift in Sources */,
 				E49BECEF25B589430048CD7D /* LeaderboardViewController.swift in Sources */,
@@ -426,6 +465,7 @@
 				E48A0C1A25B031CB00122140 /* SceneDelegate.swift in Sources */,
 				E4BCD68F25BB64EC00BE0D81 /* ResultViewController.swift in Sources */,
 				E494E98425C0A24B004DD607 /* GameDetailPageController.swift in Sources */,
+				E458F87125C7D2CF00BC6932 /* Constants.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

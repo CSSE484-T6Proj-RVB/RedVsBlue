@@ -54,6 +54,7 @@ class RoomManager {
             kKeyHostReady: false,
             kKeyGameOnGoing: false
         ])
+        // TODO: Only User ID
     }
     
     func joinRoom(id: String, name: String, bio: String) {
@@ -69,6 +70,7 @@ class RoomManager {
             kKeyClientReady: false,
             kKeyGameOnGoing: true
         ])
+        // TODO: Only User ID
     }
     
     func updateDataWithField(id: String, fieldName: String, value: Any) {
