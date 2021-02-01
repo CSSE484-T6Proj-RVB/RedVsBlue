@@ -89,6 +89,10 @@ class UserManager {
         ])
     }
     
+    var uid: String {
+        return Auth.auth().currentUser!.uid
+    }
+    
     var name: String {
         if let value = _document?.get(kKeyName) {
             return value as! String

@@ -12,10 +12,8 @@ class CreateGameViewController: UIViewController {
     
     @IBOutlet weak var userNameView: UIView!
     @IBOutlet weak var userNameLabel: UILabel!
-    
     @IBOutlet var digitCodeLabels: [UILabel]!
     
-    var nonEmptyRoomIds = [String]()
     var digits: String!
     
     override func viewDidLoad() {
@@ -29,48 +27,39 @@ class CreateGameViewController: UIViewController {
         userNameView.layer.cornerRadius = 12
         userNameView.layer.borderWidth = 2
         userNameView.layer.borderColor = UIColor.black.cgColor
-        
-        UserManager.shared.beginListeningForSingleUser(uid: Auth.auth().currentUser!.uid, changeListener: updateNameView)
-        RoomManager.shared.beginListeningForRooms(changeListener: appendRoomIds)
+        UsersManager.shared.beginListening(changeListener: updateNameView)
+        RoomsManager.shared.beginListeningForRooms(changeListener: addRoom)
     }
     
     override func viewWillDisappear(_ animated: Bool) {
         super.viewWillDisappear(animated)
+        RoomsManager.shared.stopListening()
         RoomManager.shared.stopListening()
-        UserManager.shared.stopListening()
+        UsersManager.shared.stopListening()
     }
     
-    func appendRoomIds() {
-        nonEmptyRoomIds = []
-        for document in RoomManager.shared._queryDocuments! {
-            //print("added something !!!")
-            self.nonEmptyRoomIds.append(document.documentID)
-        }
-        print(nonEmptyRoomIds)
-        RoomManager.shared.stopListening()
-        createRoom()
-    }
-    
-    func createRoom() {
+    func addRoom() {
+        RoomsManager.shared.stopListening()
         digits = "4057" // TODO: Set it back
-        while nonEmptyRoomIds.contains(digits) {
+        while RoomsManager.shared.getOngoingWithId(roomId: digits) != nil {
             digits = RandomStringGenerator.shared.generateRandomRoomNumber()
         }
+        RoomsManager.shared.addNewRoom(id: digits)
         updateDigitCodes(digits: digits)
-        RoomManager.shared.addNewRoom(id: digits, name: UserManager.shared.name, bio: UserManager.shared.bio)
-        RoomManager.shared.beginListeningForTheRoom(id: digits, changeListener: playerJoined)
+        RoomManager.shared.setReference(roomId: digits)
+        RoomManager.shared.beginListening(changeListener: playerJoined)
     }
     
     func playerJoined() {
-        if RoomManager.shared.clientUserName == nil {
+        if RoomManager.shared.clientId == nil {
             return
         }
-        print(RoomManager.shared.clientUserName!)
+        print(RoomManager.shared.clientId!)
         performSegue(withIdentifier: gameSelectionSegueIdentifier, sender: self)
     }
     
     func updateNameView() {
-        userNameLabel.text = UserManager.shared.name
+        userNameLabel.text = UsersManager.shared.getNameWithId(uid: UserManager.shared.uid)
     }
     
     func updateDigitCodes(digits: String) {
@@ -81,14 +70,15 @@ class CreateGameViewController: UIViewController {
     }
     
     @IBAction func pressedBackButton(_ sender: Any) {
-        RoomManager.shared.deleteRoom(id: digits)
+        RoomsManager.shared.deleteRoom(id: digits)
         self.navigationController?.popViewController(animated: true)
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == gameSelectionSegueIdentifier {
-//            (segue.destination as! GameSelectionViewController).roomRef = gameDatumRef
-//            (segue.destination as! GameSelectionViewController).user = user
+            (segue.destination as! GameSelectionViewController).roomId = digits
+            (segue.destination as! GameSelectionViewController).isHost = true
+            (segue.destination as! GameSelectionViewController).score = 0
         }
     }
 }

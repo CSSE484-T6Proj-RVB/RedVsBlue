@@ -11,7 +11,6 @@ import Firebase
 class UsersManager {
     
     var _userCollectionRef: CollectionReference
-    var _document: DocumentSnapshot?
     var _userListener: ListenerRegistration?
     var _queryDocuments: [DocumentSnapshot]?
     
@@ -19,6 +18,19 @@ class UsersManager {
     
     private init() {
         _userCollectionRef = Firestore.firestore().collection(kCollectionUsers)
+    }
+    
+    func beginListening(changeListener: (() -> Void)?) {
+        stopListening()
+        _userListener = _userCollectionRef.addSnapshotListener({ (querySnapshot, error) in
+            if let error = error {
+                print("Error listening leaderboard \(error)")
+            }
+            if let querySnapshot = querySnapshot {
+                self._queryDocuments = querySnapshot.documents
+                changeListener?()
+            }
+        })
     }
     
     func beginListeningForLeaderboard(isMatchesPlayed: Bool, changeListener: (() -> Void)?) {
@@ -63,6 +75,25 @@ class UsersManager {
         }
         return 0
     }
+    
+    func getNameWithId(uid: String) -> String {
+        for document in _queryDocuments! {
+            if document.documentID == uid {
+                return document.get(kKeyName) as! String
+            }
+        }
+        return ""
+    }
+    
+    func getBioWithId(uid: String) -> String {
+        for document in _queryDocuments! {
+            if document.documentID == uid {
+                return document.get(kKeyBio) as! String
+            }
+        }
+        return ""
+    }
+    
     
     
 }

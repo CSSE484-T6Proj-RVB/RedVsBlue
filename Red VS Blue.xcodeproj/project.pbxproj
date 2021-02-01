@@ -19,6 +19,7 @@
 		E41F4C0925B33F970008D15B /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = E41F4C0825B33F970008D15B /* GoogleService-Info.plist */; };
 		E458F86E25C7D29E00BC6932 /* UsersManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = E458F86D25C7D29E00BC6932 /* UsersManager.swift */; };
 		E458F87125C7D2CF00BC6932 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = E458F87025C7D2CF00BC6932 /* Constants.swift */; };
+		E458F87C25C7DE3500BC6932 /* RoomsManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = E458F87B25C7DE3500BC6932 /* RoomsManager.swift */; };
 		E45E24D125BDA86F00628580 /* RoomManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = E45E24D025BDA86F00628580 /* RoomManager.swift */; };
 		E48A0C1825B031CB00122140 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E48A0C1725B031CB00122140 /* AppDelegate.swift */; };
 		E48A0C1A25B031CB00122140 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E48A0C1925B031CB00122140 /* SceneDelegate.swift */; };
@@ -81,6 +82,7 @@
 		E41F4C0825B33F970008D15B /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		E458F86D25C7D29E00BC6932 /* UsersManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UsersManager.swift; sourceTree = "<group>"; };
 		E458F87025C7D2CF00BC6932 /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
+		E458F87B25C7DE3500BC6932 /* RoomsManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RoomsManager.swift; sourceTree = "<group>"; };
 		E45E24D025BDA86F00628580 /* RoomManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RoomManager.swift; sourceTree = "<group>"; };
 		E48A0C1425B031CB00122140 /* Red VS Blue.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Red VS Blue.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		E48A0C1725B031CB00122140 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -165,6 +167,7 @@
 				E4BCD6C225BD84A200BE0D81 /* UserManager.swift */,
 				E458F86D25C7D29E00BC6932 /* UsersManager.swift */,
 				E45E24D025BDA86F00628580 /* RoomManager.swift */,
+				E458F87B25C7DE3500BC6932 /* RoomsManager.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -439,6 +442,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				E458F87C25C7DE3500BC6932 /* RoomsManager.swift in Sources */,
 				E498EF6C25B7BA6F006621FA /* HangmanGame.swift in Sources */,
 				E4BB4B3C25B621E6008580A8 /* JoinGameViewController.swift in Sources */,
 				E49BECF325B5A58A0048CD7D /* CreateGameViewController.swift in Sources */,

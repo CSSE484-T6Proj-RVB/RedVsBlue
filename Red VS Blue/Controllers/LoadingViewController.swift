@@ -50,10 +50,10 @@ class LoadingViewController: UIViewController {
         self.readyMessageLabel.isHidden = true
         self.isReady = false
         
-        RoomManager.shared.updateDataWithField(id: RoomManager.shared.roomId, fieldName: kKeyHostReady, value: false)
-        RoomManager.shared.updateDataWithField(id: RoomManager.shared.roomId, fieldName: kKeyClientReady, value: false)
-        
-        RoomManager.shared.beginListeningForTheRoom(id: RoomManager.shared.roomId, changeListener: updateView)
+//        RoomManager.shared.updateDataWithField(id: RoomManager.shared.roomId, fieldName: kKeyHostReady, value: false)
+//        RoomManager.shared.updateDataWithField(id: RoomManager.shared.roomId, fieldName: kKeyClientReady, value: false)
+//
+//        RoomManager.shared.beginListeningForTheRoom(id: RoomManager.shared.roomId, changeListener: updateView)
     }
     
     override func viewWillDisappear(_ animated: Bool) {
@@ -62,17 +62,17 @@ class LoadingViewController: UIViewController {
     }
     
     func updateView() {
-        let hostBio = RoomManager.shared.hostUserBio
-        let clientBio = RoomManager.shared.clientUserBio
-        hostNameLabel.text = RoomManager.shared.hostUserName
-        hostBioLabel.text = hostBio == "" ? "This player has no bio." : hostBio
-        clientNameLabel.text = RoomManager.shared.clientUserName
-        clientBioLabel.text = clientBio == "" ? "This player has no bio." : clientBio
-        let hostReady = RoomManager.shared.hostReady
-        let clientReady = RoomManager.shared.clientReady
-        if hostReady && clientReady {
-            performSegue(withIdentifier: self.gameSegueIdentifiers[self.gameSelectedIndex], sender: self)
-        }
+//        let hostBio = RoomManager.shared.hostUserBio
+//        let clientBio = RoomManager.shared.clientUserBio
+//        hostNameLabel.text = RoomManager.shared.hostUserName
+//        hostBioLabel.text = hostBio == "" ? "This player has no bio." : hostBio
+//        clientNameLabel.text = RoomManager.shared.clientUserName
+//        clientBioLabel.text = clientBio == "" ? "This player has no bio." : clientBio
+//        let hostReady = RoomManager.shared.hostReady
+//        let clientReady = RoomManager.shared.clientReady
+//        if hostReady && clientReady {
+//            performSegue(withIdentifier: self.gameSegueIdentifiers[self.gameSelectedIndex], sender: self)
+//        }
     }
     
     @IBAction func pressedReadyButton(_ sender: Any) {
@@ -80,12 +80,12 @@ class LoadingViewController: UIViewController {
         readyButton.backgroundColor = isReady ? UIColor.red : UIColor.green
         readyButton.setTitle(isReady ? "Cancel" : "Ready!", for: .normal)
         readyMessageLabel.isHidden = !isReady
-        if RoomManager.shared.isHost {
-            RoomManager.shared.updateDataWithField(id: RoomManager.shared.roomId, fieldName: kKeyStartGameRequest, value: false)
-            RoomManager.shared.updateDataWithField(id: RoomManager.shared.roomId, fieldName: kKeyHostReady, value: isReady)
-        } else {
-            RoomManager.shared.updateDataWithField(id: RoomManager.shared.roomId, fieldName: kKeyClientReady, value: isReady)
-        }
+//        if RoomManager.shared.isHost {
+//            RoomManager.shared.updateDataWithField(id: RoomManager.shared.roomId, fieldName: kKeyStartGameRequest, value: false)
+//            RoomManager.shared.updateDataWithField(id: RoomManager.shared.roomId, fieldName: kKeyHostReady, value: isReady)
+//        } else {
+//            RoomManager.shared.updateDataWithField(id: RoomManager.shared.roomId, fieldName: kKeyClientReady, value: isReady)
+//        }
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {

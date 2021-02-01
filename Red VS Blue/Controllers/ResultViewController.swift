@@ -29,22 +29,22 @@ class ResultViewController: UIViewController {
         super.viewWillAppear(animated)
         navigationController?.setNavigationBarHidden(true, animated: false)
         
-        if clientScore == hostScore {
-            // Tie
-            resultImage.image = tieImg
-            isWin = false
-        } else if (hostScore - clientScore > 0) == RoomManager.shared.isHost {
-            // Win
-            resultImage.image = winImg
-            isWin = true
-        } else {
-            // Lose
-            resultImage.image = loseImg
-            isWin = false
-        }
+//        if clientScore == hostScore {
+//            // Tie
+//            resultImage.image = tieImg
+//            isWin = false
+//        } else if (hostScore - clientScore > 0) == RoomManager.shared.isHost {
+//            // Win
+//            resultImage.image = winImg
+//            isWin = true
+//        } else {
+//            // Lose
+//            resultImage.image = loseImg
+//            isWin = false
+//        }
         
-        UserManager.shared.beginListeningForSingleUser(uid: Auth.auth().currentUser!.uid, changeListener: nil)
-        updateRecord()
+//        UserManager.shared.beginListeningForSingleUser(uid: Auth.auth().currentUser!.uid, changeListener: nil)
+//        updateRecord()
     }
     
     override func viewWillDisappear(_ animated: Bool) {

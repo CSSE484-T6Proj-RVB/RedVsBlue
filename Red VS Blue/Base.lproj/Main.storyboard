@@ -185,7 +185,7 @@
                     <navigationItem key="navigationItem" id="WMi-dE-1cU"/>
                     <connections>
                         <outlet property="googleSignInButton" destination="VcQ-K6-2Lj" id="eqH-N8-Nv4"/>
-                        <segue destination="FYw-PC-xP8" kind="show" identifier="LoginSegue" id="yqw-Oq-yZd"/>
+                        <segue destination="FYw-PC-xP8" kind="show" identifier="MainSegue" id="yqw-Oq-yZd"/>
                         <segue destination="5X4-40-Rdd" kind="show" identifier="SignUpSegue" id="pGI-gn-vYi"/>
                     </connections>
                 </viewController>
@@ -1781,7 +1781,7 @@
     </scenes>
     <inferredMetricsTieBreakers>
         <segue reference="ieF-bM-aaL"/>
-        <segue reference="CbN-OY-Ic2"/>
+        <segue reference="yqw-Oq-yZd"/>
     </inferredMetricsTieBreakers>
     <resources>
         <image name="Back_Arrow.png" width="610" height="477"/>

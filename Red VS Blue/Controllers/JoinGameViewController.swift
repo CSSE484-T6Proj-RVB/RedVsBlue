@@ -15,7 +15,6 @@ class JoinGameViewController: UIViewController, UITextFieldDelegate {
     @IBOutlet weak var userNameLabel: UILabel!
     
     var digits: String!
-    var nonEmptyRoomIds = [String]()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -28,34 +27,22 @@ class JoinGameViewController: UIViewController, UITextFieldDelegate {
         super.viewWillAppear(animated)
         navigationController?.setNavigationBarHidden(true, animated: false)
         
-        UserManager.shared.beginListeningForSingleUser(uid: Auth.auth().currentUser!.uid, changeListener: updateNameView)
-        
-        nonEmptyRoomIds = []
+        UsersManager.shared.beginListening(changeListener: updateNameView)
+        RoomsManager.shared.beginListeningForRooms(changeListener: nil)
         
         nameView.layer.cornerRadius = 12
         nameView.layer.borderWidth = 2
         nameView.layer.borderColor = UIColor.black.cgColor
-        
-        RoomManager.shared.beginListeningForRooms(changeListener: appendRoomIds)
     }
     
     override func viewWillDisappear(_ animated: Bool) {
         super.viewWillDisappear(animated)
-        UserManager.shared.stopListening()
-        RoomManager.shared.stopListening()
-    }
-    
-    func appendRoomIds() {
-        nonEmptyRoomIds = []
-        for document in RoomManager.shared._queryDocuments! {
-            self.nonEmptyRoomIds.append(document.documentID)
-        }
-        print(nonEmptyRoomIds)
-        //RoomManager.shared.stopListening()
+        UsersManager.shared.stopListening()
+        RoomsManager.shared.stopListening()
     }
     
     func updateNameView() {
-        userNameLabel.text = UserManager.shared.name
+        userNameLabel.text = UsersManager.shared.getNameWithId(uid: UserManager.shared.uid)
     }
     
     @IBAction func pressedBackButton(_ sender: Any) {
@@ -75,14 +62,9 @@ class JoinGameViewController: UIViewController, UITextFieldDelegate {
             present(alertController, animated: true, completion: nil)
             return
         }
-        if nonEmptyRoomIds.contains(digits) {
-            if digits == "2" {
-                // TODO: Check for isGoing
-                return
-            }
-            RoomManager.shared.joinRoom(id: digits, name: UserManager.shared.name, bio: UserManager.shared.bio)
-            performSegue(withIdentifier: gameSelectionSegueIdentifier, sender: self)
-        } else {
+        let onGoing = RoomsManager.shared.getOngoingWithId(roomId: digits)
+        if onGoing == nil {
+            // Room Does not exist
             let alertController = UIAlertController(title: "Error",
                                                     message: "The Game Room Does not Exist!",
                                                     preferredStyle: .alert)
@@ -92,6 +74,21 @@ class JoinGameViewController: UIViewController, UITextFieldDelegate {
                                                     handler: nil))
 
             present(alertController, animated: true, completion: nil)
+        } else if onGoing! {
+            // ONGOING
+            let alertController = UIAlertController(title: "Error",
+                                                    message: "The Game is ongoing!",
+                                                    preferredStyle: .alert)
+
+            alertController.addAction(UIAlertAction(title: "OK",
+                                                    style: .cancel,
+                                                    handler: nil))
+
+            present(alertController, animated: true, completion: nil)
+        } else {
+            // JOINABLE
+            RoomsManager.shared.joinRoom(id: digits)
+            performSegue(withIdentifier: gameSelectionSegueIdentifier, sender: self)
         }
     }
     
@@ -115,8 +112,9 @@ class JoinGameViewController: UIViewController, UITextFieldDelegate {
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == gameSelectionSegueIdentifier {
-//            (segue.destination as! GameSelectionViewController).roomRef = gameDatumRef
-//            (segue.destination as! GameSelectionViewController).user = user
+            (segue.destination as! GameSelectionViewController).roomId = digits
+            (segue.destination as! GameSelectionViewController).isHost = false
+            (segue.destination as! GameSelectionViewController).score = 0
         }
     }
 }

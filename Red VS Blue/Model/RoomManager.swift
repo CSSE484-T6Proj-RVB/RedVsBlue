@@ -8,95 +8,22 @@
 import Foundation
 import Firebase
 
-let kCollectionGameData = "GameData"
-let kKeyHostUserName = "hostUserName"
-let kKeyHostUserBio = "hostUserBio"
-let kKeyHostScore = "hostScore"
-let kKeyHostReady = "hostReady"
-let kKeyClientUserName = "clientUserName"
-let kKeyClientUserBio = "clientUserBio"
-let kKeyClientScore = "clientScore"
-let kKeyClientReady = "clientReady"
-let kKeyGameOnGoing = "onGoing"
-let kKeyGameSelected = "currentGameSelected"
-let kKeyEndGameRequest = "endGameRequest"
-let kKeyStartGameRequest = "startGameRequest"
-
 class RoomManager {
-    var _gameDataCollectionRef: CollectionReference
+    var _roomDocumentRef: DocumentReference?
     var _document: DocumentSnapshot?
     var _roomListener: ListenerRegistration?
-    var _queryDocuments: [DocumentSnapshot]?
-    
-    var roomId: String
-    var score: Int
-    var isHost: Bool
    
     static let shared = RoomManager()
     
-    private init() {
-        _gameDataCollectionRef = Firestore.firestore().collection(kCollectionGameData)
-        score = 0
-        isHost = false
-        roomId =  ""
+    private init() {}
+    
+    func setReference(roomId: String) {
+        _roomDocumentRef = Firestore.firestore().collection(kCollectionRooms).document(roomId)
     }
     
-    func addNewRoom(id: String, name: String, bio: String) {
-        isHost = true
-        score = 0
-        roomId = id
-        let roomRef = _gameDataCollectionRef.document(id)
-        print("Creating New Room...")
-        roomRef.setData([
-            kKeyHostUserName: name,
-            kKeyHostUserBio: bio,
-            kKeyHostScore: 0,
-            kKeyHostReady: false,
-            kKeyGameOnGoing: false
-        ])
-        // TODO: Only User ID
-    }
-    
-    func joinRoom(id: String, name: String, bio: String) {
-        isHost = false
-        score = 0
-        roomId = id
-        let roomRef = _gameDataCollectionRef.document(id)
-        print("Joining the Room...")
-        roomRef.updateData([
-            kKeyClientUserName: name,
-            kKeyClientUserBio: bio,
-            kKeyClientScore: 0,
-            kKeyClientReady: false,
-            kKeyGameOnGoing: true
-        ])
-        // TODO: Only User ID
-    }
-    
-    func updateDataWithField(id: String, fieldName: String, value: Any) {
-        let roomRef = _gameDataCollectionRef.document(id)
-        roomRef.updateData([
-            fieldName: value
-        ])
-    }
-    
-    func beginListeningForRooms(changeListener: (() -> Void)?) {
+    func beginListening(changeListener: (() -> Void)?) {
         stopListening()
-        _roomListener = _gameDataCollectionRef.addSnapshotListener({ (querySnapshot, error) in
-            if let error = error {
-                print("Error listening rooms \(error)")
-            }
-            if let querySnapshot = querySnapshot {
-                self._queryDocuments = querySnapshot.documents
-                changeListener?()
-            }
-        })
-    }
-    
-    func beginListeningForTheRoom(id: String, changeListener: (() -> Void)?) {
-        stopListening()
-        let roomRef = _gameDataCollectionRef.document(id)
-        _roomListener = roomRef.addSnapshotListener { (documentSnapshot, error) in
+        _roomListener = _roomDocumentRef!.addSnapshotListener { (documentSnapshot, error) in
             if let error = error {
                 print("Error listening for room \(error)")
                 return
@@ -112,32 +39,31 @@ class RoomManager {
         _roomListener?.remove()
     }
     
-    func deleteRoom(id: String) {
-        let roomRef = _gameDataCollectionRef.document(id)
-        roomRef.delete()
+    func updateCurrentGameSelected(id: Int) {
+        _roomDocumentRef?.updateData([
+            kKeyGameSelected: id
+        ])
     }
     
-    func getDataWithField(fieldName: String) -> Any? {
-        if let value = _document?.get(fieldName) {
-            return value
-        }
-        return nil
+    func sendEndGameRequest() {
+        _roomDocumentRef?.updateData([
+            kKeyEndGameRequest: true
+        ])
     }
     
-    var hostUserName: String {
-        if let value = _document?.get(kKeyHostUserName) {
+    func sendStartGameRequest() {
+        _roomDocumentRef?.updateData([
+            kKeyStartGameRequest: true
+        ])
+    }
+    
+    var hostId: String {
+        if let value = _document?.get(kKeyHostId) {
             return value as! String
         }
         return ""
     }
-    
-    var hostUserBio: String {
-        if let value = _document?.get(kKeyHostUserBio) {
-            return value as! String
-        }
-        return ""
-    }
-    
+
     var hostScore: Int {
         if let value = _document?.get(kKeyHostScore) {
             return value as! Int
@@ -159,18 +85,11 @@ class RoomManager {
         return 0
     }
     
-    var clientUserName: String? {
-        if let value = _document?.get(kKeyClientUserName) {
+    var clientId: String? {
+        if let value = _document?.get(kKeyClientId) {
             return value as? String
         }
         return nil
-    }
-    
-    var clientUserBio: String {
-        if let value = _document?.get(kKeyClientUserBio) {
-            return value as! String
-        }
-        return ""
     }
     
     var clientReady: Bool {
