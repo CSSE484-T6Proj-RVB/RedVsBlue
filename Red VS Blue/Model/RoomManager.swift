@@ -45,15 +45,21 @@ class RoomManager {
         ])
     }
     
-    func sendEndGameRequest() {
+    func toggleEndGameRequest(value: Bool) {
         _roomDocumentRef?.updateData([
-            kKeyEndGameRequest: true
+            kKeyEndGameRequest: value
         ])
     }
     
-    func sendStartGameRequest() {
+    func toggleStartGameRequest(value: Bool) {
         _roomDocumentRef?.updateData([
-            kKeyStartGameRequest: true
+            kKeyStartGameRequest: value
+        ])
+    }
+    
+    func updateDataWithField(fieldName: String, value: Any) {
+        _roomDocumentRef?.updateData([
+            fieldName : value
         ])
     }
     

@@ -52,7 +52,7 @@ class GameSelectionViewController: UIViewController {
             clientWaitingLabel.isHidden = false
         }
         
-//        RoomManager.shared.updateDataWithField(id: RoomManager.shared.roomId, fieldName: RoomManager.shared.isHost ? kKeyHostScore : kKeyClientScore, value: RoomManager.shared.score)
+        RoomManager.shared.updateDataWithField(fieldName: isHost ? kKeyHostScore : kKeyClientScore, value: score!)
     }
     
     override func viewWillDisappear(_ animated: Bool) {
@@ -88,28 +88,39 @@ class GameSelectionViewController: UIViewController {
             }
         }
         if let _ = RoomManager.shared.endGameRequest {
-            let alertController = UIAlertController(title: "Game Ended",
-                                                    message: "The other player has left!",
-                                                    preferredStyle: .alert)
-
-            alertController.addAction(UIAlertAction(title: "OK",
-                                                    style: .default)
-            { (action) in
+//            let alertController = UIAlertController(title: "Game Ended",
+//                                                    message: "The other player has left!",
+//                                                    preferredStyle: .alert)
+//
+//            alertController.addAction(UIAlertAction(title: "OK",
+//                                                    style: .default)
+//            { (action) in
+//                RoomsManager.shared.deleteRoom(id: self.roomId)
+//                if RoomManager.shared.clientScore + RoomManager.shared.hostScore == 0 {
+//                    self.navigationController?.popToRootViewController(animated: true)
+//                    return
+//                }
+//                self.performSegue(withIdentifier: resultViewSegueIdentifier, sender: self)
+//            })
+//
+//            present(alertController, animated: true, completion: nil)
+            
+            AlertDialog.showAlertDialog(viewController: self, title: "Game Ended",
+                                        message: "The other player has left!",
+                                        confirmTitle: "OK") {
                 RoomsManager.shared.deleteRoom(id: self.roomId)
                 if RoomManager.shared.clientScore + RoomManager.shared.hostScore == 0 {
                     self.navigationController?.popToRootViewController(animated: true)
                     return
                 }
                 self.performSegue(withIdentifier: resultViewSegueIdentifier, sender: self)
-            })
-
-            present(alertController, animated: true, completion: nil)
+            }
         }
-//        if let startRequest = RoomManager.shared.startGameRequest {
-//            if startRequest {
-//                self.performSegue(withIdentifier: loadingSegueIdentifier, sender: self)
-//            }
-//        }
+        if let startRequest = RoomManager.shared.startGameRequest {
+            if startRequest {
+                self.performSegue(withIdentifier: loadingSegueIdentifier, sender: self)
+            }
+        }
     }
     
     func loadGameButtons() {
@@ -177,45 +188,54 @@ class GameSelectionViewController: UIViewController {
     
     @IBAction func pressedGoButton(_ sender: Any) {
 //        // TODO: Make sure the player has gone back
-//        if currentSelectedButtonIndex != -1 {
-//            RoomManager.shared.updateDataWithField(id: RoomManager.shared.roomId, fieldName: kKeyStartGameRequest, value: true)
-//            //self.performSegue(withIdentifier: self.loadingSegueIdentifier, sender: self)
-//        } else {
-//            let alertController = UIAlertController(title: nil,
-//                                                    message: "You should select a game first.",
-//                                                    preferredStyle: .alert)
-//            alertController.addAction(UIAlertAction(title: "OK",
-//                                                    style: .cancel,
-//                                                    handler: nil))
-//            present(alertController, animated: true, completion: nil)
-//        }
+        if currentSelectedButtonIndex != -1 {
+            RoomManager.shared.toggleStartGameRequest(value: true)
+//            self.performSegue(withIdentifier: self.loadingSegueIdentifier, sender: self)
+        } else {
+            AlertDialog.showAlertDialog(viewController: self, title: nil,
+                                        message: "You should select a game first.",
+                                        confirmTitle: "OK", finishHandler: nil)
+        }
     }
     
     
     @IBAction func pressedLeaveButton(_ sender: Any) {
-        let alertController = UIAlertController(title: nil,
-                                                message: "Are you sure you want to leave the game?",
-                                                preferredStyle: .alert)
-        alertController.addAction(UIAlertAction(title: "Cancel",
-                                                style: .cancel,
-                                                handler: nil))
-        alertController.addAction(UIAlertAction(title: "Confirm",
-                                                style: .default)
-        { (action) in
-            RoomManager.shared.sendEndGameRequest()
+//        let alertController = UIAlertController(title: nil,
+//                                                message: "Are you sure you want to leave the game?",
+//                                                preferredStyle: .alert)
+//        alertController.addAction(UIAlertAction(title: "Cancel",
+//                                                style: .cancel,
+//                                                handler: nil))
+//        alertController.addAction(UIAlertAction(title: "Confirm",
+//                                                style: .default)
+//        { (action) in
+//            RoomManager.shared.toggleEndGameRequest(value: true)
+//            if RoomManager.shared.clientScore + RoomManager.shared.hostScore == 0 {
+//                self.navigationController?.popToRootViewController(animated: true)
+//                return
+//            }
+//            self.performSegue(withIdentifier: resultViewSegueIdentifier, sender: self)
+//        })
+//        
+//        present(alertController, animated: true, completion: nil)
+        AlertDialog.showAlertDialog(viewController: self, title: nil,
+                                    message: "Are you sure you want to leave the game?",
+                                    confirmTitle: "Confirm") {
+            RoomManager.shared.toggleEndGameRequest(value: true)
             if RoomManager.shared.clientScore + RoomManager.shared.hostScore == 0 {
                 self.navigationController?.popToRootViewController(animated: true)
                 return
             }
             self.performSegue(withIdentifier: resultViewSegueIdentifier, sender: self)
-        })
-        
-        present(alertController, animated: true, completion: nil)
+        }
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == loadingSegueIdentifier {
             (segue.destination as! LoadingViewController).gameSelectedIndex = currentSelectedButtonIndex == GameCollection.shared.games.count - 1 ? Int.random(in: 0..<GameCollection.shared.games.count - 1) : currentSelectedButtonIndex
+            (segue.destination as! LoadingViewController).roomId = self.roomId
+            (segue.destination as! LoadingViewController).isHost = self.isHost
+            (segue.destination as! LoadingViewController).score = self.score
         } else if segue.identifier == resultViewSegueIdentifier {
             (segue.destination as! ResultViewController).clientScore = RoomManager.shared.clientScore
             (segue.destination as! ResultViewController).hostScore = RoomManager.shared.hostScore

@@ -73,21 +73,12 @@ class LoginViewController: UIViewController {
     }
     
     @IBAction func pressedSignInLaterButton(_ sender: Any) {
-        let alertController = UIAlertController(title: "Warning!",
-                                                message: "You cannot play any games when you are not signed in!",
-                                                preferredStyle: .alert)
-        
-        alertController.addAction(UIAlertAction(title: "Cancel",
-                                                style: .cancel,
-                                                handler: nil))
-        alertController.addAction(UIAlertAction(title: "Continue",
-                                                style: .default)
-        { (action) in
+        AlertDialog.showAlertDialog(viewController: self, title: "Warning!",
+                                    message: "You cannot play any games when you are not signed in!",
+                                    confirmTitle: "Continue") {
             LoginViewController.isGuest = true
             self.performSegue(withIdentifier: mainSegueIdentifier, sender: self)
-        })
-        
-        present(alertController, animated: true, completion: nil)
+        }
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {

@@ -94,13 +94,16 @@ class MainPageViewController: UIViewController {
     }
     
     func alertNotLoggedIn() {
-        let alertController = UIAlertController(title: "Warning",
-                                                message: "You should sign in first!",
-                                                preferredStyle: .alert)
-        alertController.addAction(UIAlertAction(title: "Confirm",
-                                                style: .cancel,
-                                                handler: nil))
-        present(alertController, animated: true, completion: nil)
+//        let alertController = UIAlertController(title: "Warning",
+//                                                message: "You should sign in first!",
+//                                                preferredStyle: .alert)
+//        alertController.addAction(UIAlertAction(title: "Confirm",
+//                                                style: .cancel,
+//                                                handler: nil))
+//        present(alertController, animated: true, completion: nil)
+        AlertDialog.showAlertDialog(viewController: self, title: "Warning!",
+                                    message: "You should sign in first!",
+                                    confirmTitle: "Confirm", finishHandler: nil)
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {

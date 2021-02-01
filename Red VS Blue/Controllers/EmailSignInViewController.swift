@@ -30,8 +30,9 @@ class EmailSignInViewController: UIViewController {
         Auth.auth().signIn(withEmail: email, password: password) { (authResult, error) in
             if let error = error {
                 print("Error signing in existing user \(error)")
-                self.showErrorDialog(str: error.localizedDescription.description)
-                // TODO Make Dialog Util Class
+                AlertDialog.showAlertDialog(viewController: self, title: "Error",
+                                            message: error.localizedDescription.description,
+                                            confirmTitle: "Confirm", finishHandler: nil)
                 return
             }
             print("Signing in with existing user worked!")
@@ -46,24 +47,14 @@ class EmailSignInViewController: UIViewController {
         Auth.auth().createUser(withEmail: email, password: password) { (authResult, error) in
             if let error = error {
                 print("Error creating new user for Email/Password \(error)")
-                self.showErrorDialog(str: error.localizedDescription.description)
+                AlertDialog.showAlertDialog(viewController: self, title: "Error",
+                                            message: error.localizedDescription.description,
+                                            confirmTitle: "Confirm", finishHandler: nil)
                 return
             }
             
             print("It worked!!! A new user is created and now signed in.")
         }
-    }
-    
-    func showErrorDialog(str: String) {
-        let alertController = UIAlertController(title: "Error",
-                                                message: str,
-                                                preferredStyle: .alert)
-        
-        alertController.addAction(UIAlertAction(title: "Confirm",
-                                                style: .cancel,
-                                                handler: nil))
-        
-        present(alertController, animated: true, completion: nil)
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {

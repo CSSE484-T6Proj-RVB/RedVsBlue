@@ -19,6 +19,7 @@ let gameDetailSegueIdentifier = "DetailSegue"
 let gameSelectionSegueIdentifier = "GameSelectionSegue"
 let resultViewSegueIdentifier = "ResultViewSegue"
 let loadingSegueIdentifier = "LoadingSegue"
+let ticTacToeGameSegueIdentifier = "TicTacToeGameSegue"
 
 // Collections
 let kCollectionUsers = "Users"
