@@ -92,9 +92,7 @@ class JoinGameViewController: UIViewController, UITextFieldDelegate {
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == gameSelectionSegueIdentifier {
-            (segue.destination as! GameSelectionViewController).roomId = digits
-            (segue.destination as! GameSelectionViewController).isHost = false
-            (segue.destination as! GameSelectionViewController).score = 0
+            RoomStatusStorage.shared.initialize(roomId: digits, isHost: false)
         }
     }
 }

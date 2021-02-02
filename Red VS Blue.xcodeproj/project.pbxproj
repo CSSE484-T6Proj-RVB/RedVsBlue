@@ -28,6 +28,7 @@
 		E48A0C1F25B031CB00122140 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E48A0C1D25B031CB00122140 /* Main.storyboard */; };
 		E48A0C2125B031CC00122140 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = E48A0C2025B031CC00122140 /* Assets.xcassets */; };
 		E48A0C2425B031CC00122140 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E48A0C2225B031CC00122140 /* LaunchScreen.storyboard */; };
+		E48F4C7725C9B3B000371FCC /* RoomStatusStorage.swift in Sources */ = {isa = PBXBuildFile; fileRef = E48F4C7625C9B3B000371FCC /* RoomStatusStorage.swift */; };
 		E494E97A25C084C8004DD607 /* You_Lose.png in Resources */ = {isa = PBXBuildFile; fileRef = E494E97725C084C8004DD607 /* You_Lose.png */; };
 		E494E97B25C084C8004DD607 /* You_Win.png in Resources */ = {isa = PBXBuildFile; fileRef = E494E97825C084C8004DD607 /* You_Win.png */; };
 		E494E97C25C084C8004DD607 /* Tie_Game.png in Resources */ = {isa = PBXBuildFile; fileRef = E494E97925C084C8004DD607 /* Tie_Game.png */; };
@@ -95,6 +96,7 @@
 		E48A0C2025B031CC00122140 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		E48A0C2325B031CC00122140 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		E48A0C2525B031CC00122140 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		E48F4C7625C9B3B000371FCC /* RoomStatusStorage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RoomStatusStorage.swift; sourceTree = "<group>"; };
 		E494E97725C084C8004DD607 /* You_Lose.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = You_Lose.png; sourceTree = "<group>"; };
 		E494E97825C084C8004DD607 /* You_Win.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = You_Win.png; sourceTree = "<group>"; };
 		E494E97925C084C8004DD607 /* Tie_Game.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Tie_Game.png; sourceTree = "<group>"; };
@@ -183,6 +185,7 @@
 				E458F87025C7D2CF00BC6932 /* Constants.swift */,
 				E49BECE825B4E1AC0048CD7D /* RandomStringGenerator.swift */,
 				B516C84B25C85C7E004CADA8 /* AlertDialog.swift */,
+				E48F4C7625C9B3B000371FCC /* RoomStatusStorage.swift */,
 			);
 			path = Utils;
 			sourceTree = "<group>";
@@ -449,6 +452,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				E458F87C25C7DE3500BC6932 /* RoomsManager.swift in Sources */,
+				E48F4C7725C9B3B000371FCC /* RoomStatusStorage.swift in Sources */,
 				E498EF6C25B7BA6F006621FA /* HangmanGame.swift in Sources */,
 				E4BB4B3C25B621E6008580A8 /* JoinGameViewController.swift in Sources */,
 				E49BECF325B5A58A0048CD7D /* CreateGameViewController.swift in Sources */,

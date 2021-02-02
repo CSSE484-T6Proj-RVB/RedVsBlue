@@ -27,14 +27,11 @@ class TicTacToeViewController: UIViewController {
     
     var game: TicTacToeGame!
     var isCurrentUserTurn: Bool!
-    var isGameEnded: Bool!
+    var isWin = false
     
-    let kKeyTicTacToe_isHostTurn = "isHostTurn"
-    let kKeyTicTacToe_lastPressed = "lastPressed"
-    
-    var isHost: Bool!
-    var roomId: String!
-    var score: Int!
+    let isHost = RoomStatusStorage.shared.isHost
+    let roomId = RoomStatusStorage.shared.roomId
+    let score = RoomStatusStorage.shared.score
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -45,7 +42,6 @@ class TicTacToeViewController: UIViewController {
         super.viewWillAppear(animated)
         navigationController?.setNavigationBarHidden(true, animated: false)
         
-        isGameEnded = false
         game = TicTacToeGame()
         
         gameBoardView.layer.cornerRadius = 15
@@ -60,65 +56,72 @@ class TicTacToeViewController: UIViewController {
 
         RoomManager.shared.setReference(roomId: roomId)
         
-        if true {
-            GameDataManager.shared.updateDataWithField(fieldName: kKeyTicTacToe_isHostTurn, value: true)
-            GameDataManager.shared.updateDataWithField(fieldName: kKeyTicTacToe_lastPressed, value: -1)
+        if isHost {
+            GameDataManager.shared.createDocument(roomId: roomId, gameName: kTicTacToeGameName)
         }
-        RoomManager.shared.beginListening(changeListener: nil)
-        UsersManager.shared.beginListening(changeListener: nil)
-        GameDataManager.shared.beginListening(changeListener: updateView)
+        
+        RoomManager.shared.beginListening(changeListener: updateScoreLabel) // Score and ids
+        UsersManager.shared.beginListening(changeListener: updateNameAndBio) // Name and bio
+        GameDataManager.shared.beginListening(changeListener: updateView) // gamedata
     }
     
     override func viewWillDisappear(_ animated: Bool) {
         super.viewWillDisappear(animated)
+        if isHost {
+            GameDataManager.shared.deleteGameDocument()
+        }
         RoomManager.shared.stopListening()
         UsersManager.shared.stopListening()
         GameDataManager.shared.stopListening()
+        RoomStatusStorage.shared.score += isWin ? 1 : 0
+    }
+    
+    func updateScoreLabel() {
+        if isHost {
+            opponentScoreLabel.text = "Score: \(RoomManager.shared.clientScore)"
+            yourScoreLabel.text = "Score: \(RoomManager.shared.hostScore)"
+        } else {
+            opponentScoreLabel.text = "Score: \(RoomManager.shared.hostScore)"
+            yourScoreLabel.text = "Score: \(RoomManager.shared.clientScore)"
+        }
+    }
+    
+    func updateNameAndBio() {
+        let hostId = RoomManager.shared.hostId
+        let clientId = RoomManager.shared.clientId!
+        
+        if isHost {
+            opponentNameLabel.text = UsersManager.shared.getNameWithId(uid: clientId) + ": O"
+            yourNameLabel.text = UsersManager.shared.getNameWithId(uid: hostId) + ": X"
+        } else {
+            opponentNameLabel.text = UsersManager.shared.getNameWithId(uid: hostId) + ": X"
+            yourNameLabel.text = UsersManager.shared.getNameWithId(uid: clientId) + ": O"
+        }
     }
     
     func updateView() {
-        let isHostTurn = GameDataManager.shared.getDataWithField(fieldName: kKeyTicTacToe_isHostTurn) as? Bool
-        isCurrentUserTurn = isHostTurn == isHost
-        gameStateLabel.text = isCurrentUserTurn ? "Your Turn" : "Waiting for the other player..."
-        
-        let hostId = RoomManager.shared.hostId
-        let clientId = RoomManager.shared.clientId!
+        if let isHostTurn = GameDataManager.shared.getDataWithField(fieldName: kKeyTicTacToe_isHostTurn) as? Bool {
+            isCurrentUserTurn = isHostTurn == isHost
+            gameStateLabel.text = isCurrentUserTurn ? "Your Turn" : "Waiting for the other player..."
 
-        if isHost {
-            opponentScoreLabel.text = "Score: \(RoomManager.shared.clientScore)"
-            opponentNameLabel.text = UsersManager.shared.getNameWithId(uid: clientId) + ": O"
-            yourScoreLabel.text = "Score: \(RoomManager.shared.hostScore)"
-            yourNameLabel.text = UsersManager.shared.getNameWithId(uid: hostId) + ": X"
-        } else {
-            opponentScoreLabel.text = "Score: \(RoomManager.shared.hostScore)"
-            opponentNameLabel.text = UsersManager.shared.getNameWithId(uid: hostId) + ": X"
-            yourScoreLabel.text = "Score: \(RoomManager.shared.clientScore)"
-            yourNameLabel.text = UsersManager.shared.getNameWithId(uid: clientId) + ": O"
-        }
+            let lastPressed = GameDataManager.shared.getDataWithField(fieldName: kKeyTicTacToe_lastPressed) as! Int
+            if lastPressed != -1 && isCurrentUserTurn {
+                _ = game.pressedSquareAt(lastPressed)
+            }
+            updateGameView()
 
-        let lastPressed = GameDataManager.shared.getDataWithField(fieldName: kKeyTicTacToe_lastPressed) as? Int
-        if lastPressed != -1 && isCurrentUserTurn {
-            _ = game.pressedSquareAt(lastPressed!)
-        }
-        updateGameView()
-
-        if isGameEnded {
-            return
-        }
-
-        switch self.game.state {
-        case .xTurn, .oTurn: break
-        case .xWin:
-            isGameEnded = true
-            self.popResultMessage(message: isHost ? "You Win!" : "You Lose!")
-            score += isHost ? 1 : 0
-        case .oWin:
-            isGameEnded = true
-            self.popResultMessage(message: !isHost ? "You Win!" : "You Lose!")
-            score += !isHost ? 1 : 0
-        case .tie:
-            isGameEnded = true
-            self.popResultMessage(message: "Tie Game!")
+            switch self.game.state {
+            case .xTurn, .oTurn: break
+            case .xWin:
+                self.popResultMessage(message: isHost ? "You Win!" : "You Lose!")
+                self.isWin = isHost
+            case .oWin:
+                self.popResultMessage(message: !isHost ? "You Win!" : "You Lose!")
+                self.isWin = !isHost
+            case .tie:
+                self.isWin = false
+                self.popResultMessage(message: "Tie Game!")
+            }
         }
     }
     
@@ -128,15 +131,7 @@ class TicTacToeViewController: UIViewController {
             self.popAlertMessage(message: "It's not your turn")
         } else {
             if !game.pressedSquareAt(button.tag) {
-                let alertController = UIAlertController(title: nil,
-                                                        message: "This square is not empty or the game is over",
-                                                        preferredStyle: .alert)
-
-                alertController.addAction(UIAlertAction(title: "OK",
-                                                        style: .cancel,
-                                                        handler: nil))
-
-                present(alertController, animated: true, completion: nil)
+                AlertDialog.showAlertDialog(viewController: self, title: nil, message: "This square is not empty or the game is over", confirmTitle: "OK", finishHandler: nil)
             } else {
                 GameDataManager.shared.updateDataWithField(fieldName: kKeyTicTacToe_lastPressed, value: button.tag)
                 GameDataManager.shared.updateDataWithField(fieldName: kKeyTicTacToe_isHostTurn, value: !isHost)
@@ -160,30 +155,14 @@ class TicTacToeViewController: UIViewController {
     }
     
     func popAlertMessage (message: String) {
-        let alertController = UIAlertController(title: nil,
-                                                message: "It's not your turn",
-                                                preferredStyle: .alert)
-        
-        alertController.addAction(UIAlertAction(title: "OK",
-                                                style: .cancel,
-                                                handler: nil))
-        
-        present(alertController, animated: true, completion: nil)
+        AlertDialog.showAlertDialog(viewController: self, title: nil, message: "It's not your turn", confirmTitle: "OK", finishHandler: nil)
     }
     
     func popResultMessage (message: String) {
-        let alertController = UIAlertController(title: nil,
-                                                message: message,
-                                                preferredStyle: .alert)
-        
-        alertController.addAction(UIAlertAction(title: "OK",
-                                                style: .default)
-        { (action) in
+        AlertDialog.showAlertDialog(viewController: self, title: nil, message: message, confirmTitle: "OK") {
             let viewControllers: [UIViewController] = self.navigationController!.viewControllers as [UIViewController]
             self.navigationController!.popToViewController(viewControllers[viewControllers.count - 3], animated: true)
-        })
-        
-        present(alertController, animated: true, completion: nil)
+        }
     }
     
 }

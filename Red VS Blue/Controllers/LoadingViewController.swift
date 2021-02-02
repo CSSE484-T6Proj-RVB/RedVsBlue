@@ -26,12 +26,8 @@ class LoadingViewController: UIViewController {
     var gameSelectedIndex: Int!
     var gameSegueIdentifiers: [String] = []
     
-    let kKeyHostReady = "hostReady"
-    let kKeyClientReady = "clientReady"
-    
-    var isHost: Bool!
-    var roomId: String!
-    var score: Int!
+    let isHost = RoomStatusStorage.shared.isHost
+    let roomId = RoomStatusStorage.shared.roomId
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -104,12 +100,7 @@ class LoadingViewController: UIViewController {
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == ticTacToeGameSegueIdentifier {
-//            (segue.destination as! TicTacToeViewController).roomRef = roomRef
-//            (segue.destination as! TicTacToeViewController).user = currentUser
-//            (segue.destination as! TicTacToeViewController).game = GameCollection.singleton.games[self.gameSelectedIndex]
-            (segue.destination as! TicTacToeViewController).roomId = self.roomId
-            (segue.destination as! TicTacToeViewController).isHost = self.isHost
-            (segue.destination as! TicTacToeViewController).score = self.score
+            
         }
     }
     

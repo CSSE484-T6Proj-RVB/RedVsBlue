@@ -49,6 +49,8 @@ let kKeyEndGameRequest = "endGameRequest"
 let kKeyStartGameRequest = "startGameRequest"
 
 let kTicTacToeGameName = "TicTacToe"
+let kKeyTicTacToe_isHostTurn = "isHostTurn"
+let kKeyTicTacToe_lastPressed = "lastPressed"
 
 class Constants {
     

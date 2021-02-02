@@ -75,17 +75,17 @@ class UserManager {
         ])
     }
     
-    func updateMatchesPlayed(matchesPlayed: Int) {
+    func updateMatchesPlayed(mp: Int) {
         let userRef = _userCollectionRef.document(Auth.auth().currentUser!.uid)
         userRef.updateData([
-            kKeyMatchesPlayed: matchesPlayed
+            kKeyMatchesPlayed: mp
         ])
     }
     
-    func updateMatchesWon(matchesWon: Int) {
+    func updateMatchesWon(mw: Int) {
         let userRef = _userCollectionRef.document(Auth.auth().currentUser!.uid)
         userRef.updateData([
-            kKeyMatchesWon: matchesWon
+            kKeyMatchesWon: mw
         ])
     }
     

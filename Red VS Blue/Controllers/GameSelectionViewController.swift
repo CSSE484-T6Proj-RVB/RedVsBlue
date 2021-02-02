@@ -28,10 +28,6 @@ class GameSelectionViewController: UIViewController {
     var gameButtons: [UIButton] = []
     var currentSelectedButtonIndex: Int =  -1
     
-    var isHost: Bool!
-    var roomId: String!
-    var score: Int!
-    
     override func viewDidLoad() {
         super.viewDidLoad()
         navigationController?.setNavigationBarHidden(true, animated: false)
@@ -41,10 +37,10 @@ class GameSelectionViewController: UIViewController {
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         navigationController?.setNavigationBarHidden(true, animated: false)
-        RoomManager.shared.setReference(roomId: roomId)
+        RoomManager.shared.setReference(roomId: RoomStatusStorage.shared.roomId)
         RoomManager.shared.beginListening(changeListener: updateRoomData)
         UsersManager.shared.beginListening(changeListener: updateNameAndBio)
-        if isHost {
+        if RoomStatusStorage.shared.isHost {
             hostGoButton.isHidden = false
             clientWaitingLabel.isHidden = true
         } else {
@@ -52,7 +48,7 @@ class GameSelectionViewController: UIViewController {
             clientWaitingLabel.isHidden = false
         }
         
-        RoomManager.shared.updateDataWithField(fieldName: isHost ? kKeyHostScore : kKeyClientScore, value: score!)
+        RoomManager.shared.updateDataWithField(fieldName: RoomStatusStorage.shared.isHost ? kKeyHostScore : kKeyClientScore, value: RoomStatusStorage.shared.score)
     }
     
     override func viewWillDisappear(_ animated: Bool) {
@@ -80,7 +76,7 @@ class GameSelectionViewController: UIViewController {
         
         
         if let currentGameSelected = RoomManager.shared.currentGameSelected {
-            if !isHost {
+            if !RoomStatusStorage.shared.isHost {
                 resetAllIcon()
                 selectIcon(currentSelected: currentGameSelected)
                 updateGameSelectedLabel(currentSelected: currentGameSelected)
@@ -108,7 +104,7 @@ class GameSelectionViewController: UIViewController {
             AlertDialog.showAlertDialog(viewController: self, title: "Game Ended",
                                         message: "The other player has left!",
                                         confirmTitle: "OK") {
-                RoomsManager.shared.deleteRoom(id: self.roomId)
+                RoomsManager.shared.deleteRoom(id: RoomStatusStorage.shared.roomId)
                 if RoomManager.shared.clientScore + RoomManager.shared.hostScore == 0 {
                     self.navigationController?.popToRootViewController(animated: true)
                     return
@@ -153,7 +149,7 @@ class GameSelectionViewController: UIViewController {
     }
     
     @objc func pressedGameIcon (sender: UIButton!) {
-        if !isHost {
+        if !RoomStatusStorage.shared.isHost {
             let alertController = UIAlertController(title: nil,
                                                     message: "You cannot select the game.",
                                                     preferredStyle: .alert)
@@ -233,9 +229,6 @@ class GameSelectionViewController: UIViewController {
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == loadingSegueIdentifier {
             (segue.destination as! LoadingViewController).gameSelectedIndex = currentSelectedButtonIndex == GameCollection.shared.games.count - 1 ? Int.random(in: 0..<GameCollection.shared.games.count - 1) : currentSelectedButtonIndex
-            (segue.destination as! LoadingViewController).roomId = self.roomId
-            (segue.destination as! LoadingViewController).isHost = self.isHost
-            (segue.destination as! LoadingViewController).score = self.score
         } else if segue.identifier == resultViewSegueIdentifier {
             (segue.destination as! ResultViewController).clientScore = RoomManager.shared.clientScore
             (segue.destination as! ResultViewController).hostScore = RoomManager.shared.hostScore

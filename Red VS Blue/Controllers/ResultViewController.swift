@@ -6,7 +6,6 @@
 //
 
 import UIKit
-import Firebase
 
 class ResultViewController: UIViewController {
     
@@ -29,22 +28,21 @@ class ResultViewController: UIViewController {
         super.viewWillAppear(animated)
         navigationController?.setNavigationBarHidden(true, animated: false)
         
-//        if clientScore == hostScore {
-//            // Tie
-//            resultImage.image = tieImg
-//            isWin = false
-//        } else if (hostScore - clientScore > 0) == RoomManager.shared.isHost {
-//            // Win
-//            resultImage.image = winImg
-//            isWin = true
-//        } else {
-//            // Lose
-//            resultImage.image = loseImg
-//            isWin = false
-//        }
+        if clientScore == hostScore {
+            // Tie
+            resultImage.image = tieImg
+            isWin = false
+        } else if (hostScore - clientScore > 0) == RoomStatusStorage.shared.isHost {
+            // Win
+            resultImage.image = winImg
+            isWin = true
+        } else {
+            // Lose
+            resultImage.image = loseImg
+            isWin = false
+        }
         
-//        UserManager.shared.beginListeningForSingleUser(uid: Auth.auth().currentUser!.uid, changeListener: nil)
-//        updateRecord()
+        UserManager.shared.beginListeningForSingleUser(uid: UserManager.shared.uid, changeListener: updateRecord)
     }
     
     override func viewWillDisappear(_ animated: Bool) {
@@ -53,8 +51,11 @@ class ResultViewController: UIViewController {
     }
     
     func updateRecord() {
-        UserManager.shared.updateMatchesPlayed(matchesPlayed: UserManager.shared.matchesPlayed + 1)
-        UserManager.shared.updateMatchesWon(matchesWon: UserManager.shared.matchesWon + (isWin! ? 1 : 0))
+        let matchesPlayed = UserManager.shared.matchesPlayed
+        let matchesWon = UserManager.shared.matchesWon
+        UserManager.shared.stopListening()
+        UserManager.shared.updateMatchesPlayed(mp: matchesPlayed + 1)
+        UserManager.shared.updateMatchesWon(mw: matchesWon + (isWin! ? 1 : 0))
     }
     
     @IBAction func pressedOKButton(_ sender: Any) {

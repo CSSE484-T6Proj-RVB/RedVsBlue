@@ -22,6 +22,13 @@ class GameDataManager {
         _gameDocumentRef = Firestore.firestore().collection(kCollectionRooms).document(roomId).collection(kCollectionGameData).document(gameName)
     }
     
+    func createDocument(roomId: String, gameName: String) {
+        _gameDocumentRef?.setData([
+            kKeyTicTacToe_isHostTurn: true,
+            kKeyTicTacToe_lastPressed: -1
+        ])
+    }
+    
     private init() {}
     
     func beginListening(changeListener: (() -> Void)?) {
@@ -40,6 +47,10 @@ class GameDataManager {
     
     func stopListening() {
         _gameListener?.remove()
+    }
+    
+    func deleteGameDocument() {
+        _gameDocumentRef?.delete()
     }
     
     func updateDataWithField(fieldName: String, value: Any) {
