@@ -107,6 +107,9 @@ class LoadingViewController: UIViewController {
 //            (segue.destination as! TicTacToeViewController).roomRef = roomRef
 //            (segue.destination as! TicTacToeViewController).user = currentUser
 //            (segue.destination as! TicTacToeViewController).game = GameCollection.singleton.games[self.gameSelectedIndex]
+            (segue.destination as! TicTacToeViewController).roomId = self.roomId
+            (segue.destination as! TicTacToeViewController).isHost = self.isHost
+            (segue.destination as! TicTacToeViewController).score = self.score
         }
     }
     

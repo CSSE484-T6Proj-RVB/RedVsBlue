@@ -24,6 +24,7 @@ let ticTacToeGameSegueIdentifier = "TicTacToeGameSegue"
 // Collections
 let kCollectionUsers = "Users"
 let kCollectionRooms = "Rooms"
+let kCollectionGameData = "GameData"
 
 // Document Fields
 let kKeyName = "name"
@@ -46,6 +47,8 @@ let kKeyGameOnGoing = "onGoing"
 let kKeyGameSelected = "currentGameSelected"
 let kKeyEndGameRequest = "endGameRequest"
 let kKeyStartGameRequest = "startGameRequest"
+
+let kTicTacToeGameName = "TicTacToe"
 
 class Constants {
     
