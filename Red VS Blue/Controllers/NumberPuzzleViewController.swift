@@ -106,7 +106,7 @@ class NumberPuzzleViewController: UIViewController {
     }
     
     func updateView() {
-        if let isHostTurn = GameDataManager.shared.getDataWithField(fieldName: kKeyIsHostTurn) as? Bool {
+        if let _ = GameDataManager.shared.getDataWithField(fieldName: kKeyIsHostTurn) as? Bool {
         }
     }
     
