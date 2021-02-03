@@ -30,9 +30,7 @@ class JoinGameViewController: UIViewController, UITextFieldDelegate {
         UsersManager.shared.beginListening(changeListener: updateNameView)
         RoomsManager.shared.beginListeningForRooms(changeListener: nil)
         
-        nameView.layer.cornerRadius = 12
-        nameView.layer.borderWidth = 2
-        nameView.layer.borderColor = UIColor.black.cgColor
+        RoundCornerFactory.shared.setCornerAndBorder(view: nameView, cornerRadius: 12, borderWidth: 2, borderColor: UIColor.black.cgColor)
     }
     
     override func viewWillDisappear(_ animated: Bool) {

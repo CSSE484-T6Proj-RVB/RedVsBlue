@@ -44,10 +44,8 @@ class TicTacToeViewController: UIViewController {
         
         game = TicTacToeGame()
         
-        gameBoardView.layer.cornerRadius = 15
-        gameBoardView.layer.borderWidth = 10
-        gameBoardView.layer.borderColor = UIColor.black.cgColor
-        
+        RoundCornerFactory.shared.setCornerAndBorder(view: gameBoardView, cornerRadius: 15, borderWidth: 10, borderColor: UIColor.black.cgColor)
+
         self.gameStateLabel.text = isHost ? "Your Turn" : "Waiting for the other player..."
         self.upperBannerView.backgroundColor = isHost ? UIColor.blue: UIColor.red
         self.lowerBannerView.backgroundColor = isHost ? UIColor.red: UIColor.blue

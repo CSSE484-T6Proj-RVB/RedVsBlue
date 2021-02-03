@@ -40,16 +40,15 @@ class CountTo21ViewController: UIViewController {
         super.viewWillAppear(animated)
         navigationController?.setNavigationBarHidden(true, animated: false)
         
-        gameBoardView.layer.cornerRadius = 15
-        gameBoardView.layer.borderWidth = 10
-        gameBoardView.layer.borderColor = UIColor.black.cgColor
+        RoundCornerFactory.shared.setCornerAndBorder(view: gameBoardView, cornerRadius: 15, borderWidth: 10, borderColor: UIColor.black.cgColor)
+        RoundCornerFactory.shared.setCornerAndBorder(button: addOneButton, cornerRadius: 5, borderWidth: 1, borderColor: UIColor.black.cgColor)
+        RoundCornerFactory.shared.setCornerAndBorder(button: addTwoButton, cornerRadius: 5, borderWidth: 1, borderColor: UIColor.black.cgColor)
         
         self.gameStateLabel.text = isHost ? "Your Turn" : "Waiting for the other player..."
         self.upperBannerView.backgroundColor = isHost ? UIColor.blue: UIColor.red
         self.lowerBannerView.backgroundColor = isHost ? UIColor.red: UIColor.blue
         
         GameDataManager.shared.setReference(roomId: roomId, gameName: kCountTo21GameName)
-
         RoomManager.shared.setReference(roomId: roomId)
         
         if isHost {
@@ -108,6 +107,7 @@ class CountTo21ViewController: UIViewController {
                     if isGameEnd {
                         let message = isWin ? "You Win!" : "You Lose!"
                         popResultMessage(message: message)
+                        GameDataManager.shared.updateDataWithField(fieldName: kKeyCountTo21_isGameEnd, value: false)
                     }
                 }
             }

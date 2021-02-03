@@ -40,8 +40,8 @@ class LoadingViewController: UIViewController {
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         navigationController?.setNavigationBarHidden(true, animated: false)
-        selectedGameDescription.layer.cornerRadius = 15
-        selectedGameDescription.layer.borderWidth = 2
+        
+        RoundCornerFactory.shared.setCornerAndBorder(textView: selectedGameDescription, cornerRadius: 15, borderWidth: 2)
         
         let game =  GameCollection.shared.games[gameSelectedIndex]
         self.selectedGameIcon.image = game.gameIconImage

@@ -157,9 +157,7 @@ class GameSelectionViewController: UIViewController {
     }
     
     func selectIcon(currentSelected: Int!) {
-        gameButtons[currentSelected].layer.borderWidth = 5
-        gameButtons[currentSelected].layer.cornerRadius = 15
-        gameButtons[currentSelected].layer.borderColor = UIColor.yellow.cgColor
+        RoundCornerFactory.shared.setCornerAndBorder(button: gameButtons[currentSelected], cornerRadius: 15, borderWidth: 5, borderColor: UIColor.yellow.cgColor)
     }
     
     func updateGameSelectedLabel(currentSelected: Int!) {

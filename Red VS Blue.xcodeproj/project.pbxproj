@@ -22,6 +22,7 @@
 		E417786B25B09BF1004B3FD3 /* Icon-72.png in Resources */ = {isa = PBXBuildFile; fileRef = E417786825B09BF1004B3FD3 /* Icon-72.png */; };
 		E417786C25B09BF1004B3FD3 /* Icon.png in Resources */ = {isa = PBXBuildFile; fileRef = E417786925B09BF1004B3FD3 /* Icon.png */; };
 		E41F4C0925B33F970008D15B /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = E41F4C0825B33F970008D15B /* GoogleService-Info.plist */; };
+		E436123D25CAB2AC00FBCBAD /* RoundCornerFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = E436123C25CAB2AC00FBCBAD /* RoundCornerFactory.swift */; };
 		E458F86E25C7D29E00BC6932 /* UsersManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = E458F86D25C7D29E00BC6932 /* UsersManager.swift */; };
 		E458F87125C7D2CF00BC6932 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = E458F87025C7D2CF00BC6932 /* Constants.swift */; };
 		E458F87C25C7DE3500BC6932 /* RoomsManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = E458F87B25C7DE3500BC6932 /* RoomsManager.swift */; };
@@ -91,6 +92,7 @@
 		E417786825B09BF1004B3FD3 /* Icon-72.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Icon-72.png"; sourceTree = "<group>"; };
 		E417786925B09BF1004B3FD3 /* Icon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Icon.png; sourceTree = "<group>"; };
 		E41F4C0825B33F970008D15B /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
+		E436123C25CAB2AC00FBCBAD /* RoundCornerFactory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RoundCornerFactory.swift; sourceTree = "<group>"; };
 		E458F86D25C7D29E00BC6932 /* UsersManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UsersManager.swift; sourceTree = "<group>"; };
 		E458F87025C7D2CF00BC6932 /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 		E458F87B25C7DE3500BC6932 /* RoomsManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RoomsManager.swift; sourceTree = "<group>"; };
@@ -192,6 +194,7 @@
 				E49BECE825B4E1AC0048CD7D /* RandomStringGenerator.swift */,
 				B516C84B25C85C7E004CADA8 /* AlertDialog.swift */,
 				E48F4C7625C9B3B000371FCC /* RoomStatusStorage.swift */,
+				E436123C25CAB2AC00FBCBAD /* RoundCornerFactory.swift */,
 			);
 			path = Utils;
 			sourceTree = "<group>";
@@ -489,6 +492,7 @@
 				E49BECEF25B589430048CD7D /* LeaderboardViewController.swift in Sources */,
 				E498EF7725B91A93006621FA /* RandomGame.swift in Sources */,
 				E498EF6925B7B60C006621FA /* TicTacToeGame.swift in Sources */,
+				E436123D25CAB2AC00FBCBAD /* RoundCornerFactory.swift in Sources */,
 				E498EF7C25B9A473006621FA /* TicTacToeViewController.swift in Sources */,
 				E48A0C1A25B031CB00122140 /* SceneDelegate.swift in Sources */,
 				E4BCD68F25BB64EC00BE0D81 /* ResultViewController.swift in Sources */,

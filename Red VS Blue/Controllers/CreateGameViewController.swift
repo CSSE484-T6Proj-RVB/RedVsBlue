@@ -24,9 +24,7 @@ class CreateGameViewController: UIViewController {
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         navigationController?.setNavigationBarHidden(true, animated: false)
-        userNameView.layer.cornerRadius = 12
-        userNameView.layer.borderWidth = 2
-        userNameView.layer.borderColor = UIColor.black.cgColor
+        RoundCornerFactory.shared.setCornerAndBorder(view: userNameView, cornerRadius: 12, borderWidth: 2, borderColor: UIColor.black.cgColor)
         UsersManager.shared.beginListening(changeListener: updateNameView)
         RoomsManager.shared.beginListeningForRooms(changeListener: addRoom)
     }

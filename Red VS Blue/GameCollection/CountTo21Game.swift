@@ -13,6 +13,5 @@ class CountTo21Game: Game {
     var segueName = "CountTo21GameSegue"
     var description = "The number starts from 0. Each player will alternately add 1 or 2 to the current number. The player who makes the current number 21 wins"
     var gameIconImage = #imageLiteral(resourceName: "GameIcon_CountTo21.PNG")
-
     
 }

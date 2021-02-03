@@ -32,13 +32,13 @@ class ProfileViewController: UIViewController {
         navigationController?.setNavigationBarHidden(false, animated: false)
         navigationItem.title = "Your Profile"
         
-        setCornerAndBorder(view: nameView, cornerRadius: 15, borderWidth: 5, borderColor: UIColor.black.cgColor)
-        setCornerAndBorder(view: nameTextFieldView, cornerRadius: 10, borderWidth: 1, borderColor: UIColor.black.cgColor)
-        setCornerAndBorder(view: bioView, cornerRadius: 15, borderWidth: 5, borderColor: UIColor.black.cgColor)
-        setCornerAndBorder(view: bioTextFieldView, cornerRadius: 10, borderWidth: 1, borderColor: UIColor.black.cgColor)
-        setCornerAndBorder(view: statusView, cornerRadius: 30, borderWidth: 2, borderColor: UIColor.black.cgColor)
+        RoundCornerFactory.shared.setCornerAndBorder(view: nameView, cornerRadius: 15, borderWidth: 5, borderColor: UIColor.black.cgColor)
+        RoundCornerFactory.shared.setCornerAndBorder(view: nameTextFieldView, cornerRadius: 10, borderWidth: 1, borderColor: UIColor.black.cgColor)
+        RoundCornerFactory.shared.setCornerAndBorder(view: bioView, cornerRadius: 15, borderWidth: 5, borderColor: UIColor.black.cgColor)
+        RoundCornerFactory.shared.setCornerAndBorder(view: bioTextFieldView, cornerRadius: 10, borderWidth: 1, borderColor: UIColor.black.cgColor)
+        RoundCornerFactory.shared.setCornerAndBorder(view: statusView, cornerRadius: 30, borderWidth: 2, borderColor: UIColor.black.cgColor)
 
-        UserManager.shared.beginListeningForSingleUser(uid: Auth.auth().currentUser!.uid, changeListener: updateView)
+        UserManager.shared.beginListeningForSingleUser(uid: UserManager.shared.uid, changeListener: updateView)
     }
     
     override func viewWillDisappear(_ animated: Bool) {
@@ -51,12 +51,6 @@ class ProfileViewController: UIViewController {
         bioLabel.text = UserManager.shared.bio
         matchesPlayedLabel.text = "Matches Played: \(UserManager.shared.matchesPlayed)"
         matchesWonLabel.text = "Matches Won: \(UserManager.shared.matchesWon)"
-    }
-    
-    func setCornerAndBorder(view: UIView, cornerRadius: CGFloat, borderWidth: CGFloat, borderColor: CGColor) {
-        view.layer.cornerRadius = cornerRadius
-        view.layer.borderWidth = borderWidth
-        view.layer.borderColor = borderColor
     }
     
     @IBAction func pressedUpdateNameButton(_ sender: Any) {

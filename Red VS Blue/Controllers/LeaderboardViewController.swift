@@ -23,10 +23,8 @@ class LeaderboardViewController: UIViewController {
         super.viewWillAppear(animated)
         navigationController?.setNavigationBarHidden(false, animated: false)
         navigationItem.title = "Leaderboards"
-        
-        leaderboardView.layer.cornerRadius = 15
-        leaderboardView.layer.borderWidth = 4
-        leaderboardView.layer.borderColor = UIColor.black.cgColor
+    
+        RoundCornerFactory.shared.setCornerAndBorder(view: leaderboardView, cornerRadius: 15, borderWidth: 4, borderColor: UIColor.black.cgColor)
         
         UsersManager.shared.beginListeningForLeaderboard(isMatchesPlayed: true, changeListener: updateView)
     }
