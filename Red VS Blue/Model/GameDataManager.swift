@@ -35,6 +35,11 @@ class GameDataManager {
                 kKeyCountTo21_currentNumber: 0,
                 kKeyCountTo21_isGameEnd: false
             ])
+        case kNumberPuzzleGameName:
+            _gameDocumentRef?.setData([
+                kKeyNumberPuzzle_isHostFinish: false,
+                kKeyNumberPuzzle_isClientFinish: false
+            ])
         default:
             break
         }
