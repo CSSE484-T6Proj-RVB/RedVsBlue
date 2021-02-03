@@ -91,7 +91,7 @@ class LoadingViewController: UIViewController {
         readyButton.setTitle(isReady ? "Cancel" : "Ready!", for: .normal)
         readyMessageLabel.isHidden = !isReady
         if isHost {
-            RoomManager.shared.toggleStartGameRequest(value: false)
+            RoomManager.shared.setStartGameRequest(value: false)
             RoomManager.shared.updateDataWithField(fieldName: kKeyHostReady, value: isReady)
         } else {
             RoomManager.shared.updateDataWithField(fieldName: kKeyClientReady, value: isReady)
