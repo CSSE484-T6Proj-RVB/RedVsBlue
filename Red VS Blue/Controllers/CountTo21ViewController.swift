@@ -101,6 +101,8 @@ class CountTo21ViewController: UIViewController {
                 isCurrentUserTurn = isHostTurn == isHost
                 gameStateLabel.text = isCurrentUserTurn ? "Your Turn" : "Waiting for the other player..."
                 currentNumberLabel.text = String(currentNumber)
+                let red = CGFloat(currentNumber)/21.0
+                currentNumberLabel.backgroundColor = UIColor(red: red, green: 1 - red, blue: 0, alpha: 1)
                 setButtonAvailable(value: isCurrentUserTurn)
                 if let isGameEnd = GameDataManager.shared.getDataWithField(fieldName: kKeyCountTo21_isGameEnd) as? Bool {
                     if isGameEnd {

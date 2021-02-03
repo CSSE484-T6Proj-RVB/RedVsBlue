@@ -131,7 +131,7 @@ class TicTacToeViewController: UIViewController {
             self.popAlertMessage(message: "It's not your turn")
         } else {
             if !game.pressedSquareAt(button.tag) {
-                AlertDialog.showAlertDialog(viewController: self, title: nil, message: "This square is not empty or the game is over", confirmTitle: "OK", finishHandler: nil)
+                AlertDialog.showAlertDialogWithoutCancel(viewController: self, title: nil, message: "This square is not empty or the game is over", confirmTitle: "OK", finishHandler: nil)
             } else {
                 GameDataManager.shared.updateDataWithField(fieldName: kKeyTicTacToe_lastPressed, value: button.tag)
                 GameDataManager.shared.updateDataWithField(fieldName: kKeyIsHostTurn, value: !isHost)
