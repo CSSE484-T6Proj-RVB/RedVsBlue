@@ -1,17 +1,17 @@
 //
-//  TicTacToeViewController.swift
+//  CountTo21ViewController.swift
 //  Red VS Blue
 //
-//  Created by Hanyu Yang on 2021/1/21.
+//  Created by 马闻泽 on 2/3/21.
 //
 
 import UIKit
-import Firebase
 
-class TicTacToeViewController: UIViewController {
+class CountTo21ViewController: UIViewController {
     @IBOutlet weak var gameBoardView: UIView!
-    @IBOutlet var gameBoardButtons: [UIButton]!
     @IBOutlet weak var gameStateLabel: UILabel!
+    @IBOutlet weak var addOneButton: UIButton!
+    @IBOutlet weak var addTwoButton: UIButton!
     
     @IBOutlet weak var upperBannerView: UIView!
     @IBOutlet weak var lowerBannerView: UIView!
@@ -22,17 +22,15 @@ class TicTacToeViewController: UIViewController {
     @IBOutlet weak var yourScoreLabel: UILabel!
     @IBOutlet weak var yourNameLabel: UILabel!
     
-    var xImage = #imageLiteral(resourceName: "TicTacToe_X.PNG")
-    var oImage = #imageLiteral(resourceName: "TicTacToe_O.PNG")
-    
-    var game: TicTacToeGame!
-    var isCurrentUserTurn: Bool!
-    var isWin = false
+    @IBOutlet weak var currentNumberLabel: UILabel!
     
     let isHost = RoomStatusStorage.shared.isHost
     let roomId = RoomStatusStorage.shared.roomId
     let score = RoomStatusStorage.shared.score
     
+    var isCurrentUserTurn: Bool!
+    var isWin = false
+        
     override func viewDidLoad() {
         super.viewDidLoad()
         navigationController?.setNavigationBarHidden(true, animated: false)
@@ -42,8 +40,6 @@ class TicTacToeViewController: UIViewController {
         super.viewWillAppear(animated)
         navigationController?.setNavigationBarHidden(true, animated: false)
         
-        game = TicTacToeGame()
-        
         gameBoardView.layer.cornerRadius = 15
         gameBoardView.layer.borderWidth = 10
         gameBoardView.layer.borderColor = UIColor.black.cgColor
@@ -51,13 +47,13 @@ class TicTacToeViewController: UIViewController {
         self.gameStateLabel.text = isHost ? "Your Turn" : "Waiting for the other player..."
         self.upperBannerView.backgroundColor = isHost ? UIColor.blue: UIColor.red
         self.lowerBannerView.backgroundColor = isHost ? UIColor.red: UIColor.blue
-
-        GameDataManager.shared.setReference(roomId: roomId, gameName: kTicTacToeGameName)
+        
+        GameDataManager.shared.setReference(roomId: roomId, gameName: kCountTo21GameName)
 
         RoomManager.shared.setReference(roomId: roomId)
         
         if isHost {
-            GameDataManager.shared.createDocument(roomId: roomId, gameName: kTicTacToeGameName)
+            GameDataManager.shared.createDocument(roomId: roomId, gameName: kCountTo21GameName)
         }
         
         RoomManager.shared.beginListening(changeListener: updateScoreLabel) // Score and ids
@@ -91,71 +87,64 @@ class TicTacToeViewController: UIViewController {
         let clientId = RoomManager.shared.clientId!
         
         if isHost {
-            opponentNameLabel.text = UsersManager.shared.getNameWithId(uid: clientId) + ": O"
-            yourNameLabel.text = UsersManager.shared.getNameWithId(uid: hostId) + ": X"
+            opponentNameLabel.text = UsersManager.shared.getNameWithId(uid: clientId)
+            yourNameLabel.text = UsersManager.shared.getNameWithId(uid: hostId)
         } else {
-            opponentNameLabel.text = UsersManager.shared.getNameWithId(uid: hostId) + ": X"
-            yourNameLabel.text = UsersManager.shared.getNameWithId(uid: clientId) + ": O"
+            opponentNameLabel.text = UsersManager.shared.getNameWithId(uid: hostId)
+            yourNameLabel.text = UsersManager.shared.getNameWithId(uid: clientId)
         }
     }
     
     func updateView() {
         if let isHostTurn = GameDataManager.shared.getDataWithField(fieldName: kKeyIsHostTurn) as? Bool {
-            isCurrentUserTurn = isHostTurn == isHost
-            gameStateLabel.text = isCurrentUserTurn ? "Your Turn" : "Waiting for the other player..."
-
-            let lastPressed = GameDataManager.shared.getDataWithField(fieldName: kKeyTicTacToe_lastPressed) as! Int
-            if lastPressed != -1 && isCurrentUserTurn {
-                _ = game.pressedSquareAt(lastPressed)
-            }
-            updateGameView()
-
-            switch self.game.state {
-            case .xTurn, .oTurn: break
-            case .xWin:
-                self.popResultMessage(message: isHost ? "You Win!" : "You Lose!")
-                self.isWin = isHost
-            case .oWin:
-                self.popResultMessage(message: !isHost ? "You Win!" : "You Lose!")
-                self.isWin = !isHost
-            case .tie:
-                self.isWin = false
-                self.popResultMessage(message: "Tie Game!")
+            if let currentNumber = GameDataManager.shared.getDataWithField(fieldName: kKeyCountTo21_currentNumber) as? Int {
+                isCurrentUserTurn = isHostTurn == isHost
+                gameStateLabel.text = isCurrentUserTurn ? "Your Turn" : "Waiting for the other player..."
+                currentNumberLabel.text = String(currentNumber)
+                let red = CGFloat(currentNumber)/21.0
+                currentNumberLabel.backgroundColor = UIColor(red: red, green: 1 - red, blue: 0, alpha: 1)
+                setButtonAvailable(value: isCurrentUserTurn)
+                if let isGameEnd = GameDataManager.shared.getDataWithField(fieldName: kKeyCountTo21_isGameEnd) as? Bool {
+                    if isGameEnd {
+                        let message = isWin ? "You Win!" : "You Lose!"
+                        popResultMessage(message: message)
+                    }
+                }
             }
         }
     }
     
-    @IBAction func pressedGameBoardButton(_ sender: Any) {
-        let button = sender as! UIButton
-        if !isCurrentUserTurn {
-            self.popAlertMessage(message: "It's not your turn")
-        } else {
-            if !game.pressedSquareAt(button.tag) {
-                AlertDialog.showAlertDialogWithoutCancel(viewController: self, title: nil, message: "This square is not empty or the game is over", confirmTitle: "OK", finishHandler: nil)
-            } else {
-                GameDataManager.shared.updateDataWithField(fieldName: kKeyTicTacToe_lastPressed, value: button.tag)
-                GameDataManager.shared.updateDataWithField(fieldName: kKeyIsHostTurn, value: !isHost)
+    @IBAction func pressedAddOneButton(_ sender: Any) {
+        if let currentNumber = GameDataManager.shared.getDataWithField(fieldName: kKeyCountTo21_currentNumber) as? Int {
+            if (1 + currentNumber) > 21 {
+                return
             }
-        }
-        //print(game.getBoardString())
-    }
-    
-    func updateGameView() {
-        for button in gameBoardButtons {
-            let buttonIndex = button.tag
-            switch game.board[buttonIndex] {
-            case .none:
-                button.setImage(nil, for: UIControl.State.normal)
-            case .x:
-                button.setImage(xImage, for: .normal)
-            case .o:
-                button.setImage(oImage, for: .normal)
+            GameDataManager.shared.updateDataWithField(fieldName: kKeyCountTo21_currentNumber, value: 1 + currentNumber)
+            GameDataManager.shared.updateDataWithField(fieldName: kKeyIsHostTurn, value: !isHost)
+            if (1 + currentNumber) == 21 {
+                isWin = true
+                GameDataManager.shared.updateDataWithField(fieldName: kKeyCountTo21_isGameEnd, value: true)
             }
         }
     }
     
-    func popAlertMessage (message: String) {
-        AlertDialog.showAlertDialogWithoutCancel(viewController: self, title: nil, message: "It's not your turn", confirmTitle: "OK", finishHandler: nil)
+    @IBAction func pressedAddTwoButton(_ sender: Any) {
+        if let currentNumber = GameDataManager.shared.getDataWithField(fieldName: kKeyCountTo21_currentNumber) as? Int {
+            if (2 + currentNumber) > 21 {
+                return
+            }
+            GameDataManager.shared.updateDataWithField(fieldName: kKeyCountTo21_currentNumber, value: 2 + currentNumber)
+            GameDataManager.shared.updateDataWithField(fieldName: kKeyIsHostTurn, value: !isHost)
+            if (2 + currentNumber) == 21 {
+                isWin = true
+                GameDataManager.shared.updateDataWithField(fieldName: kKeyCountTo21_isGameEnd, value: true)
+            }
+        }
+    }
+    
+    func setButtonAvailable(value: Bool) {
+        addOneButton.isEnabled = value
+        addTwoButton.isEnabled = value
     }
     
     func popResultMessage (message: String) {

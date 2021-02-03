@@ -26,4 +26,18 @@ class AlertDialog: UIViewController {
         
         viewController.present(alertController, animated: true, completion: nil)
     }
+    
+    static func showAlertDialogWithoutCancel(viewController: UIViewController,
+                                             title: String?, message: String,
+                                             confirmTitle: String, finishHandler: (() -> Void)?) {
+        let alertController = UIAlertController(title: title,
+                                                message: message,
+                                                preferredStyle: .alert)
+         
+        alertController.addAction(UIAlertAction(title: confirmTitle, style: .default, handler: { (UIAlertAction) in
+             finishHandler?()
+        }))
+         
+        viewController.present(alertController, animated: true, completion: nil)
+    }
 }

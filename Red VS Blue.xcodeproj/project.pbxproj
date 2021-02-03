@@ -14,6 +14,9 @@
 		B54D324025B5697F008219E5 /* Background1.png in Resources */ = {isa = PBXBuildFile; fileRef = B54D323F25B5697F008219E5 /* Background1.png */; };
 		B56CD92725C985050099E339 /* GameDataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = B56CD92625C985050099E339 /* GameDataManager.swift */; };
 		B5DD70E425B965EC006848D7 /* LoadingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5DD70E325B965EC006848D7 /* LoadingViewController.swift */; };
+		B5FA185E25CA3F34006E96EC /* CountTo21ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5FA185D25CA3F34006E96EC /* CountTo21ViewController.swift */; };
+		B5FA186125CA7594006E96EC /* NumberPuzzleViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5FA186025CA7594006E96EC /* NumberPuzzleViewController.swift */; };
+		B5FA186425CA78AA006E96EC /* NumberPuzzle_board.png in Resources */ = {isa = PBXBuildFile; fileRef = B5FA186325CA78AA006E96EC /* NumberPuzzle_board.png */; };
 		D5ADAA6781315963391C1340 /* Pods_Red_VS_Blue.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CCE058C75CFD31EE62E6548C /* Pods_Red_VS_Blue.framework */; };
 		E417786A25B09BF1004B3FD3 /* Icon@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = E417786725B09BF1004B3FD3 /* Icon@2x.png */; };
 		E417786B25B09BF1004B3FD3 /* Icon-72.png in Resources */ = {isa = PBXBuildFile; fileRef = E417786825B09BF1004B3FD3 /* Icon-72.png */; };
@@ -80,6 +83,9 @@
 		B54D323F25B5697F008219E5 /* Background1.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Background1.png; sourceTree = "<group>"; };
 		B56CD92625C985050099E339 /* GameDataManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameDataManager.swift; sourceTree = "<group>"; };
 		B5DD70E325B965EC006848D7 /* LoadingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoadingViewController.swift; sourceTree = "<group>"; };
+		B5FA185D25CA3F34006E96EC /* CountTo21ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CountTo21ViewController.swift; sourceTree = "<group>"; };
+		B5FA186025CA7594006E96EC /* NumberPuzzleViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NumberPuzzleViewController.swift; sourceTree = "<group>"; };
+		B5FA186325CA78AA006E96EC /* NumberPuzzle_board.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = NumberPuzzle_board.png; sourceTree = "<group>"; };
 		CCE058C75CFD31EE62E6548C /* Pods_Red_VS_Blue.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Red_VS_Blue.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		E417786725B09BF1004B3FD3 /* Icon@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Icon@2x.png"; sourceTree = "<group>"; };
 		E417786825B09BF1004B3FD3 /* Icon-72.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Icon-72.png"; sourceTree = "<group>"; };
@@ -220,6 +226,8 @@
 				B5DD70E325B965EC006848D7 /* LoadingViewController.swift */,
 				E4BCD68E25BB64EC00BE0D81 /* ResultViewController.swift */,
 				E498EF7B25B9A473006621FA /* TicTacToeViewController.swift */,
+				B5FA185D25CA3F34006E96EC /* CountTo21ViewController.swift */,
+				B5FA186025CA7594006E96EC /* NumberPuzzleViewController.swift */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
@@ -289,6 +297,7 @@
 				B54D322A25B5532F008219E5 /* Edit_Icon.png */,
 				B502E9CA25B7FEE0008E19CE /* Leave_Icon.png */,
 				B54D322D25B55335008219E5 /* Delete_Icon.png */,
+				B5FA186325CA78AA006E96EC /* NumberPuzzle_board.png */,
 			);
 			path = Images;
 			sourceTree = "<group>";
@@ -374,6 +383,7 @@
 				E498EF4F25B79718006621FA /* VS.png in Resources */,
 				E494E97A25C084C8004DD607 /* You_Lose.png in Resources */,
 				E49BECD225B347150048CD7D /* RedVsBlueTitle.png in Resources */,
+				B5FA186425CA78AA006E96EC /* NumberPuzzle_board.png in Resources */,
 				E49BECFD25B5AA2F0048CD7D /* RvB_Icon.png in Resources */,
 				E417786A25B09BF1004B3FD3 /* Icon@2x.png in Resources */,
 				B54D324025B5697F008219E5 /* Background1.png in Resources */,
@@ -457,6 +467,7 @@
 				E4BB4B3C25B621E6008580A8 /* JoinGameViewController.swift in Sources */,
 				E49BECF325B5A58A0048CD7D /* CreateGameViewController.swift in Sources */,
 				E49BECE125B448DA0048CD7D /* ProfileViewController.swift in Sources */,
+				B5FA185E25CA3F34006E96EC /* CountTo21ViewController.swift in Sources */,
 				E45E24D125BDA86F00628580 /* RoomManager.swift in Sources */,
 				B56CD92725C985050099E339 /* GameDataManager.swift in Sources */,
 				E494E97F25C08B17004DD607 /* GamePageViewController.swift in Sources */,
@@ -473,6 +484,7 @@
 				E458F86E25C7D29E00BC6932 /* UsersManager.swift in Sources */,
 				B516C84C25C85C7F004CADA8 /* AlertDialog.swift in Sources */,
 				E498EF7425B91A44006621FA /* NumberPuzzleGame.swift in Sources */,
+				B5FA186125CA7594006E96EC /* NumberPuzzleViewController.swift in Sources */,
 				E498EF7025B91999006621FA /* CountTo21Game.swift in Sources */,
 				E49BECEF25B589430048CD7D /* LeaderboardViewController.swift in Sources */,
 				E498EF7725B91A93006621FA /* RandomGame.swift in Sources */,

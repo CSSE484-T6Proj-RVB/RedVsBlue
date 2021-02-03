@@ -23,10 +23,26 @@ class GameDataManager {
     }
     
     func createDocument(roomId: String, gameName: String) {
-        _gameDocumentRef?.setData([
-            kKeyTicTacToe_isHostTurn: true,
-            kKeyTicTacToe_lastPressed: -1
-        ])
+        switch gameName {
+        case kTicTacToeGameName:
+            _gameDocumentRef?.setData([
+                kKeyIsHostTurn: true,
+                kKeyTicTacToe_lastPressed: -1
+            ])
+        case kCountTo21GameName:
+            _gameDocumentRef?.setData([
+                kKeyIsHostTurn: true,
+                kKeyCountTo21_currentNumber: 0,
+                kKeyCountTo21_isGameEnd: false
+            ])
+        case kNumberPuzzleGameName:
+            _gameDocumentRef?.setData([
+                kKeyNumberPuzzle_isHostFinish: false,
+                kKeyNumberPuzzle_isClientFinish: false
+            ])
+        default:
+            break
+        }
     }
     
     private init() {}
