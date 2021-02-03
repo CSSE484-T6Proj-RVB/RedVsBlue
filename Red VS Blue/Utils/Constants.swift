@@ -53,10 +53,9 @@ let kKeyIsHostTurn = "isHostTurn"
 let kKeyTicTacToe_lastPressed = "lastPressed"
 let kCountTo21GameName = "CountTo21"
 let kKeyCountTo21_currentNumber = "currentNumber"
-let kKeyCountTo21_isGameEnd = "isGameEnd"
+let kKeyIsGameEnd = "isGameEnd"
 let kNumberPuzzleGameName = "NumberPuzzle"
-let kKeyNumberPuzzle_isHostFinish = "isHostFinish"
-let kKeyNumberPuzzle_isClientFinish = "isClientFinish"
+let kKeyNumberPuzzle_puzzle = "puzzle"
 
 class Constants {
     

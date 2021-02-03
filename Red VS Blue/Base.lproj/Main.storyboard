@@ -1955,6 +1955,23 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
+                            <stackView opaque="NO" contentMode="center" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="2H3-sI-Csd" userLabel="Loading View">
+                                <rect key="frame" x="40" y="464.5" width="334" height="21"/>
+                                <subviews>
+                                    <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" style="medium" translatesAutoresizingMaskIntoConstraints="NO" id="oRQ-2X-JxM">
+                                        <rect key="frame" x="0.0" y="0.0" width="20" height="21"/>
+                                    </activityIndicatorView>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Generating New Puzzle" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="cNE-Zw-bOm">
+                                        <rect key="frame" x="28" y="0.0" width="306" height="21"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                </subviews>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="21" id="oVg-gf-YRd"/>
+                                </constraints>
+                            </stackView>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ghM-pb-VdU" userLabel="UpperView">
                                 <rect key="frame" x="0.0" y="0.0" width="414" height="200"/>
                                 <subviews>
@@ -2233,12 +2250,15 @@
                         <viewLayoutGuide key="safeArea" id="ku2-AX-Hza"/>
                         <color key="backgroundColor" red="0.92143100499999997" green="0.92145264149999995" blue="0.92144101860000005" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
+                            <constraint firstItem="ku2-AX-Hza" firstAttribute="trailing" secondItem="2H3-sI-Csd" secondAttribute="trailing" constant="40" id="2Df-fK-qxb"/>
                             <constraint firstItem="ku2-AX-Hza" firstAttribute="trailing" secondItem="pg9-ec-NL4" secondAttribute="trailing" constant="10" id="32K-Wf-zwD"/>
                             <constraint firstItem="aGZ-CC-rnM" firstAttribute="top" secondItem="pg9-ec-NL4" secondAttribute="bottom" constant="20" id="4A0-lx-ybN"/>
+                            <constraint firstItem="2H3-sI-Csd" firstAttribute="leading" secondItem="ku2-AX-Hza" secondAttribute="leading" constant="40" id="4Gh-kY-WwL"/>
                             <constraint firstItem="pg9-ec-NL4" firstAttribute="centerX" secondItem="ku2-AX-Hza" secondAttribute="centerX" id="57V-3T-uIm"/>
                             <constraint firstItem="nmq-JD-1zQ" firstAttribute="trailing" secondItem="ku2-AX-Hza" secondAttribute="trailing" id="ARk-V9-O8R"/>
                             <constraint firstItem="nmq-JD-1zQ" firstAttribute="leading" secondItem="ku2-AX-Hza" secondAttribute="leading" id="Ere-hu-QmJ"/>
                             <constraint firstItem="ghM-pb-VdU" firstAttribute="leading" secondItem="ku2-AX-Hza" secondAttribute="leading" id="RYc-8o-pLF"/>
+                            <constraint firstItem="2H3-sI-Csd" firstAttribute="centerY" secondItem="ku2-AX-Hza" secondAttribute="centerY" id="cFg-in-WJS"/>
                             <constraint firstItem="ku2-AX-Hza" firstAttribute="trailing" secondItem="aGZ-CC-rnM" secondAttribute="trailing" constant="30" id="e4Q-Ov-yhA"/>
                             <constraint firstAttribute="bottom" secondItem="nmq-JD-1zQ" secondAttribute="bottom" id="gKL-7j-tXu"/>
                             <constraint firstItem="aGZ-CC-rnM" firstAttribute="leading" secondItem="ku2-AX-Hza" secondAttribute="leading" constant="30" id="iTU-LD-zxe"/>

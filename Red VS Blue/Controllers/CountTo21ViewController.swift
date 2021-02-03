@@ -103,11 +103,11 @@ class CountTo21ViewController: UIViewController {
                 let red = CGFloat(currentNumber)/21.0
                 currentNumberLabel.backgroundColor = UIColor(red: red, green: 1 - red, blue: 0, alpha: 1)
                 setButtonAvailable(value: isCurrentUserTurn)
-                if let isGameEnd = GameDataManager.shared.getDataWithField(fieldName: kKeyCountTo21_isGameEnd) as? Bool {
+                if let isGameEnd = GameDataManager.shared.getDataWithField(fieldName: kKeyIsGameEnd) as? Bool {
                     if isGameEnd {
                         let message = isWin ? "You Win!" : "You Lose!"
                         popResultMessage(message: message)
-                        GameDataManager.shared.updateDataWithField(fieldName: kKeyCountTo21_isGameEnd, value: false)
+                        GameDataManager.shared.updateDataWithField(fieldName: kKeyIsGameEnd, value: false)
                     }
                 }
             }
@@ -123,7 +123,7 @@ class CountTo21ViewController: UIViewController {
             GameDataManager.shared.updateDataWithField(fieldName: kKeyIsHostTurn, value: !isHost)
             if (1 + currentNumber) == 21 {
                 isWin = true
-                GameDataManager.shared.updateDataWithField(fieldName: kKeyCountTo21_isGameEnd, value: true)
+                GameDataManager.shared.updateDataWithField(fieldName: kKeyIsGameEnd, value: true)
             }
         }
     }
@@ -137,7 +137,7 @@ class CountTo21ViewController: UIViewController {
             GameDataManager.shared.updateDataWithField(fieldName: kKeyIsHostTurn, value: !isHost)
             if (2 + currentNumber) == 21 {
                 isWin = true
-                GameDataManager.shared.updateDataWithField(fieldName: kKeyCountTo21_isGameEnd, value: true)
+                GameDataManager.shared.updateDataWithField(fieldName: kKeyIsGameEnd, value: true)
             }
         }
     }

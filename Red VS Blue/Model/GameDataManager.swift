@@ -33,12 +33,11 @@ class GameDataManager {
             _gameDocumentRef?.setData([
                 kKeyIsHostTurn: true,
                 kKeyCountTo21_currentNumber: 0,
-                kKeyCountTo21_isGameEnd: false
+                kKeyIsGameEnd: false
             ])
         case kNumberPuzzleGameName:
             _gameDocumentRef?.setData([
-                kKeyNumberPuzzle_isHostFinish: false,
-                kKeyNumberPuzzle_isClientFinish: false
+                kKeyIsGameEnd: false
             ])
         default:
             break

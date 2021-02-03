@@ -24,7 +24,7 @@ class NumberPuzzleViewController: UIViewController {
     let roomId = RoomStatusStorage.shared.roomId
     let score = RoomStatusStorage.shared.score
     
-    var isWin = false
+    var isWin: Bool!
     var game: NumberPuzzleGame!
     
     override func viewDidLoad() {
@@ -35,25 +35,27 @@ class NumberPuzzleViewController: UIViewController {
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         navigationController?.setNavigationBarHidden(true, animated: false)
-                
+        
         game = NumberPuzzleGame()
+        gameBoardView.isHidden = true
+        isWin = false
         RoundCornerFactory.shared.setCornerAndBorder(view: gameBoardView, cornerRadius: 15, borderWidth: 10, borderColor: UIColor.black.cgColor)
         
         self.upperBannerView.backgroundColor = isHost ? UIColor.blue: UIColor.red
         self.lowerBannerView.backgroundColor = isHost ? UIColor.red: UIColor.blue
-
+        
         GameDataManager.shared.setReference(roomId: roomId, gameName: kNumberPuzzleGameName)
         RoomManager.shared.setReference(roomId: roomId)
         
         if isHost {
             GameDataManager.shared.createDocument(roomId: roomId, gameName: kNumberPuzzleGameName)
+            game.shuffle()
+            GameDataManager.shared.updateDataWithField(fieldName: kKeyNumberPuzzle_puzzle, value: game.puzzle)
         }
         
         RoomManager.shared.beginListening(changeListener: updateScoreLabel) // Score and ids
         UsersManager.shared.beginListening(changeListener: updateNameAndBio) // Name and bio
         GameDataManager.shared.beginListening(changeListener: updateView) // gamedata
-        game.shuffle()
-        updatePuzzle()
     }
     
     override func viewWillDisappear(_ animated: Bool) {
@@ -96,12 +98,23 @@ class NumberPuzzleViewController: UIViewController {
         game.pressedButtonAtIndex(index: index)
         updatePuzzle()
         if checkWin() {
-            print("You win")
+            isWin = true
+            GameDataManager.shared.updateDataWithField(fieldName: kKeyIsGameEnd, value: true)
         }
     }
     
     func updateView() {
-        if let _ = GameDataManager.shared.getDataWithField(fieldName: kKeyIsHostTurn) as? Bool {
+        if let puzzle = GameDataManager.shared.getDataWithField(fieldName: kKeyNumberPuzzle_puzzle) as? [Int] {
+            game.puzzle = puzzle
+            updatePuzzle()
+            gameBoardView.isHidden = false
+        }
+        if let isGameEnd = GameDataManager.shared.getDataWithField(fieldName: kKeyIsGameEnd) as? Bool {
+            if isGameEnd {
+                let message = isWin ? "You Win!" : "You Lose!"
+                popResultMessage(message: message)
+                GameDataManager.shared.updateDataWithField(fieldName: kKeyIsGameEnd, value: false)
+            }
         }
     }
     
