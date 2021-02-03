@@ -51,7 +51,6 @@ class TicTacToeViewController: UIViewController {
         self.lowerBannerView.backgroundColor = isHost ? UIColor.red: UIColor.blue
 
         GameDataManager.shared.setReference(roomId: roomId, gameName: kTicTacToeGameName)
-
         RoomManager.shared.setReference(roomId: roomId)
         
         if isHost {

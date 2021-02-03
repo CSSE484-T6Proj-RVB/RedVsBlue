@@ -23,6 +23,7 @@
 		E417786C25B09BF1004B3FD3 /* Icon.png in Resources */ = {isa = PBXBuildFile; fileRef = E417786925B09BF1004B3FD3 /* Icon.png */; };
 		E41F4C0925B33F970008D15B /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = E41F4C0825B33F970008D15B /* GoogleService-Info.plist */; };
 		E436123D25CAB2AC00FBCBAD /* RoundCornerFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = E436123C25CAB2AC00FBCBAD /* RoundCornerFactory.swift */; };
+		E436124025CAD64500FBCBAD /* HangmanViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E436123F25CAD64500FBCBAD /* HangmanViewController.swift */; };
 		E458F86E25C7D29E00BC6932 /* UsersManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = E458F86D25C7D29E00BC6932 /* UsersManager.swift */; };
 		E458F87125C7D2CF00BC6932 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = E458F87025C7D2CF00BC6932 /* Constants.swift */; };
 		E458F87C25C7DE3500BC6932 /* RoomsManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = E458F87B25C7DE3500BC6932 /* RoomsManager.swift */; };
@@ -93,6 +94,7 @@
 		E417786925B09BF1004B3FD3 /* Icon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Icon.png; sourceTree = "<group>"; };
 		E41F4C0825B33F970008D15B /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		E436123C25CAB2AC00FBCBAD /* RoundCornerFactory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RoundCornerFactory.swift; sourceTree = "<group>"; };
+		E436123F25CAD64500FBCBAD /* HangmanViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HangmanViewController.swift; sourceTree = "<group>"; };
 		E458F86D25C7D29E00BC6932 /* UsersManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UsersManager.swift; sourceTree = "<group>"; };
 		E458F87025C7D2CF00BC6932 /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 		E458F87B25C7DE3500BC6932 /* RoomsManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RoomsManager.swift; sourceTree = "<group>"; };
@@ -231,6 +233,7 @@
 				E498EF7B25B9A473006621FA /* TicTacToeViewController.swift */,
 				B5FA185D25CA3F34006E96EC /* CountTo21ViewController.swift */,
 				B5FA186025CA7594006E96EC /* NumberPuzzleViewController.swift */,
+				E436123F25CAD64500FBCBAD /* HangmanViewController.swift */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
@@ -473,6 +476,7 @@
 				B5FA185E25CA3F34006E96EC /* CountTo21ViewController.swift in Sources */,
 				E45E24D125BDA86F00628580 /* RoomManager.swift in Sources */,
 				B56CD92725C985050099E339 /* GameDataManager.swift in Sources */,
+				E436124025CAD64500FBCBAD /* HangmanViewController.swift in Sources */,
 				E494E97F25C08B17004DD607 /* GamePageViewController.swift in Sources */,
 				E49BECE925B4E1AC0048CD7D /* RandomStringGenerator.swift in Sources */,
 				E498EF6325B7B591006621FA /* GameCollection.swift in Sources */,
