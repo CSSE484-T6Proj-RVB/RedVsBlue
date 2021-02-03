@@ -2030,6 +2030,9 @@
                                                         <state key="normal" title="1">
                                                             <color key="titleColor" systemColor="labelColor"/>
                                                         </state>
+                                                        <connections>
+                                                            <action selector="pressedPuzzleButton:" destination="SPH-F0-cSs" eventType="touchUpInside" id="g9W-Th-LCZ"/>
+                                                        </connections>
                                                     </button>
                                                     <button opaque="NO" tag="1" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="k46-Q0-mqb">
                                                         <rect key="frame" x="84" y="0.0" width="72.5" height="73"/>
@@ -2040,6 +2043,9 @@
                                                         <state key="normal" title="2">
                                                             <color key="titleColor" systemColor="labelColor"/>
                                                         </state>
+                                                        <connections>
+                                                            <action selector="pressedPuzzleButton:" destination="SPH-F0-cSs" eventType="touchUpInside" id="F3t-za-8za"/>
+                                                        </connections>
                                                     </button>
                                                     <button opaque="NO" tag="2" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="JSH-zN-iJ3">
                                                         <rect key="frame" x="167.5" y="0.0" width="73" height="73"/>
@@ -2050,6 +2056,9 @@
                                                         <state key="normal" title="3">
                                                             <color key="titleColor" systemColor="labelColor"/>
                                                         </state>
+                                                        <connections>
+                                                            <action selector="pressedPuzzleButton:" destination="SPH-F0-cSs" eventType="touchUpInside" id="AsI-n5-yH1"/>
+                                                        </connections>
                                                     </button>
                                                     <button opaque="NO" tag="3" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="huK-ML-RX9">
                                                         <rect key="frame" x="251.5" y="0.0" width="72.5" height="73"/>
@@ -2060,6 +2069,9 @@
                                                         <state key="normal" title="4">
                                                             <color key="titleColor" systemColor="labelColor"/>
                                                         </state>
+                                                        <connections>
+                                                            <action selector="pressedPuzzleButton:" destination="SPH-F0-cSs" eventType="touchUpInside" id="10U-zJ-3UL"/>
+                                                        </connections>
                                                     </button>
                                                 </subviews>
                                                 <constraints>
@@ -2071,7 +2083,7 @@
                                             <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" spacing="11" translatesAutoresizingMaskIntoConstraints="NO" id="8Bo-KD-YPU">
                                                 <rect key="frame" x="0.0" y="84" width="324" height="72.5"/>
                                                 <subviews>
-                                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="x0r-Jb-JZy">
+                                                    <button opaque="NO" tag="4" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="x0r-Jb-JZy">
                                                         <rect key="frame" x="0.0" y="0.0" width="73" height="72.5"/>
                                                         <constraints>
                                                             <constraint firstAttribute="width" secondItem="x0r-Jb-JZy" secondAttribute="height" multiplier="1:1" id="U2n-ec-BrF"/>
@@ -2081,8 +2093,11 @@
                                                         <state key="normal" title="5">
                                                             <color key="titleColor" systemColor="labelColor"/>
                                                         </state>
+                                                        <connections>
+                                                            <action selector="pressedPuzzleButton:" destination="SPH-F0-cSs" eventType="touchUpInside" id="xMq-Cw-T80"/>
+                                                        </connections>
                                                     </button>
-                                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="gKc-Nu-byX">
+                                                    <button opaque="NO" tag="5" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="gKc-Nu-byX">
                                                         <rect key="frame" x="84" y="0.0" width="72.5" height="72.5"/>
                                                         <constraints>
                                                             <constraint firstAttribute="width" constant="73" id="XOk-AK-V2O"/>
@@ -2091,8 +2106,11 @@
                                                         <state key="normal" title="6">
                                                             <color key="titleColor" systemColor="labelColor"/>
                                                         </state>
+                                                        <connections>
+                                                            <action selector="pressedPuzzleButton:" destination="SPH-F0-cSs" eventType="touchUpInside" id="37e-5f-Th5"/>
+                                                        </connections>
                                                     </button>
-                                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="493-cx-yzd">
+                                                    <button opaque="NO" tag="6" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="493-cx-yzd">
                                                         <rect key="frame" x="167.5" y="0.0" width="73" height="72.5"/>
                                                         <constraints>
                                                             <constraint firstAttribute="width" constant="73" id="uUX-38-WXz"/>
@@ -2101,6 +2119,9 @@
                                                         <state key="normal" title="7">
                                                             <color key="titleColor" systemColor="labelColor"/>
                                                         </state>
+                                                        <connections>
+                                                            <action selector="pressedPuzzleButton:" destination="SPH-F0-cSs" eventType="touchUpInside" id="W7P-kW-OHx"/>
+                                                        </connections>
                                                     </button>
                                                     <button opaque="NO" tag="7" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Eo9-uG-bpo">
                                                         <rect key="frame" x="251.5" y="0.0" width="72.5" height="72.5"/>
@@ -2111,6 +2132,9 @@
                                                         <state key="normal" title="8">
                                                             <color key="titleColor" systemColor="labelColor"/>
                                                         </state>
+                                                        <connections>
+                                                            <action selector="pressedPuzzleButton:" destination="SPH-F0-cSs" eventType="touchUpInside" id="rLG-Wc-Q1n"/>
+                                                        </connections>
                                                     </button>
                                                 </subviews>
                                                 <constraints>
@@ -2132,6 +2156,9 @@
                                                         <state key="normal" title="9">
                                                             <color key="titleColor" systemColor="labelColor"/>
                                                         </state>
+                                                        <connections>
+                                                            <action selector="pressedPuzzleButton:" destination="SPH-F0-cSs" eventType="touchUpInside" id="6BJ-Rj-Ogq"/>
+                                                        </connections>
                                                     </button>
                                                     <button opaque="NO" tag="9" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="fs3-gK-Nzr">
                                                         <rect key="frame" x="84" y="0.0" width="72.5" height="73"/>
@@ -2142,6 +2169,9 @@
                                                         <state key="normal" title="10">
                                                             <color key="titleColor" systemColor="labelColor"/>
                                                         </state>
+                                                        <connections>
+                                                            <action selector="pressedPuzzleButton:" destination="SPH-F0-cSs" eventType="touchUpInside" id="ZsJ-9l-u0F"/>
+                                                        </connections>
                                                     </button>
                                                     <button opaque="NO" tag="10" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="JPi-TP-xon">
                                                         <rect key="frame" x="167.5" y="0.0" width="73" height="73"/>
@@ -2152,6 +2182,9 @@
                                                         <state key="normal" title="11">
                                                             <color key="titleColor" systemColor="labelColor"/>
                                                         </state>
+                                                        <connections>
+                                                            <action selector="pressedPuzzleButton:" destination="SPH-F0-cSs" eventType="touchUpInside" id="vNe-Vd-11M"/>
+                                                        </connections>
                                                     </button>
                                                     <button opaque="NO" tag="11" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="p8k-5f-Or4">
                                                         <rect key="frame" x="251.5" y="0.0" width="72.5" height="73"/>
@@ -2162,6 +2195,9 @@
                                                         <state key="normal" title="12">
                                                             <color key="titleColor" systemColor="labelColor"/>
                                                         </state>
+                                                        <connections>
+                                                            <action selector="pressedPuzzleButton:" destination="SPH-F0-cSs" eventType="touchUpInside" id="0VZ-8b-Njc"/>
+                                                        </connections>
                                                     </button>
                                                 </subviews>
                                                 <constraints>
@@ -2183,6 +2219,9 @@
                                                         <state key="normal" title="13">
                                                             <color key="titleColor" systemColor="labelColor"/>
                                                         </state>
+                                                        <connections>
+                                                            <action selector="pressedPuzzleButton:" destination="SPH-F0-cSs" eventType="touchUpInside" id="ZEQ-HP-IWK"/>
+                                                        </connections>
                                                     </button>
                                                     <button opaque="NO" tag="13" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="TX8-eX-MvI">
                                                         <rect key="frame" x="84" y="0.0" width="72.5" height="72.5"/>
@@ -2193,6 +2232,9 @@
                                                         <state key="normal" title="14">
                                                             <color key="titleColor" systemColor="labelColor"/>
                                                         </state>
+                                                        <connections>
+                                                            <action selector="pressedPuzzleButton:" destination="SPH-F0-cSs" eventType="touchUpInside" id="xPO-mw-Rz9"/>
+                                                        </connections>
                                                     </button>
                                                     <button opaque="NO" tag="14" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="FTq-bR-7zw">
                                                         <rect key="frame" x="167.5" y="0.0" width="73" height="72.5"/>
@@ -2203,16 +2245,22 @@
                                                         <state key="normal" title="15">
                                                             <color key="titleColor" systemColor="labelColor"/>
                                                         </state>
+                                                        <connections>
+                                                            <action selector="pressedPuzzleButton:" destination="SPH-F0-cSs" eventType="touchUpInside" id="is3-TL-4ja"/>
+                                                        </connections>
                                                     </button>
                                                     <button opaque="NO" tag="15" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ozW-t0-kXf">
                                                         <rect key="frame" x="251.5" y="0.0" width="72.5" height="72.5"/>
                                                         <constraints>
                                                             <constraint firstAttribute="width" constant="73" id="Kqg-5e-fB2"/>
                                                         </constraints>
-                                                        <fontDescription key="fontDescription" type="boldSystem" pointSize="60"/>
+                                                        <fontDescription key="fontDescription" type="boldSystem" pointSize="24"/>
                                                         <state key="normal">
                                                             <color key="titleColor" systemColor="labelColor"/>
                                                         </state>
+                                                        <connections>
+                                                            <action selector="pressedPuzzleButton:" destination="SPH-F0-cSs" eventType="touchUpInside" id="f32-BP-sOS"/>
+                                                        </connections>
                                                     </button>
                                                 </subviews>
                                                 <constraints>
