@@ -29,7 +29,17 @@ class HangmanViewController: UIViewController {
     let roomId = RoomStatusStorage.shared.roomId
     let score = RoomStatusStorage.shared.score
     
+    var imgMap = [
+        6: #imageLiteral(resourceName: "Hangman-0.png"),
+        5: #imageLiteral(resourceName: "Hangman-1.png"),
+        4: #imageLiteral(resourceName: "Hangman-2.png"),
+        3: #imageLiteral(resourceName: "Hangman-3.png"),
+        2: #imageLiteral(resourceName: "Hangman-4.png"),
+        1: #imageLiteral(resourceName: "Hangman-5.png"),
+        0: #imageLiteral(resourceName: "Hangman-6.png")
+    ]
     var word: String!
+    var game: HangmanGame!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -40,6 +50,8 @@ class HangmanViewController: UIViewController {
         super.viewWillAppear(animated)
         navigationController?.setNavigationBarHidden(true, animated: false)
         
+        game = HangmanGame()
+        
         self.upperBannerView.backgroundColor = isHost ? UIColor.blue: UIColor.red
         self.lowerBannerView.backgroundColor = isHost ? UIColor.red: UIColor.blue
         
@@ -47,16 +59,37 @@ class HangmanViewController: UIViewController {
         
         word = RandomStringGenerator.shared.generateRandomHangmanWord()
         
+        game.setWord(word: word)
         for _ in 0..<word.count {
             letterStatusStackView.addArrangedSubview(generateOneLetterStackView(fontSize: 30))
         }
-        for index in 0..<letterStatusStackView.arrangedSubviews.count {
-            changeStackViewLabel(stackView: letterStatusStackView.arrangedSubviews[index] as! UIStackView, letter: String(Array(word)[index]))
-        }
+//        for index in 0..<letterStatusStackView.arrangedSubviews.count {
+//            changeStackViewLabel(stackView: letterStatusStackView.arrangedSubviews[index] as! UIStackView, letter: String(Array(word)[index]))
+//        }
     }
     
     @IBAction func pressedLetterButton(_ sender: Any) {
-        
+        if game.isDead() {
+            AlertDialog.showAlertDialogWithoutCancel(viewController: self, title: nil, message: "You have no lives left", confirmTitle: "OK", finishHandler: nil)
+            return
+        }
+        let button = sender as! UIButton
+        let tag = button.tag
+        if game.pressedLetter(letter: Character(UnicodeScalar(UnicodeScalar("a").value + UInt32(tag))!)) {
+            button.setTitle(" ", for: .normal)
+        }
+        updateGameView()
+        if game.checkWin() {
+            AlertDialog.showAlertDialogWithoutCancel(viewController: self, title: nil, message: "You Win", confirmTitle: "OK", finishHandler: nil)
+        }
+    }
+    
+    func updateGameView() {
+        for index in 0..<letterStatusStackView.arrangedSubviews.count {
+            changeStackViewLabel(stackView: letterStatusStackView.arrangedSubviews[index] as! UIStackView,
+                                 letter: game.status[index] ? String(Array(word)[index]).uppercased() : " ")
+        }
+        hangmanImageView.image = imgMap[game.lives]
     }
     
     func removeAllArrangedSubviews(stackView: UIStackView) {
@@ -74,7 +107,7 @@ class HangmanViewController: UIViewController {
         
         let label = UILabel()
         label.font = UIFont.boldSystemFont(ofSize: fontSize)
-        label.text = "K"
+        label.text = " "
         label.textAlignment = .center
         stackView.addArrangedSubview(label)
         
@@ -88,6 +121,7 @@ class HangmanViewController: UIViewController {
     }
     
     func changeStackViewLabel(stackView: UIStackView, letter: String) {
-        
+        let label = stackView.arrangedSubviews[0] as! UILabel
+        label.text = letter
     }
 }

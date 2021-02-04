@@ -17,7 +17,7 @@ class RandomStringGenerator {
     // Source: https://jimpix.co.uk/words/random-username-generator.asp#results
     var randomUsernames = ["lesservaluable", "vomitorygiving", "cheltedadjoining", "smishunion", "irritableultimate", "spotlessgave", "runpoose", "belovedthottage", "justicelunctured", "experiencehowl", "loyaltyfungus", "kayakingemerge", "gothiccarry", "erstwhileorodruin", "effluviumgrin", "biteerect", "unreliableslowly", "hobbitonschants", "bawdscarton", "cumindisfigured", "dindowspelt", "joinerundertaker", "efficientdemocracy", "amucknunchy", "glagtroubled"]
     
-    var randomHangmanWords = ["random", "word"]
+    var randomHangmanWords = ["balloon"]
     
     func generateRandomUsername() -> String {
         return randomUsernames[Int.random(in: 0..<randomUsernames.count)]

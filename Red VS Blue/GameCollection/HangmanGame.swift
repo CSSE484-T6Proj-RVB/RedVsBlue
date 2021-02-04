@@ -15,4 +15,52 @@ class HangmanGame: Game {
     
     var gameIconImage = #imageLiteral(resourceName: "GameIcon_Hangman.PNG")
     
+    var word: String!
+    var lives: Int
+    var attempts: [Character]
+    var status: [Bool]!
+    
+    init() {
+        self.lives = 6
+        self.attempts = []
+    }
+    
+    func setWord(word: String) {
+        self.word = word
+        self.status = [Bool](repeating: false, count: word.count)
+    }
+    
+    func pressedLetter(letter: Character) -> Bool {
+        if isDead() {
+            print("You are already dead!")
+            return false
+        }
+        if checkWin() {
+            print("You already won!")
+            return false
+        }
+        if attempts.contains(letter) {
+            print("You already guessed this letter")
+            return true
+        }
+        attempts.append(letter)
+        if self.word.contains(letter) {
+            for index in 0..<word.count {
+                if Array(word)[index] == letter {
+                    self.status[index] = true
+                }
+            }
+            return true
+        }
+        self.lives -= 1
+        return true
+    }
+    
+    func checkWin() -> Bool {
+        return self.status.allSatisfy({$0})
+    }
+    
+    func isDead() -> Bool {
+        return self.lives <= 0
+    }
 }

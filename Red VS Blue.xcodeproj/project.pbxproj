@@ -24,6 +24,13 @@
 		E41F4C0925B33F970008D15B /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = E41F4C0825B33F970008D15B /* GoogleService-Info.plist */; };
 		E436123D25CAB2AC00FBCBAD /* RoundCornerFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = E436123C25CAB2AC00FBCBAD /* RoundCornerFactory.swift */; };
 		E436124025CAD64500FBCBAD /* HangmanViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E436123F25CAD64500FBCBAD /* HangmanViewController.swift */; };
+		E436124A25CC70C500FBCBAD /* Hangman-6.png in Resources */ = {isa = PBXBuildFile; fileRef = E436124325CC70C400FBCBAD /* Hangman-6.png */; };
+		E436124B25CC70C500FBCBAD /* Hangman-4.png in Resources */ = {isa = PBXBuildFile; fileRef = E436124425CC70C400FBCBAD /* Hangman-4.png */; };
+		E436124C25CC70C500FBCBAD /* Hangman-1.png in Resources */ = {isa = PBXBuildFile; fileRef = E436124525CC70C400FBCBAD /* Hangman-1.png */; };
+		E436124D25CC70C500FBCBAD /* Hangman-3.png in Resources */ = {isa = PBXBuildFile; fileRef = E436124625CC70C500FBCBAD /* Hangman-3.png */; };
+		E436124E25CC70C500FBCBAD /* Hangman-5.png in Resources */ = {isa = PBXBuildFile; fileRef = E436124725CC70C500FBCBAD /* Hangman-5.png */; };
+		E436124F25CC70C500FBCBAD /* Hangman-2.png in Resources */ = {isa = PBXBuildFile; fileRef = E436124825CC70C500FBCBAD /* Hangman-2.png */; };
+		E436125025CC70C500FBCBAD /* Hangman-0.png in Resources */ = {isa = PBXBuildFile; fileRef = E436124925CC70C500FBCBAD /* Hangman-0.png */; };
 		E458F86E25C7D29E00BC6932 /* UsersManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = E458F86D25C7D29E00BC6932 /* UsersManager.swift */; };
 		E458F87125C7D2CF00BC6932 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = E458F87025C7D2CF00BC6932 /* Constants.swift */; };
 		E458F87C25C7DE3500BC6932 /* RoomsManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = E458F87B25C7DE3500BC6932 /* RoomsManager.swift */; };
@@ -95,6 +102,13 @@
 		E41F4C0825B33F970008D15B /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		E436123C25CAB2AC00FBCBAD /* RoundCornerFactory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RoundCornerFactory.swift; sourceTree = "<group>"; };
 		E436123F25CAD64500FBCBAD /* HangmanViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HangmanViewController.swift; sourceTree = "<group>"; };
+		E436124325CC70C400FBCBAD /* Hangman-6.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Hangman-6.png"; sourceTree = "<group>"; };
+		E436124425CC70C400FBCBAD /* Hangman-4.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Hangman-4.png"; sourceTree = "<group>"; };
+		E436124525CC70C400FBCBAD /* Hangman-1.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Hangman-1.png"; sourceTree = "<group>"; };
+		E436124625CC70C500FBCBAD /* Hangman-3.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Hangman-3.png"; sourceTree = "<group>"; };
+		E436124725CC70C500FBCBAD /* Hangman-5.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Hangman-5.png"; sourceTree = "<group>"; };
+		E436124825CC70C500FBCBAD /* Hangman-2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Hangman-2.png"; sourceTree = "<group>"; };
+		E436124925CC70C500FBCBAD /* Hangman-0.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Hangman-0.png"; sourceTree = "<group>"; };
 		E458F86D25C7D29E00BC6932 /* UsersManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UsersManager.swift; sourceTree = "<group>"; };
 		E458F87025C7D2CF00BC6932 /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 		E458F87B25C7DE3500BC6932 /* RoomsManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RoomsManager.swift; sourceTree = "<group>"; };
@@ -175,6 +189,20 @@
 				552C662B05C7E0E5425FDC15 /* Pods-Red VS Blue.release.xcconfig */,
 			);
 			path = Pods;
+			sourceTree = "<group>";
+		};
+		E436124225CC70B100FBCBAD /* Hangman */ = {
+			isa = PBXGroup;
+			children = (
+				E436124925CC70C500FBCBAD /* Hangman-0.png */,
+				E436124525CC70C400FBCBAD /* Hangman-1.png */,
+				E436124825CC70C500FBCBAD /* Hangman-2.png */,
+				E436124625CC70C500FBCBAD /* Hangman-3.png */,
+				E436124425CC70C400FBCBAD /* Hangman-4.png */,
+				E436124725CC70C500FBCBAD /* Hangman-5.png */,
+				E436124325CC70C400FBCBAD /* Hangman-6.png */,
+			);
+			path = Hangman;
 			sourceTree = "<group>";
 		};
 		E458F87325C7D68700BC6932 /* Model */ = {
@@ -281,6 +309,7 @@
 		E498EF7E25B9A6DB006621FA /* Images */ = {
 			isa = PBXGroup;
 			children = (
+				E436124225CC70B100FBCBAD /* Hangman */,
 				E494E97925C084C8004DD607 /* Tie_Game.png */,
 				E494E97725C084C8004DD607 /* You_Lose.png */,
 				E494E97825C084C8004DD607 /* You_Win.png */,
@@ -371,11 +400,13 @@
 				B54D322E25B55335008219E5 /* Delete_Icon.png in Resources */,
 				E417786C25B09BF1004B3FD3 /* Icon.png in Resources */,
 				E498EF6025B7AAC9006621FA /* GameIcon_TicTacToe.PNG in Resources */,
+				E436124E25CC70C500FBCBAD /* Hangman-5.png in Resources */,
 				E49BECFA25B5AA150048CD7D /* Back_Arrow.png in Resources */,
 				E48A0C2425B031CC00122140 /* LaunchScreen.storyboard in Resources */,
 				E498EF5C25B7AAC9006621FA /* GameIcon_CountTo21.PNG in Resources */,
 				E494E97C25C084C8004DD607 /* Tie_Game.png in Resources */,
 				E498EF8425B9AC56006621FA /* TicTacToe_board.png in Resources */,
+				E436124C25CC70C500FBCBAD /* Hangman-1.png in Resources */,
 				B502E9CB25B7FEE0008E19CE /* Leave_Icon.png in Resources */,
 				E498EF5D25B7AAC9006621FA /* GameIcon_NumberPuzzle.PNG in Resources */,
 				E498EF4825B79395006621FA /* Red_Ball.png in Resources */,
@@ -383,7 +414,9 @@
 				E49BECE525B452AD0048CD7D /* Refresh_Icon.png in Resources */,
 				E498EF5F25B7AAC9006621FA /* GameIcon_Random.PNG in Resources */,
 				E498EF4B25B7939C006621FA /* Blue_Ball.png in Resources */,
+				E436124D25CC70C500FBCBAD /* Hangman-3.png in Resources */,
 				E498EF5E25B7AAC9006621FA /* GameIcon_Hangman.PNG in Resources */,
+				E436124A25CC70C500FBCBAD /* Hangman-6.png in Resources */,
 				E417786B25B09BF1004B3FD3 /* Icon-72.png in Resources */,
 				E494E97B25C084C8004DD607 /* You_Win.png in Resources */,
 				E498EF4F25B79718006621FA /* VS.png in Resources */,
@@ -393,8 +426,11 @@
 				E49BECFD25B5AA2F0048CD7D /* RvB_Icon.png in Resources */,
 				E417786A25B09BF1004B3FD3 /* Icon@2x.png in Resources */,
 				B54D324025B5697F008219E5 /* Background1.png in Resources */,
+				E436124F25CC70C500FBCBAD /* Hangman-2.png in Resources */,
 				E48A0C2125B031CC00122140 /* Assets.xcassets in Resources */,
+				E436124B25CC70C500FBCBAD /* Hangman-4.png in Resources */,
 				E498EF8E25B9F8AB006621FA /* TicTacToe_O.PNG in Resources */,
+				E436125025CC70C500FBCBAD /* Hangman-0.png in Resources */,
 				E498EF8F25B9F8AB006621FA /* TicTacToe_X.PNG in Resources */,
 				E48A0C1F25B031CB00122140 /* Main.storyboard in Resources */,
 				E41F4C0925B33F970008D15B /* GoogleService-Info.plist in Resources */,
