@@ -8,6 +8,8 @@
 import Foundation
 import UIKit
 
+// TODO: Random Game is not working
+
 class RandomGame: Game {
     var name = "Random Game"
     var segueName = "RandomGameSegue"

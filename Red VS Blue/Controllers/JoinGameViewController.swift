@@ -19,6 +19,7 @@ class JoinGameViewController: UIViewController, UITextFieldDelegate {
     override func viewDidLoad() {
         super.viewDidLoad()
         navigationController?.setNavigationBarHidden(true, animated: false)
+        self.view.addGestureRecognizer(UITapGestureRecognizer(target: self.view, action: #selector(UIView.endEditing(_:))))
         codeTextField.delegate = self
         codeTextField.addTarget(self, action: #selector(self.updateDigitCodeView), for: .editingChanged)
     }
