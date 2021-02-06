@@ -109,6 +109,7 @@
 		E436124725CC70C500FBCBAD /* Hangman-5.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Hangman-5.png"; sourceTree = "<group>"; };
 		E436124825CC70C500FBCBAD /* Hangman-2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Hangman-2.png"; sourceTree = "<group>"; };
 		E436124925CC70C500FBCBAD /* Hangman-0.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Hangman-0.png"; sourceTree = "<group>"; };
+		E451F86525CE9FA900DF36CD /* Red VS Blue.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = "Red VS Blue.entitlements"; sourceTree = "<group>"; };
 		E458F86D25C7D29E00BC6932 /* UsersManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UsersManager.swift; sourceTree = "<group>"; };
 		E458F87025C7D2CF00BC6932 /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 		E458F87B25C7DE3500BC6932 /* RoomsManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RoomsManager.swift; sourceTree = "<group>"; };
@@ -287,6 +288,7 @@
 		E48A0C1625B031CB00122140 /* Red VS Blue */ = {
 			isa = PBXGroup;
 			children = (
+				E451F86525CE9FA900DF36CD /* Red VS Blue.entitlements */,
 				E48A0C2025B031CC00122140 /* Assets.xcassets */,
 				E417786825B09BF1004B3FD3 /* Icon-72.png */,
 				E417786925B09BF1004B3FD3 /* Icon.png */,
@@ -685,6 +687,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_ENTITLEMENTS = "Red VS Blue/Red VS Blue.entitlements";
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 2;
 				DEVELOPMENT_TEAM = 9SAX8QHA7K;
@@ -707,6 +710,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_ENTITLEMENTS = "Red VS Blue/Red VS Blue.entitlements";
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 2;
 				DEVELOPMENT_TEAM = 9SAX8QHA7K;
