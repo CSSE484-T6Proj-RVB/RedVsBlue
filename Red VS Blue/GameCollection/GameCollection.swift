@@ -14,7 +14,7 @@ class GameCollection {
     var games: [Game]
     
     private init() {
-        games = [TicTacToeGame(), CountTo21Game(), NumberPuzzleGame(), RandomGame()]
+        games = [TicTacToeGame(), CountTo21Game(), NumberPuzzleGame(), HangmanGame(), RandomGame()]
         //games = [TicTacToeGame(), RandomGame()]
     }
 }

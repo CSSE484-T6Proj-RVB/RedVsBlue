@@ -56,6 +56,12 @@ let kKeyCountTo21_currentNumber = "currentNumber"
 let kKeyIsGameEnd = "isGameEnd"
 let kNumberPuzzleGameName = "NumberPuzzle"
 let kKeyNumberPuzzle_puzzle = "puzzle"
+let kHangmanGameName = "Hangman"
+let kKeyHangman_word = "word"
+let kKeyHangman_hostStatus = "hostStatus"
+let kKeyHangman_clientStatus = "clientStatus"
+let kKeyHangman_isSomeoneDie = "isSomeoneDie"
+let kKeyHangman_isBothDie = "isBothDie"
 
 class Constants {
     

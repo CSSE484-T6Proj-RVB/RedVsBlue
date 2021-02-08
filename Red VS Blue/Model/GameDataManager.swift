@@ -39,6 +39,12 @@ class GameDataManager {
             _gameDocumentRef?.setData([
                 kKeyIsGameEnd: false
             ])
+        case kHangmanGameName:
+            _gameDocumentRef?.setData([
+                kKeyIsGameEnd: false,
+                kKeyHangman_isSomeoneDie: false,
+                kKeyHangman_isBothDie: false
+            ])
         default:
             break
         }
