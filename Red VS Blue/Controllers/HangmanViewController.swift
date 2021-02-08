@@ -68,13 +68,9 @@ class HangmanViewController: UIViewController {
         self.lowerBannerView.backgroundColor = isHost ? UIColor.red: UIColor.blue
         
         //removeAllArrangedSubviews(stackView: letterStatusStackView)
-        
-       
-        
-        
-//        for index in 0..<letterStatusStackView.arrangedSubviews.count {
-//            changeStackViewLabel(stackView: letterStatusStackView.arrangedSubviews[index] as! UIStackView, letter: String(Array(word)[index]))
-//        }
+        //        for index in 0..<letterStatusStackView.arrangedSubviews.count {
+        //            changeStackViewLabel(stackView: letterStatusStackView.arrangedSubviews[index] as! UIStackView, letter: String(Array(word)[index]))
+        //        }
         
         GameDataManager.shared.setReference(roomId: roomId, gameName: kHangmanGameName)
         RoomManager.shared.setReference(roomId: roomId)
@@ -98,6 +94,7 @@ class HangmanViewController: UIViewController {
         UsersManager.shared.stopListening()
         GameDataManager.shared.stopListening()
         
+        // TODO: Change isBothDie Logic
         if let isBothDie = GameDataManager.shared.getDataWithField(fieldName: kKeyHangman_isBothDie) as? Bool {
             if isBothDie {
                 RoomStatusStorage.shared.score += dieFirst ? 1 : 0
@@ -140,11 +137,18 @@ class HangmanViewController: UIViewController {
             game.setWord(word: word)
             for _ in 0..<word.count {
                 letterStatusStackView.addArrangedSubview(generateOneLetterStackView(fontSize: 30))
+                // TODO For opponent, don't append letters anymore
+                opponentLetterStatusStackView.addArrangedSubview(generateOneLetterStackView(fontSize: 20))
             }
             loadingView.isHidden = true
             GameDataManager.shared.updateDataWithField(fieldName: kKeyHangman_hostStatus, value: game.status!)
             GameDataManager.shared.updateDataWithField(fieldName: kKeyHangman_clientStatus, value: game.status!)
         }
+        
+        if let status = GameDataManager.shared.getDataWithField(fieldName: kKeyHangman_hostStatus) as? [Bool] {
+            updateOpponentStatusView(status: status)
+        }
+        
         guard let isGameEnd = GameDataManager.shared.getDataWithField(fieldName: kKeyIsGameEnd) as? Bool else {
             return
         }
@@ -162,7 +166,7 @@ class HangmanViewController: UIViewController {
             popResultMessage(message: message)
             GameDataManager.shared.updateDataWithField(fieldName: kKeyIsGameEnd, value: false)
         }
-    
+        
     }
     
     @IBAction func pressedLetterButton(_ sender: Any) {
@@ -184,7 +188,6 @@ class HangmanViewController: UIViewController {
         if game.checkWin() {
             isWin = true
             GameDataManager.shared.updateDataWithField(fieldName: kKeyIsGameEnd, value: true)
-//            AlertDialog.showAlertDialogWithoutCancel(viewController: self, title: nil, message: "You Win", confirmTitle: "OK", finishHandler: nil)
         }
         
         if game.isDead() {
@@ -198,6 +201,14 @@ class HangmanViewController: UIViewController {
                 GameDataManager.shared.updateDataWithField(fieldName: kKeyHangman_isSomeoneDie, value: true)
             }
         }
+    }
+    
+    func updateOpponentStatusView(status: [Bool]) {
+        for index in 0..<opponentLetterStatusStackView.arrangedSubviews.count {
+            changeStackViewLabel(stackView: opponentLetterStatusStackView.arrangedSubviews[index] as! UIStackView,
+                                 letter: status[index] ? "1" : "0")
+        }
+        // TODO: ? and Check Icons
     }
     
     func updateGameView() {

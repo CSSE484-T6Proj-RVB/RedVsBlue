@@ -54,6 +54,7 @@ class EmailSignInViewController: UIViewController {
             }
             
             print("It worked!!! A new user is created and now signed in.")
+            self.performSegue(withIdentifier: mainSegueIdentifier, sender: self)
         }
     }
     
