@@ -94,14 +94,14 @@ class HangmanViewController: UIViewController {
         UsersManager.shared.stopListening()
         GameDataManager.shared.stopListening()
         
-        // TODO: Change isBothDie Logic
-        if let isBothDie = GameDataManager.shared.getDataWithField(fieldName: kKeyHangman_isBothDie) as? Bool {
-            if isBothDie {
-                RoomStatusStorage.shared.score += dieFirst ? 1 : 0
-            } else {
-                RoomStatusStorage.shared.score += isWin ? 1 : 0
-            }
-        }
+        RoomStatusStorage.shared.score += isWin ? 1 : 0
+//        if let isBothDie = GameDataManager.shared.getDataWithField(fieldName: kKeyHangman_isBothDie) as? Bool {
+//            if isBothDie {
+//                RoomStatusStorage.shared.score += dieFirst ? 1 : 0
+//            } else {
+//                  RoomStatusStorage.shared.score += isWin ? 1 : 0
+//            }
+//        }
     }
     
     func updateScoreLabel() {
@@ -145,9 +145,16 @@ class HangmanViewController: UIViewController {
             GameDataManager.shared.updateDataWithField(fieldName: kKeyHangman_clientStatus, value: game.status!)
         }
         
-        if let status = GameDataManager.shared.getDataWithField(fieldName: kKeyHangman_hostStatus) as? [Bool] {
-            updateOpponentStatusView(status: status)
+        if RoomStatusStorage.shared.isHost {
+            if let status = GameDataManager.shared.getDataWithField(fieldName: kKeyHangman_clientStatus) as? [Bool] {
+                updateOpponentStatusView(status: status)
+            }
+        } else {
+            if let status = GameDataManager.shared.getDataWithField(fieldName: kKeyHangman_hostStatus) as? [Bool] {
+                updateOpponentStatusView(status: status)
+            }
         }
+        
         
         guard let isGameEnd = GameDataManager.shared.getDataWithField(fieldName: kKeyIsGameEnd) as? Bool else {
             return
@@ -158,15 +165,16 @@ class HangmanViewController: UIViewController {
             GameDataManager.shared.updateDataWithField(fieldName: kKeyIsGameEnd, value: false)
         }
         
-        guard let isBothDie = GameDataManager.shared.getDataWithField(fieldName: kKeyHangman_isBothDie) as? Bool else {
+        guard let isClientDie = GameDataManager.shared.getDataWithField(fieldName: kKeyHangman_isClientDie) as? Bool else {
             return
         }
-        if isBothDie {
-            let message = dieFirst ? "You Win!" : "You Lose!"
-            popResultMessage(message: message)
+        guard let isHostDie = GameDataManager.shared.getDataWithField(fieldName: kKeyHangman_isHostDie) as? Bool else {
+            return
+        }
+        if isClientDie && isHostDie {
+            popResultMessage(message: "Both Players Failed!")
             GameDataManager.shared.updateDataWithField(fieldName: kKeyIsGameEnd, value: false)
         }
-        
     }
     
     @IBAction func pressedLetterButton(_ sender: Any) {
@@ -191,14 +199,13 @@ class HangmanViewController: UIViewController {
         }
         
         if game.isDead() {
-            guard let isSomeoneDie = GameDataManager.shared.getDataWithField(fieldName: kKeyHangman_isSomeoneDie) as? Bool else {
+            guard let _ = GameDataManager.shared.getDataWithField(fieldName: kKeyHangman_isHostDie) as? Bool else {
                 return
             }
-            if isSomeoneDie {
-                GameDataManager.shared.updateDataWithField(fieldName: kKeyHangman_isBothDie, value: true)
+            if RoomStatusStorage.shared.isHost {
+                GameDataManager.shared.updateDataWithField(fieldName: kKeyHangman_isHostDie, value: true)
             } else {
-                dieFirst = true
-                GameDataManager.shared.updateDataWithField(fieldName: kKeyHangman_isSomeoneDie, value: true)
+                GameDataManager.shared.updateDataWithField(fieldName: kKeyHangman_isClientDie, value: true)
             }
         }
     }

@@ -60,8 +60,10 @@ let kHangmanGameName = "Hangman"
 let kKeyHangman_word = "word"
 let kKeyHangman_hostStatus = "hostStatus"
 let kKeyHangman_clientStatus = "clientStatus"
-let kKeyHangman_isSomeoneDie = "isSomeoneDie"
-let kKeyHangman_isBothDie = "isBothDie"
+let kKeyHangman_isClientDie = "isClientDie"
+let kKeyHangman_isHostDie = "isHostDie"
+//let kKeyHangman_isSomeoneDie = "isSomeoneDie"
+//let kKeyHangman_isBothDie = "isBothDie"
 
 class Constants {
     
