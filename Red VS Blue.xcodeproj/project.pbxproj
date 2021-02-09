@@ -31,6 +31,7 @@
 		E436124E25CC70C500FBCBAD /* Hangman-5.png in Resources */ = {isa = PBXBuildFile; fileRef = E436124725CC70C500FBCBAD /* Hangman-5.png */; };
 		E436124F25CC70C500FBCBAD /* Hangman-2.png in Resources */ = {isa = PBXBuildFile; fileRef = E436124825CC70C500FBCBAD /* Hangman-2.png */; };
 		E436125025CC70C500FBCBAD /* Hangman-0.png in Resources */ = {isa = PBXBuildFile; fileRef = E436124925CC70C500FBCBAD /* Hangman-0.png */; };
+		E451F8A925D337B700DF36CD /* Data in Resources */ = {isa = PBXBuildFile; fileRef = E451F8A825D337B700DF36CD /* Data */; };
 		E458F86E25C7D29E00BC6932 /* UsersManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = E458F86D25C7D29E00BC6932 /* UsersManager.swift */; };
 		E458F87125C7D2CF00BC6932 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = E458F87025C7D2CF00BC6932 /* Constants.swift */; };
 		E458F87C25C7DE3500BC6932 /* RoomsManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = E458F87B25C7DE3500BC6932 /* RoomsManager.swift */; };
@@ -110,6 +111,7 @@
 		E436124825CC70C500FBCBAD /* Hangman-2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Hangman-2.png"; sourceTree = "<group>"; };
 		E436124925CC70C500FBCBAD /* Hangman-0.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Hangman-0.png"; sourceTree = "<group>"; };
 		E451F86525CE9FA900DF36CD /* Red VS Blue.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = "Red VS Blue.entitlements"; sourceTree = "<group>"; };
+		E451F8A825D337B700DF36CD /* Data */ = {isa = PBXFileReference; lastKnownFileType = folder; path = Data; sourceTree = "<group>"; };
 		E458F86D25C7D29E00BC6932 /* UsersManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UsersManager.swift; sourceTree = "<group>"; };
 		E458F87025C7D2CF00BC6932 /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 		E458F87B25C7DE3500BC6932 /* RoomsManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RoomsManager.swift; sourceTree = "<group>"; };
@@ -295,6 +297,7 @@
 				E417786725B09BF1004B3FD3 /* Icon@2x.png */,
 				E48A0C1725B031CB00122140 /* AppDelegate.swift */,
 				E48A0C1925B031CB00122140 /* SceneDelegate.swift */,
+				E451F8A825D337B700DF36CD /* Data */,
 				E458F87525C7D6A700BC6932 /* Utils */,
 				E458F87325C7D68700BC6932 /* Model */,
 				E458F87925C7D71000BC6932 /* Controllers */,
@@ -413,6 +416,7 @@
 				E498EF5D25B7AAC9006621FA /* GameIcon_NumberPuzzle.PNG in Resources */,
 				E498EF4825B79395006621FA /* Red_Ball.png in Resources */,
 				B54D322B25B5532F008219E5 /* Edit_Icon.png in Resources */,
+				E451F8A925D337B700DF36CD /* Data in Resources */,
 				E49BECE525B452AD0048CD7D /* Refresh_Icon.png in Resources */,
 				E498EF5F25B7AAC9006621FA /* GameIcon_Random.PNG in Resources */,
 				E498EF4B25B7939C006621FA /* Blue_Ball.png in Resources */,

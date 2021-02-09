@@ -47,6 +47,7 @@ let kKeyGameOnGoing = "onGoing"
 let kKeyGameSelected = "currentGameSelected"
 let kKeyEndGameRequest = "endGameRequest"
 let kKeyStartGameRequest = "startGameRequest"
+let kKeyActualGameSelected = "actualGameSelected"
 
 let kTicTacToeGameName = "TicTacToe"
 let kKeyIsHostTurn = "isHostTurn"

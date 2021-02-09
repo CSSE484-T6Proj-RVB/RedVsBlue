@@ -45,6 +45,12 @@ class RoomManager {
         ])
     }
     
+    func updateActualGameSelected(id: Int) {
+        _roomDocumentRef?.updateData([
+            kKeyActualGameSelected: id
+        ])
+    }
+    
     func setEndGameRequest(value: Bool) {
         _roomDocumentRef?.updateData([
             kKeyEndGameRequest: value
@@ -122,6 +128,13 @@ class RoomManager {
     var startGameRequest: Bool? {
         if let value = _document?.get(kKeyStartGameRequest) {
             return value as? Bool
+        }
+        return nil
+    }
+    
+    var actualGameIndex: Int? {
+        if let value = _document?.get(kKeyActualGameSelected) {
+            return value as? Int
         }
         return nil
     }

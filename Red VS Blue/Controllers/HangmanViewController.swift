@@ -135,10 +135,10 @@ class HangmanViewController: UIViewController {
             if word == "" { return }
             self.word = word
             game.setWord(word: word)
+            print(word)
             for _ in 0..<word.count {
                 letterStatusStackView.addArrangedSubview(generateOneLetterStackView(fontSize: 30))
-                // TODO For opponent, don't append letters anymore
-                opponentLetterStatusStackView.addArrangedSubview(generateOneLetterStackView(fontSize: 20))
+                opponentLetterStatusStackView.addArrangedSubview(generateOneOpponentLetterView(fontSize: 20))
             }
             loadingView.isHidden = true
             GameDataManager.shared.updateDataWithField(fieldName: kKeyHangman_hostStatus, value: game.status!)
@@ -212,10 +212,9 @@ class HangmanViewController: UIViewController {
     
     func updateOpponentStatusView(status: [Bool]) {
         for index in 0..<opponentLetterStatusStackView.arrangedSubviews.count {
-            changeStackViewLabel(stackView: opponentLetterStatusStackView.arrangedSubviews[index] as! UIStackView,
-                                 letter: status[index] ? "1" : "0")
+            let label = opponentLetterStatusStackView.arrangedSubviews[index] as! UILabel
+            label.text = status[index] ? "✓" : "✗"
         }
-        // TODO: ? and Check Icons
     }
     
     func updateGameView() {
@@ -252,6 +251,14 @@ class HangmanViewController: UIViewController {
         stackView.addArrangedSubview(underscoreLabel)
         
         return stackView
+    }
+    
+    func generateOneOpponentLetterView(fontSize: CGFloat) -> UILabel {
+        let label = UILabel()
+        label.font = UIFont.boldSystemFont(ofSize: fontSize)
+        label.text = " "
+        label.textAlignment = .center
+        return label
     }
     
     func changeStackViewLabel(stackView: UIStackView, letter: String) {
