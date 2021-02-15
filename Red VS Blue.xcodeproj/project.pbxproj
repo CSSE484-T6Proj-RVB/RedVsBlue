@@ -21,6 +21,8 @@
 		E417786A25B09BF1004B3FD3 /* Icon@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = E417786725B09BF1004B3FD3 /* Icon@2x.png */; };
 		E417786B25B09BF1004B3FD3 /* Icon-72.png in Resources */ = {isa = PBXBuildFile; fileRef = E417786825B09BF1004B3FD3 /* Icon-72.png */; };
 		E417786C25B09BF1004B3FD3 /* Icon.png in Resources */ = {isa = PBXBuildFile; fileRef = E417786925B09BF1004B3FD3 /* Icon.png */; };
+		E417973625DA4DCE0041A783 /* TankBattlesGame.swift in Sources */ = {isa = PBXBuildFile; fileRef = E417973525DA4DCE0041A783 /* TankBattlesGame.swift */; };
+		E417973925DA51E50041A783 /* TankBattlesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E417973825DA51E50041A783 /* TankBattlesViewController.swift */; };
 		E41F4C0925B33F970008D15B /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = E41F4C0825B33F970008D15B /* GoogleService-Info.plist */; };
 		E436123D25CAB2AC00FBCBAD /* RoundCornerFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = E436123C25CAB2AC00FBCBAD /* RoundCornerFactory.swift */; };
 		E436124025CAD64500FBCBAD /* HangmanViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E436123F25CAD64500FBCBAD /* HangmanViewController.swift */; };
@@ -100,6 +102,8 @@
 		E417786725B09BF1004B3FD3 /* Icon@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Icon@2x.png"; sourceTree = "<group>"; };
 		E417786825B09BF1004B3FD3 /* Icon-72.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Icon-72.png"; sourceTree = "<group>"; };
 		E417786925B09BF1004B3FD3 /* Icon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Icon.png; sourceTree = "<group>"; };
+		E417973525DA4DCE0041A783 /* TankBattlesGame.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TankBattlesGame.swift; sourceTree = "<group>"; };
+		E417973825DA51E50041A783 /* TankBattlesViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TankBattlesViewController.swift; sourceTree = "<group>"; };
 		E41F4C0825B33F970008D15B /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		E436123C25CAB2AC00FBCBAD /* RoundCornerFactory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RoundCornerFactory.swift; sourceTree = "<group>"; };
 		E436123F25CAD64500FBCBAD /* HangmanViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HangmanViewController.swift; sourceTree = "<group>"; };
@@ -242,6 +246,7 @@
 				E498EF6F25B91999006621FA /* CountTo21Game.swift */,
 				E498EF7325B91A44006621FA /* NumberPuzzleGame.swift */,
 				E498EF7625B91A93006621FA /* RandomGame.swift */,
+				E417973525DA4DCE0041A783 /* TankBattlesGame.swift */,
 			);
 			path = GameCollection;
 			sourceTree = "<group>";
@@ -265,6 +270,7 @@
 				B5FA185D25CA3F34006E96EC /* CountTo21ViewController.swift */,
 				B5FA186025CA7594006E96EC /* NumberPuzzleViewController.swift */,
 				E436123F25CAD64500FBCBAD /* HangmanViewController.swift */,
+				E417973825DA51E50041A783 /* TankBattlesViewController.swift */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
@@ -514,12 +520,14 @@
 				E498EF6C25B7BA6F006621FA /* HangmanGame.swift in Sources */,
 				E4BB4B3C25B621E6008580A8 /* JoinGameViewController.swift in Sources */,
 				E49BECF325B5A58A0048CD7D /* CreateGameViewController.swift in Sources */,
+				E417973925DA51E50041A783 /* TankBattlesViewController.swift in Sources */,
 				E49BECE125B448DA0048CD7D /* ProfileViewController.swift in Sources */,
 				B5FA185E25CA3F34006E96EC /* CountTo21ViewController.swift in Sources */,
 				E45E24D125BDA86F00628580 /* RoomManager.swift in Sources */,
 				B56CD92725C985050099E339 /* GameDataManager.swift in Sources */,
 				E436124025CAD64500FBCBAD /* HangmanViewController.swift in Sources */,
 				E494E97F25C08B17004DD607 /* GamePageViewController.swift in Sources */,
+				E417973625DA4DCE0041A783 /* TankBattlesGame.swift in Sources */,
 				E49BECE925B4E1AC0048CD7D /* RandomStringGenerator.swift in Sources */,
 				E498EF6325B7B591006621FA /* GameCollection.swift in Sources */,
 				E49BECD525B34AA40048CD7D /* MainPageViewController.swift in Sources */,
