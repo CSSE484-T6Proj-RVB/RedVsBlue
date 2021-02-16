@@ -13,12 +13,12 @@
 		B54D322E25B55335008219E5 /* Delete_Icon.png in Resources */ = {isa = PBXBuildFile; fileRef = B54D322D25B55335008219E5 /* Delete_Icon.png */; };
 		B54D324025B5697F008219E5 /* Background1.png in Resources */ = {isa = PBXBuildFile; fileRef = B54D323F25B5697F008219E5 /* Background1.png */; };
 		B56CD92725C985050099E339 /* GameDataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = B56CD92625C985050099E339 /* GameDataManager.swift */; };
-		B5CC7E5525DBF33500D50CE5 /* brick_wall.png in Resources */ = {isa = PBXBuildFile; fileRef = B5CC7E5425DBF33400D50CE5 /* brick_wall.png */; };
 		B5CC7E5925DBF6A800D50CE5 /* stone_wall.png in Resources */ = {isa = PBXBuildFile; fileRef = B5CC7E5825DBF6A800D50CE5 /* stone_wall.png */; };
 		B5CC7E5C25DBF6AD00D50CE5 /* red_tank.png in Resources */ = {isa = PBXBuildFile; fileRef = B5CC7E5B25DBF6AD00D50CE5 /* red_tank.png */; };
 		B5CC7E5F25DBF6B300D50CE5 /* yellow_tank.png in Resources */ = {isa = PBXBuildFile; fileRef = B5CC7E5E25DBF6B300D50CE5 /* yellow_tank.png */; };
 		B5CC7E6225DBF8B200D50CE5 /* grey_bullet.png in Resources */ = {isa = PBXBuildFile; fileRef = B5CC7E6125DBF8B200D50CE5 /* grey_bullet.png */; };
 		B5CC7E6525DBF8B800D50CE5 /* red_bullet.png in Resources */ = {isa = PBXBuildFile; fileRef = B5CC7E6425DBF8B800D50CE5 /* red_bullet.png */; };
+		B5CC7E6925DC102400D50CE5 /* brick_wall.png in Resources */ = {isa = PBXBuildFile; fileRef = B5CC7E6825DC102400D50CE5 /* brick_wall.png */; };
 		B5DD70E425B965EC006848D7 /* LoadingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5DD70E325B965EC006848D7 /* LoadingViewController.swift */; };
 		B5FA185E25CA3F34006E96EC /* CountTo21ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5FA185D25CA3F34006E96EC /* CountTo21ViewController.swift */; };
 		B5FA186125CA7594006E96EC /* NumberPuzzleViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5FA186025CA7594006E96EC /* NumberPuzzleViewController.swift */; };
@@ -100,12 +100,12 @@
 		B54D322D25B55335008219E5 /* Delete_Icon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Delete_Icon.png; sourceTree = "<group>"; };
 		B54D323F25B5697F008219E5 /* Background1.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Background1.png; sourceTree = "<group>"; };
 		B56CD92625C985050099E339 /* GameDataManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameDataManager.swift; sourceTree = "<group>"; };
-		B5CC7E5425DBF33400D50CE5 /* brick_wall.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = brick_wall.png; path = ../../../../../../../Downloads/brick_wall.png; sourceTree = "<group>"; };
 		B5CC7E5825DBF6A800D50CE5 /* stone_wall.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = stone_wall.png; sourceTree = "<group>"; };
 		B5CC7E5B25DBF6AD00D50CE5 /* red_tank.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = red_tank.png; sourceTree = "<group>"; };
 		B5CC7E5E25DBF6B300D50CE5 /* yellow_tank.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = yellow_tank.png; sourceTree = "<group>"; };
 		B5CC7E6125DBF8B200D50CE5 /* grey_bullet.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = grey_bullet.png; sourceTree = "<group>"; };
 		B5CC7E6425DBF8B800D50CE5 /* red_bullet.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = red_bullet.png; sourceTree = "<group>"; };
+		B5CC7E6825DC102400D50CE5 /* brick_wall.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = brick_wall.png; sourceTree = "<group>"; };
 		B5DD70E325B965EC006848D7 /* LoadingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoadingViewController.swift; sourceTree = "<group>"; };
 		B5FA185D25CA3F34006E96EC /* CountTo21ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CountTo21ViewController.swift; sourceTree = "<group>"; };
 		B5FA186025CA7594006E96EC /* NumberPuzzleViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NumberPuzzleViewController.swift; sourceTree = "<group>"; };
@@ -213,8 +213,8 @@
 		B5CC7E5025DBF24F00D50CE5 /* Tank Battle */ = {
 			isa = PBXGroup;
 			children = (
-				B5CC7E5425DBF33400D50CE5 /* brick_wall.png */,
 				B5CC7E5825DBF6A800D50CE5 /* stone_wall.png */,
+				B5CC7E6825DC102400D50CE5 /* brick_wall.png */,
 				B5CC7E5B25DBF6AD00D50CE5 /* red_tank.png */,
 				B5CC7E5E25DBF6B300D50CE5 /* yellow_tank.png */,
 				B5CC7E6125DBF8B200D50CE5 /* grey_bullet.png */,
@@ -445,7 +445,6 @@
 				E494E97C25C084C8004DD607 /* Tie_Game.png in Resources */,
 				E498EF8425B9AC56006621FA /* TicTacToe_board.png in Resources */,
 				E436124C25CC70C500FBCBAD /* Hangman-1.png in Resources */,
-				B5CC7E5525DBF33500D50CE5 /* brick_wall.png in Resources */,
 				B502E9CB25B7FEE0008E19CE /* Leave_Icon.png in Resources */,
 				E498EF5D25B7AAC9006621FA /* GameIcon_NumberPuzzle.PNG in Resources */,
 				E498EF4825B79395006621FA /* Red_Ball.png in Resources */,
@@ -470,6 +469,7 @@
 				E417786A25B09BF1004B3FD3 /* Icon@2x.png in Resources */,
 				B54D324025B5697F008219E5 /* Background1.png in Resources */,
 				E436124F25CC70C500FBCBAD /* Hangman-2.png in Resources */,
+				B5CC7E6925DC102400D50CE5 /* brick_wall.png in Resources */,
 				E48A0C2125B031CC00122140 /* Assets.xcassets in Resources */,
 				E436124B25CC70C500FBCBAD /* Hangman-4.png in Resources */,
 				E498EF8E25B9F8AB006621FA /* TicTacToe_O.PNG in Resources */,
