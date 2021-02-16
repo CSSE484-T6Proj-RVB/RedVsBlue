@@ -12,6 +12,5 @@ class TankBattlesGame: Game {
     var name = "Tank Battles"
     var segueName = "TankBattlesSegue"
     var description = "" // TODO: Desc for tank battles
-    //var gameIconImage = nil
-    var gameIconImage = UIImage()
+    var gameIconImage = #imageLiteral(resourceName: "GameIcon_TankBattles.PNG")
 }

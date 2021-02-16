@@ -9,24 +9,55 @@ import Foundation
 import UIKit
 
 class TankBattlesViewController: UIViewController {
+    
+    @IBOutlet weak var upperBannerView: UIView!
+    @IBOutlet weak var lowerBannerView: UIView!
+    
+    @IBOutlet weak var opponentScoreLabel: UILabel!
+    @IBOutlet weak var opponentNameLabel: UILabel!
+    
+    @IBOutlet weak var yourScoreLabel: UILabel!
+    @IBOutlet weak var yourNameLabel: UILabel!
+    
     @IBOutlet weak var gameBoardView: UIView!
+    var chunkImageViews = [[UIImageView]]()
+    var mapData = [[Int]]()
     
     let file = "TankBattlesMap"
     let viewWidth = UIScreen.main.bounds.width
+    let direction = [[0, -1, 0], [1, 0, Double.pi / 2], [0, 1, Double.pi], [-1, 0, -Double.pi / 2]]
+    
     var gridSize: Int!
     var chunkSize: Double!
     var fileData = [String]()
     
     let brickWall = #imageLiteral(resourceName: "brick_wall.png")
     let stoneWall = #imageLiteral(resourceName: "stone_wall.png")
-    let yellowTank = #imageLiteral(resourceName: "yellow_tank.png")
+    let yellowTankImage = #imageLiteral(resourceName: "yellow_tank.png")
+    let redTankImage = #imageLiteral(resourceName: "red_tank.png")
     let greyBullet = #imageLiteral(resourceName: "grey_bullet.png")
     
-    var tankX = 4
-    var tankY = 8
-    var tankImageView: UIImageView!
+    var myTankImageView: UIImageView!
+    var myTankImage: UIImage!
+    var myTankX: Int!
+    var myTankY: Int!
+    var myFaceTo: Int!
+    let myXField = RoomStatusStorage.shared.isHost ? kKeyTankBattles_hostX : kKeyTankBattles_clientX
+    let myYField = RoomStatusStorage.shared.isHost ? kKeyTankBattles_hostY : kKeyTankBattles_clientY
+    let myFaceToField = RoomStatusStorage.shared.isHost ? kKeyTankBattles_hostFaceTo : kKeyTankBattles_clientFaceTo
     
-    var faceTo: String = ""
+    var opponentTankImageView: UIImageView!
+    var opponentTankImage: UIImage!
+    var opponentTankX: Int!
+    var opponentTankY: Int!
+    var opponentFaceTo: Int!
+    let opponentXField = RoomStatusStorage.shared.isHost ? kKeyTankBattles_clientX : kKeyTankBattles_hostX
+    let opponentYField = RoomStatusStorage.shared.isHost ? kKeyTankBattles_clientY : kKeyTankBattles_hostY
+    let opponentFaceToField = RoomStatusStorage.shared.isHost ? kKeyTankBattles_clientFaceTo : kKeyTankBattles_hostFaceTo
+    
+    let isHost = RoomStatusStorage.shared.isHost
+    let roomId = RoomStatusStorage.shared.roomId
+    let score = RoomStatusStorage.shared.score
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -34,13 +65,47 @@ class TankBattlesViewController: UIViewController {
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-        tankImageView = UIImageView()
-        tankImageView.image = yellowTank
-
+        self.upperBannerView.backgroundColor = isHost ? UIColor.blue: UIColor.red
+        self.lowerBannerView.backgroundColor = isHost ? UIColor.red: UIColor.blue
+        
+        GameDataManager.shared.setReference(roomId: roomId, gameName: kTankBattlesGameName)
+        RoomManager.shared.setReference(roomId: roomId)
+        
+        if isHost {
+            GameDataManager.shared.createDocument(roomId: roomId, gameName: kTankBattlesGameName)
+        }
+        
+        RoomManager.shared.beginListening(changeListener: updateScoreLabel) // Score and ids
+        UsersManager.shared.beginListening(changeListener: updateNameAndBio) // Name and bio
+        GameDataManager.shared.beginListening(changeListener: updateView) // gamedata
+        
+        myTankImageView = UIImageView()
+        opponentTankImageView = UIImageView()
+        
+        if RoomStatusStorage.shared.isHost {
+            myTankImageView.image = redTankImage
+            myTankX = 5
+            myTankY = 1
+            myFaceTo = 2
+            opponentTankImageView.image = yellowTankImage
+            myTankImage = redTankImage
+            opponentTankImage = yellowTankImage
+            
+        } else {
+            myTankImageView.image = yellowTankImage
+            myTankX = 4
+            myTankY = 8
+            myFaceTo = 0
+            myTankImage = yellowTankImage
+            opponentTankImage = redTankImage
+            opponentTankImageView.image = redTankImage
+        }
+        
         readFromFile()
         initialRenderMap()
-        updateTankPos(x: tankX, y: tankY)
-        gameBoardView.addSubview(tankImageView)
+        updateTankPos(x: myTankX, y: myTankY)
+        gameBoardView.addSubview(myTankImageView)
+        gameBoardView.addSubview(opponentTankImageView)
     }
     
     func readFromFile() {
@@ -49,8 +114,16 @@ class TankBattlesViewController: UIViewController {
                 let contents = try String(contentsOfFile: tankBattleMapPath)
                 fileData = contents.components(separatedBy: "\n")
                 gridSize = fileData.count - 1
+                mapData = [[Int]](repeating: [Int](), count: gridSize)
+                for indexRow in 0..<fileData.count - 1 {
+                    let oneRow = fileData[indexRow].components(separatedBy: " ")
+                    for indexCol in 0..<oneRow.count {
+                        mapData[indexRow].append(Int(oneRow[indexCol])!)
+                    }
+                }
                 chunkSize = Double(viewWidth) / Double(gridSize)
-//                print(fileData)
+                chunkImageViews = [[UIImageView]](repeating: [UIImageView](), count: gridSize)
+                
             }
         } catch {
             print("Error reading dic")
@@ -58,10 +131,9 @@ class TankBattlesViewController: UIViewController {
     }
     
     func initialRenderMap() {
-        for indexRow in 0..<fileData.count - 1 {
-            let oneRow = fileData[indexRow].components(separatedBy: " ")
-            for indexCol in 0..<oneRow.count {
-                let chunk = Int(oneRow[indexCol])
+        for indexRow in 0..<mapData.count {
+            for indexCol in 0..<mapData[indexRow].count {
+                let chunk = mapData[indexRow][indexCol]
                 let view = UIImageView()
                 view.frame = CGRect(x: Double(indexCol) * chunkSize, y: Double(indexRow) * chunkSize, width: chunkSize, height: chunkSize)
                 view.backgroundColor = UIColor.black
@@ -73,54 +145,90 @@ class TankBattlesViewController: UIViewController {
                     RoundCornerFactory.shared.setCornerAndBorder(view: view, cornerRadius: 1, borderWidth: 1, borderColor: UIColor.black.cgColor)
                 }
                 gameBoardView.addSubview(view)
+                chunkImageViews[indexRow].append(view)
             }
         }
     }
     
+    func updateScoreLabel() {
+        if isHost {
+            opponentScoreLabel.text = "Score: \(RoomManager.shared.clientScore)"
+            yourScoreLabel.text = "Score: \(RoomManager.shared.hostScore)"
+        } else {
+            opponentScoreLabel.text = "Score: \(RoomManager.shared.hostScore)"
+            yourScoreLabel.text = "Score: \(RoomManager.shared.clientScore)"
+        }
+    }
+    
+    func updateNameAndBio() {
+        let hostId = RoomManager.shared.hostId
+        let clientId = RoomManager.shared.clientId!
+        
+        if isHost {
+            opponentNameLabel.text = UsersManager.shared.getNameWithId(uid: clientId)
+            yourNameLabel.text = UsersManager.shared.getNameWithId(uid: hostId)
+        } else {
+            opponentNameLabel.text = UsersManager.shared.getNameWithId(uid: hostId)
+            yourNameLabel.text = UsersManager.shared.getNameWithId(uid: clientId)
+        }
+    }
+    
     func updateTankPos(x: Int, y: Int) {
-        tankImageView.frame = CGRect(x: Double(x) * chunkSize, y: Double(y) * chunkSize, width: chunkSize, height: chunkSize)
+        myTankImageView.frame = CGRect(x: Double(x) * chunkSize, y: Double(y) * chunkSize, width: chunkSize, height: chunkSize)
+        myTankImageView.image = myTankImage.rotate(radians: CGFloat(direction[myFaceTo][2]))
     }
     
     func updateView() {
+        guard let _ = GameDataManager.shared.getDataWithField(fieldName: kKeyTankBattles_clientFire) as? Bool else {
+            return
+        }
         
+        opponentTankImageView.frame = CGRect(x: Double(GameDataManager.shared.getDataWithField(fieldName: opponentXField) as! Int) * chunkSize, y: Double(GameDataManager.shared.getDataWithField(fieldName: opponentYField) as! Int) * chunkSize, width: chunkSize, height: chunkSize)
+        let opponentFaceTo = GameDataManager.shared.getDataWithField(fieldName: opponentFaceToField) as! Int
+        opponentTankImageView.image = opponentTankImage.rotate(radians: CGFloat(direction[opponentFaceTo][2]))
     }
     
     @IBAction func pressedDirectionButtons(_ sender: Any) {
         let button = sender as! UIButton
-        switch button.tag {
-        case 0:
-            faceTo = "up"
-            tankY -= 1
-            tankImageView.image = yellowTank.rotate(radians: 0)
-        case 1:
-            faceTo = "right"
-            tankX += 1
-            tankImageView.image = yellowTank.rotate(radians: .pi / 2)
-        case 2:
-            faceTo = "down"
-            tankY += 1
-            tankImageView.image = yellowTank.rotate(radians: .pi)
-        case 3:
-            faceTo = "left"
-            tankX -= 1
-            tankImageView.image = yellowTank.rotate(radians: -.pi / 2)
-
-        default:
-            print("error")
-        }
         
-        //TODO: Check if position is valid
-        if !isPosValid(x: tankX, y: tankY) {
+        var testX = myTankX!
+        var testY = myTankY!
+        
+        myFaceTo = button.tag
+        testX += Int(direction[button.tag][0])
+        testY += Int(direction[button.tag][1])
+        myTankImageView.image = myTankImage.rotate(radians: CGFloat(direction[button.tag][2]))
+        
+        GameDataManager.shared.updateDataWithField(fieldName: myFaceToField, value: myFaceTo!)
+        if getMapDataAtCoordinate(x: testX, y: testY) != 0 {
             return
         }
-        updateTankPos(x: tankX, y: tankY)
+        
+        myTankX = testX
+        myTankY = testY
+        //GameDataManager.shared.updateDataWithField(fieldName: myFaceToField, value: myFaceTo!)
+        GameDataManager.shared.updateDataWithField(fieldName: myXField, value: myTankX!)
+        GameDataManager.shared.updateDataWithField(fieldName: myYField, value: myTankY!)
+        updateTankPos(x: myTankX, y: myTankY)
     }
     
     @IBAction func pressedFireButton(_ sender: Any) {
+        var testX = myTankX + Int(direction[myFaceTo][0])
+        var testY = myTankY + Int(direction[myFaceTo][1])
+        while getMapDataAtCoordinate(x: testX, y: testY) == 0 {
+            testX += Int(direction[myFaceTo][0])
+            testY += Int(direction[myFaceTo][1])
+        }
+        
+        if getMapDataAtCoordinate(x: testX, y: testY) == 2 {
+            chunkImageViews[testY][testX].image = nil
+            mapData[testY][testX] = 0
+        }
+        print("\(testX) \(testY) \(getMapDataAtCoordinate(x: testX, y: testY))")
     }
     
-    func isPosValid(x: Int, y: Int) -> Bool {
-        return true
+    func getMapDataAtCoordinate(x: Int, y: Int) -> Int {
+        return mapData[y][x]
     }
 }
 
@@ -139,10 +247,9 @@ extension UIImage {
                             width: size.width, height: size.height))
             let rotatedImage = UIGraphicsGetImageFromCurrentImageContext()
             UIGraphicsEndImageContext()
-
+            
             return rotatedImage ?? self
         }
-
         return self
     }
 }

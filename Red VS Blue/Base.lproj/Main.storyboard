@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="17701" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="91b-Sg-3Pt">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="17506" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="wM3-QK-0dx">
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17703"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17505"/>
         <capability name="Named colors" minToolsVersion="9.0"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="Stack View standard spacing" minToolsVersion="9.0"/>
@@ -3008,6 +3008,12 @@
                     <navigationItem key="navigationItem" id="lFd-8X-yKI"/>
                     <connections>
                         <outlet property="gameBoardView" destination="9H8-Zq-Ira" id="stt-eA-eJs"/>
+                        <outlet property="lowerBannerView" destination="pBD-xu-D03" id="VfH-wv-9Bx"/>
+                        <outlet property="opponentNameLabel" destination="cjT-do-6XM" id="QNE-4u-e3U"/>
+                        <outlet property="opponentScoreLabel" destination="Jzr-qU-d7z" id="SKg-JH-jM0"/>
+                        <outlet property="upperBannerView" destination="Hmb-Wm-gdf" id="vJV-Mu-AxB"/>
+                        <outlet property="yourNameLabel" destination="knQ-lo-K9j" id="rMn-nN-w6p"/>
+                        <outlet property="yourScoreLabel" destination="VR3-cu-Jvq" id="4qD-qh-ABU"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="C0g-GO-tQT" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>

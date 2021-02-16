@@ -45,6 +45,17 @@ class GameDataManager {
                 kKeyHangman_isClientDie: false,
                 kKeyHangman_isHostDie: false
             ])
+        case kTankBattlesGameName:
+            _gameDocumentRef?.setData([
+                kKeyTankBattles_clientX: 4,
+                kKeyTankBattles_clientY: 8,
+                kKeyTankBattles_clientFaceTo: 0,
+                kKeyTankBattles_clientFire: false,
+                kKeyTankBattles_hostX: 5,
+                kKeyTankBattles_hostY: 1,
+                kKeyTankBattles_hostFaceTo: 2,
+                kKeyTankBattles_hostFire: false
+            ])
         default:
             break
         }

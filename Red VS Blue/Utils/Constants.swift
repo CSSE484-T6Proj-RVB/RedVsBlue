@@ -63,8 +63,15 @@ let kKeyHangman_hostStatus = "hostStatus"
 let kKeyHangman_clientStatus = "clientStatus"
 let kKeyHangman_isClientDie = "isClientDie"
 let kKeyHangman_isHostDie = "isHostDie"
-//let kKeyHangman_isSomeoneDie = "isSomeoneDie"
-//let kKeyHangman_isBothDie = "isBothDie"
+let kTankBattlesGameName = "TankBattles"
+let kKeyTankBattles_clientX = "clientX"
+let kKeyTankBattles_clientY = "clientY"
+let kKeyTankBattles_clientFaceTo = "clientFaceTo"
+let kKeyTankBattles_clientFire = "clientFire"
+let kKeyTankBattles_hostX = "hostX"
+let kKeyTankBattles_hostY = "hostY"
+let kKeyTankBattles_hostFaceTo = "hostFaceTo"
+let kKeyTankBattles_hostFire = "hostFire"
 
 class Constants {
     
