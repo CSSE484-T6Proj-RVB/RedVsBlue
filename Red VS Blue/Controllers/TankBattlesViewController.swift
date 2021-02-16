@@ -33,7 +33,7 @@ class TankBattlesViewController: UIViewController {
     
     let brickWall = #imageLiteral(resourceName: "brick_wall.png")
     let stoneWall = #imageLiteral(resourceName: "stone_wall.png")
-    let yellowTankImage = #imageLiteral(resourceName: "yellow_tank.png")
+    let blueTankImage = #imageLiteral(resourceName: "blue_tank.png")
     let redTankImage = #imageLiteral(resourceName: "red_tank.png")
     let greyBullet = #imageLiteral(resourceName: "grey_bullet.png")
     
@@ -87,16 +87,16 @@ class TankBattlesViewController: UIViewController {
             myTankX = 5
             myTankY = 1
             myFaceTo = 2
-            opponentTankImageView.image = yellowTankImage
+            opponentTankImageView.image = blueTankImage
             myTankImage = redTankImage
-            opponentTankImage = yellowTankImage
+            opponentTankImage = blueTankImage
             
         } else {
-            myTankImageView.image = yellowTankImage
+            myTankImageView.image = blueTankImage
             myTankX = 4
             myTankY = 8
             myFaceTo = 0
-            myTankImage = yellowTankImage
+            myTankImage = blueTankImage
             opponentTankImage = redTankImage
             opponentTankImageView.image = redTankImage
         }

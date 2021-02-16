@@ -11,6 +11,6 @@ import UIKit
 class TankBattlesGame: Game {
     var name = "Tank Battles"
     var segueName = "TankBattlesSegue"
-    var description = "" // TODO: Desc for tank battles
+    var description = "Your tank can shoot moving in four directions. Your mission is to hit the opponent's tank. The brick walls can be destroyed while stone walls cannot. The first player hitting the opponent's tank wins"
     var gameIconImage = #imageLiteral(resourceName: "GameIcon_TankBattles.PNG")
 }
