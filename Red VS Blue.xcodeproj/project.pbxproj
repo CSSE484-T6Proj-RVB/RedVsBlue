@@ -36,6 +36,11 @@
 		E417973625DA4DCE0041A783 /* TankBattlesGame.swift in Sources */ = {isa = PBXBuildFile; fileRef = E417973525DA4DCE0041A783 /* TankBattlesGame.swift */; };
 		E417973925DA51E50041A783 /* TankBattlesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E417973825DA51E50041A783 /* TankBattlesViewController.swift */; };
 		E417974325DC11E90041A783 /* GameIcon_TankBattles.PNG in Resources */ = {isa = PBXBuildFile; fileRef = E417974225DC11E90041A783 /* GameIcon_TankBattles.PNG */; };
+		E417974B25DFF45F0041A783 /* Arrow_Down.PNG in Resources */ = {isa = PBXBuildFile; fileRef = E417974625DFF45F0041A783 /* Arrow_Down.PNG */; };
+		E417974C25DFF45F0041A783 /* Arrow_Up.PNG in Resources */ = {isa = PBXBuildFile; fileRef = E417974725DFF45F0041A783 /* Arrow_Up.PNG */; };
+		E417974D25DFF45F0041A783 /* Fire.PNG in Resources */ = {isa = PBXBuildFile; fileRef = E417974825DFF45F0041A783 /* Fire.PNG */; };
+		E417974E25DFF45F0041A783 /* Arrow_Left.PNG in Resources */ = {isa = PBXBuildFile; fileRef = E417974925DFF45F0041A783 /* Arrow_Left.PNG */; };
+		E417974F25DFF45F0041A783 /* Arrow_Right.PNG in Resources */ = {isa = PBXBuildFile; fileRef = E417974A25DFF45F0041A783 /* Arrow_Right.PNG */; };
 		E41F4C0925B33F970008D15B /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = E41F4C0825B33F970008D15B /* GoogleService-Info.plist */; };
 		E436123D25CAB2AC00FBCBAD /* RoundCornerFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = E436123C25CAB2AC00FBCBAD /* RoundCornerFactory.swift */; };
 		E436124025CAD64500FBCBAD /* HangmanViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E436123F25CAD64500FBCBAD /* HangmanViewController.swift */; };
@@ -130,6 +135,11 @@
 		E417973525DA4DCE0041A783 /* TankBattlesGame.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TankBattlesGame.swift; sourceTree = "<group>"; };
 		E417973825DA51E50041A783 /* TankBattlesViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TankBattlesViewController.swift; sourceTree = "<group>"; };
 		E417974225DC11E90041A783 /* GameIcon_TankBattles.PNG */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = GameIcon_TankBattles.PNG; sourceTree = "<group>"; };
+		E417974625DFF45F0041A783 /* Arrow_Down.PNG */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Arrow_Down.PNG; sourceTree = "<group>"; };
+		E417974725DFF45F0041A783 /* Arrow_Up.PNG */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Arrow_Up.PNG; sourceTree = "<group>"; };
+		E417974825DFF45F0041A783 /* Fire.PNG */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Fire.PNG; sourceTree = "<group>"; };
+		E417974925DFF45F0041A783 /* Arrow_Left.PNG */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Arrow_Left.PNG; sourceTree = "<group>"; };
+		E417974A25DFF45F0041A783 /* Arrow_Right.PNG */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Arrow_Right.PNG; sourceTree = "<group>"; };
 		E41F4C0825B33F970008D15B /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		E436123C25CAB2AC00FBCBAD /* RoundCornerFactory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RoundCornerFactory.swift; sourceTree = "<group>"; };
 		E436123F25CAD64500FBCBAD /* HangmanViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HangmanViewController.swift; sourceTree = "<group>"; };
@@ -239,6 +249,11 @@
 				B5EEDADA25DFE34A00FDEC24 /* left.png */,
 				B5EEDADC25DFE34E00FDEC24 /* down.png */,
 				B5EEDADF25DFE35800FDEC24 /* right.png */,
+				E417974625DFF45F0041A783 /* Arrow_Down.PNG */,
+				E417974925DFF45F0041A783 /* Arrow_Left.PNG */,
+				E417974A25DFF45F0041A783 /* Arrow_Right.PNG */,
+				E417974725DFF45F0041A783 /* Arrow_Up.PNG */,
+				E417974825DFF45F0041A783 /* Fire.PNG */,
 			);
 			path = "Tank Battle";
 			sourceTree = "<group>";
@@ -493,6 +508,7 @@
 				E417786A25B09BF1004B3FD3 /* Icon@2x.png in Resources */,
 				B54D324025B5697F008219E5 /* Background1.png in Resources */,
 				E436124F25CC70C500FBCBAD /* Hangman-2.png in Resources */,
+				E417974C25DFF45F0041A783 /* Arrow_Up.PNG in Resources */,
 				B5CC7E6925DC102400D50CE5 /* brick_wall.png in Resources */,
 				B58B9A3D25DF938C0052C231 /* collision.png in Resources */,
 				B5CC7E6D25DC2ECE00D50CE5 /* blue_tank.png in Resources */,
@@ -504,8 +520,12 @@
 				E498EF8F25B9F8AB006621FA /* TicTacToe_X.PNG in Resources */,
 				E48A0C1F25B031CB00122140 /* Main.storyboard in Resources */,
 				B5EEDAE025DFE35900FDEC24 /* right.png in Resources */,
+				E417974F25DFF45F0041A783 /* Arrow_Right.PNG in Resources */,
 				B5EEDADB25DFE34A00FDEC24 /* left.png in Resources */,
 				E41F4C0925B33F970008D15B /* GoogleService-Info.plist in Resources */,
+				E417974E25DFF45F0041A783 /* Arrow_Left.PNG in Resources */,
+				E417974B25DFF45F0041A783 /* Arrow_Down.PNG in Resources */,
+				E417974D25DFF45F0041A783 /* Fire.PNG in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

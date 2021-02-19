@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="17701" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="wM3-QK-0dx">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="17506" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="wM3-QK-0dx">
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17703"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17505"/>
         <capability name="Named colors" minToolsVersion="9.0"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="Stack View standard spacing" minToolsVersion="9.0"/>
@@ -2904,78 +2904,94 @@
                                         <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <nil key="highlightedColor"/>
                                     </label>
-                                    <button opaque="NO" tag="3" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="aW5-Ev-BGd">
-                                        <rect key="frame" x="25" y="70" width="30" height="30"/>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="YIb-uy-AjA">
+                                        <rect key="frame" x="314" y="59.5" width="60" height="60"/>
+                                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <constraints>
-                                            <constraint firstAttribute="height" constant="30" id="EcX-gR-EzQ"/>
-                                            <constraint firstAttribute="width" constant="30" id="Hjb-Ry-xSB"/>
+                                            <constraint firstAttribute="width" constant="60" id="HgN-dL-Y1S"/>
+                                            <constraint firstAttribute="height" constant="60" id="Xbb-uk-BE3"/>
                                         </constraints>
-                                        <state key="normal" title="&lt;" image="left.png"/>
-                                        <connections>
-                                            <action selector="pressedDirectionButtons:" destination="91b-Sg-3Pt" eventType="touchUpInside" id="Kxe-w9-TvZ"/>
-                                        </connections>
-                                    </button>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="2dc-0i-3Oo">
-                                        <rect key="frame" x="60" y="40" width="30" height="30"/>
-                                        <constraints>
-                                            <constraint firstAttribute="width" constant="30" id="krs-8C-Twl"/>
-                                            <constraint firstAttribute="height" constant="30" id="pFT-Be-dqs"/>
-                                        </constraints>
-                                        <state key="normal" title="^" image="up.png"/>
-                                        <connections>
-                                            <action selector="pressedDirectionButtons:" destination="91b-Sg-3Pt" eventType="touchUpInside" id="nqQ-z4-sMT"/>
-                                        </connections>
-                                    </button>
-                                    <button opaque="NO" tag="2" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="nWi-z1-116">
-                                        <rect key="frame" x="60" y="100" width="30" height="30"/>
-                                        <constraints>
-                                            <constraint firstAttribute="height" constant="30" id="nbU-Uc-yeE"/>
-                                            <constraint firstAttribute="width" constant="30" id="xvP-Fu-tgk"/>
-                                        </constraints>
-                                        <state key="normal" title="v" image="down.png"/>
-                                        <connections>
-                                            <action selector="pressedDirectionButtons:" destination="91b-Sg-3Pt" eventType="touchUpInside" id="8Om-gQ-X3e"/>
-                                        </connections>
-                                    </button>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="YIb-uy-AjA">
-                                        <rect key="frame" x="344" y="70" width="30" height="30"/>
-                                        <color key="backgroundColor" red="1" green="1" blue="0.70938214150000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                        <state key="normal" title="Fire">
+                                        <state key="normal" image="Fire.PNG">
                                             <color key="titleColor" red="1" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         </state>
                                         <connections>
                                             <action selector="pressedFireButton:" destination="91b-Sg-3Pt" eventType="touchUpInside" id="EUQ-ni-Yib"/>
                                         </connections>
                                     </button>
-                                    <button opaque="NO" tag="1" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="1pC-7I-pbL">
-                                        <rect key="frame" x="95" y="70" width="30" height="30"/>
+                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="RC3-fH-LRg" userLabel="ArrowPad">
+                                        <rect key="frame" x="20" y="39.5" width="100" height="100"/>
+                                        <subviews>
+                                            <button opaque="NO" tag="3" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="aW5-Ev-BGd">
+                                                <rect key="frame" x="0.0" y="35" width="30" height="30"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="height" constant="30" id="EcX-gR-EzQ"/>
+                                                    <constraint firstAttribute="width" constant="30" id="Hjb-Ry-xSB"/>
+                                                </constraints>
+                                                <state key="normal" title="&lt;" image="Arrow_Left.PNG"/>
+                                                <connections>
+                                                    <action selector="pressedDirectionButtons:" destination="91b-Sg-3Pt" eventType="touchUpInside" id="Kxe-w9-TvZ"/>
+                                                </connections>
+                                            </button>
+                                            <button opaque="NO" tag="1" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="1pC-7I-pbL">
+                                                <rect key="frame" x="70" y="35" width="30" height="30"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="width" constant="30" id="ZIO-cr-pQ0"/>
+                                                    <constraint firstAttribute="height" constant="30" id="fK7-ym-7e6"/>
+                                                </constraints>
+                                                <state key="normal" title="&gt;" image="Arrow_Right.PNG"/>
+                                                <connections>
+                                                    <action selector="pressedDirectionButtons:" destination="91b-Sg-3Pt" eventType="touchUpInside" id="vlN-Rg-YhO"/>
+                                                </connections>
+                                            </button>
+                                            <button opaque="NO" tag="2" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="nWi-z1-116">
+                                                <rect key="frame" x="35" y="70" width="30" height="30"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="height" constant="30" id="nbU-Uc-yeE"/>
+                                                    <constraint firstAttribute="width" constant="30" id="xvP-Fu-tgk"/>
+                                                </constraints>
+                                                <state key="normal" title="v" image="Arrow_Down.PNG"/>
+                                                <connections>
+                                                    <action selector="pressedDirectionButtons:" destination="91b-Sg-3Pt" eventType="touchUpInside" id="8Om-gQ-X3e"/>
+                                                </connections>
+                                            </button>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="2dc-0i-3Oo">
+                                                <rect key="frame" x="35" y="0.0" width="30" height="30"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="width" constant="30" id="krs-8C-Twl"/>
+                                                    <constraint firstAttribute="height" constant="30" id="pFT-Be-dqs"/>
+                                                </constraints>
+                                                <state key="normal" title="^" image="Arrow_Up.PNG"/>
+                                                <connections>
+                                                    <action selector="pressedDirectionButtons:" destination="91b-Sg-3Pt" eventType="touchUpInside" id="nqQ-z4-sMT"/>
+                                                </connections>
+                                            </button>
+                                        </subviews>
+                                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <constraints>
-                                            <constraint firstAttribute="width" constant="30" id="ZIO-cr-pQ0"/>
-                                            <constraint firstAttribute="height" constant="30" id="fK7-ym-7e6"/>
+                                            <constraint firstItem="2dc-0i-3Oo" firstAttribute="centerX" secondItem="RC3-fH-LRg" secondAttribute="centerX" id="0hp-bp-oAA"/>
+                                            <constraint firstAttribute="height" constant="100" id="3Df-hb-LXT"/>
+                                            <constraint firstItem="nWi-z1-116" firstAttribute="centerX" secondItem="RC3-fH-LRg" secondAttribute="centerX" id="8FE-L7-b7b"/>
+                                            <constraint firstItem="aW5-Ev-BGd" firstAttribute="leading" secondItem="RC3-fH-LRg" secondAttribute="leading" id="Ag4-H9-e36"/>
+                                            <constraint firstAttribute="bottom" secondItem="nWi-z1-116" secondAttribute="bottom" id="Bu1-zm-LsP"/>
+                                            <constraint firstAttribute="width" constant="100" id="J4t-NT-Tnr"/>
+                                            <constraint firstItem="1pC-7I-pbL" firstAttribute="centerY" secondItem="RC3-fH-LRg" secondAttribute="centerY" id="JsW-8w-J2o"/>
+                                            <constraint firstAttribute="trailing" secondItem="1pC-7I-pbL" secondAttribute="trailing" id="aoI-Pd-XxG"/>
+                                            <constraint firstItem="aW5-Ev-BGd" firstAttribute="centerY" secondItem="RC3-fH-LRg" secondAttribute="centerY" id="bW8-Sr-BqY"/>
+                                            <constraint firstItem="2dc-0i-3Oo" firstAttribute="top" secondItem="RC3-fH-LRg" secondAttribute="top" id="bXf-0f-Krj"/>
                                         </constraints>
-                                        <state key="normal" title="&gt;" image="right.png"/>
-                                        <connections>
-                                            <action selector="pressedDirectionButtons:" destination="91b-Sg-3Pt" eventType="touchUpInside" id="vlN-Rg-YhO"/>
-                                        </connections>
-                                    </button>
+                                    </view>
                                 </subviews>
                                 <color key="backgroundColor" systemColor="systemGreenColor"/>
                                 <constraints>
                                     <constraint firstItem="VR3-cu-Jvq" firstAttribute="top" secondItem="pBD-xu-D03" secondAttribute="top" constant="35" id="0yd-EZ-vCW"/>
-                                    <constraint firstItem="2dc-0i-3Oo" firstAttribute="leading" secondItem="pBD-xu-D03" secondAttribute="leading" constant="60" id="Eop-Hr-cJC"/>
-                                    <constraint firstItem="aW5-Ev-BGd" firstAttribute="leading" secondItem="pBD-xu-D03" secondAttribute="leading" constant="25" id="JNg-fO-Jct"/>
-                                    <constraint firstItem="nWi-z1-116" firstAttribute="top" secondItem="2dc-0i-3Oo" secondAttribute="bottom" constant="30" id="QJc-4p-Awi"/>
-                                    <constraint firstItem="aW5-Ev-BGd" firstAttribute="top" secondItem="pBD-xu-D03" secondAttribute="top" constant="70" id="ROH-05-dXX"/>
-                                    <constraint firstItem="nWi-z1-116" firstAttribute="leading" secondItem="pBD-xu-D03" secondAttribute="leading" constant="60" id="VFV-EK-9SQ"/>
+                                    <constraint firstItem="YIb-uy-AjA" firstAttribute="centerY" secondItem="pBD-xu-D03" secondAttribute="centerY" id="CMq-h8-VcO"/>
                                     <constraint firstItem="VR3-cu-Jvq" firstAttribute="leading" secondItem="pBD-xu-D03" secondAttribute="leading" constant="100" id="ZmN-0Q-dbB"/>
-                                    <constraint firstItem="1pC-7I-pbL" firstAttribute="centerY" secondItem="aW5-Ev-BGd" secondAttribute="centerY" id="cgh-h5-B8e"/>
                                     <constraint firstItem="knQ-lo-K9j" firstAttribute="top" secondItem="VR3-cu-Jvq" secondAttribute="bottom" constant="35" id="d9w-2H-PqA"/>
                                     <constraint firstItem="knQ-lo-K9j" firstAttribute="leading" secondItem="pBD-xu-D03" secondAttribute="leading" constant="100" id="gqC-tn-Nvb"/>
                                     <constraint firstAttribute="trailing" secondItem="VR3-cu-Jvq" secondAttribute="trailing" constant="100" id="jcO-dQ-mWe"/>
-                                    <constraint firstItem="1pC-7I-pbL" firstAttribute="leading" secondItem="aW5-Ev-BGd" secondAttribute="trailing" constant="40" id="nH3-J6-L9K"/>
-                                    <constraint firstItem="2dc-0i-3Oo" firstAttribute="top" secondItem="pBD-xu-D03" secondAttribute="top" constant="40" id="os4-Pr-i9O"/>
+                                    <constraint firstItem="RC3-fH-LRg" firstAttribute="centerY" secondItem="pBD-xu-D03" secondAttribute="centerY" id="sAS-Oy-5Xy"/>
+                                    <constraint firstItem="RC3-fH-LRg" firstAttribute="leading" secondItem="pBD-xu-D03" secondAttribute="leading" constant="20" id="skK-BB-0S0"/>
                                     <constraint firstAttribute="trailing" secondItem="YIb-uy-AjA" secondAttribute="trailing" constant="40" id="upo-xZ-kHl"/>
-                                    <constraint firstItem="YIb-uy-AjA" firstAttribute="centerY" secondItem="1pC-7I-pbL" secondAttribute="centerY" id="vhw-VD-WX3"/>
                                     <constraint firstAttribute="trailing" secondItem="knQ-lo-K9j" secondAttribute="trailing" constant="100" id="xia-hk-XLi"/>
                                 </constraints>
                             </view>
@@ -3050,12 +3066,17 @@
         <segue reference="yqw-Oq-yZd"/>
     </inferredMetricsTieBreakers>
     <resources>
+        <image name="Arrow_Down.PNG" width="500" height="516"/>
+        <image name="Arrow_Left.PNG" width="500" height="498"/>
+        <image name="Arrow_Right.PNG" width="500" height="504"/>
+        <image name="Arrow_Up.PNG" width="517" height="501"/>
         <image name="Back_Arrow.png" width="610" height="477"/>
         <image name="Background1.png" width="650" height="974"/>
         <image name="Background3" width="482" height="835"/>
         <image name="Blue_Ball.png" width="340" height="794"/>
         <image name="Delete_Icon.png" width="384" height="384"/>
         <image name="Edit_Icon.png" width="279.27273559570312" height="279.27273559570312"/>
+        <image name="Fire.PNG" width="735" height="734"/>
         <image name="Hangman-0.png" width="1077" height="1302"/>
         <image name="Leave_Icon.png" width="680" height="680"/>
         <image name="RedVsBlueTitle.png" width="1280" height="283"/>
@@ -3064,10 +3085,6 @@
         <image name="RvB_Icon.png" width="768" height="768"/>
         <image name="TicTacToe_board.png" width="50.274314880371094" height="55.660846710205078"/>
         <image name="VS.png" width="324" height="277"/>
-        <image name="down.png" width="400" height="359"/>
-        <image name="left.png" width="400" height="359"/>
-        <image name="right.png" width="400" height="359"/>
-        <image name="up.png" width="400" height="359"/>
         <namedColor name="AccentColor">
             <color red="0.0" green="0.46000000000000002" blue="0.89000000000000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>
