@@ -22,6 +22,10 @@
 		B5CC7E6D25DC2ECE00D50CE5 /* blue_tank.png in Resources */ = {isa = PBXBuildFile; fileRef = B5CC7E6C25DC2ECE00D50CE5 /* blue_tank.png */; };
 		B5CC7E7125DC2EE100D50CE5 /* red_tank.png in Resources */ = {isa = PBXBuildFile; fileRef = B5CC7E7025DC2EE000D50CE5 /* red_tank.png */; };
 		B5DD70E425B965EC006848D7 /* LoadingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5DD70E325B965EC006848D7 /* LoadingViewController.swift */; };
+		B5EEDAD825DFE34600FDEC24 /* up.png in Resources */ = {isa = PBXBuildFile; fileRef = B5EEDAD725DFE34600FDEC24 /* up.png */; };
+		B5EEDADB25DFE34A00FDEC24 /* left.png in Resources */ = {isa = PBXBuildFile; fileRef = B5EEDADA25DFE34A00FDEC24 /* left.png */; };
+		B5EEDADD25DFE34E00FDEC24 /* down.png in Resources */ = {isa = PBXBuildFile; fileRef = B5EEDADC25DFE34E00FDEC24 /* down.png */; };
+		B5EEDAE025DFE35900FDEC24 /* right.png in Resources */ = {isa = PBXBuildFile; fileRef = B5EEDADF25DFE35800FDEC24 /* right.png */; };
 		B5FA185E25CA3F34006E96EC /* CountTo21ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5FA185D25CA3F34006E96EC /* CountTo21ViewController.swift */; };
 		B5FA186125CA7594006E96EC /* NumberPuzzleViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5FA186025CA7594006E96EC /* NumberPuzzleViewController.swift */; };
 		B5FA186425CA78AA006E96EC /* NumberPuzzle_board.png in Resources */ = {isa = PBXBuildFile; fileRef = B5FA186325CA78AA006E96EC /* NumberPuzzle_board.png */; };
@@ -112,6 +116,10 @@
 		B5CC7E6C25DC2ECE00D50CE5 /* blue_tank.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = blue_tank.png; sourceTree = "<group>"; };
 		B5CC7E7025DC2EE000D50CE5 /* red_tank.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = red_tank.png; sourceTree = "<group>"; };
 		B5DD70E325B965EC006848D7 /* LoadingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoadingViewController.swift; sourceTree = "<group>"; };
+		B5EEDAD725DFE34600FDEC24 /* up.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = up.png; sourceTree = "<group>"; };
+		B5EEDADA25DFE34A00FDEC24 /* left.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = left.png; sourceTree = "<group>"; };
+		B5EEDADC25DFE34E00FDEC24 /* down.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = down.png; sourceTree = "<group>"; };
+		B5EEDADF25DFE35800FDEC24 /* right.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = right.png; sourceTree = "<group>"; };
 		B5FA185D25CA3F34006E96EC /* CountTo21ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CountTo21ViewController.swift; sourceTree = "<group>"; };
 		B5FA186025CA7594006E96EC /* NumberPuzzleViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NumberPuzzleViewController.swift; sourceTree = "<group>"; };
 		B5FA186325CA78AA006E96EC /* NumberPuzzle_board.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = NumberPuzzle_board.png; sourceTree = "<group>"; };
@@ -227,6 +235,10 @@
 				B5CC7E6425DBF8B800D50CE5 /* red_bullet.png */,
 				B58B9A3925DF86A80052C231 /* laser.png */,
 				B58B9A3C25DF938C0052C231 /* collision.png */,
+				B5EEDAD725DFE34600FDEC24 /* up.png */,
+				B5EEDADA25DFE34A00FDEC24 /* left.png */,
+				B5EEDADC25DFE34E00FDEC24 /* down.png */,
+				B5EEDADF25DFE35800FDEC24 /* right.png */,
 			);
 			path = "Tank Battle";
 			sourceTree = "<group>";
@@ -454,6 +466,7 @@
 				E498EF5C25B7AAC9006621FA /* GameIcon_CountTo21.PNG in Resources */,
 				E494E97C25C084C8004DD607 /* Tie_Game.png in Resources */,
 				E498EF8425B9AC56006621FA /* TicTacToe_board.png in Resources */,
+				B5EEDADD25DFE34E00FDEC24 /* down.png in Resources */,
 				E436124C25CC70C500FBCBAD /* Hangman-1.png in Resources */,
 				B502E9CB25B7FEE0008E19CE /* Leave_Icon.png in Resources */,
 				E498EF5D25B7AAC9006621FA /* GameIcon_NumberPuzzle.PNG in Resources */,
@@ -473,6 +486,7 @@
 				B5CC7E6525DBF8B800D50CE5 /* red_bullet.png in Resources */,
 				E498EF4F25B79718006621FA /* VS.png in Resources */,
 				E494E97A25C084C8004DD607 /* You_Lose.png in Resources */,
+				B5EEDAD825DFE34600FDEC24 /* up.png in Resources */,
 				E49BECD225B347150048CD7D /* RedVsBlueTitle.png in Resources */,
 				B5FA186425CA78AA006E96EC /* NumberPuzzle_board.png in Resources */,
 				E49BECFD25B5AA2F0048CD7D /* RvB_Icon.png in Resources */,
@@ -489,6 +503,8 @@
 				E436125025CC70C500FBCBAD /* Hangman-0.png in Resources */,
 				E498EF8F25B9F8AB006621FA /* TicTacToe_X.PNG in Resources */,
 				E48A0C1F25B031CB00122140 /* Main.storyboard in Resources */,
+				B5EEDAE025DFE35900FDEC24 /* right.png in Resources */,
+				B5EEDADB25DFE34A00FDEC24 /* left.png in Resources */,
 				E41F4C0925B33F970008D15B /* GoogleService-Info.plist in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

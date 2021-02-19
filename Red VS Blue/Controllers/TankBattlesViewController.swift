@@ -64,6 +64,8 @@ class TankBattlesViewController: UIViewController {
     let roomId = RoomStatusStorage.shared.roomId
     let score = RoomStatusStorage.shared.score
     
+    var isWin = false
+    
     override func viewDidLoad() {
         super.viewDidLoad()
     }
@@ -95,7 +97,6 @@ class TankBattlesViewController: UIViewController {
             opponentTankImageView.image = blueTankImage
             myTankImage = redTankImage
             opponentTankImage = blueTankImage
-
         } else {
             myTankImageView.image = blueTankImage
             myTankX = 4
@@ -111,6 +112,17 @@ class TankBattlesViewController: UIViewController {
         updateTankPos(x: myTankX, y: myTankY)
         gameBoardView.addSubview(myTankImageView)
         gameBoardView.addSubview(opponentTankImageView)
+    }
+    
+    override func viewWillDisappear(_ animated: Bool) {
+        super.viewWillDisappear(animated)
+        if isHost {
+            GameDataManager.shared.deleteGameDocument()
+        }
+        RoomManager.shared.stopListening()
+        UsersManager.shared.stopListening()
+        GameDataManager.shared.stopListening()
+        RoomStatusStorage.shared.score += isWin ? 1 : 0
     }
     
     func readFromFile() {
@@ -190,13 +202,21 @@ class TankBattlesViewController: UIViewController {
         opponentTankX = (GameDataManager.shared.getDataWithField(fieldName: opponentXField) as! Int)
         opponentTankY = (GameDataManager.shared.getDataWithField(fieldName: opponentYField) as! Int)
         opponentTankImageView.frame = CGRect(x: Double(opponentTankX) * chunkSize, y: Double(opponentTankY) * chunkSize, width: chunkSize, height: chunkSize)
-        let opponentFaceTo = GameDataManager.shared.getDataWithField(fieldName: opponentFaceToField) as! Int
+        opponentFaceTo = (GameDataManager.shared.getDataWithField(fieldName: opponentFaceToField) as! Int)
         opponentTankImageView.image = opponentTankImage.rotate(radians: CGFloat(direction[opponentFaceTo][2]))
         
         let isOpponentFire = GameDataManager.shared.getDataWithField(fieldName: opponentFireField) as! Bool
         if isOpponentFire {
-            updateLaser(whoseFireField: opponentFireField, whoseFaceTo: opponentFaceTo, whoseTankX: opponentTankX, whoseTankY: opponentTankY)
+            updateLaser(isMe: false)
         }
+        
+//        if let isGameEnd = GameDataManager.shared.getDataWithField(fieldName: kKeyIsGameEnd) as? Bool {
+//            if isGameEnd {
+//                let message = isWin ? "You Win!" : "You Lose!"
+//                popResultMessage(message: message)
+//                GameDataManager.shared.updateDataWithField(fieldName: kKeyIsGameEnd, value: false)
+//            }
+//        }
         
     }
     
@@ -225,45 +245,42 @@ class TankBattlesViewController: UIViewController {
     }
     
     @IBAction func pressedFireButton(_ sender: Any) {
-//        GameDataManager.shared.updateDataWithField(fieldName: myFireField, value: true)
-//        var testX = myTankX + Int(direction[myFaceTo][0])
-//        var testY = myTankY + Int(direction[myFaceTo][1])
-//        var tempArr = [UIImageView]()
-//        while getMapDataAtCoordinate(x: testX, y: testY) == 0 {
-//            tempArr.append(chunkImageViews[testY][testX])
-//            chunkImageViews[testY][testX].image = laser.rotate(radians: CGFloat(direction[myFaceTo!][2]) + .pi / 2)
-//            testX += Int(direction[myFaceTo][0])
-//            testY += Int(direction[myFaceTo][1])
-//        }
-//        var brickToRemove: UIImageView?
-//        if self.getMapDataAtCoordinate(x: testX, y: testY) == 2 {
-//            brickToRemove = chunkImageViews[testY][testX]
-//            brickToRemove!.image = collision
-//            self.mapData[testY][testX] = 0
-//        }
-//        print("\(testX) \(testY) \(getMapDataAtCoordinate(x: testX, y: testY))")
-//        DispatchQueue.main.asyncAfter(deadline: .now() + 0.2) {
-//            // Put your code which should be executed with a delay here
-//            for current in tempArr {
-//                current.image = nil
-//            }
-//            brickToRemove?.image = nil
-//            GameDataManager.shared.updateDataWithField(fieldName: self.myFireField, value: false)
-//        }
-        updateLaser(whoseFireField: myFireField, whoseFaceTo: myFaceTo, whoseTankX: myTankX, whoseTankY: myTankY)
+        updateLaser(isMe: true)
     }
     
-    func updateLaser(whoseFireField: String, whoseFaceTo: Int, whoseTankX: Int, whoseTankY: Int) {
-        GameDataManager.shared.updateDataWithField(fieldName: whoseFireField, value: true)
-        var testX = whoseTankX + Int(direction[whoseFaceTo][0])
-        var testY = whoseTankY + Int(direction[whoseFaceTo][1])
-        var tempArr = [UIImageView]()
-        while getMapDataAtCoordinate(x: testX, y: testY) == 0 {
-            tempArr.append(chunkImageViews[testY][testX])
-            chunkImageViews[testY][testX].image = laser.rotate(radians: CGFloat(direction[whoseFaceTo][2]) + .pi / 2)
-            testX += Int(direction[whoseFaceTo][0])
-            testY += Int(direction[whoseFaceTo][1])
+    func updateLaser(isMe: Bool) {
+        let fireField = isMe ? myFireField : opponentFireField
+        let faceTo = isMe ? myFaceTo! : opponentFaceTo!
+        let tankX = isMe ? myTankX! : opponentTankX!
+        let tankY = isMe ? myTankY! : opponentTankY!
+        if isMe {
+            GameDataManager.shared.updateDataWithField(fieldName: fireField, value: true)
         }
+        
+        var testX = tankX + Int(direction[faceTo][0])
+        var testY = tankY + Int(direction[faceTo][1])
+        var tempArr = [UIImageView]()
+        
+        let targetX = isMe ? opponentTankX! : myTankX!
+        let targetY = isMe ? opponentTankY! : myTankY!
+        
+        while getMapDataAtCoordinate(x: testX, y: testY) == 0 {
+            if targetX == testX && targetY == testY {
+                GameDataManager.shared.updateDataWithField(fieldName: kKeyIsGameEnd, value: true)
+                opponentTankImageView?.image = collision
+                isWin = isMe
+                let message = isWin ? "You Win!" : "You Lose!"
+                popResultMessage(message: message)
+                GameDataManager.shared.updateDataWithField(fieldName: kKeyIsGameEnd, value: false)
+                break
+            }
+            tempArr.append(chunkImageViews[testY][testX])
+            chunkImageViews[testY][testX].image = laser.rotate(radians: CGFloat(direction[faceTo][2]) + .pi / 2)
+            testX += Int(direction[faceTo][0])
+            testY += Int(direction[faceTo][1])
+        }
+
+        
         var brickToRemove: UIImageView?
         if self.getMapDataAtCoordinate(x: testX, y: testY) == 2 {
             brickToRemove = chunkImageViews[testY][testX]
@@ -277,12 +294,19 @@ class TankBattlesViewController: UIViewController {
                 current.image = nil
             }
             brickToRemove?.image = nil
-            GameDataManager.shared.updateDataWithField(fieldName: whoseFireField, value: false)
+            GameDataManager.shared.updateDataWithField(fieldName: fireField, value: false)
         }
     }
     
     func getMapDataAtCoordinate(x: Int, y: Int) -> Int {
         return mapData[y][x]
+    }
+    
+    func popResultMessage (message: String) {
+        AlertDialog.showAlertDialogWithoutCancel(viewController: self, title: nil, message: message, confirmTitle: "OK") {
+            let viewControllers: [UIViewController] = self.navigationController!.viewControllers as [UIViewController]
+            self.navigationController!.popToViewController(viewControllers[viewControllers.count - 3], animated: true)
+        }
     }
 }
 

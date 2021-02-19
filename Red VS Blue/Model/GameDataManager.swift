@@ -54,7 +54,8 @@ class GameDataManager {
                 kKeyTankBattles_hostX: 5,
                 kKeyTankBattles_hostY: 1,
                 kKeyTankBattles_hostFaceTo: 2,
-                kKeyTankBattles_hostFire: false
+                kKeyTankBattles_hostFire: false,
+                kKeyIsGameEnd: false
             ])
         default:
             break
