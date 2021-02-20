@@ -23,6 +23,7 @@ class LeaderboardViewController: UIViewController {
         super.viewWillAppear(animated)
         navigationController?.setNavigationBarHidden(false, animated: false)
         navigationItem.title = "Leaderboards"
+        leaderboardTitle.text = "Matches Played"
     
         RoundCornerFactory.shared.setCornerAndBorder(view: leaderboardView, cornerRadius: 15, borderWidth: 4, borderColor: UIColor.black.cgColor)
         

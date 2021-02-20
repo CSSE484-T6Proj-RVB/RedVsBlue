@@ -71,8 +71,8 @@ class JoinGameViewController: UIViewController, UITextFieldDelegate {
         }
     }
     
+    // Source: https://stackoverflow.com/questions/49921687/how-to-add-space-between-uitextfield-placeholder-characters
     @objc func updateDigitCodeView() {
-        // Source: https://stackoverflow.com/questions/49921687/how-to-add-space-between-uitextfield-placeholder-characters
         let attributedString = NSMutableAttributedString(string: codeTextField.text!)
         attributedString.addAttribute(NSAttributedString.Key.kern, value: CGFloat(65.0), range: NSRange(location: 0, length: attributedString.length == 0 ? attributedString.length : attributedString.length - 1))
         codeTextField.attributedText = attributedString
