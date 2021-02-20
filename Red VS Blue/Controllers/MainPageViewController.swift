@@ -101,7 +101,7 @@ class MainPageViewController: UIViewController {
 //                                                style: .cancel,
 //                                                handler: nil))
 //        present(alertController, animated: true, completion: nil)
-        AlertDialog.showAlertDialog(viewController: self, title: "Warning!",
+        AlertDialog.showAlertDialogWithoutCancel(viewController: self, title: "Warning!",
                                     message: "You should sign in first!",
                                     confirmTitle: "Confirm", finishHandler: nil)
     }

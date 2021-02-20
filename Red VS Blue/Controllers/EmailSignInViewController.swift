@@ -30,7 +30,7 @@ class EmailSignInViewController: UIViewController {
         Auth.auth().signIn(withEmail: email, password: password) { (authResult, error) in
             if let error = error {
                 print("Error signing in existing user \(error)")
-                AlertDialog.showAlertDialog(viewController: self, title: "Error",
+                AlertDialog.showAlertDialogWithoutCancel(viewController: self, title: "Error",
                                             message: error.localizedDescription.description,
                                             confirmTitle: "Confirm", finishHandler: nil)
                 return
@@ -47,7 +47,7 @@ class EmailSignInViewController: UIViewController {
         Auth.auth().createUser(withEmail: email, password: password) { (authResult, error) in
             if let error = error {
                 print("Error creating new user for Email/Password \(error)")
-                AlertDialog.showAlertDialog(viewController: self, title: "Error",
+                AlertDialog.showAlertDialogWithoutCancel(viewController: self, title: "Error",
                                             message: error.localizedDescription.description,
                                             confirmTitle: "Confirm", finishHandler: nil)
                 return

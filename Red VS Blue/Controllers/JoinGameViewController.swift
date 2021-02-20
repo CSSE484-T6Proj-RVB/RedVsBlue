@@ -50,19 +50,19 @@ class JoinGameViewController: UIViewController, UITextFieldDelegate {
     
     @IBAction func pressedJoinButton(_ sender: Any) {
         if digits == nil || digits.count != 4 {
-            AlertDialog.showAlertDialog(viewController: self, title: "Error",
+            AlertDialog.showAlertDialogWithoutCancel(viewController: self, title: "Error",
                                         message: "Please Enter 4 digits", confirmTitle: "OK", finishHandler: nil)
             return
         }
         let onGoing = RoomsManager.shared.getOngoingWithId(roomId: digits)
         if onGoing == nil {
             // Room Does not exist
-            AlertDialog.showAlertDialog(viewController: self, title: "Error",
+            AlertDialog.showAlertDialogWithoutCancel(viewController: self, title: "Error",
                                         message: "The Game Room Does not Exist!", confirmTitle: "OK", finishHandler: nil)
         } else if onGoing! {
             // ONGOING
 
-            AlertDialog.showAlertDialog(viewController: self, title: "Error",
+            AlertDialog.showAlertDialogWithoutCancel(viewController: self, title: "Error",
                                         message: "The Game is ongoing!", confirmTitle: "OK", finishHandler: nil)
         } else {
             // JOINABLE

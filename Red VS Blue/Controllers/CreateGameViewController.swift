@@ -38,7 +38,7 @@ class CreateGameViewController: UIViewController {
     
     func addRoom() {
         RoomsManager.shared.stopListening()
-        digits = "4057" // TODO: Set it back
+        digits = "4057"
         while RoomsManager.shared.getOngoingWithId(roomId: digits) != nil {
             digits = RandomStringGenerator.shared.generateRandomRoomNumber()
         }

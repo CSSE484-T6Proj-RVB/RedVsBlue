@@ -35,7 +35,6 @@ class LeaderboardViewController: UIViewController {
     }
     
     func updateView() {
-        // TODO: Loading!
         for label in self.leaderboardLabels {
             let index = label.tag
             if index >= UsersManager.shared.getQueryDocumentCount() {

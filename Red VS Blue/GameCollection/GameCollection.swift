@@ -15,6 +15,5 @@ class GameCollection {
     
     private init() {
         games = [TicTacToeGame(), CountTo21Game(), NumberPuzzleGame(), HangmanGame(), TankBattlesGame(), RandomGame()]
-        // TODO: Tank Battles Icon
     }
 }

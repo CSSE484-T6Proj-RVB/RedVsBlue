@@ -70,9 +70,9 @@ class GameSelectionViewController: UIViewController {
     }
     
     func updateRoomData() {
-
+        
         hostScoreLabel.text = String(RoomManager.shared.hostScore)
-
+        
         clientScoreLabel.text = String(RoomManager.shared.clientScore)
         
         
@@ -85,10 +85,9 @@ class GameSelectionViewController: UIViewController {
             }
         }
         if let _ = RoomManager.shared.endGameRequest {
-            
-            AlertDialog.showAlertDialog(viewController: self, title: "Game Ended",
-                                        message: "The other player has left!",
-                                        confirmTitle: "OK") {
+            AlertDialog.showAlertDialogWithoutCancel(viewController: self, title: "Game Ended",
+                                                     message: "The other player has left!",
+                                                     confirmTitle: "OK") {
                 RoomsManager.shared.deleteRoom(id: RoomStatusStorage.shared.roomId)
                 if RoomManager.shared.clientScore + RoomManager.shared.hostScore == 0 {
                     self.navigationController?.popToRootViewController(animated: true)
@@ -114,9 +113,9 @@ class GameSelectionViewController: UIViewController {
         let horizontalGap = (realViewWidth - maxCol * iconWidth) / (maxCol - 1)
         
         var x = startingXPos, y = startingYPos, col = 0
-                
+        
         for index in 0 ..< GameCollection.shared.games.count {
-          let game = GameCollection.shared.games[index]
+            let game = GameCollection.shared.games[index]
             let button = UIButton(type: .custom) as UIButton
             if col == maxCol {
                 col = 0
@@ -179,7 +178,7 @@ class GameSelectionViewController: UIViewController {
             }
             RoomManager.shared.setStartGameRequest(value: true)
         } else {
-            AlertDialog.showAlertDialog(viewController: self, title: nil,
+            AlertDialog.showAlertDialogWithoutCancel(viewController: self, title: nil,
                                         message: "You should select a game first.",
                                         confirmTitle: "OK", finishHandler: nil)
         }
