@@ -28,11 +28,7 @@
 		B5EEDAE025DFE35900FDEC24 /* right.png in Resources */ = {isa = PBXBuildFile; fileRef = B5EEDADF25DFE35800FDEC24 /* right.png */; };
 		B5FA185E25CA3F34006E96EC /* CountTo21ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5FA185D25CA3F34006E96EC /* CountTo21ViewController.swift */; };
 		B5FA186125CA7594006E96EC /* NumberPuzzleViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5FA186025CA7594006E96EC /* NumberPuzzleViewController.swift */; };
-		B5FA186425CA78AA006E96EC /* NumberPuzzle_board.png in Resources */ = {isa = PBXBuildFile; fileRef = B5FA186325CA78AA006E96EC /* NumberPuzzle_board.png */; };
 		D5ADAA6781315963391C1340 /* Pods_Red_VS_Blue.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CCE058C75CFD31EE62E6548C /* Pods_Red_VS_Blue.framework */; };
-		E417786A25B09BF1004B3FD3 /* Icon@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = E417786725B09BF1004B3FD3 /* Icon@2x.png */; };
-		E417786B25B09BF1004B3FD3 /* Icon-72.png in Resources */ = {isa = PBXBuildFile; fileRef = E417786825B09BF1004B3FD3 /* Icon-72.png */; };
-		E417786C25B09BF1004B3FD3 /* Icon.png in Resources */ = {isa = PBXBuildFile; fileRef = E417786925B09BF1004B3FD3 /* Icon.png */; };
 		E417973625DA4DCE0041A783 /* TankBattlesGame.swift in Sources */ = {isa = PBXBuildFile; fileRef = E417973525DA4DCE0041A783 /* TankBattlesGame.swift */; };
 		E417973925DA51E50041A783 /* TankBattlesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E417973825DA51E50041A783 /* TankBattlesViewController.swift */; };
 		E417974325DC11E90041A783 /* GameIcon_TankBattles.PNG in Resources */ = {isa = PBXBuildFile; fileRef = E417974225DC11E90041A783 /* GameIcon_TankBattles.PNG */; };
@@ -127,11 +123,7 @@
 		B5EEDADF25DFE35800FDEC24 /* right.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = right.png; sourceTree = "<group>"; };
 		B5FA185D25CA3F34006E96EC /* CountTo21ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CountTo21ViewController.swift; sourceTree = "<group>"; };
 		B5FA186025CA7594006E96EC /* NumberPuzzleViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NumberPuzzleViewController.swift; sourceTree = "<group>"; };
-		B5FA186325CA78AA006E96EC /* NumberPuzzle_board.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = NumberPuzzle_board.png; sourceTree = "<group>"; };
 		CCE058C75CFD31EE62E6548C /* Pods_Red_VS_Blue.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Red_VS_Blue.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		E417786725B09BF1004B3FD3 /* Icon@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Icon@2x.png"; sourceTree = "<group>"; };
-		E417786825B09BF1004B3FD3 /* Icon-72.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Icon-72.png"; sourceTree = "<group>"; };
-		E417786925B09BF1004B3FD3 /* Icon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Icon.png; sourceTree = "<group>"; };
 		E417973525DA4DCE0041A783 /* TankBattlesGame.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TankBattlesGame.swift; sourceTree = "<group>"; };
 		E417973825DA51E50041A783 /* TankBattlesViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TankBattlesViewController.swift; sourceTree = "<group>"; };
 		E417974225DC11E90041A783 /* GameIcon_TankBattles.PNG */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = GameIcon_TankBattles.PNG; sourceTree = "<group>"; };
@@ -358,9 +350,6 @@
 			children = (
 				E451F86525CE9FA900DF36CD /* Red VS Blue.entitlements */,
 				E48A0C2025B031CC00122140 /* Assets.xcassets */,
-				E417786825B09BF1004B3FD3 /* Icon-72.png */,
-				E417786925B09BF1004B3FD3 /* Icon.png */,
-				E417786725B09BF1004B3FD3 /* Icon@2x.png */,
 				E48A0C1725B031CB00122140 /* AppDelegate.swift */,
 				E48A0C1925B031CB00122140 /* SceneDelegate.swift */,
 				E451F8A825D337B700DF36CD /* Data */,
@@ -405,7 +394,6 @@
 				B54D322A25B5532F008219E5 /* Edit_Icon.png */,
 				B502E9CA25B7FEE0008E19CE /* Leave_Icon.png */,
 				B54D322D25B55335008219E5 /* Delete_Icon.png */,
-				B5FA186325CA78AA006E96EC /* NumberPuzzle_board.png */,
 			);
 			path = Images;
 			sourceTree = "<group>";
@@ -472,7 +460,6 @@
 			files = (
 				B54D322E25B55335008219E5 /* Delete_Icon.png in Resources */,
 				B5CC7E5925DBF6A800D50CE5 /* stone_wall.png in Resources */,
-				E417786C25B09BF1004B3FD3 /* Icon.png in Resources */,
 				E498EF6025B7AAC9006621FA /* GameIcon_TicTacToe.PNG in Resources */,
 				E436124E25CC70C500FBCBAD /* Hangman-5.png in Resources */,
 				E49BECFA25B5AA150048CD7D /* Back_Arrow.png in Resources */,
@@ -496,16 +483,13 @@
 				E498EF5E25B7AAC9006621FA /* GameIcon_Hangman.PNG in Resources */,
 				B5CC7E6225DBF8B200D50CE5 /* grey_bullet.png in Resources */,
 				E436124A25CC70C500FBCBAD /* Hangman-6.png in Resources */,
-				E417786B25B09BF1004B3FD3 /* Icon-72.png in Resources */,
 				E494E97B25C084C8004DD607 /* You_Win.png in Resources */,
 				B5CC7E6525DBF8B800D50CE5 /* red_bullet.png in Resources */,
 				E498EF4F25B79718006621FA /* VS.png in Resources */,
 				E494E97A25C084C8004DD607 /* You_Lose.png in Resources */,
 				B5EEDAD825DFE34600FDEC24 /* up.png in Resources */,
 				E49BECD225B347150048CD7D /* RedVsBlueTitle.png in Resources */,
-				B5FA186425CA78AA006E96EC /* NumberPuzzle_board.png in Resources */,
 				E49BECFD25B5AA2F0048CD7D /* RvB_Icon.png in Resources */,
-				E417786A25B09BF1004B3FD3 /* Icon@2x.png in Resources */,
 				B54D324025B5697F008219E5 /* Background1.png in Resources */,
 				E436124F25CC70C500FBCBAD /* Hangman-2.png in Resources */,
 				E417974C25DFF45F0041A783 /* Arrow_Up.PNG in Resources */,
